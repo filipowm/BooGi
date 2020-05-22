@@ -1,9 +1,7 @@
-import config from "config";
 import {ExternalLink} from "react-feather";
 import React from "react";
 import styled from "@emotion/styled";
 import {flex, transparent} from "../../styles/base";
-
 
 const Link = styled(({className, to, text}) => {
   return (

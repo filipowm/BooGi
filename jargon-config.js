@@ -1,4 +1,4 @@
-let jargonData = require('./jargon.json');
+const jargonData = require('./jargon.json');
 
 const validateProperty = (entry, property, key) => {
   const value = entry[property];
@@ -21,9 +21,5 @@ for (const key in jargonData) {
   long_description += "</span> " + entry.description;
   jargon[key] = long_description;
 }
-
-// const jargon = {
-//   msf: "Médecins Sans Frontières / Doctors Without Borders — An international, independent, medical humanitarian organisation. See <a href='https://www.msf.org/'>msf.org</a>"
-// };
 
 module.exports = jargon;

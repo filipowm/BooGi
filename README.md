@@ -28,7 +28,7 @@ to extend markdown and used a neat consistent theme like the one at
 - Automatically generated sidebar navigation, table of contents, previous/next
 - Additional components to make documentation beautiful and user friendly, e.g.
   emojis, badges, icons, column layout, highlights, jargon/abbreviations and more!
-- Edit on Gitlab
+- Edit on Gitlab, Github or Bitbucket
 - Fully customisable
 - Rich embeds and live code editor using MDX
 - Easy deployment: Deploy on Netlify / Now.sh / Docker
@@ -152,13 +152,9 @@ metaDescription: "Meta Description Tag for this page"
 ---
 ```
 
-## Screenshots
+Canonical URLs are generated automatically.
 
-![welcome screen](_images/welcome.png)
+## ☁️ Deploy
 
-![jargon/abbreviations](_images/welcome_jargon.png)
-
-![custom components](_images/components.png)
-
-![Markdown cheatsheet](_images/cheatsheet.png)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/hasura/gatsby-gitbook-starter)
 

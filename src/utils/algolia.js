@@ -26,7 +26,8 @@ const flatten = arr =>
     ...frontmatter,
     ...fields,
     ...rest,
-  }))
+  }));
+
 const settings = { attributesToSnippet: [`excerpt:20`] };
 
 const indexName = config.search ? config.search.indexName : '';
@@ -37,6 +38,6 @@ const queries = [
     indexName: indexName,
     settings,
   },
-]
+];
 
 module.exports = queries;
