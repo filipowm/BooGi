@@ -29,9 +29,9 @@ const defaults = {
   "search": {
     "enabled": true,
     "indexName": getEnvOrDefault('GATSBY_INDEX', 'docs'),
-    "algoliaAppId": getEnvOrDefault('GATSBY_ALGOLIA_APP_ID', 'abc'),
-    "algoliaSearchKey": getEnvOrDefault('GATSBY_ALGOLIA_SEARCH_KEY', 'def'),
-    "algoliaAdminKey": getEnvOrDefault('ALGOLIA_ADMIN_KEY', 'ghi')
+    "algoliaAppId": getEnvOrDefault('GATSBY_ALGOLIA_APP_ID', null),
+    "algoliaSearchKey": getEnvOrDefault('GATSBY_ALGOLIA_SEARCH_KEY', null),
+    "algoliaAdminKey": getEnvOrDefault('ALGOLIA_ADMIN_KEY', null)
   },
   "sidebar": {
     "forcedNavOrder": [],
