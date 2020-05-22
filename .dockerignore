@@ -1,3 +1,15 @@
 node_modules
 public
 .cache
+.idea
+Dockerfile*
+*.crt
+*.key
+.dockerignore
+package-lock.json
+yarn.lock
+.gitlab-ci.yml
+*DS_Store
+*.env
+*.log
+*.zip

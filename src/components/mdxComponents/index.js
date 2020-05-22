@@ -1,44 +1,39 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import CodeBlock from "./codeBlock";
+import AnchorTag from "./anchor";
+import Layout from "./layout";
+import Highlights from "./highlights";
+import 'css';
+import Icon from "./icon";
+import Badge from "./badge";
+import Jargon from "./jargon";
+import {blockquote} from "../../styles/base";
+import {useTheme} from "emotion-theming";
 
-import CodeBlock from './codeBlock';
-import AnchorTag from './anchor';
-
-const StyledPre = styled('pre')`
-  padding: 16px;
-  background: ${props => props.theme.colors.preFormattedText};
-`;
+const Header = (level, props) => {
+  let name = props.children;
+  if (Array.isArray(name)) {
+    name = props.children[0]
+  }
+  name = name.replace(/\s+/g, '').toLowerCase();
+  return React.createElement("h" + level, { className: "heading" + level, id: name, ...props});
+};
 
 export default {
-  h1: props => (
-    <h1 className="heading1" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
-  h2: props => (
-    <h2 className="heading2" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
-  h3: props => (
-    <h3 className="heading3" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
-  h4: props => (
-    <h4 className="heading4" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
-  h5: props => (
-    <h5 className="heading5" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
-  h6: props => (
-    <h6 className="heading6" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
-  p: props => <p className="paragraph" {...props} />,
-  pre: props => (
-    <StyledPre>
-      <pre {...props} />
-    </StyledPre>
-  ),
+  h1: props => Header(1, props),
+  h2: props => Header(2, props),
+  h3: props => Header(3, props),
+  h4: props => Header(4, props),
+  h5: props => Header(5, props),
+  h6: props => Header(6, props),
+  blockquote: props => <blockquote css={blockquote(useTheme())} {...props} />,
+  p: props => <p className='paragraph' {...props} />,
+  pre: props => <pre className='pre' {...props} />,
+  em: Jargon,
   code: CodeBlock,
   a: AnchorTag,
-  // TODO add `img`
-  // TODO add `blockquote`
-  // TODO add `ul`
-  // TODO add `li`
-  // TODO add `table`
+  Badge,
+  Layout,
+  Icon,
+  ...Highlights,
 };

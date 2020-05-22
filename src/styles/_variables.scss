@@ -1,0 +1,45 @@
+
+
+/**
+* ============================
+*  1.0 Variable
+* ============================
+*/
+//
+///* Color */
+$base-blue-color: #0066CC;
+$base-blue-light-color: #CDDFF5;
+$base-blue-dark-color: #264D99;
+$base-red-color: #E40046;
+$base-violet-color: #A05EB5;
+$base-green-color: #00965E;
+$base-yellow-color: #FFC72C;
+$base-orange-color: #ED8B00;
+$base-cyan-color: #00E5EF;
+
+//$base-color-hover: rgba(0, 102, 204, .3);
+$base-color-hover: rgba(205, 223, 245, .6);
+$base-color-hover-dark: rgba(205, 223, 245, .9);
+//$base-color-hover-dark: rgba(38, 77, 153, .6); // 5
+$base-color-light: $base-blue-light-color;
+$base-color: $base-blue-color; // 5
+$base-color-dark: $base-blue-dark-color; // 5
+$base-color-dark-gradient: $base-blue-color; // 5
+$white: #fff;
+$font-color-on-dark: $white;
+
+$hover-color: $base-blue-color;
+$gray-light: #e4e4e7;
+
+/* Border */
+$border-color2: rgba(33, 108, 188, 0.1);
+$border-color: rgba(0, 1, 1, 0.01);
+$border-solid: 1px solid;
+$border-solid-light: $border-solid $gray-light;
+$border-radius: 4px;
+$border-radius-small: 10px;
+$border-radius-med: 20px;
+$border-radius-round: 50px;
+$hover-transition: 1s;
+
+

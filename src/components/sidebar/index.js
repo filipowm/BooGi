@@ -1,96 +1,88 @@
-import React from 'react';
-import Tree from './tree';
-import { StaticQuery, graphql } from 'gatsby';
-import styled from '@emotion/styled';
-import { ExternalLink } from 'react-feather';
-import config from '../../../config';
+import React from "react";
+import styled from "@emotion/styled";
+import {graphql, StaticQuery} from "gatsby";
+import config from "../../../config";
+import ContentTree from "./contentTree";
+import Links from "./links"
+import PoweredBy from "./poweredBy";
 
-// eslint-disable-next-line no-unused-vars
-const ListItem = styled(({ className, active, level, ...props }) => {
-  return (
-    <li className={className}>
-      <a href={props.to} {...props} target="_blank" rel="noopener noreferrer">
-        {props.children}
-      </a>
-    </li>
-  );
-})`
-  list-style: none;
-
-  a {
-    color: #5c6975;
-    text-decoration: none;
-    font-weight: ${({ level }) => (level === 0 ? 700 : 400)};
-    padding: 0.45rem 0 0.45rem ${props => 2 + (props.level || 0) * 1}rem;
-    display: block;
-    position: relative;
-
-    &:hover {
-      color: #1ed3c6 !important;
-    }
-
-    ${props =>
-      props.active &&
-      `
-      // color: #663399;
-      border-color: rgb(230,236,241) !important;
-      border-style: solid none solid solid;
-      border-width: 1px 0px 1px 1px;
-      background-color: #fff;
-    `} // external link icon
-    svg {
-      float: right;
-      margin-right: 1rem;
-    }
-  }
+const Sidebar = styled.div`
+margin-left: ${props => props.theme.layout.leftMargin};
+height: 100%;
+display: flex;
+overflow-y: hidden;
+align-items: stretch;
+flex-direction: column;
 `;
 
-const Sidebar = styled('aside')`
+const SidebarMain = styled.div`
+overflow-y: auto;
+width: 100%;
+margin: 0;
+display: block;
+padding: 0;
+padding-top: 32px;
+overflow-x: hidden;
+overflow-y: overlay;
+-webkit-overflow-scrolling: touch;
+`;
+
+const PoweredByWrapper = styled.div`
+display: block;
+padding: 0;
+position: relative;
+box-shadow: 0 -7px 10px -5px ${props => props.theme.navigationSidebar.backgroundDark};
+`;
+
+const NavigationWrapper = styled(({className, children, ...props}) => {
+  return (
+    <aside className={className}>
+      <Sidebar>
+        {children}
+      </Sidebar>
+    </aside>
+  )
+})`
+height: 100vh;
+top: 0;
+z-index: 15;
+flex: 0 0 ${props => props.theme.layout.leftWidth};
+background: ${props => props.theme.navigationSidebar.backgroundDark};
+background: linear-gradient(${props => props.theme.navigationSidebar.backgroundDark}, ${props => props.theme.navigationSidebar.backgroundLight});
+/* Safari 4-5, Chrome 1-9 */
+background: linear-gradient(${props => props.theme.navigationSidebar.backgroundDark}, ${props => props.theme.navigationSidebar.backgroundLight});
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(${props => props.theme.navigationSidebar.backgroundDark}), to(${props => props.theme.navigationSidebar.backgroundLight}));
+/* Safari 5.1, Chrome 10+ */
+background: -webkit-linear-gradient(top, ${props => props.theme.navigationSidebar.backgroundDark}, ${props => props.theme.navigationSidebar.backgroundLight});
+/* Firefox 3.6+ */
+background: -moz-linear-gradient(top, ${props => props.theme.navigationSidebar.backgroundDark}, ${props => props.theme.navigationSidebar.backgroundLight});
+/* IE 10 */
+background: -ms-linear-gradient(top, ${props => props.theme.navigationSidebar.backgroundDark}, ${props => props.theme.navigationSidebar.backgroundLight});
+/* Opera 11.10+ */
+background: -o-linear-gradient(top, ${props => props.theme.navigationSidebar.backgroundDark}, ${props => props.theme.navigationSidebar.backgroundLight});
+border-right: 1px solid ${props => props.theme.navigationSidebar.border};
+position: sticky;
+@media(max-width: ${props => props.theme.breakpoints['small']}) {
   width: 100%;
-  height: 100vh;
-  overflow: auto;
-  position: fixed;
-  padding-left: 0px;
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: sticky;
-  top: 0;
-  padding-right: 0;
-  -webkit-box-shadow: -1px 0px 4px 1px rgba(175, 158, 232, 0.4);
-
-  @media only screen and (max-width: 1023px) {
-    width: 100%;
-    /* position: relative; */
-    height: 100vh;
-  }
-
-  @media (min-width: 767px) and (max-width: 1023px) {
-    padding-left: 0;
-  }
-
-  @media only screen and (max-width: 767px) {
-    padding-left: 0px;
-    height: auto;
-  }
+  height: auto;
+  background: ${props => props.theme.navigationSidebar.backgroundDark};
+}
 `;
 
 const Divider = styled(props => (
-  <li {...props}>
-    <hr />
-  </li>
+  <div {...props}>
+    <hr/>
+  </div>
 ))`
-  list-style: none;
-  padding: 0.5rem 0;
-
-  hr {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    border-bottom: 1px solid #ede7f3;
-  }
+padding: 0.5rem 0;
+hr {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #ede7f3;
+}
 `;
-
-const SidebarLayout = ({ location }) => (
+const ContentNavigation = ({className, location}) => (
   <StaticQuery
     query={graphql`
       query {
@@ -101,38 +93,48 @@ const SidebarLayout = ({ location }) => (
                 slug
                 title
               }
+              frontmatter {
+                order
+              }
             }
           }
         }
       }
     `}
-    render={({ allMdx }) => {
+    render={({allMdx}) => {
+
       return (
-        <Sidebar>
-          {config.sidebar.title ? (
-            <div
-              className={'sidebarTitle hiddenMobile'}
-              dangerouslySetInnerHTML={{ __html: config.sidebar.title }}
+        <NavigationWrapper className={className}>
+          <SidebarMain>
+            <ContentTree
+              edges={allMdx.edges}
+              location={location}
             />
-          ) : null}
-          <ul className={'sideBarUL'}>
-            <Tree edges={allMdx.edges} />
-            {config.sidebar.links && config.sidebar.links.length > 0 && <Divider />}
-            {config.sidebar.links.map((link, key) => {
-              if (link.link !== '' && link.text !== '') {
-                return (
-                  <ListItem key={key} to={link.link}>
-                    {link.text}
-                    <ExternalLink size={14} />
-                  </ListItem>
-                );
-              }
-            })}
-          </ul>
-        </Sidebar>
+            {config.sidebar.links && config.sidebar.links.length > 0 ?
+              (
+                <>
+                  <Divider/>
+                  <Links links={config.sidebar.links}/>
+                </>
+              )
+              : null}
+          </SidebarMain>
+          {config.sidebar.poweredBy && config.sidebar.poweredBy.name ?
+            (
+              <>
+              <PoweredByWrapper>
+                <PoweredBy trademark={config.sidebar.poweredBy.trademark}
+                           name={config.sidebar.poweredBy.name}
+                           link={config.sidebar.poweredBy.link}/>
+              </PoweredByWrapper>
+              </>
+            )
+            : null}
+        </NavigationWrapper>
       );
     }}
   />
 );
 
-export default SidebarLayout;
+
+export default ContentNavigation;

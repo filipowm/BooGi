@@ -1,0 +1,11 @@
+{
+  "msf": {
+    "name": "MSF",
+    "long_name": "Médecins Sans Frontières / Doctors Without Borders",
+    "description": "An international, independent, medical humanitarian organisation. See <a href='https://www.msf.org/'>msf.org</a>"
+  },
+  "markdown": {
+    "name": "Markdown",
+    "description": "Very simple and lightweight markup language with plain-text-formatting syntax."
+  }
+}

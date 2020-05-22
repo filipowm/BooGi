@@ -1,22 +1,19 @@
-FROM node:buster
+FROM node:buster-slim as builder
 
-# Create app directory
 WORKDIR /app
 
-# Install app dependencies
-# RUN npm -g install serve
-RUN npm -g install gatsby-cli
+RUN apt-get update \
+    && apt-get install -y git \
+    && npm -g install gatsby-cli
 
 COPY package*.json ./
 
-RUN npm ci
+RUN yarn
 
-# Bundle app source
 COPY . .
 
-# Build static files
 RUN npm run build
 
-# serve on port 8080
-# CMD ["serve", "-l", "tcp://0.0.0.0:8080", "public"]
-CMD ["gatsby", "serve", "--verbose", "--prefix-paths", "-p", "8080", "--host", "0.0.0.0"]
+
+FROM gatsbyjs/gatsby:latest
+COPY --from=builder /app/public /pub

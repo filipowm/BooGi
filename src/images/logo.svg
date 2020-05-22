@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) --><svg height="167.00000pt" id="svg951" inkscape:version="0.39cvs" sodipodi:docbase="/root/img" sodipodi:docname="openbook.svg" sodipodi:version="0.32" width="300.00000pt" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <metadata>
+    <rdf:RDF xmlns:cc="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <cc:Work rdf:about="">
+        <dc:title>Open Book</dc:title>
+        <dc:description></dc:description>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>hash</rdf:li>
+            <rdf:li></rdf:li>
+            <rdf:li>education</rdf:li>
+            <rdf:li>book</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://www.openclipart.org">
+            <dc:title>Nathan Eady</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Nathan Eady</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Nathan Eady</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date></dc:date>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://web.resource.org/cc/PublicDomain"/>
+        <dc:language>en</dc:language>
+      </cc:Work>
+      <cc:License rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+        <cc:permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+        <cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs id="defs953"/>
+  <sodipodi:namedview bordercolor="#666666" borderopacity="1.0" id="base" inkscape:cx="151.77472" inkscape:cy="78.534102" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="712" inkscape:window-width="942" inkscape:window-x="259" inkscape:window-y="151" inkscape:zoom="2.4559706" pagecolor="#ffffff"/>
+  <g id="g2198" transform="translate(-256.9943,-227.9440)">
+    <path d="M 264.66115,311.01114 C 289.60037,352.91582 311.99478,387.69500 336.93400,429.59969 C 388.16969,404.99978 409.88547,396.68669 454.50463,381.24813 C 474.01491,386.84673 494.54311,376.66746 502.85619,369.03299 C 539.67123,363.94335 582.59383,357.83579 623.98955,353.76408 C 622.97162,347.14755 625.00748,344.60274 623.98955,337.98621 C 581.06694,306.60011 537.63538,273.68712 494.71277,242.30102 C 416.33235,264.52577 343.04157,288.78638 264.66115,311.01114 z " id="path14684" sodipodi:nodetypes="cccccccc" style="fill:#001873;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#fefefe;stroke-width:5.0000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000;"/>
+    <path d="M 274.33146,312.53802 C 296.72587,348.16548 319.12027,383.79295 341.51468,419.42041 C 381.21385,398.55290 428.33666,367.46993 465.20346,375.77302 C 463.41399,363.50114 469.18224,356.62763 476.39007,348.67445 C 416.50200,338.32552 386.64280,372.76540 344.05950,389.39155 C 343.21123,398.04393 342.36295,406.69632 341.51468,415.34870 C 342.70226,407.03563 342.87191,398.72255 344.05949,390.40948 C 324.71887,360.38062 301.81551,322.71729 282.47489,292.68843 C 276.19766,295.74221 275.51905,305.41253 274.33146,312.53802 z " id="path14685" sodipodi:nodetypes="ccccccccc" style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#001873;stroke-width:3.7500000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000;"/>
+    <path d="M 470.79147,360.38062 C 487.24796,328.99452 500.59410,326.77716 532.88505,322.20833 C 558.18346,318.62887 575.92056,319.47328 601.70806,318.28569 C 599.50255,325.75050 603.29171,335.61104 606.68480,345.62066 C 582.42419,346.63859 563.25322,345.11170 536.44780,348.67444 C 518.63406,347.14755 502.85618,358.34476 491.15002,370.05092 C 492.16795,348.33514 479.95281,361.73786 470.79147,360.38062 z " id="path14686" sodipodi:nodetypes="csccccc" style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#001873;stroke-width:3.7500000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000;"/>
+    <path d="M 396.48276,273.85678 C 421.93095,298.45669 447.37914,323.05661 472.82733,347.65652 C 411.15789,340.02206 378.24489,377.43089 343.55053,389.64603 C 323.53129,357.92062 302.23964,324.15936 282.22040,292.43395 C 307.32928,280.38848 323.90617,260.54300 360.34634,257.56994 C 374.47078,256.41756 385.45522,265.88301 396.48276,273.85678 z " id="path14687" sodipodi:nodetypes="ccccsc" style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#001873;stroke-width:2.5000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000;"/>
+    <path d="M 476.49663,348.91674 C 495.45093,316.88638 534.55916,321.56497 601.37906,316.52649 C 566.10967,292.53371 530.84028,268.54092 495.57089,244.54814 C 449.38479,253.54544 418.31414,234.47117 393.36165,270.10046 L 476.49663,348.91674 z " id="path950" sodipodi:nodetypes="ccccc" style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#001873;stroke-width:2.5000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-opacity:1.0000000;"/>
+  </g>
+</svg>

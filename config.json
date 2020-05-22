@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "name": "GitBook Starter",
+    "short_name": "GitBook",
+    "description": null,
+    "url": "http://localhost",
+    "pathPrefix": "/",
+    "ogImage": null,
+    "docsLocation": "https://github.com/filipowm/gatsby-gitbook-starter",
+    "docsLocationType": "github",
+    "editable": true,
+    "favicon": "assets/favicon.png",
+    "themeColor": "#ff0000"
+  },
+  "header": {
+    "logo": "",
+    "logoLink": "/",
+    "helpUrl": "",
+    "links": [
+      {
+        "text": "GitBook",
+        "link": "https://github.com/filipowm/gatsby-gitbook-starter",
+        "external": true
+      },
+      {
+        "text": "Gatsby",
+        "link": "https://www.gatsbyjs.org",
+        "external": true
+      },
+      {
+        "text": "Docs",
+        "link": "/",
+        "external": false
+      }
+    ]
+  },
+  "search": {
+    "enabled": true
+  },
+  "sidebar": {
+    "forcedNavOrder": [
+      "/introduction",
+      "/configuration/basic",
+      "/configuration/advanced"
+    ],
+    "expanded": null,
+    "groups": [
+      {
+        "order": 1,
+        "path": "/configuration",
+        "icon": "/assets/settings.svg",
+        "title": "Configuration"
+      },
+      {
+        "order": 2,
+        "path": "/syntax",
+        "icon": "/assets/code.svg",
+        "title": "Syntax"
+      },
+      {
+        "order": 3,
+        "path": "/developing",
+        "title": "Developing"
+      }
+    ],
+    "links": [
+      {
+        "text": "Gitbook",
+        "link": "https://github.com/filipowm/gatsby-gitbook-starter"
+      },
+      {
+        "text": "React",
+        "link": "https://reactjs.org"
+      }
+    ],
+    "ignoreIndex": true,
+    "poweredBy": {
+      "trademark": "/assets/gatsby.png",
+      "name": "GatsbyJS",
+      "link": "https://www.gatsbyjs.org"
+    }
+  },
+  "pwa": {
+    "enabled": true,
+    "manifest": {
+      "display": "standalone",
+      "crossOrigin": "use-credentials",
+      "icons": [
+        {
+          "src": "src/pwa-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
+    }
+  },
+  "toc": {
+    "depth": 3
+  }
+}

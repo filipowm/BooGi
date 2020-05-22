@@ -1,0 +1,25 @@
+---
+title: "Running Locally"
+order: 1
+---
+
+## Download dependencies
+
+```
+yarn
+```
+
+## Run Gatsby in development mode
+
+```
+gatsby develop
+```
+This will run Gitbook on port 8000 on localhost.
+
+## Build and run docker image locally
+
+```
+docker build -t gitbook .
+docker run -dp 80:80 gitbook
+```
+This will run Gitbook on port 80 on localhost.

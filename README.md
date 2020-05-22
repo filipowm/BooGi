@@ -1,41 +1,51 @@
-# gatsby-gitbook-starter
+# Gitbook
 
-Kick off your project with this starter to create a powerful/flexible docs/tutorial web apps.
-
-![gatsby-gitbook-starter](https://graphql-engine-cdn.hasura.io/learn-hasura/gatsby-gitbook-starter/assets/documentation_app_blog.png)
+Kick off your project with this template to create a powerful/flexible 
+docs/tutorial web apps.
 
 ## Motivation
 
-We wanted to create a [GraphQL tutorial](https://learn.hasura.io) series. The content would be written by developers for various languages/frameworks and what better than writing it in Markdown! And since this is a tutorial series we also needed rich embeds, syntax highlighting and more customisations.
+Core intention is to provide a great template inspired by famous Gitbook.
+The content would be written by developers (and not only!) 
+and what better than writing it in Markdown! And since this needs to be 
+user friendly documentation, we also needed rich embeds, syntax highlighting and more
+customisations. End goal is to have a powerful and simple template
+which could be used by anyone who needs to have 
+documentation as code and beautiful site generated out of it.
 
-We also wanted to serve these tutorials in sub paths of [learn.hasura.io](https://learn.hasura.io). To serve all these requirements, we decided to use Gatsby + MDX (Markdown + JSX) to extend markdown and used a neat consistent theme like the one at [GitBook](https://www.gitbook.com) and deployed as docker containers.
+To serve all these requirements, we decided to use Gatsby + MDX (Markdown + JSX) 
+to extend markdown and used a neat consistent theme like the one at 
+[GitBook](https://www.gitbook.com) and deployed as docker containers.
 
 ## 🔥 Features
 - Write using Markdown / [MDX](https://github.com/mdx-js/mdx)
-- GitBook style theme
+- GitBook style theme, based on https://docs.gitbook.com/
 - Syntax Highlighting using Prism [`Bonus`: Code diff highlighting]
-- Search Integration with Algolia
+- Search Integration with [Algolia](https://www.algolia.com/) (local search capabilities
+  are planned)
 - Progressive Web App, Works Offline
 - Google Analytics Integration
 - Automatically generated sidebar navigation, table of contents, previous/next
-- Dark Mode toggle
-- Edit on Github
+- Additional components to make documentation beautiful and user friendly, e.g.
+  emojis, badges, icons, column layout, highlights, jargon/abbreviations and more!
+- Edit on Gitlab
 - Fully customisable
 - Rich embeds and live code editor using MDX
 - Easy deployment: Deploy on Netlify / Now.sh / Docker
+- Easily reusable in multiple projects
 
 ## 🔗 Live Demo
 
-Here's a [live demo](https://learn.hasura.io/graphql/react)
+Here's a [live demo (TBD)](TBD)
 
 ## 🚀 Quickstart
 
 Get started by running the following commands:
 
 ```
-$ git clone git@github.com:hasura/gatsby-gitbook-starter.git
-$ npm install
-$ npm start
+$ git clone git@github.com:filipowm/gatsby-gitbook-starter.git
+$ yarn
+$ gatsby develop
 ```
 
 Visit `http://localhost:8000/` to view the app.
@@ -43,6 +53,8 @@ Visit `http://localhost:8000/` to view the app.
 ## 🔧 Configure
 
 Write markdown files in `content` folder.
+
+(TO BE UPDATED!!)
 
 Open `config.js` for templating variables. Broadly configuration is available for `gatsby`, `header`, `sidebar` and `siteMetadata`.
 
@@ -53,9 +65,7 @@ Open `config.js` for templating variables. Broadly configuration is available fo
 
 - `header` config for site header configuration like
     - `title` - The title that appears on the top left
-    - `githubUrl` - The Github URL for the docs website
     - `helpUrl` - Help URL for pointing to resources
-    - `tweetText` - Tweet text
     - `links` - Links on the top right
     - `search` - Enable search and [configure Algolia](https://www.gatsbyjs.org/docs/adding-search-with-algolia/)
 
@@ -117,19 +127,24 @@ To enable PWA, go to `config.js` and update the `pwa` object to look like the on
 
 ## Live Code Editor
 
-To render react components for live editing, add the `react-live=true` to the code section. For example:
+To render react components for live editing, add the `react-live=true` to the code section.
+For example:
 
 ```javascript react-live=true
 <button>Edit my text</button>
 ```
 
-In the above code, just add `javascript react-live=true` after the triple quote ``` to start rendering react components that can be edited by users.
+In the above code, just add `javascript react-live=true` after the triple quote ```
+to start rendering react components that can be edited by users.
 
 ## 🤖 SEO friendly
 
-This is a static site and comes with all the SEO benefits. Configure meta tags like title and description for each markdown file using MDX Frontmatter
+This is a static site and comes with all the SEO benefits
+Configure meta tags like title and description for each markdown 
+file using MDX Frontmatter.
 
 ```markdown
+
 ---
 title: "Title of the page"
 metaTitle: "Meta Title Tag for this page"
@@ -137,9 +152,13 @@ metaDescription: "Meta Description Tag for this page"
 ---
 ```
 
-Canonical URLs are generated automatically.
+## Screenshots
 
-## ☁️ Deploy
+![welcome screen](_images/welcome.png)
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/hasura/gatsby-gitbook-starter)
+![jargon/abbreviations](_images/welcome_jargon.png)
+
+![custom components](_images/components.png)
+
+![Markdown cheatsheet](_images/cheatsheet.png)
 

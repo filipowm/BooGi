@@ -1,81 +1,82 @@
-const config = {
-  gatsby: {
-    pathPrefix: '/',
-    siteUrl: 'https://hasura.io',
-    gaTrackingId: null,
-    trailingSlash: false,
+const _ = require("lodash");
+const jsonConfig = require("./config.json");
+
+function getEnvOrDefault(name, def) {
+  let value = process.env[name];
+  return value ? value : def ? def : null;
+}
+
+const defaults = {
+  "metadata": {
+    "name": "Gitbook Starter",
+    "short_name": "",
+    "description": "",
+    "url": "http://localhost",
+    "pathPrefix": "/",
+    "gaTrackingId": getEnvOrDefault('GATSBY_GA_ID'),
+    "ogImage": null,
+    "docsLocation": "https://github.com/filipowm/gatsby-gitbook-starter",
+    "docsLocationType": "github",
+    "favicon": "assets/favicon.png",
+    "themeColor": "#"
   },
-  header: {
-    logo: 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/brand.svg',
-    logoLink: 'https://hasura.io/learn/',
-    title:
-      "<a href='https://hasura.io/learn/'><img class='img-responsive' src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg' alt='Learn logo' /></a>",
-    githubUrl: 'https://github.com/hasura/gatsby-gitbook-boilerplate',
-    helpUrl: '',
-    tweetText: '',
-    social: `<li>
-		    <a href="https://twitter.com/hasurahq" target="_blank" rel="noopener">
-		      <div class="twitterBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg' alt={'Discord'}/>
-		      </div>
-		    </a>
-		  </li>
-			<li>
-		    <a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener">
-		      <div class="discordBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg' alt={'Discord'}/>
-		      </div>
-		    </a>
-		  </li>`,
-    links: [{ text: '', link: '' }],
-    search: {
-      enabled: false,
-      indexName: '',
-      algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
-      algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
-      algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
-    },
+  "header": {
+    "logo": "",
+    "logoLink": "/",
+    "helpUrl": "asdg",
+    "links": [],
   },
-  sidebar: {
-    forcedNavOrder: [
-      '/introduction', // add trailing slash if enabled above
-      '/codeblock',
-    ],
-    collapsedNav: [
-      '/codeblock', // add trailing slash if enabled above
-    ],
-    links: [{ text: 'Hasura', link: 'https://hasura.io' }],
-    frontline: false,
-    ignoreIndex: true,
-    title:
-      "<a href='https://hasura.io/learn/'>graphql </a><div class='greenCircle'></div><a href='https://hasura.io/learn/graphql/react/introduction/'>react</a>",
+  "search": {
+    "enabled": true,
+    "indexName": getEnvOrDefault('GATSBY_INDEX', 'docs'),
+    "algoliaAppId": getEnvOrDefault('GATSBY_ALGOLIA_APP_ID', 'abc'),
+    "algoliaSearchKey": getEnvOrDefault('GATSBY_ALGOLIA_SEARCH_KEY', 'def'),
+    "algoliaAdminKey": getEnvOrDefault('ALGOLIA_ADMIN_KEY', 'ghi')
   },
-  siteMetadata: {
-    title: 'Gatsby Gitbook Boilerplate | Hasura',
-    description: 'Documentation built with mdx. Powering hasura.io/learn ',
-    ogImage: null,
-    docsLocation: 'https://github.com/hasura/gatsby-gitbook-boilerplate/tree/master/content',
-    favicon: 'https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg',
+  "sidebar": {
+    "forcedNavOrder": [],
+    "expanded": [],
+    "groups": [],
+    "links": [],
+    "ignoreIndex": true,
+    "poweredBy": {}
   },
-  pwa: {
-    enabled: false, // disabling this will also remove the existing service worker.
-    manifest: {
-      name: 'Gatsby Gitbook Starter',
-      short_name: 'GitbookStarter',
-      start_url: '/',
-      background_color: '#6b37bf',
-      theme_color: '#6b37bf',
-      display: 'standalone',
-      crossOrigin: 'use-credentials',
-      icons: [
+
+  "pwa": {
+    "enabled": true, // disabling this will also remove the existing service worker.
+    "manifest": {
+      "name": "Gitbook",
+      "short_name": "GitbookStarter",
+      "start_url": "/",
+      "background_color": "#6b37bf",
+      "theme_color": "#6b37bf",
+      "display": "standalone",
+      "crossOrigin": "use-credentials",
+      "icons": [
         {
-          src: 'src/pwa-512.png',
-          sizes: `512x512`,
-          type: `image/png`,
+          "src": "src/pwa-512.png",
+          "sizes": `512x512`,
+          "type": `image/png`,
         },
       ],
     },
   },
+  "toc": {
+    "depth": 3
+  }
 };
+const config = _.merge(defaults, jsonConfig);
 
+config["pwa"]["manifest"]["name"] = config.metadata.name;
+config["pwa"]["manifest"]["short_name"] = config.metadata.short_name ? config.metadata.short_name : config.metadata.name.replace(/\w+/, "");
+config["pwa"]["manifest"]["start_url"] = config.metadata.pathPrefix;
+config["pwa"]["manifest"]["background_color"] = config.metadata.themeColor;
+config["pwa"]["manifest"]["theme_color"] = config.metadata.themeColor;
+
+config.sidebar.groups.sort(function(a, b){
+  // ASC  -> a.length - b.length
+  // DESC -> b.length - a.length
+  let byOrder = a.order > b.order ? 1 : a.order > b.order ? -1 : 0;
+  return byOrder === 0 ? b.path.length - a.path.length : byOrder;
+});
 module.exports = config;

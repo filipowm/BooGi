@@ -1,13 +1,14 @@
-import * as React from 'react';
-import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
-import { default as defaultTheme } from './theme';
-import Header from './Header';
+import * as React from "react";
+import { ThemeProvider as EmotionThemeProvider } from "emotion-theming";
+import { default as defaultTheme } from "../theme/main";
+import 'css';
 
-export default function ThemeProvider({ children, theme = {}, location }) {
-  return (
-    <div>
-      <Header location={location} />
-      <EmotionThemeProvider theme={{ ...defaultTheme, ...theme }}>{children}</EmotionThemeProvider>
+export default function   ThemeProvider({ children, theme={} }) {
+	return (
+  	<div>
+	    <EmotionThemeProvider theme={{ ...defaultTheme, ...theme }}>
+	      {children}
+	    </EmotionThemeProvider>
     </div>
   );
 }

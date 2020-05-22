@@ -1,0 +1,21 @@
+FROM node:buster-slim as builder
+
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install -y git net-tools \
+    && npm install -g gatsby-cli
+
+COPY package*.json ./
+
+RUN yarn
+
+COPY . .
+RUN mv scripts/* /usr/local/bin \
+    && rm -rf scripts \
+    && chmod +x /usr/local/bin/* \
+    && rm -rf content/*
+
+EXPOSE 8000
+
+CMD ["run_local.sh"]
