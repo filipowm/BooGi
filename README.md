@@ -9,13 +9,17 @@ Core intention is to provide a great template inspired by famous Gitbook.
 The content would be written by developers (and not only!) 
 and what better than writing it in Markdown! And since this needs to be 
 user friendly documentation, we also needed rich embeds, syntax highlighting and more
-customisations. End goal is to have a powerful and simple template
+customizations. End goal is to have a powerful and simple template
 which could be used by anyone who needs to have 
 documentation as code and beautiful site generated out of it.
 
 To serve all these requirements, we decided to use Gatsby + MDX (Markdown + JSX) 
 to extend markdown and used a neat consistent theme like the one at 
 [GitBook](https://www.gitbook.com) and deployed as docker containers.
+
+It is a fork of https://github.com/hasura/gatsby-gitbook-starter. Intention
+is to improve Gitbook to provide more features, make look-and-feel more similar
+to Gitbook, make it more configurable and easier to start.
 
 ## 🔥 Features
 - Write using Markdown / [MDX](https://github.com/mdx-js/mdx)
@@ -36,7 +40,7 @@ to extend markdown and used a neat consistent theme like the one at
 
 ## 🔗 Live Demo
 
-Here's a [live demo (TBD)](TBD)
+Here's a [live demo](https://focused-wozniak-b77d1b.netlify.app).
 
 ## 🚀 Quickstart
 
@@ -156,5 +160,5 @@ Canonical URLs are generated automatically.
 
 ## ☁️ Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/hasura/gatsby-gitbook-starter)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/filipowm/gatsby-gitbook-starter)
 
