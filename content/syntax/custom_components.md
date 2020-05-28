@@ -95,18 +95,33 @@ Highlights can be used to distinguish some part of text.
 **Syntax**
 
 ```html
-<Note>Some note text</Note>
-<Tip>Some tip text</Tip>
-<Info>Some error text</Info>
-<Warning>Some warning/error text</Warning>
+<Note>
+
+Some **note** text</Note>
+<Tip>
+
+Some _tip_ text
+</Tip>
+<Info>Some **error** text</Info>
+<Warning>Some _warning/error_ text</Warning>
 ```
+
+**Important!** There must be newline between highlight tag
+and it's content to render inline markdown properly. Without
+newline content will be displayed as written, without any markdown rendering.
 
 **Examples**
 
-<Note>Some note text</Note>
-<Tip>Some tip text</Tip>
-<Info>Some info text</Info>
-<Warning>Some warning/error text</Warning>
+<Note>
+
+Some **note** text
+</Note>
+<Tip>
+
+Some _tip_ text
+</Tip>
+<Info>Some **info** text</Info>
+<Warning>Some _warning/error_ text</Warning>
 
 ## Badges
 
