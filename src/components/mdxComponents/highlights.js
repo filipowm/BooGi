@@ -2,6 +2,18 @@ import React from "react"
 import styled from "styled-components"
 import {useTheme} from "emotion-theming";
 import {AlertCircle, AlertOctagon, AlertTriangle} from "react-feather";
+import {css} from "@emotion/core";
+
+const skipParagraph = css`
+.paragraph {
+  &:first-child {
+    margin-top: 0
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+`
 
 const HighlightWrapper = styled(({className, children}) =>
   <div className={className}>
@@ -18,6 +30,7 @@ display: flex;
 border-radius: 4px;
 `;
 
+
 const Highlight = ({children, border, background, font, icon, ...props}) => {
   const theme = useTheme();
   const borderColor = theme.colors[border];
@@ -28,7 +41,9 @@ const Highlight = ({children, border, background, font, icon, ...props}) => {
       <div css={{marginRight: '16px', lineHeight: 0}}>
         {icon({color: borderColor, size: 24})}
       </div>
-      <span>{children}</span>
+      <div css={skipParagraph}>
+        {children}
+      </div>
     </HighlightWrapper>
   )
 };
