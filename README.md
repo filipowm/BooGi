@@ -1,5 +1,7 @@
 # Gitbook
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c0cec88f-db01-4c57-8b8d-782e07a9f73f/deploy-status)](https://app.netlify.com/sites/gatsby-gitbook-starter/deploys)
+
 Kick off your project with this template to create a powerful/flexible 
 docs/tutorial web apps.
 
@@ -40,7 +42,7 @@ to Gitbook, make it more configurable and easier to start.
 
 ## 🔗 Live Demo
 
-Here's a [live demo](https://focused-wozniak-b77d1b.netlify.app).
+Here's a [live demo](https://gatsby-gitbook-starter.netlify.app).
 
 ## 🚀 Quickstart
 
