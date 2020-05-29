@@ -93,8 +93,8 @@ Open `config.js` for templating variables. Broadly configuration is available fo
 
 To setup Algolia, go to `config.js` and update the `search` object to look like the one below:
 
-```...,
-	"search": {
+```json
+    "search": {
 		"enabled": true,
 		"indexName": "MY_INDEX_NAME",
 		"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
@@ -109,7 +109,7 @@ Values for Algolia App ID, Search Key, and Admin Key can be obtained from Algoli
 
 To enable PWA, go to `config.js` and update the `pwa` object to look like the one below:
 
-```
+```json
    "pwa": {
         "enabled": false, // disabling this will also remove the existing service worker.
         "manifest": {
@@ -146,7 +146,7 @@ to start rendering react components that can be edited by users.
 ## 🤖 SEO friendly
 
 This is a static site and comes with all the SEO benefits
-Configure meta tags like title and description for each markdown 
+Configure meta tags like title and description for each markdown
 file using MDX Frontmatter.
 
 ```markdown
@@ -163,4 +163,3 @@ Canonical URLs are generated automatically.
 ## ☁️ Deploy
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/filipowm/gatsby-gitbook-starter)
-

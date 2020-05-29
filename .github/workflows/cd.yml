@@ -1,0 +1,37 @@
+name: CD
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+
+jobs:
+
+  docker:
+    name: Build and push Docker images 
+    runs-on: ubuntu-latest
+    needs: gatsby
+    strategy:
+      fail-fast: true
+      matrix:
+        dockerfile: ['Dockerfile.builder', 'Dockerfile.runtime', 'Dockerfile.develop']
+   
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Build Docker image
+      uses: docker/build-push-action@v1.1.0
+      with:
+        username: filipowm
+        password: ${{ secrets.DOCKER_REGISTRY_PASS }}
+        repository: filipowm/gatsby-gitbook-starter
+        tags: latest
+        tag_with_ref: true
+        tag_with_sha: true 
+        # Path to the Dockerfile (Default is '{path}/Dockerfile')
+        dockerfile: ${{ matrix.dockerfile }}
+        always_pull: false
+        cache_froms: node:buster-slim
+        add_git_labels: true
+        push: true # optional, default is true 
