@@ -1,0 +1,33 @@
+name: Release
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+
+  release:
+    name: Update changelog and create release
+    runs-on: ubuntu-latest
+   
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Conventional Changelog
+      id: changelog
+      uses: TriPSs/conventional-changelog-action@v2
+      with:
+        github-token: ${{ secrets.github_token }}
+        output-file: 'CHANGELOG.md'
+        tag-prefix: 'v'
+        release-count: 0
+        package-json: './package.json'
+
+    - name: Create Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.github_token }}
+      with:
+        tag_name: ${{ steps.changelog.outputs.tag }}
+        release_name: ${{ steps.changelog.outputs.tag }}
+        body: ${{ steps.changelog.outputs.clean_changelog }}

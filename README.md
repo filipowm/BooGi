@@ -3,6 +3,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c0cec88f-db01-4c57-8b8d-782e07a9f73f/deploy-status)](https://app.netlify.com/sites/gatsby-gitbook-starter/deploys)
 ![CI](https://github.com/filipowm/gatsby-gitbook-starter/workflows/CI/badge.svg)
 ![Docker Pulls](https://img.shields.io/docker/pulls/filipowm/gatsby-gitbook-starter)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/filipowm/gatsby-gitbook-starter)
 
 
 Kick off your project with this template to create a powerful/flexible 
