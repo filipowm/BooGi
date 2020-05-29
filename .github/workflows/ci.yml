@@ -7,14 +7,13 @@ jobs:
     name: Lint code
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Markdown
         uses: avto-dev/markdown-lint@v1.2.0
-      - name: textlint
-        uses: tsuyoshicho/action-textlint@v1
         with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review
-          textlint_flags: "content/**"
+          config: '.mdlint.yml'
+          args: '**/*.md'
+
       - name: eslint
         uses: reviewdog/action-eslint@v1
         with:
