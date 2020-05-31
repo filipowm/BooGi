@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import {AlignRight} from "react-feather";
 import config from 'config';
 import Scrollspy from 'react-scrollspy'
+import {sleep} from '../../utils/utils'
 
 const Sidebar = styled.aside`
 margin-top: 10px;
@@ -116,6 +117,21 @@ const TocTitle = styled(({className}) => {
   }
 `;
 
+const tocItemsEqual = (items, targetItems) => {
+  if (items === targetItems) return true;
+  if (items == null || targetItems == null) return false;
+  if (items.length != targetItems.length) return false;
+  
+  for (var i = 0; i < items.length; ++i) {
+    let target = targetItems[i]
+    if (targetItems[i]) {
+      target = target.id
+    }
+    if (items[i] !== target) return false;
+  }
+  return true;
+}
+
 const TableOfContents = ({className, location, id}) => (
  <StaticQuery
    query={graphql`
@@ -135,7 +151,7 @@ const TableOfContents = ({className, location, id}) => (
          }
        }
      }
-   `}
+   `} 
     render={({allMdx}) => {
       let finalNavItems;
       if (allMdx.edges !== undefined && allMdx.edges.length > 0) {
@@ -157,11 +173,28 @@ const TableOfContents = ({className, location, id}) => (
         let ids = finalNavItems.map((item) => {
           return item.props.to.substr(1)
         });
-
+        const scrollspyRef = React.createRef();
+        const refresh = () => {
+          // This function is a workaround for a problem when scrollspy items get updated.
+          // In such case props are updated properly, but state is kept stale causing
+          // scrollspy to not follow content properly. To fix it, we need to manually
+          // trigger scrollspy reinitialization when its props change.
+          if (scrollspyRef.current) {
+            if (! tocItemsEqual(scrollspyRef.current.props.items, scrollspyRef.current.state.targetItems)) {
+              sleep(200).then(() => {
+                if (scrollspyRef.current) {
+                  scrollspyRef.current._initFromProps();
+                } else {
+                  refresh();
+                }
+              })
+            }
+          }
+        }
         return (
           <Sidebar className={className}>
             <TocTitle>Contents</TocTitle>
-            <Scrollspy items={ids} currentClassName={'currentItem'}>
+            <Scrollspy ref={scrollspyRef} onUpdate={refresh} items={ids} currentClassName={'currentItem'}>
               {finalNavItems}
             </Scrollspy>
           </Sidebar>
