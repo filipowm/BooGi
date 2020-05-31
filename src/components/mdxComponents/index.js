@@ -10,14 +10,28 @@ import Jargon from "./jargon";
 import {blockquote} from "../../styles/base";
 import {useTheme} from "emotion-theming";
 
-const Header = (level, props) => {
+const idFromHeader = (props) => {
   let name = props.children;
   if (Array.isArray(name)) {
     name = props.children[0]
   }
-  name = name.replace(/\s+/g, '').toLowerCase();
-  return React.createElement("h" + level, { className: "heading" + level, id: name, ...props});
+  return name.replace(/\s+/g, '').toLowerCase();
+}
+const Header = (level, props) => {
+  let name = idFromHeader(props)
+  return React.createElement("h" + level, { className: "heading" + level, id: "h-" + name, ...props});
 };
+
+const Section = (props) => {
+  let header = '';
+  if (Array.isArray(props.children)) {
+    header = props.children[0].props
+  } else {
+    header = props.children.props
+  }
+  const name = idFromHeader(header)
+  return <section id={name} {...props} />
+}
 
 export default {
   h1: props => Header(1, props),
@@ -26,6 +40,7 @@ export default {
   h4: props => Header(4, props),
   h5: props => Header(5, props),
   h6: props => Header(6, props),
+  section: props => Section(props),
   blockquote: props => <blockquote css={blockquote(useTheme())} {...props} />,
   p: props => <p className='paragraph' {...props} />,
   pre: props => <pre className='pre' {...props} />,

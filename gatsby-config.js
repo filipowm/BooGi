@@ -66,6 +66,9 @@ const plugins = [
         {
           resolve: 'gatsby-remark-jargon',
           options: { jargon: require('./jargon-config.js') }
+        },
+        {
+          resolve: 'gatsby-remark-sectionize'
         }
       ],
       extensions: [".mdx", ".md"]
