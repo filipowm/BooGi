@@ -16,8 +16,6 @@
     "@playlyfe/gql": "2.6.2",
     "algoliasearch": "4.2.0",
     "dotenv": "8.2.0",
-    "emotion": "10.0.27",
-    "emotion-server": "10.0.27",
     "emotion-theming": "10.0.27",
     "gatsby": "2.22.12",
     "gatsby-link": "2.4.3",
@@ -61,9 +59,7 @@
     "react-scrollspy": "3.4.2",
     "remark-abbr": "1.4.0",
     "remark-autolink-headings": "6.0.0",
-    "remark-emoji": "2.1.0",
-    "styled-components": "5.1.1",
-    "styled-icons": "10.2.1"
+    "remark-emoji": "2.1.0"
   },
   "license": "MIT",
   "main": "n/a",

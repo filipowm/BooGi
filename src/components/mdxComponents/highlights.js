@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import {useTheme} from "emotion-theming";
 import {AlertCircle, AlertOctagon, AlertTriangle} from "react-feather";
 import {css} from "@emotion/core";
@@ -39,7 +39,7 @@ const Highlight = ({children, border, background, font, icon, ...props}) => {
   return (
     <HighlightWrapper background={backgroundColor} border={borderColor} font={fontColor}{...props} >
       <div css={{marginRight: '16px', lineHeight: 0}}>
-        {icon({color: borderColor, size: 24})}
+        {icon.render({color: borderColor, size: 24})}
       </div>
       <div css={skipParagraph}>
         {children}

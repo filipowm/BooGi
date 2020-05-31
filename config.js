@@ -17,7 +17,7 @@ const defaults = {
     "ogImage": null,
     "docsLocation": "https://github.com/filipowm/gatsby-gitbook-starter",
     "docsLocationType": "github",
-    "favicon": "assets/favicon.png",
+    "favicon": "/assets/favicon.png",
     "themeColor": "#"
   },
   "header": {

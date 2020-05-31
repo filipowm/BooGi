@@ -27,9 +27,7 @@ const Icon = ({ children, ...props }) => {
         verticalAlign: 'middle',
       }
     }}>
-      {
-        icon(config)
-      }
+      {icon.render(config)}
     </span>
   )
 };

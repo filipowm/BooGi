@@ -57,6 +57,7 @@ jobs:
 
     - name: Build starter
       run: |
+        npm install -g gatsby-cli
         yarn
         npm run build
 

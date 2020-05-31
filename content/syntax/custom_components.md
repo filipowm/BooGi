@@ -35,7 +35,7 @@ Complex:
 
 <div>
 
-![logo](../assets/favicon.png)
+![logo](/assets/favicon.png)
 
 Here comes some **text**. And some [URL](https://google.com)
 

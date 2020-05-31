@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Helmet from "react-helmet";
+import {Helmet} from "react-helmet";
 import {graphql} from "gatsby";
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
 import styled from "@emotion/styled";
@@ -81,7 +81,8 @@ font-size: 12px;
 display: block;
 `;
 
-export default class MDXRuntimeTest extends Component {
+export default class MDXRuntimeTest extends React.Component {
+  
   render() {
     const {data} = this.props;
     if (!data) {

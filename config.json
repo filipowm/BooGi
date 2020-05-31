@@ -9,7 +9,7 @@
     "docsLocation": "https://github.com/filipowm/gatsby-gitbook-starter",
     "docsLocationType": "github",
     "editable": true,
-    "favicon": "assets/favicon.png",
+    "favicon": "/assets/favicon.png",
     "themeColor": "#ff0000"
   },
   "header": {
