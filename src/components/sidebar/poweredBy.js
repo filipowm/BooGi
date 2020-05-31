@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 
 const logo = require('images/gitlab.svg');
 const Trademark = styled(({className, trademark}) => {
-  console.log(trademark)
   return <div className={className}><img src={trademark} /></div>
 })`
 display: flex;
