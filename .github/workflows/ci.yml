@@ -5,6 +5,11 @@ on:
       - master
     tags:
       - '*'
+  pull_request:
+    branches:
+      - '*'
+    tags:
+      - '*'
 
 jobs:
 
@@ -50,11 +55,10 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
-    - name: Build starter
-      run: |
-        npm install -g gatsby-cli
-        yarn
-        npm run build
+    - name: Build Gatsby Site
+      uses: jzweifel/gatsby-cli-github-action@master
+      with:
+        gatsby-arg: build --prefix-paths
 
   docker:
     name: Build Docker images 
