@@ -36,6 +36,20 @@ jobs:
           reporter: github-pr-review # Default is github-pr-check
           level: warning
 
+  netlify:
+    name: Build and Deploy preview on Netlify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Waiting for 300sec from the Netlify preview
+        uses: jakepartusch/wait-for-netlify-action@v1
+        id: waitFor300
+        with:
+          site_name: "gatsby-gitbook-starter"
+          max_timeout: 300
+      - name: Netlify deploy logs
+        uses: bdougie/loglify@master  
+
   docker:
     name: Build Docker images 
     runs-on: ubuntu-latest
