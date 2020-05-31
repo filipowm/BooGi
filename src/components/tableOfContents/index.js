@@ -74,28 +74,6 @@ const ListItem = styled(({className, active, level, ...props}) => {
   }
 `;
 
-function buildToC(item, items, depth = 1) {
-  if (item.items) {
-    item.items.forEach((innerItem) => {
-      if (depth > config.toc.depth) {
-        return;
-      }
-      const itemId = innerItem.title ? innerItem.title.replace(/\s+/g, '').toLowerCase() : '#';
-      let listItem = (
-        <ListItem
-          key={items.length}
-          to={`#${itemId}`}
-          level={depth}
-        >
-          {innerItem.title}
-        </ListItem>
-      );
-      items.push(listItem);
-      buildToC(innerItem, items, depth + 1);
-    });
-  }
-}
-
 const TocTitle = styled(({className}) => {
   return (
     <span className={className}><AlignRight size={15}/>Contents</span>
@@ -117,6 +95,47 @@ const TocTitle = styled(({className}) => {
   }
 `;
 
+const buildToC = (item, items, depth = 1) => {
+  if (item.items) {
+    item.items.forEach((innerItem) => {
+      if (depth > config.toc.depth) {
+        return;
+      }
+      const itemId = innerItem.title ? innerItem.title.replace(/\s+/g, '').toLowerCase() : '#';
+      let listItem = (
+        <ListItem
+          key={items.length}
+          to={`#${itemId}`}
+          level={depth}
+        >
+          {innerItem.title}
+        </ListItem>
+      );
+      items.push(listItem);
+      buildToC(innerItem, items, depth + 1);
+    });
+  }
+}
+
+const generateToCItems = (allMdx, location) => {
+  let finalNavItems = [];
+  if (allMdx.edges !== undefined && allMdx.edges.length > 0) {
+    allMdx.edges.forEach((item) => {
+      let innerItems = [];
+      if (item !== undefined) {
+        if (((item.node.fields.slug === location.pathname) || (config.metadata.pathPrefix + item.node.fields.slug) === location.pathname)
+        && ! item.node.frontmatter.skipToC) {
+          buildToC(item.node.tableOfContents, innerItems);
+        }
+      }
+      if (innerItems.length > 0) {
+        finalNavItems = innerItems;
+      }
+    });
+  }
+  return finalNavItems;
+}
+
 const tocItemsEqual = (items, targetItems) => {
   if (items === targetItems) return true;
   if (items == null || targetItems == null) return false;
@@ -130,6 +149,23 @@ const tocItemsEqual = (items, targetItems) => {
     if (items[i] !== target) return false;
   }
   return true;
+}
+
+const refresh = (scrollspyRef) => {
+  // This function is a workaround for a problem when scrollspy items get updated.
+  // In such case props are updated properly, but state is kept stale causing
+  // scrollspy to not follow content properly. To fix it, we need to manually
+  // trigger scrollspy reinitialization when its props change.
+  if (scrollspyRef.current && 
+    ! tocItemsEqual(scrollspyRef.current.props.items, scrollspyRef.current.state.targetItems)) {
+    sleep(200).then(() => {
+      if (scrollspyRef.current) {
+        scrollspyRef.current._initFromProps();
+      } else {
+        refresh();
+      }
+    })
+ }  
 }
 
 const TableOfContents = ({className, location, id}) => (
@@ -153,23 +189,8 @@ const TableOfContents = ({className, location, id}) => (
      }
    `} 
     render={({allMdx}) => {
-      let finalNavItems;
-      if (allMdx.edges !== undefined && allMdx.edges.length > 0) {
-        allMdx.edges.forEach((item) => {
-          let innerItems = [];
-          if (item !== undefined) {
-            if (((item.node.fields.slug === location.pathname) || (config.metadata.pathPrefix + item.node.fields.slug) === location.pathname)
-            && ! item.node.frontmatter.skipToC) {
-
-              buildToC(item.node.tableOfContents, innerItems);
-            }
-          }
-          if (innerItems.length > 0) {
-            finalNavItems = innerItems;
-          }
-        });
-      }
-      if (finalNavItems && finalNavItems.length > 0) {
+      const finalNavItems = generateToCItems(allMdx, location);
+      if (finalNavItems.length > 0) {
         let ids = finalNavItems.map((item) => {
           return item.props.to.substr(1)
         });
@@ -179,17 +200,16 @@ const TableOfContents = ({className, location, id}) => (
           // In such case props are updated properly, but state is kept stale causing
           // scrollspy to not follow content properly. To fix it, we need to manually
           // trigger scrollspy reinitialization when its props change.
-          if (scrollspyRef.current) {
-            if (! tocItemsEqual(scrollspyRef.current.props.items, scrollspyRef.current.state.targetItems)) {
-              sleep(200).then(() => {
-                if (scrollspyRef.current) {
-                  scrollspyRef.current._initFromProps();
-                } else {
-                  refresh();
-                }
-              })
-            }
-          }
+          if (scrollspyRef.current && 
+            ! tocItemsEqual(scrollspyRef.current.props.items, scrollspyRef.current.state.targetItems)) {
+            sleep(200).then(() => {
+              if (scrollspyRef.current) {
+                scrollspyRef.current._initFromProps();
+              } else {
+                refresh();
+              }
+            })
+         }  
         }
         return (
           <Sidebar className={className}>
