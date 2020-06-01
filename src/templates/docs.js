@@ -7,6 +7,7 @@ import {Layout} from "$components";
 import NextPrevious from '$components/nextPrevious';
 import config from 'config';
 import EditOnRepo from '$components/gitlab'
+import emoji from 'node-emoji'
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
 
@@ -103,16 +104,17 @@ export default class MDXRuntimeTest extends React.Component {
     let canonicalUrl = config.metadata.url;
     canonicalUrl = config.metadata.pathPrefix !== '/' ? canonicalUrl + config.metadata.pathPrefix : canonicalUrl;
     canonicalUrl = canonicalUrl + mdx.fields.slug;
-
+    const docTitle = emoji.emojify(mdx.fields.title, (name) => name);
+    const headTitle = metaTitle ? metaTitle : emoji.strip(docTitle);
     return (
       <Layout {...this.props}>
         <Helmet>
-          {metaTitle ? <title>{metaTitle}</title> : null}
-          {metaTitle ? <meta name="title" content={metaTitle} /> : null}
+          <title>{headTitle}</title>
+          <meta name="title" content={headTitle} /> 
+          <meta property="og:title" content={headTitle} />
+          <meta property="twitter:title" content={headTitle} />
           {metaDescription ? <meta name="description" content={metaDescription} /> : null}
-          {metaTitle ? <meta property="og:title" content={metaTitle} /> : null}
           {metaDescription ? <meta property="og:description" content={metaDescription} /> : null}
-          {metaTitle ? <meta property="twitter:title" content={metaTitle} /> : null}
           {metaDescription ? (
             <meta property="twitter:description" content={metaDescription} />
           ) : null}
@@ -120,7 +122,7 @@ export default class MDXRuntimeTest extends React.Component {
         </Helmet>
         <PageTitle>
           <TitleWrapper>
-            <Title>{mdx.fields.title}</Title>
+            <Title>{docTitle}</Title>
             {(config.metadata.editable && mdx.frontmatter.editable != false) 
             || (mdx.frontmatter.editable)  ?
               <EditOnRepo location={docsLocation} 

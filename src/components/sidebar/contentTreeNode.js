@@ -8,6 +8,7 @@ import {css} from "@emotion/core";
 import styled from "@emotion/styled";
 import Slide from "react-reveal/Slide";
 import {useTheme} from "emotion-theming";
+import emoji from "node-emoji"
 
 
 // If you want to have a css call based on props, create a function that returns a css call like this
@@ -131,9 +132,10 @@ const ContentTreeNode = ({className, toggle, collapsed, url, title, location, ch
   };
   const theme = useTheme();
   let isCollapsed = collapsed[url];
+  const text = emoji.emojify(title, (name) => name)
   return (
     <>
-      <NodeContent text={title} link={url} className={className} css={active ? activeNode(theme) : '' }>
+      <NodeContent text={text} link={url} className={className} css={active ? activeNode(theme) : '' }>
         { title && hasChildren ? (
           <>
             <NodeCollapseButton isCollapsed={isCollapsed} collapse={collapse} />

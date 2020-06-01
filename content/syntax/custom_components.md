@@ -1,5 +1,5 @@
 ---
-title: ""
+title: ":package: Custom Components"
 order: 2
 ---
 

@@ -2,6 +2,7 @@ import React from "react";
 import ContentTreeNode from "./contentTreeNode";
 import config from "../../../config";
 import styled from "@emotion/styled";
+import emoji from "node-emoji"
 
 const ContentTreeGroup = styled(({className, treeState, title, icon, location, children}) => {
   children.forEach(item => {
@@ -19,11 +20,12 @@ const ContentTreeGroup = styled(({className, treeState, title, icon, location, c
       [url]: !treeState.collapsed[url],
     });
   };
+  const emojified = emoji.emojify(title, (name) => name)
   return (
     <div className={className}>
       {title ?
         <>
-          <span>{icon ? <img src={icon}/> : null} {title}</span></>
+          <span>{icon ? <img src={icon}/> : null} {emojified}</span></>
         : null}
       <ul>
         {children.map((child) => (
