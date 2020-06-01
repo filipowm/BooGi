@@ -3,7 +3,6 @@
     "name": "GitBook Starter",
     "short_name": "GitBook",
     "description": null,
-    "url": "http://localhost",
     "pathPrefix": "/",
     "ogImage": null,
     "docsLocation": "https://github.com/filipowm/gatsby-gitbook-starter",

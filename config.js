@@ -11,7 +11,7 @@ const defaults = {
     "name": "Gitbook Starter",
     "short_name": "",
     "description": "",
-    "url": "http://localhost",
+    "url": getEnvOrDefault("URL", "http://localhost"),
     "pathPrefix": "/",
     "gaTrackingId": getEnvOrDefault('GATSBY_GA_ID'),
     "ogImage": null,
