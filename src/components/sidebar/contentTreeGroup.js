@@ -1,6 +1,6 @@
 import React from "react";
 import ContentTreeNode from "./contentTreeNode";
-import config from "../../../config";
+import config from "config";
 import styled from "@emotion/styled";
 import emoji from "node-emoji"
 

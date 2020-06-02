@@ -1,6 +1,6 @@
 require("dotenv").config();
 const queries = require("./src/utils/algolia");
-const config = require("./config");
+const config = require("./config/config");
 const path = require('path');
 const globImporter = require('node-sass-glob-importer');
 
@@ -65,7 +65,7 @@ const plugins = [
         },
         {
           resolve: 'gatsby-remark-jargon',
-          options: { jargon: require('./jargon-config.js') }
+          options: { jargon: require('./config/jargon-config.js') }
         },
         {
           resolve: 'gatsby-remark-sectionize'
@@ -89,7 +89,7 @@ const plugins = [
     resolve: 'gatsby-plugin-root-import',
     options: {
       "~": path.join(__dirname, 'src'),
-      config: path.join(__dirname, 'config.js'),
+      config: path.join(__dirname, 'config/config.js'),
       images: path.join(__dirname, 'src/images'),
       styles: path.join(__dirname, 'src/styles'),
       css: path.join(__dirname, 'src/styles/main.scss')

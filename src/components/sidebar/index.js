@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import {graphql, StaticQuery} from "gatsby";
-import config from "../../../config";
+import config from "config";
 import ContentTree from "./contentTree";
 import Links from "./links"
 import PoweredBy from "./poweredBy";
