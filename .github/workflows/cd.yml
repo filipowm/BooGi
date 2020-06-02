@@ -29,7 +29,7 @@ jobs:
         tag_with_ref: true
         tag_with_sha: true 
         # Path to the Dockerfile (Default is '{path}/Dockerfile')
-        dockerfile: 'Dockerfile.${{ matrix.dockerfile }}'
+        dockerfile: 'docker/Dockerfile.${{ matrix.dockerfile }}'
         always_pull: false
         cache_froms: node:buster-slim
         add_git_labels: true
