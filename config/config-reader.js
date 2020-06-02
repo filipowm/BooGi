@@ -103,8 +103,61 @@ class FileReader extends ConfigReader {
 
 class EnvReader extends ConfigReader {
 
+    readArray(key) {
+        const value = this.readValue(key);
+        if (value) {
+            return value.split(',')
+                        .map(String.trim);
+        }
+        return value;
+    }
+
+    readValue(key) {
+        if (key in process.env) {
+            const value = process.env[key]
+            try {
+                return value === "true" ? true : value === "false" ? false : parseFloat(value);
+            } catch(err) {
+                return value;
+            }
+        }
+        return undefined;
+    }
+
+    generatePrefix(prefix, key) {
+        const suffix = key.split(/(?=[A-Z])/)
+                          .map((str) => str.toUpperCase())
+                          .join("_");
+        return prefix !== "" ? `${prefix}_${suffix}` : suffix;
+    }
+
+    readObject(obj, config, prefix) {
+        for (let [key, value] of Object.entries(obj)) {
+            const newPrefix = this.generatePrefix(prefix, key);
+            if (typeof value === "string" || typeof value === "number" || typeof value === "boolean" || value === null) {
+                const value = this.readValue(newPrefix)
+                if (value !== undefined) {
+                    config[key] = value
+                }
+            } else if (typeof value === "object") {
+                if (Array.isArray(value)) {
+                    const value = this.readArray(newPrefix)
+                    if (value !== undefined) {
+                        config[key] = value
+                    }
+                } else {
+                    const child = {}
+                    config[key] = child;
+                    this.readObject(value, child, newPrefix)
+                }
+            }
+        }
+    }
+
     read() {
-        return {};
+        const config = {};
+        this.readObject(defaults, config, "");
+        return config;
     }
 }
 
