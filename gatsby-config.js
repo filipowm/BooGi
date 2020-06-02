@@ -1,8 +1,10 @@
 require("dotenv").config();
 const queries = require("./src/utils/algolia");
-const config = require("./config/config");
+const readConfig = require("./config/config-reader")
 const path = require('path');
 const globImporter = require('node-sass-glob-importer');
+
+const config = readConfig();
 
 const plugins = [
   'gatsby-plugin-sitemap',
