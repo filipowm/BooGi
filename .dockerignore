@@ -2,12 +2,16 @@ node_modules
 public
 .cache
 .idea
+.vscode
+*.iml
+reduxcache*
 Dockerfile*
 *.crt
 *.key
 .dockerignore
 package-lock.json
 yarn.lock
+.github
 .gitlab-ci.yml
 *DS_Store
 *.env
