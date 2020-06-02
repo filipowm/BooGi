@@ -1,5 +1,6 @@
 const fs = require("fs")
 const _ = require("lodash");
+const yaml = require('js-yaml')
 
 const defaults = {
     "metadata": {
@@ -80,7 +81,13 @@ class FileReader extends ConfigReader {
 
     readPath(path) {
         try {
-            return require(path);
+            if (path.endsWith(".yml") || path.endsWith(".yaml")) {
+                const fileContents = fs.readFileSync(path, 'utf8');
+                return yaml.safeLoad(fileContents);
+            } else if (path.endsWith(".json")) {
+                return require(path);
+            }
+            throw "Config file must be either YAML or JSON"
           } catch(err) {
             console.error(err)
             return {};
