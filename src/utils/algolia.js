@@ -1,4 +1,4 @@
-const config = require("../../.generated.config.js");
+// const config = require("../../.generated.config.js");
 
 const pageQuery = `{
   pages: allMdx {
@@ -30,7 +30,7 @@ const flatten = arr =>
 
 const settings = { attributesToSnippet: [`excerpt:20`] };
 
-const indexName = config.search ? config.search.indexName : '';
+const indexName = "docs"; //config.search ? config.search.indexName : '';
 const queries = [
   {
     query: pageQuery,
