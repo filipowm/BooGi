@@ -24,8 +24,6 @@ header:
   - text: Docs
     link: "/"
     external: false
-search:
-  enabled: true
 sidebar:
   forcedNavOrder:
   - "/introduction"
@@ -63,5 +61,8 @@ pwa:
     - src: src/pwa-512.png
       sizes: 512x512
       type: image/png
-toc:
-  depth: 3
+features:
+  search:
+    enabled: true
+  toc:
+    depth: 3

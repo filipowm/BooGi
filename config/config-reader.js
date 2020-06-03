@@ -57,8 +57,17 @@ const defaults = {
         ],
       },
     },
-    "toc": {
-      "depth": 3
+    "features": {
+        "search": {
+          "enabled": true,
+          "indexName": "docs",
+          "algoliaAppId": null,
+          "algoliaSearchKey": null,
+          "algoliaAdminKey": null
+        },
+        "toc": {
+          "depth": 3
+        }
     }
   };
 

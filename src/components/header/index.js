@@ -9,12 +9,12 @@ import Sidebar from "../sidebar";
 import styled from "@emotion/styled";
 import SearchBox from "../search/input"
 
-const isSearchEnabled = config.search && config.search.enabled;
+const isSearchEnabled = config.features.search && config.features.search.enabled;
 
 let searchIndices = [];
-if (isSearchEnabled && config.search.indexName) {
+if (isSearchEnabled && config.features.search.indexName) {
   searchIndices.push(
-    {name: `${config.search.indexName}`, title: `Results`, hitComp: `PageHit`},
+    {name: `${config.features.search.indexName}`, title: `Results`, hitComp: `PageHit`},
   );
 }
 

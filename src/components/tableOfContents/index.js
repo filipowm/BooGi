@@ -98,7 +98,7 @@ const TocTitle = styled(({className}) => {
 const buildToC = (item, items, depth = 1) => {
   if (item.items) {
     item.items.forEach((innerItem) => {
-      if (depth > config.toc.depth) {
+      if (depth > config.features.toc.depth) {
         return;
       }
       const itemId = innerItem.title ? innerItem.title.replace(/\s+/g, '').toLowerCase() : '#';

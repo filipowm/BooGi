@@ -30,7 +30,7 @@ const flatten = arr =>
 
 const settings = { attributesToSnippet: [`excerpt:20`] };
 
-const indexName = "docs"; //config.search ? config.search.indexName : '';
+const indexName = "docs"; //config.features.search ? config.features.search.indexName : '';
 const queries = [
   {
     query: pageQuery,

@@ -102,12 +102,12 @@ const plugins = [
   }
 ];
 // check and add algolia
-if (config.search && config.search.enabled && config.search.algoliaAppId && config.search.algoliaAdminKey) {
+if (config.features.search && config.features.search.enabled && config.features.search.algoliaAppId && config.features.search.algoliaAdminKey) {
   plugins.push({
     resolve: `gatsby-plugin-algolia`,
     options: {
-      appId: config.search.algoliaAppId, // algolia application id
-      apiKey: config.search.algoliaAdminKey, // algolia admin key to index
+      appId: config.features.search.algoliaAppId, // algolia application id
+      apiKey: config.features.search.algoliaAdminKey, // algolia admin key to index
       queries,
       chunkSize: 10000, // default: 1000
     }}

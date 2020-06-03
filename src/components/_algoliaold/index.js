@@ -125,8 +125,8 @@ export default function SearchComponent({indices, collapse, hitsAsGrid}) {
   const [query, setQuery] = useState(``);
   const [focus, setFocus] = useState(false);
   const searchClient = algoliasearch(
-    config.search.algoliaAppId,
-    config.search.algoliaSearchKey
+    config.features.search.algoliaAppId,
+    config.features.search.algoliaSearchKey
   )
   useClickOutside(ref, () => setFocus(false));
   const displayResult = (query.length > 0 && focus) ? 'showResults' : 'hideResults';
