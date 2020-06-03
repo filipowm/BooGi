@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from "../link";
 import styled from "@emotion/styled";
+import emoji from 'node-emoji'
 
 import { calculateFlatNavigation, getNavigationData } from '../navigation';
 
@@ -62,7 +63,7 @@ const ContentWrapper = styled(({className, label, title}) => {
         <span>{label}</span>
       </Label>
       <Title>
-        <span>{title}</span>
+        <span>{emoji.emojify(title, (name) => name)}</span>
       </Title>
     </div>
   )
