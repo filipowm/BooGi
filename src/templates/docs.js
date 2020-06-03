@@ -9,8 +9,6 @@ import config from 'config';
 import EditOnRepo from '$components/gitlab'
 import emoji from 'node-emoji'
 
-const forcedNavOrder = config.sidebar.forcedNavOrder;
-
 const Title = styled.h1`
   font-size: 32px;
   line-height: 1.5;
@@ -90,10 +88,9 @@ export default class MDXRuntimeTest extends React.Component {
       return null;
     }
     const {
-      allMdx,
       mdx,
       site: {
-        siteMetadata: {docsLocation, docsLocationType, title}
+        siteMetadata: {docsLocation, docsLocationType, title, siteUrl}
       },
       gitBranch
     } = data;
@@ -101,7 +98,7 @@ export default class MDXRuntimeTest extends React.Component {
     // meta tags
     const metaTitle = mdx.frontmatter.metaTitle;
     const metaDescription = mdx.frontmatter.metaDescription;
-    let canonicalUrl = config.metadata.url;
+    let canonicalUrl = siteUrl;
     canonicalUrl = config.metadata.pathPrefix !== '/' ? canonicalUrl + config.metadata.pathPrefix : canonicalUrl;
     canonicalUrl = canonicalUrl + mdx.fields.slug;
     const docTitle = emoji.emojify(mdx.fields.title, (name) => name);
@@ -145,7 +142,7 @@ export default class MDXRuntimeTest extends React.Component {
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </ContentWrapper>
         <div css={{padding: '50px 0'}}>
-          {/*<NextPrevious mdx={mdx} nav={nav}/>*/}
+          <NextPrevious mdx={mdx}/>
         </div>
       </Layout>
     );
@@ -160,6 +157,7 @@ export const pageQuery = graphql`
                 title
                 docsLocation
                 docsLocationType
+                siteUrl
             }
         }
         mdx(fields: { id: { eq: $id } }) {
@@ -195,16 +193,6 @@ export const pageQuery = graphql`
         gitCommit(latest: {eq: true}) {
             hash
             date(formatString: "YYYY-MM-DD hh:mm")
-        }
-        allMdx {
-            edges {
-                node {
-                    fields {
-                        slug
-                        title
-                    }
-                }
-            }
         }
     }
 `;

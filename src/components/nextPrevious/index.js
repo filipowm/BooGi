@@ -2,6 +2,8 @@ import React from 'react';
 import Link from "../link";
 import styled from "@emotion/styled";
 
+import { calculateFlatNavigation, getNavigationData } from '../navigation';
+
 const NextPreviousWrapper = styled.div`margin: 0;
 padding: 0;
 width: auto;
@@ -158,42 +160,41 @@ const calculateNextPrevious = (nav, index) => {
   return [previousInfo, nextInfo];
 }
 
-class Index extends React.Component {
-  render() {
-    const { mdx, nav } = this.props;
-    let currentIndex;
-    nav.every((el, index) => {
-      if (el && (el.url === mdx.fields.slug)) {
-        currentIndex = index;
-        return false;
-      }
-      return true;
-    });
-    const [previous, next] = calculateNextPrevious(nav, currentIndex);
-    return (
-      <NextPreviousWrapper>
-        { currentIndex >= 0 ?
-          <>
-            {previous.url  ?
-              (
-                <LeftButton
-                  url={previous.url}
-                  title={previous.title}
-                  label={'Previous'} />
-              ) : null
-            }
-            {next.url  ?
-              (
-                <RightButton
-                    url={next.url}
-                    title={nav[currentIndex+1] && next.title}
-                    label={'Next'} />) : null
-            }
-          </>
-          : null}
-      </NextPreviousWrapper>
-    );
-  }
+const nextPrevious = ({ mdx }) => {
+  const edges = getNavigationData();
+  const navigation = calculateFlatNavigation(edges);
+  let currentIndex;
+  navigation.every((el, index) => {
+    if (el && (el.url === mdx.fields.slug)) {
+      currentIndex = index;
+      return false;
+    }
+    return true;
+  });
+  const [previous, next] = calculateNextPrevious(navigation, currentIndex);
+  return (
+    <NextPreviousWrapper>
+      { currentIndex >= 0 ?
+        <>
+          {previous.url  ?
+            (
+              <LeftButton
+                url={previous.url}
+                title={previous.title}
+                label={'Previous'} />
+            ) : null
+          }
+          {next.url  ?
+            (
+              <RightButton
+                  url={next.url}
+                  title={navigation[currentIndex+1] && next.title}
+                  label={'Next'} />) : null
+          }
+        </>
+        : null}
+    </NextPreviousWrapper>
+  );
 }
 
-export default Index;
+export default nextPrevious;
