@@ -21,7 +21,7 @@ const pageQuery = `{
   }
 }`;
 
-const flatten = arr =>
+const flatten = (arr) =>
   arr.map(({ node: { frontmatter, fields, ...rest } }) => ({
     ...frontmatter,
     ...fields,
@@ -30,7 +30,7 @@ const flatten = arr =>
 
 const settings = { attributesToSnippet: [`excerpt:20`] };
 
-const indexName = "docs"; //config.features.search ? config.features.search.indexName : '';
+const indexName = 'docs'; //config.features.search ? config.features.search.indexName : '';
 const queries = [
   {
     query: pageQuery,

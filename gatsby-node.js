@@ -1,10 +1,9 @@
-const componentWithMDXScope = require("gatsby-plugin-mdx/component-with-mdx-scope");
-const path = require("path");
-const startCase = require("lodash.startcase");
-const chokidar = require(`chokidar`)
-const touch = require("./src/utils/fileUtils")
+const path = require('path');
+const startCase = require('lodash.startcase');
+const chokidar = require(`chokidar`);
+const touch = require('./src/utils/fileUtils');
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
+exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
@@ -36,7 +35,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       external: Boolean
     }
   `;
-  createTypes(typeDefs)
+  createTypes(typeDefs);
 };
 
 exports.createPages = ({ graphql, actions }) => {
@@ -61,24 +60,24 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         `
-      ).then(result => {
+      ).then((result) => {
         if (result.errors) {
           console.log(result.errors); // eslint-disable-line no-console
           reject(result.errors);
         }
         actions.createPage({
           path: `/404.html`,
-          component: path.join(process.cwd(), "src/pages/404.js"),
-        })
+          component: path.join(process.cwd(), 'src/pages/404.js'),
+        });
 
         // Create blog posts pages.
         result.data.allMdx.edges.forEach(({ node }) => {
           createPage({
-            path: node.fields.slug ? node.fields.slug : "/",
-            component: path.resolve("./src/templates/docs.js"),
+            path: node.fields.slug ? node.fields.slug : '/',
+            component: path.resolve('./src/templates/docs.js'),
             context: {
-              id: node.fields.id
-            }
+              id: node.fields.id,
+            },
           });
         });
       })
@@ -86,22 +85,21 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
-
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"],
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
       alias: {
-        $components: path.resolve(__dirname, "src/components"),
-        buble: '@philpl/buble' // to reduce bundle size
-      }
-    }
+        $components: path.resolve(__dirname, 'src/components'),
+        buble: '@philpl/buble', // to reduce bundle size
+      },
+    },
   });
 };
 
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
-    name: "@babel/plugin-proposal-export-default-from"
+    name: '@babel/plugin-proposal-export-default-from',
   });
 };
 
@@ -110,37 +108,37 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
   if (node.internal.type === `Mdx`) {
     const parent = getNode(node.parent);
-    let value = parent.relativePath.replace(parent.ext, "");
+    let value = parent.relativePath.replace(parent.ext, '');
 
-    if (value === "index") {
-      value = "";
+    if (value === 'index') {
+      value = '';
     }
 
     createNodeField({
       name: `slug`,
       node,
-      value: `/${value}`
+      value: `/${value}`,
     });
 
     createNodeField({
-      name: "id",
+      name: 'id',
       node,
-      value: node.id
+      value: node.id,
     });
 
     createNodeField({
-      name: "title",
+      name: 'title',
       node,
-      value: node.frontmatter.title || startCase(parent.name)
+      value: node.frontmatter.title || startCase(parent.name),
     });
   }
 };
 
 exports.onPreBootstrap = () => {
-  const watcher = chokidar.watch("./config", {
-    ignored: ["jargon*"],
-  })
-  watcher.on(`change`, path => {
-    touch("./gatsby-config.js")
-  })
-}
+  const watcher = chokidar.watch('./config', {
+    ignored: ['jargon*'],
+  });
+  watcher.on(`change`, () => {
+    touch('./gatsby-config.js');
+  });
+};

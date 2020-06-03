@@ -1,19 +1,19 @@
-import React, {useState} from "react";
-import styled from "@emotion/styled";
-import {MDXProvider} from "@mdx-js/react";
-import ThemeProvider from "./themeProvider";
-import mdxComponents from "./mdxComponents";
-import ContentNavigation from "./sidebar";
-import ToC from "./tableOfContents";
-import ScrollTop from "./scrollTop";
-import Header from "./header"
-import SearchSidebar from "./search/sidebar"
+import React, { useState } from 'react';
+import styled from '@emotion/styled';
+import { MDXProvider } from '@mdx-js/react';
+import ThemeProvider from './themeProvider';
+import mdxComponents from './mdxComponents';
+import ContentNavigation from './sidebar';
+import ToC from './tableOfContents';
+import ScrollTop from './scrollTop';
+import Header from './header';
+import SearchSidebar from './search/sidebar';
 
 const Wrapper = styled('div')`
   display: flex;
   justify-content: space-between;
 
-  @media only screen and (max-width: ${props => props.theme.breakpoints['small']}) {
+  @media only screen and (max-width: ${(props) => props.theme.breakpoints['small']}) {
     display: block;
   }
 `;
@@ -31,28 +31,23 @@ const Content = styled('main')`
   }
 `;
 
-const MaxWidth = styled('div')`
-  width: 100%;
-`;
+const Layout = ({ children, location }) => {
+  const [showSearch, setShowSearch] = useState(false);
 
-const Layout = ({children, location}) => {
-const [showSearch, setShowSearch] = useState(false);
-
-return (
-  <ThemeProvider>
-    <SearchSidebar show={showSearch} setShow={setShowSearch}/>
-    <Header location={location} setShowSearch={setShowSearch}/>
-    <MDXProvider components={mdxComponents}>
-      <ScrollTop />
-      <Wrapper>
-        <ContentNavigation location={location} className={'hiddenMobile'}/>
-        <Content id='main-content'>
-          {children}
-        </Content>
-        <ToC location={location} className={'hiddenMobile hiddenTablet'}/>
-      </Wrapper>
-    </MDXProvider>
-  </ThemeProvider>
-)};
+  return (
+    <ThemeProvider>
+      <SearchSidebar show={showSearch} setShow={setShowSearch} />
+      <Header location={location} setShowSearch={setShowSearch} />
+      <MDXProvider components={mdxComponents}>
+        <ScrollTop />
+        <Wrapper>
+          <ContentNavigation location={location} className={'hiddenMobile'} />
+          <Content id="main-content">{children}</Content>
+          <ToC location={location} className={'hiddenMobile hiddenTablet'} />
+        </Wrapper>
+      </MDXProvider>
+    </ThemeProvider>
+  );
+};
 
 export default Layout;

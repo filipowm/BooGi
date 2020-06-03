@@ -1,72 +1,73 @@
-import React from "react";
-import {StaticQuery, graphql} from "gatsby";
-import styled from "@emotion/styled";
-import {AlignRight} from "react-feather";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import styled from '@emotion/styled';
+import { AlignRight } from 'react-feather';
 import config from 'config';
-import Scrollspy from 'react-scrollspy'
-import {sleep} from '../../utils/utils'
+import Scrollspy from 'react-scrollspy';
+import { sleep } from '../../utils/utils';
 
 const Sidebar = styled.aside`
-margin-top: 10px;
+  margin-top: 10px;
 
-min-width: 260px;
-height: 100vh;
-overflow: auto;
-padding: 40px 15px 0 5px;
-position: sticky;
-top: 0;
+  min-width: 260px;
+  height: 100vh;
+  overflow: auto;
+  padding: 40px 15px 0 5px;
+  position: sticky;
+  top: 0;
 
-@media only screen and (max-width: 50rem) {
-  width: 100%;
-  position: relative;
-}
-
-> ul {
-  padding-top: 5px;
-}
-
-li {
-  list-style-type: none;
-  a {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1.5;
-    padding: 5px 24px 5px 16px;
-    color: ${props => props.theme.tableOfContents.font.base};
-    text-decoration: none;
-    display: block;
+  @media only screen and (max-width: 50rem) {
+    width: 100%;
     position: relative;
-    border-left: 1px solid rgb(230, 236, 241);
-    transition: ${props => props.theme.transitions.hover};
   }
 
-  &:hover {
+  > ul {
+    padding-top: 5px;
+  }
+
+  li {
+    list-style-type: none;
     a {
-      border-left-color: ${props => props.theme.tableOfContents.font.hover};
-      color: ${props => props.theme.tableOfContents.font.hover} !important;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.5;
+      padding: 5px 24px 5px 16px;
+      color: ${(props) => props.theme.tableOfContents.font.base};
+      text-decoration: none;
+      display: block;
+      position: relative;
+      border-left: 1px solid rgb(230, 236, 241);
+      transition: ${(props) => props.theme.transitions.hover};
+    }
+
+    &:hover {
+      a {
+        border-left-color: ${(props) => props.theme.tableOfContents.font.hover};
+        color: ${(props) => props.theme.tableOfContents.font.hover} !important;
+      }
     }
   }
-}
-.currentItem {
-  border-left: 2px solid ${props => props.theme.tableOfContents.font.current} !important;
-  a{
-    color: ${props => props.theme.tableOfContents.font.current} !important;
+  .currentItem {
+    border-left: 2px solid ${(props) => props.theme.tableOfContents.font.current} !important;
+    a {
+      color: ${(props) => props.theme.tableOfContents.font.current} !important;
+    }
   }
-}
 `;
 
 // eslint-disable-next-line no-unused-vars
-const ListItem = styled(({className, active, level, ...props}) => {
-
+const ListItem = styled(({ className, active, level, children, ...props }) => {
   return (
     <li className={className}>
-      <a href={props.to} {...props} />
+      <a href={props.to} {...props}>
+        {children}
+      </a>
     </li>
   );
 })`
   a {
-    font-weight: ${({level}) => (level === 0 ? 700 : 400)};
-    padding-left: ${props => (props.level || 0) * 0.85}rem !important;
+    font-weight: ${({ level }) => (level === 0 ? 700 : 400)};
+    padding-left: ${(props) => (props.level || 0) * 0.85}rem !important;
     svg {
       float: right;
       margin-right: 1rem;
@@ -74,10 +75,13 @@ const ListItem = styled(({className, active, level, ...props}) => {
   }
 `;
 
-const TocTitle = styled(({className}) => {
+const TocTitle = styled(({ className }) => {
   return (
-    <span className={className}><AlignRight size={15}/>Contents</span>
-  )
+    <span className={className}>
+      <AlignRight size={15} />
+      Contents
+    </span>
+  );
 })`
   font-size: 10px;
   line-height: 1;
@@ -85,9 +89,9 @@ const TocTitle = styled(({className}) => {
   text-transform: uppercase;
   letter-spacing: 1.2px;
   padding: 7px 24px 7px 16px;
-  border-left: 1px solid ${props => props.theme.tableOfContents.border};
+  border-left: 1px solid ${(props) => props.theme.tableOfContents.border};
   border-left-color: rgb(230, 236, 241);
-  color: ${props => props.theme.tableOfContents.font.base};
+  color: ${(props) => props.theme.tableOfContents.font.base};
   display: flex;
   align-items: center;
   svg {
@@ -103,11 +107,7 @@ const buildToC = (item, items, depth = 1) => {
       }
       const itemId = innerItem.title ? innerItem.title.replace(/\s+/g, '').toLowerCase() : '#';
       let listItem = (
-        <ListItem
-          key={items.length}
-          to={`#${itemId}`}
-          level={depth}
-        >
+        <ListItem key={items.length} to={`#${itemId}`} level={depth}>
           {innerItem.title}
         </ListItem>
       );
@@ -115,7 +115,7 @@ const buildToC = (item, items, depth = 1) => {
       buildToC(innerItem, items, depth + 1);
     });
   }
-}
+};
 
 const generateToCItems = (allMdx, location) => {
   let finalNavItems = [];
@@ -123,8 +123,11 @@ const generateToCItems = (allMdx, location) => {
     allMdx.edges.forEach((item) => {
       let innerItems = [];
       if (item !== undefined) {
-        if (((item.node.fields.slug === location.pathname) || (config.metadata.pathPrefix + item.node.fields.slug) === location.pathname)
-        && ! item.node.frontmatter.skipToC) {
+        if (
+          (item.node.fields.slug === location.pathname ||
+            config.metadata.pathPrefix + item.node.fields.slug === location.pathname) &&
+          !item.node.frontmatter.skipToC
+        ) {
           buildToC(item.node.tableOfContents, innerItems);
         }
       }
@@ -134,65 +137,48 @@ const generateToCItems = (allMdx, location) => {
     });
   }
   return finalNavItems;
-}
+};
 
 const tocItemsEqual = (items, targetItems) => {
   if (items === targetItems) return true;
   if (items == null || targetItems == null) return false;
   if (items.length != targetItems.length) return false;
-  
+
   for (var i = 0; i < items.length; ++i) {
-    let target = targetItems[i]
+    let target = targetItems[i];
     if (targetItems[i]) {
-      target = target.id
+      target = target.id;
     }
     if (items[i] !== target) return false;
   }
   return true;
-}
+};
 
-const refresh = (scrollspyRef) => {
-  // This function is a workaround for a problem when scrollspy items get updated.
-  // In such case props are updated properly, but state is kept stale causing
-  // scrollspy to not follow content properly. To fix it, we need to manually
-  // trigger scrollspy reinitialization when its props change.
-  if (scrollspyRef.current && 
-    ! tocItemsEqual(scrollspyRef.current.props.items, scrollspyRef.current.state.targetItems)) {
-    sleep(200).then(() => {
-      if (scrollspyRef.current) {
-        scrollspyRef.current._initFromProps();
-      } else {
-        refresh();
-      }
-    })
- }  
-}
+const TableOfContents = ({ className, location }) => (
+  <StaticQuery
+    query={graphql`
+      query {
+        allMdx {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              tableOfContents
 
-const TableOfContents = ({className, location, id}) => (
- <StaticQuery
-   query={graphql`
-     query {
-       allMdx {
-         edges {
-           node {
-             fields {
-               slug
-             }
-             tableOfContents
-             
-            frontmatter {
+              frontmatter {
                 skipToC
+              }
             }
-           }
-         }
-       }
-     }
-   `} 
-    render={({allMdx}) => {
+          }
+        }
+      }
+    `}
+    render={({ allMdx }) => {
       const finalNavItems = generateToCItems(allMdx, location);
       if (finalNavItems.length > 0) {
         let ids = finalNavItems.map((item) => {
-          return item.props.to.substr(1)
+          return item.props.to.substr(1);
         });
         const scrollspyRef = React.createRef();
         const refresh = () => {
@@ -200,21 +186,28 @@ const TableOfContents = ({className, location, id}) => (
           // In such case props are updated properly, but state is kept stale causing
           // scrollspy to not follow content properly. To fix it, we need to manually
           // trigger scrollspy reinitialization when its props change.
-          if (scrollspyRef.current && 
-            ! tocItemsEqual(scrollspyRef.current.props.items, scrollspyRef.current.state.targetItems)) {
+          if (
+            scrollspyRef.current &&
+            !tocItemsEqual(scrollspyRef.current.props.items, scrollspyRef.current.state.targetItems)
+          ) {
             sleep(200).then(() => {
               if (scrollspyRef.current) {
                 scrollspyRef.current._initFromProps();
               } else {
                 refresh();
               }
-            })
-         }  
-        }
+            });
+          }
+        };
         return (
           <Sidebar className={className}>
             <TocTitle>Contents</TocTitle>
-            <Scrollspy ref={scrollspyRef} onUpdate={refresh} items={ids} currentClassName={'currentItem'}>
+            <Scrollspy
+              ref={scrollspyRef}
+              onUpdate={refresh}
+              items={ids}
+              currentClassName={'currentItem'}
+            >
               {finalNavItems}
             </Scrollspy>
           </Sidebar>

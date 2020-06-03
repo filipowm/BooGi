@@ -36,7 +36,7 @@ const PoweredByWrapper = styled.div`
 
 const NavigationWrapper = styled(({ className, children, ...props }) => {
   return (
-    <aside className={className}>
+    <aside className={className} {...props}>
       <Sidebar>{children}</Sidebar>
     </aside>
   );

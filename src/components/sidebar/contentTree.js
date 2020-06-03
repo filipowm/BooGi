@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ContentTreeGroup from './contentTreeGroup';
-import { calculateNavigation } from "../navigation"
+import { calculateNavigation } from '../navigation';
 
 const ContentTree = ({ edges, location }) => {
   const [treeData] = useState(() => calculateNavigation(edges));

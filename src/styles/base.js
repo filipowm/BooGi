@@ -1,5 +1,4 @@
-import styled from "@emotion/styled";
-import {css} from "@emotion/core";
+import { css } from '@emotion/core';
 
 export const show = css`
   display: block;
@@ -21,45 +20,44 @@ export const scrollY = css`
 `;
 
 export const flex = css`
-display: flex;
-align-content: stretch;
-justify-content: space-between;
+  display: flex;
+  align-content: stretch;
+  justify-content: space-between;
 `;
 
 export const transparent = css`
-background: transparent;
-border: none;
-outline: none;
+  background: transparent;
+  border: none;
+  outline: none;
 `;
 
 export const shadowAround = (theme) => css`
-box-shadow: 0 0 4px 0 ${theme.colors.shadow};
+  box-shadow: 0 0 4px 0 ${theme.colors.shadow};
 `;
 
 export const blockquote = (theme) => css`
-font-size: 1.4em;
-  width:100%;
-  margin:50px auto;
-  font-style:italic;
+  font-size: 1.4em;
+  width: 100%;
+  margin: 50px auto;
+  font-style: italic;
   color: ${theme.colors.color};
   padding: 14px 30px 14px 75px;
-  border-left:8px solid ${theme.colors.primary};
-  line-height:1.6;
+  border-left: 8px solid ${theme.colors.primary};
+  line-height: 1.6;
   position: relative;
   background: ${theme.colors.border};
-  
+
   &::before {
-  
-  content: "\\201C";
-  color: ${theme.colors.primary};
-  font-size:4em;
-  position: absolute;
-  left: 10px;
-  top:-10px;
+    content: '\\201C';
+    color: ${theme.colors.primary};
+    font-size: 4em;
+    position: absolute;
+    left: 10px;
+    top: -10px;
   }
-  
+
   &::after {
-  content: '';
+    content: '';
   }
   p {
     font-size: 16px;

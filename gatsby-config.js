@@ -1,28 +1,28 @@
 // 08:46
-require("dotenv").config();
-const queries = require("./src/utils/algolia");
-const readConfig = require("./config/config-reader")
-const writeConfig = require("./config/config-js-writer")
+require('dotenv').config();
+const queries = require('./src/utils/algolia');
+const readConfig = require('./config/config-reader');
+const writeConfig = require('./config/config-js-writer');
 const path = require('path');
 const globImporter = require('node-sass-glob-importer');
 
 const config = readConfig();
-writeConfig(__dirname + "/.generated.config.js", config);
+writeConfig(__dirname + '/.generated.config.js', config);
 
 const plugins = [
   'gatsby-plugin-sitemap',
   {
     resolve: 'gatsby-plugin-sass',
     options: {
-      importer: globImporter()
-    }
+      importer: globImporter(),
+    },
   },
   'gatsby-plugin-sharp',
   {
     resolve: `gatsby-plugin-layout`,
     options: {
-        component: require.resolve(`./src/templates/docs.js`)
-    }
+      component: require.resolve(`./src/templates/docs.js`),
+    },
   },
   'gatsby-plugin-emotion',
   'gatsby-plugin-remove-trailing-slashes',
@@ -31,18 +31,18 @@ const plugins = [
     resolve: 'gatsby-plugin-react-svg',
     options: {
       rule: {
-        include: /\.inline\.svg$/
-      }
-    }
+        include: /\.inline\.svg$/,
+      },
+    },
   },
   'gatsby-plugin-react-helmet',
   'gatsby-source-local-git',
   {
-    resolve: "gatsby-source-filesystem",
+    resolve: 'gatsby-source-filesystem',
     options: {
-      name: "docs",
-      path: `${__dirname}/content/`
-    }
+      name: 'docs',
+      path: `${__dirname}/content/`,
+    },
   },
   {
     resolve: `gatsby-transformer-gitinfo`,
@@ -53,31 +53,28 @@ const plugins = [
   {
     resolve: 'gatsby-plugin-mdx',
     options: {
-      remarkPlugins:[
-        require('remark-emoji'),
-        require('remark-abbr'),
-      ],
+      remarkPlugins: [require('remark-emoji'), require('remark-abbr')],
       gatsbyRemarkPlugins: [
         {
-          resolve: "gatsby-remark-images",
+          resolve: 'gatsby-remark-images',
           options: {
             maxWidth: 1035,
-            sizeByPixelDensity: true
-          }
+            sizeByPixelDensity: true,
+          },
         },
         {
-          resolve: 'gatsby-remark-copy-linked-files'
+          resolve: 'gatsby-remark-copy-linked-files',
         },
         {
           resolve: 'gatsby-remark-jargon',
-          options: { jargon: require('./config/jargon-config.js') }
+          options: { jargon: require('./config/jargon-config.js') },
         },
         {
-          resolve: 'gatsby-remark-sectionize'
-        }
+          resolve: 'gatsby-remark-sectionize',
+        },
       ],
-      extensions: [".mdx", ".md"]
-    }
+      extensions: ['.mdx', '.md'],
+    },
   },
   {
     resolve: `gatsby-plugin-gtag`,
@@ -93,16 +90,21 @@ const plugins = [
   {
     resolve: 'gatsby-plugin-root-import',
     options: {
-      "~": path.join(__dirname, 'src'),
+      '~': path.join(__dirname, 'src'),
       config: path.join(__dirname, '.generated.config.js'),
       images: path.join(__dirname, 'src/images'),
       styles: path.join(__dirname, 'src/styles'),
-      css: path.join(__dirname, 'src/styles/main.scss')
-    }
-  }
+      css: path.join(__dirname, 'src/styles/main.scss'),
+    },
+  },
 ];
 // check and add algolia
-if (config.features.search && config.features.search.enabled && config.features.search.algoliaAppId && config.features.search.algoliaAdminKey) {
+if (
+  config.features.search &&
+  config.features.search.enabled &&
+  config.features.search.algoliaAppId &&
+  config.features.search.algoliaAdminKey
+) {
   plugins.push({
     resolve: `gatsby-plugin-algolia`,
     options: {
@@ -110,14 +112,14 @@ if (config.features.search && config.features.search.enabled && config.features.
       apiKey: config.features.search.algoliaAdminKey, // algolia admin key to index
       queries,
       chunkSize: 10000, // default: 1000
-    }}
-  )
+    },
+  });
 }
 // check and add pwa functionality
 if (config.pwa && config.pwa.enabled && config.pwa.manifest) {
   plugins.push({
-      resolve: `gatsby-plugin-manifest`,
-      options: {...config.pwa.manifest},
+    resolve: `gatsby-plugin-manifest`,
+    options: { ...config.pwa.manifest },
   });
   plugins.push({
     resolve: 'gatsby-plugin-offline',
@@ -140,11 +142,14 @@ module.exports = {
     editable: config.metadata.editable,
     ogImage: config.metadata.ogImage,
     favicon: config.metadata.favicon,
-    logo: { link: config.header.logoLink ? config.header.logoLink : '/', image: config.header.logo }, // backwards compatible
+    logo: {
+      link: config.header.logoLink ? config.header.logoLink : '/',
+      image: config.header.logo,
+    }, // backwards compatible
     headerTitle: config.metadata.name,
     helpUrl: config.header.helpUrl,
     headerLinks: config.header.links,
     siteUrl: config.metadata.url,
   },
-  plugins: plugins
+  plugins: plugins,
 };

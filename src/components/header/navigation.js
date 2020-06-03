@@ -1,80 +1,91 @@
-import React from "react";
-import styled from "@emotion/styled";
+import React from 'react';
+import styled from '@emotion/styled';
 
 const help = require('images/help.svg');
-const Navigation = styled(({className, links, helpUrl, ...props}) => {
+const Navigation = styled(({ className, links, helpUrl }) => {
   return (
     <nav>
       <ul className={className}>
-        {links ? links.map((link, key) => {
-          const openRule = link.external ? "_blank" : "_self";
-          if (link.link !== '' && link.text !== '') {
-            return (
-              <li key={key}>
-                <a href={link.link} target={openRule} rel="noopener"
-                   dangerouslySetInnerHTML={{__html: link.text}}/>
-              </li>
-            );
-          }
-        }) : null}
-        {helpUrl !== '' ?
-          (<li><a href={helpUrl}><img src={help} alt={'Help icon'}/></a></li>) : null
-        }
+        {links
+          ? links.map((link, key) => {
+              const openRule = link.external ? '_blank' : '_self';
+              if (link.link !== '' && link.text !== '') {
+                return (
+                  <li key={key}>
+                    <a
+                      href={link.link}
+                      target={openRule}
+                      rel="noopener"
+                      dangerouslySetInnerHTML={{ __html: link.text }}
+                    />
+                  </li>
+                );
+              }
+            })
+          : null}
+        {helpUrl !== '' ? (
+          <li>
+            <a href={helpUrl}>
+              <img src={help} alt={'Help icon'} />
+            </a>
+          </li>
+        ) : null}
       </ul>
     </nav>
-  )
+  );
 })`
-display: flex;
-align-items: center;
--webkit-overflow-scrolling: touch;
-float: right;
-@media(max-width: ${props => props.theme.breakpoints['small']}) {
-  position: static;
-  display: none;
+  display: flex;
   align-items: center;
-  margin: 7.5px 0;
+  -webkit-overflow-scrolling: touch;
+  float: right;
+  @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
+    position: static;
+    display: none;
+    align-items: center;
+    margin: 7.5px 0;
 
+    li {
+      height: 37px;
+
+      a {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+    }
+  }
   li {
-    height: 37px;
-
+    list-style-type: none;
+    & > a:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background: ${(props) => props.theme.header.font.hover};
+      visibility: hidden;
+      border-radius: 4px;
+      transform: scaleX(0);
+      transition: 0.25s linear;
+    }
+    & > a:focus:before,
+    & > a:hover:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
     a {
-      font-size: 14px;
+      font-family: 'Roboto';
+      color: ${(props) => props.theme.header.font.base};
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1em;
+      opacity: 1;
       padding: 10px 15px;
+      &:hover {
+        color: ${(props) => props.theme.header.font.hover};
+      }
     }
   }
-}
-li {
-  list-style-type: none;  
-  & > a:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    background: ${props => props.theme.header.font.hover};
-    visibility: hidden;
-    border-radius: 4px;
-    transform: scaleX(0);
-    transition: .25s linear;
-  }
-  & > a:focus:before, & > a:hover:before {
-    visibility: visible;
-    transform: scaleX(1);
-  }
-  a {
-    font-family: 'Roboto';
-    color: ${props => props.theme.header.font.base};
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1em;
-    opacity: 1;
-    padding: 10px 15px;
-    &:hover {
-      color: ${props => props.theme.header.font.hover};
-    }
-  }
-}
 `;
 
 export default Navigation;

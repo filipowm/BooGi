@@ -140,13 +140,13 @@ const calculateNavigation = (edges) => {
 
 function flat(acc, val) {
   const parent = acc.concat(val.children);
-  const child = val.children.reduce(flat, [])
+  const child = val.children.reduce(flat, []);
   return parent.concat(child);
 }
 
 const calculateFlatNavigation = (edges) => {
   const navigation = calculateNavigation(edges);
   return navigation.children.reduce(flat, []);
-}
+};
 
 export { getNavigationData, calculateNavigation, calculateFlatNavigation };
