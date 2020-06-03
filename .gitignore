@@ -9,3 +9,4 @@ node_modules
 *.iml
 reduxcache*
 *.log
+.generated.config.js
