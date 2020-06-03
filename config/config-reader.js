@@ -164,7 +164,9 @@ class EnvReader extends ConfigReader {
 const read = () => {
     const fileConfig = new FileReader().read()
     const envConfig = new EnvReader().read()
-    let config = _.merge(defaults, fileConfig);
+    const def = _.cloneDeep(defaults)
+
+    let config = _.merge(def, fileConfig);
     config = _.merge(config, envConfig);
     postProcessConfig(config);
     return config;

@@ -6,7 +6,7 @@ metadata:
   pathPrefix: "/"
   ogImage: 
   docsLocation: https://github.com/filipowm/gatsby-gitbook-starter
-  docsLocationType: git
+  docsLocationType: github
   editable: true
   favicon: "/assets/favicon.png"
   themeColor: "#ff0000"

@@ -1,6 +1,8 @@
 const componentWithMDXScope = require("gatsby-plugin-mdx/component-with-mdx-scope");
 const path = require("path");
 const startCase = require("lodash.startcase");
+const chokidar = require(`chokidar`)
+const touch = require("./src/utils/fileUtils")
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions;
@@ -133,3 +135,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     });
   }
 };
+
+exports.onPreBootstrap = () => {
+  const watcher = chokidar.watch("./config", {
+    ignored: ["jargon*"],
+  })
+  watcher.on(`change`, path => {
+    touch("./gatsby-config.js")
+  })
+}

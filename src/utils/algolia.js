@@ -1,4 +1,4 @@
-const config = require("../../config/config.js");
+const config = require("../../.generated.config.js");
 
 const pageQuery = `{
   pages: allMdx {
