@@ -35,6 +35,7 @@
     "gatsby-plugin-sharp": "2.6.9",
     "gatsby-plugin-sitemap": "2.4.3",
     "gatsby-remark-copy-linked-files": "2.3.3",
+    "gatsby-remark-embed-snippet": "4.3.3",
     "gatsby-remark-images": "3.3.8",
     "gatsby-remark-jargon": "2.6.0",
     "gatsby-remark-sectionize": "1.0.0",

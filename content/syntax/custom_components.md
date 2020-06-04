@@ -220,6 +220,12 @@ Lines with `-` highlighted in red shade indicating a deletion.
 + const data = [1,2];
 ```
 
+## Embed external code snippets
+
+`embed:hello-js.js#L1`
+
+`embed:hello.java`
+
 ## Live Editing
 
 **Syntax**

@@ -72,6 +72,12 @@ const plugins = [
         {
           resolve: 'gatsby-remark-sectionize',
         },
+        {
+          resolve: `gatsby-remark-embed-snippet`,
+          options: {
+            directory: `${__dirname}/snippets/`,
+          },
+        },
       ],
       extensions: ['.mdx', '.md'],
     },
