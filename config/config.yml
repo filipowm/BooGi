@@ -74,3 +74,13 @@ features:
   scrollTop: true
   showMetadata: true
   propagateNetlifyEnv: true
+  pageProgress:
+    enabled: true
+    includePaths: 
+      - "/configuration/advanced/theme"
+      - regex: "^/syntax"
+    excludePaths:
+      - "/"
+    height: 3
+    prependToBody: false
+    color: '#A05EB5'

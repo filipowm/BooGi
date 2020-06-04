@@ -75,7 +75,15 @@ const defaults = {
     },
     scrollTop: true,
     showMetadata: true,
-    propagateNetlifyEnv: true
+    propagateNetlifyEnv: true,
+    pageProgress: {
+      enabled: false,
+      // includePaths: [],
+      excludePaths: ["/"],
+      height: 3,
+      prependToBody: false,
+      color: '#A05EB5'
+    }
   },
 };
 
@@ -214,7 +222,6 @@ const read = () => {
   config = _.merge(config, envConfig);
   const netlifyConfig = new NetlifyEnvReader(config.features.propagateNetlifyEnv).read();
   config = _.merge(config, netlifyConfig)
-  console.log("meta", config.metadata)
   postProcessConfig(config);
   return config;
 };

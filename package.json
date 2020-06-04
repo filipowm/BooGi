@@ -26,6 +26,7 @@
     "gatsby-plugin-manifest": "2.4.9",
     "gatsby-plugin-mdx": "1.2.13",
     "gatsby-plugin-offline": "3.2.7",
+    "gatsby-plugin-page-progress": "2.0.16",
     "gatsby-plugin-react-helmet": "3.3.2",
     "gatsby-plugin-react-svg": "3.0.0",
     "gatsby-plugin-remove-serviceworker": "1.0.0",

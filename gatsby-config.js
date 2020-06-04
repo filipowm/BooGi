@@ -98,6 +98,20 @@ const plugins = [
     },
   },
 ];
+
+if (config.features.pageProgress && config.features.pageProgress.enabled) {
+  plugins.push(
+    {
+      resolve: "gatsby-plugin-page-progress",
+      options: {
+        includePaths: config.features.pageProgress.includePaths,
+        excludePaths: config.features.pageProgress.excludePaths,
+        height: config.features.pageProgress.height,
+        prependToBody: config.features.pageProgress.prependToBody,
+        color: config.features.pageProgress.color
+      }
+    });
+}
 // check and add algolia
 if (
   config.features.search &&
