@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from '../link';
 import styled from '@emotion/styled';
 import emoji from 'node-emoji';
@@ -202,6 +202,21 @@ const calculateNextPrevious = (nav, index) => {
   return [previousInfo, nextInfo];
 };
 
+const setArrowNavigation = (previous, next) => {
+  useEffect(() => {
+    document.onkeydown = (e) => {
+      e = e || window.event;
+      if (e.keyCode == '37' && previous.url) {
+        // left arrow
+        navigate(previous.url);
+      } else if (e.keyCode == '39' && next.url) {
+        // right arrow
+        navigate(next.url);
+      }
+    };
+  }, [previous, next])
+}
+
 const nextPrevious = ({ mdx }) => {
   const edges = getNavigationData();
   const navigation = calculateFlatNavigation(edges);
@@ -216,17 +231,9 @@ const nextPrevious = ({ mdx }) => {
   const [previous, next] = calculateNextPrevious(navigation, currentIndex);
 
   if (config.features.previousNext.arrowKeyNavigation === true) {
-    document.onkeydown = (e) => {
-      e = e || window.event;
-      if (e.keyCode == '37' && previous.url) {
-        // left arrow
-        navigate(previous.url);
-      } else if (e.keyCode == '39' && next.url) {
-        // right arrow
-        navigate(next.url);
-      }
-    };
+    setArrowNavigation(previous, next);
   }
+
   return (
     <NextPreviousWrapper>
       {currentIndex >= 0 ? (
