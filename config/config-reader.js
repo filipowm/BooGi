@@ -73,7 +73,9 @@ const defaults = {
       enabled: true,
       arrowKeyNavigation: true
     },
-    scrollTop: true
+    scrollTop: true,
+    showMetadata: true,
+    propagateNetlifyEnv: true
   },
 };
 
@@ -178,6 +180,31 @@ class EnvReader extends ConfigReader {
   }
 }
 
+class NetlifyEnvReader extends ConfigReader {
+
+  constructor(allowNetlifyEnvPropagation) {
+    super();
+    this.allowNetlifyEnvPropagation = allowNetlifyEnvPropagation;
+  }
+
+  read() {
+    if (this.allowNetlifyEnvPropagation && readEnvOrDefault("NETLIFY", false)) {
+      const context = readEnvOrDefault("CONTEXT");
+      const repositoryUrl = readEnvOrDefault("REPOSITORY_URL");
+      const url = readEnvOrDefault("URL");
+      const deployUrl = context === "production" ? url : readEnvOrDefault("DEPLOY_PRIME_URL", url);
+      console.log("Setting up Netlify variables.", "URL:", deployUrl, "Docs Location:", repositoryUrl)
+      return {
+        metadata: {
+          url: deployUrl,
+          docsLocation: repositoryUrl,
+        }
+      }
+    }
+    return {};
+  }
+}
+
 const read = () => {
   const fileConfig = new FileReader().read();
   const envConfig = new EnvReader().read();
@@ -185,6 +212,9 @@ const read = () => {
 
   let config = _.merge(def, fileConfig);
   config = _.merge(config, envConfig);
+  const netlifyConfig = new NetlifyEnvReader(config.features.propagateNetlifyEnv).read();
+  config = _.merge(config, netlifyConfig)
+  console.log("meta", config.metadata)
   postProcessConfig(config);
   return config;
 };
