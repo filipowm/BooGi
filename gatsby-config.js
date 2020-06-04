@@ -56,6 +56,18 @@ const plugins = [
       remarkPlugins: [require('remark-emoji'), require('remark-abbr')],
       gatsbyRemarkPlugins: [
         {
+          resolve: 'gatsby-remark-mermaid',
+          options: {
+            language: config.features.mermaid.language,
+            theme: config.features.mermaid.theme,
+            viewport: {
+                width: config.features.mermaid.width,
+                height: config.features.mermaid.height
+            },
+            mermaidOptions: config.features.mermaid.options
+          }
+        },
+        {
           resolve: 'gatsby-remark-images',
           options: {
             maxWidth: 1035,

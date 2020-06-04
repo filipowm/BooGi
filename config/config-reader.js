@@ -83,6 +83,13 @@ const defaults = {
       height: 3,
       prependToBody: false,
       color: '#A05EB5'
+    },
+    mermaid: {
+      language: 'mermaid',
+      theme: 'dark', // default, dark, forest, neutral
+      options: {}, // https://mermaidjs.github.io/#/mermaidAPI
+      width: 300,
+      height: 300
     }
   },
 };

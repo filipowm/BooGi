@@ -84,3 +84,9 @@ features:
     height: 3
     prependToBody: false
     color: '#A05EB5'
+  mermaid:
+    language: 'mermaid'
+    theme: 'dark'
+    options:
+    width: 300
+    height: 300

@@ -209,6 +209,17 @@ Organization _MSF_ is helping society a lot.
 
 ## Emoticons
 
+## Diagrams
+
+```mermaid
+graph TD
+	A[Christmas] -->|Get money| B(Go shopping)
+	B --> C{Let me think}
+	C -->|One| D[Laptop]
+	C -->|Two| E[iPhone]
+	C -->|Three| F[fa:fa-car Car]
+```
+
 ## Diff
 
 The following is a code block with diff. 
