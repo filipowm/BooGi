@@ -8,6 +8,7 @@ import ToC from './tableOfContents';
 import ScrollTop from './scrollTop';
 import Header from './header';
 import SearchSidebar from './search/sidebar';
+import config from 'config';
 
 const Wrapper = styled('div')`
   display: flex;
@@ -39,7 +40,7 @@ const Layout = ({ children, location }) => {
       <SearchSidebar show={showSearch} setShow={setShowSearch} />
       <Header location={location} setShowSearch={setShowSearch} />
       <MDXProvider components={mdxComponents}>
-        <ScrollTop />
+        {config.features.scrollTop === true ? <ScrollTop /> : ''}
         <Wrapper>
           <ContentNavigation location={location} className={'hiddenMobile'} />
           <Content id="main-content">{children}</Content>
