@@ -211,6 +211,8 @@ Organization _MSF_ is helping society a lot.
 
 ## Diagrams
 
+### Mermaid
+
 ```mermaid
 graph TD
 	A[Christmas] -->|Get money| B(Go shopping)
@@ -218,6 +220,31 @@ graph TD
 	C -->|One| D[Laptop]
 	C -->|Two| E[iPhone]
 	C -->|Three| F[fa:fa-car Car]
+```
+
+### Graphviz
+
+```dot
+digraph graphname {
+  a -> b;
+  b -> c;
+  a -> c;
+}
+```
+
+```dot
+graph mygraph {
+    rankdir=LR
+    label="My Graph"
+    a -- b[color=red,penwidth=3.0];
+    b -- c;
+    c -- d[color=red,penwidth=3.0];
+    d -- e;
+    e -- f;
+    a -- d;
+    b -- d[color=blue,penwidth=2.0];
+    c -- f[color=blue,penwidth=2.0];
+}
 ```
 
 ## Diff

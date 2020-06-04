@@ -67,6 +67,8 @@ const plugins = [
             mermaidOptions: config.features.mermaid.options
           }
         },
+        'gatsby-remark-graphviz',
+        'gatsby-remark-sectionize',
         {
           resolve: 'gatsby-remark-images',
           options: {
@@ -74,15 +76,10 @@ const plugins = [
             sizeByPixelDensity: true,
           },
         },
-        {
-          resolve: 'gatsby-remark-copy-linked-files',
-        },
+        'gatsby-remark-copy-linked-files',
         {
           resolve: 'gatsby-remark-jargon',
           options: { jargon: require('./config/jargon-config.js') },
-        },
-        {
-          resolve: 'gatsby-remark-sectionize',
         },
         {
           resolve: `gatsby-remark-embed-snippet`,
