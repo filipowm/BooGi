@@ -145,21 +145,22 @@ export default class MDXRuntimeTest extends React.Component {
               ''
             )}
           </TitleWrapper>
-          {mdx.frontmatter.skipMetadata ? (
-            ''
-          ) : (
-            <div css={{ display: 'block' }}>
-              {mdx.parent.fields ? (
-                <LastUpdated
-                  time={mdx.parent.fields.gitLogLatestDate}
-                  name={mdx.parent.fields.gitLogLatestAuthorName}
-                  email={mdx.parent.fields.gitLogLatestAuthorEmail}
-                />
-              ) : (
-                ''
-              )}
-              <ReadingTime time={mdx.timeToRead * 2} />
-            </div>
+          {(config.features.showMetadata === true && mdx.frontmatter.showMetadata !== false) 
+            || mdx.frontmatter.showMetadata === true ? (  
+              <div css={{ display: 'block' }}>
+                {mdx.parent.fields ? (
+                  <LastUpdated
+                    time={mdx.parent.fields.gitLogLatestDate}
+                    name={mdx.parent.fields.gitLogLatestAuthorName}
+                    email={mdx.parent.fields.gitLogLatestAuthorEmail}
+                  />
+                ) : (
+                  ''
+                )}
+                <ReadingTime time={mdx.timeToRead * 2} />
+              </div>
+            ) : (
+              ''
           )}
         </PageTitle>
         <ContentWrapper>
@@ -210,7 +211,7 @@ export const pageQuery = graphql`
       frontmatter {
         metaTitle
         metaDescription
-        skipMetadata
+        showMetadata
         editable
         showPreviousNext
         skipToC

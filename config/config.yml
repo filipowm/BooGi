@@ -72,3 +72,4 @@ features:
     enabled: true
     arrowKeyNavigation: true
   scrollTop: true
+  showMetadata: true
