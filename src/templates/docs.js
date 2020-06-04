@@ -165,9 +165,14 @@ export default class MDXRuntimeTest extends React.Component {
         <ContentWrapper>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </ContentWrapper>
-        <div css={{ padding: '50px 0' }}>
-          <NextPrevious mdx={mdx} />
-        </div>
+        {(config.features.previousNext === true && mdx.frontmatter.showPreviousNext != false) ||
+            mdx.frontmatter.showPreviousNext ? (
+              <div css={{ padding: '50px 0' }}>
+                <NextPrevious mdx={mdx} />
+              </div>
+            ) : (
+              ''
+            )}
       </Layout>
     );
   }
@@ -207,6 +212,7 @@ export const pageQuery = graphql`
         metaDescription
         skipMetadata
         editable
+        showPreviousNext
         skipToC
       }
     }

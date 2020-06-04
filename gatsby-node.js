@@ -14,6 +14,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       skipToC: Boolean
       editable: Boolean
       skipMetadata: Boolean
+      showPreviousNext: Boolean
       metaDescription: String
       metaTitle: String
       order: Int
