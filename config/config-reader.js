@@ -68,6 +68,8 @@ const defaults = {
     toc: {
       depth: 3,
     },
+    previousNext: true,
+    scrollTop: true
   },
 };
 
