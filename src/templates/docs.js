@@ -165,7 +165,7 @@ export default class MDXRuntimeTest extends React.Component {
         <ContentWrapper>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </ContentWrapper>
-        {(config.features.previousNext === true && mdx.frontmatter.showPreviousNext != false) ||
+        {(config.features.previousNext.enabled === true && mdx.frontmatter.showPreviousNext !== false) ||
             mdx.frontmatter.showPreviousNext ? (
               <div css={{ padding: '50px 0' }}>
                 <NextPrevious mdx={mdx} />

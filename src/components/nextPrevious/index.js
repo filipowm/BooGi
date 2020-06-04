@@ -2,6 +2,8 @@ import React from 'react';
 import Link from '../link';
 import styled from '@emotion/styled';
 import emoji from 'node-emoji';
+import { navigate } from 'gatsby';
+import config from 'config';
 
 import { calculateFlatNavigation, getNavigationData } from '../navigation';
 
@@ -212,6 +214,19 @@ const nextPrevious = ({ mdx }) => {
     return true;
   });
   const [previous, next] = calculateNextPrevious(navigation, currentIndex);
+
+  if (config.features.previousNext.arrowKeyNavigation === true) {
+    document.onkeydown = (e) => {
+      e = e || window.event;
+      if (e.keyCode == '37' && previous.url) {
+        // left arrow
+        navigate(previous.url);
+      } else if (e.keyCode == '39' && next.url) {
+        // right arrow
+        navigate(next.url);
+      }
+    };
+  }
   return (
     <NextPreviousWrapper>
       {currentIndex >= 0 ? (

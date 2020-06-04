@@ -69,7 +69,10 @@ const defaults = {
     toc: {
       depth: 3,
     },
-    previousNext: true,
+    previousNext: {
+      enabled: true,
+      arrowKeyNavigation: true
+    },
     scrollTop: true
   },
 };
