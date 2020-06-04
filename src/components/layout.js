@@ -37,15 +37,22 @@ const Layout = ({ children, location }) => {
 
   return (
     <ThemeProvider>
-      {config.header.enabled === true? (
+      {config.header.enabled === true ? (
         <>
           <SearchSidebar show={showSearch} setShow={setShowSearch} />
-          <Header location={location} setShowSearch={setShowSearch} /> 
-        </>) : '' }
+          <Header location={location} setShowSearch={setShowSearch} />
+        </>
+      ) : (
+        ''
+      )}
       <MDXProvider components={mdxComponents}>
         {config.features.scrollTop === true ? <ScrollTop /> : ''}
         <Wrapper>
-          <ContentNavigation location={location} className={'hiddenMobile'} />
+          {config.sidebar.enabled === true ? (
+            <ContentNavigation location={location} className={'hiddenMobile'} />
+          ) : (
+            ''
+          )}
           <Content id="main-content">{children}</Content>
           <ToC location={location} className={'hiddenMobile hiddenTablet'} />
         </Wrapper>

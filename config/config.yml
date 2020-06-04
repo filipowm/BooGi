@@ -26,6 +26,7 @@ header:
     link: "/"
     external: false
 sidebar:
+  enabled: true
   forcedNavOrder:
   - "/introduction"
   - "/configuration/basic"

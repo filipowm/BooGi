@@ -30,6 +30,7 @@ const defaults = {
     algoliaAdminKey: null,
   },
   sidebar: {
+    enabled: true,
     forcedNavOrder: [],
     expanded: [],
     groups: [],
