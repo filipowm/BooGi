@@ -37,8 +37,11 @@ const Layout = ({ children, location }) => {
 
   return (
     <ThemeProvider>
-      <SearchSidebar show={showSearch} setShow={setShowSearch} />
-      <Header location={location} setShowSearch={setShowSearch} />
+      {config.header.enabled === true? (
+        <>
+          <SearchSidebar show={showSearch} setShow={setShowSearch} />
+          <Header location={location} setShowSearch={setShowSearch} /> 
+        </>) : '' }
       <MDXProvider components={mdxComponents}>
         {config.features.scrollTop === true ? <ScrollTop /> : ''}
         <Wrapper>

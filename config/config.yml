@@ -11,6 +11,7 @@ metadata:
   favicon: "/assets/favicon.png"
   themeColor: "#ff0000"
 header:
+  enabled: true
   logo: ''
   logoLink: "/"
   helpUrl: ''
