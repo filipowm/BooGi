@@ -7487,6 +7487,13 @@ gatsby-plugin-algolia@0.11.0:
     gatsby-cli "^1.1.58"
     lodash.chunk "^4.2.0"
 
+gatsby-plugin-canonical-urls@2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-canonical-urls/-/gatsby-plugin-canonical-urls-2.3.3.tgz#d85d7dfd7c7abf360a0971331b0fd09fef25d2eb"
+  integrity sha512-JlrymRdHf0S1YdcVUJZuVQaNSnPZqCz7qxO5WHz1K9e9kZMy2FdboIi6xBqofDo/IFXLVAqdktWGZ0kVUlASsw==
+  dependencies:
+    "@babel/runtime" "^7.10.2"
+
 gatsby-plugin-emotion@4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.3.2.tgz#2add7dd8b664872bb81f612b9c2abaab5a410dd3"

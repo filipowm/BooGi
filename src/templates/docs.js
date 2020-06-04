@@ -101,7 +101,7 @@ export default class MDXRuntimeTest extends React.Component {
     const {
       mdx,
       site: {
-        siteMetadata: { docsLocation, docsLocationType, title, siteUrl },
+        siteMetadata: { docsLocation, docsLocationType, title },
       },
       gitBranch,
     } = data;
@@ -109,10 +109,6 @@ export default class MDXRuntimeTest extends React.Component {
     // meta tags
     const metaTitle = mdx.frontmatter.metaTitle;
     const metaDescription = mdx.frontmatter.metaDescription;
-    let canonicalUrl = siteUrl;
-    canonicalUrl =
-      config.metadata.pathPrefix !== '/' ? canonicalUrl + config.metadata.pathPrefix : canonicalUrl;
-    canonicalUrl = canonicalUrl + mdx.fields.slug;
     const docTitle = emoji.emojify(mdx.fields.title, (name) => name);
     const headTitle = metaTitle ? metaTitle : emoji.strip(docTitle);
     return (
@@ -127,7 +123,6 @@ export default class MDXRuntimeTest extends React.Component {
           {metaDescription ? (
             <meta property="twitter:description" content={metaDescription} />
           ) : null}
-          <link rel="canonical" href={canonicalUrl} />
         </Helmet>
         <PageTitle>
           <TitleWrapper>
@@ -186,7 +181,6 @@ export const pageQuery = graphql`
         title
         docsLocation
         docsLocationType
-        siteUrl
       }
     }
     mdx(fields: { id: { eq: $id } }) {

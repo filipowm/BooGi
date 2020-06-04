@@ -112,6 +112,13 @@ const plugins = [
       css: path.join(__dirname, 'src/styles/main.scss'),
     },
   },
+  {
+    resolve: `gatsby-plugin-canonical-urls`,
+    options: {
+      siteUrl: config.metadata.url,
+      stripQueryString: true
+    },
+  },
 ];
 
 if (config.features.pageProgress && config.features.pageProgress.enabled) {
