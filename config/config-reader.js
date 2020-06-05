@@ -1,98 +1,7 @@
 const fs = require('fs');
 const _ = require('lodash');
 const yaml = require('js-yaml');
-
-const defaults = {
-  metadata: {
-    name: 'Gitbook Starter',
-    short_name: '',
-    description: '',
-    url: 'http://localhost',
-    pathPrefix: '/',
-    gaTrackingId: null,
-    ogImage: null,
-    docsLocation: 'https://github.com/filipowm/gatsby-gitbook-starter',
-    docsLocationType: 'github',
-    favicon: '/assets/favicon.png',
-    themeColor: '#',
-  },
-  header: {
-    logo: '',
-    logoLink: '/',
-    helpUrl: 'asdg',
-    links: [],
-  },
-  search: {
-    enabled: true,
-    indexName: 'docs',
-    algoliaAppId: null,
-    algoliaSearchKey: null,
-    algoliaAdminKey: null,
-  },
-  sidebar: {
-    enabled: true,
-    forcedNavOrder: [],
-    expanded: [],
-    groups: [],
-    links: [],
-    ignoreIndex: true,
-    poweredBy: {},
-  },
-
-  pwa: {
-    enabled: true, // disabling this will also remove the existing service worker.
-    manifest: {
-      name: 'Gitbook',
-      short_name: 'GitbookStarter',
-      start_url: '/',
-      background_color: '#6b37bf',
-      theme_color: '#6b37bf',
-      display: 'standalone',
-      crossOrigin: 'use-credentials',
-      icons: [
-        {
-          src: 'src/pwa-512.png',
-          sizes: `512x512`,
-          type: `image/png`,
-        },
-      ],
-    },
-  },
-  features: {
-    search: {
-      enabled: true,
-      indexName: 'docs',
-      algoliaAppId: null,
-      algoliaSearchKey: null,
-      algoliaAdminKey: null,
-    },
-    toc: {
-      depth: 3,
-    },
-    previousNext: {
-      enabled: true,
-      arrowKeyNavigation: true
-    },
-    scrollTop: true,
-    showMetadata: true,
-    propagateNetlifyEnv: true,
-    pageProgress: {
-      enabled: false,
-      // includePaths: [],
-      excludePaths: ["/"],
-      height: 3,
-      prependToBody: false,
-      color: '#A05EB5'
-    },
-    mermaid: {
-      language: 'mermaid',
-      theme: 'dark', // default, dark, forest, neutral
-      options: {}, // https://mermaidjs.github.io/#/mermaidAPI
-      width: 300,
-      height: 300
-    }
-  },
-};
+const defaults = require('./default');
 
 const readEnvOrDefault = (name, def) => {
   let value = process.env[name];
@@ -196,25 +105,30 @@ class EnvReader extends ConfigReader {
 }
 
 class NetlifyEnvReader extends ConfigReader {
-
   constructor(allowNetlifyEnvPropagation) {
     super();
     this.allowNetlifyEnvPropagation = allowNetlifyEnvPropagation;
   }
 
   read() {
-    if (this.allowNetlifyEnvPropagation && readEnvOrDefault("NETLIFY", false)) {
-      const context = readEnvOrDefault("CONTEXT");
-      const repositoryUrl = readEnvOrDefault("REPOSITORY_URL");
-      const url = readEnvOrDefault("URL");
-      const deployUrl = context === "production" ? url : readEnvOrDefault("DEPLOY_PRIME_URL", url);
-      console.log("Setting up Netlify variables.", "URL:", deployUrl, "Docs Location:", repositoryUrl)
+    if (this.allowNetlifyEnvPropagation && readEnvOrDefault('NETLIFY', false)) {
+      const context = readEnvOrDefault('CONTEXT');
+      const repositoryUrl = readEnvOrDefault('REPOSITORY_URL');
+      const url = readEnvOrDefault('URL');
+      const deployUrl = context === 'production' ? url : readEnvOrDefault('DEPLOY_PRIME_URL', url);
+      console.log(
+        'Setting up Netlify variables.',
+        'URL:',
+        deployUrl,
+        'Docs Location:',
+        repositoryUrl
+      );
       return {
         metadata: {
           url: deployUrl,
           docsLocation: repositoryUrl,
-        }
-      }
+        },
+      };
     }
     return {};
   }
@@ -228,7 +142,7 @@ const read = () => {
   let config = _.merge(def, fileConfig);
   config = _.merge(config, envConfig);
   const netlifyConfig = new NetlifyEnvReader(config.features.propagateNetlifyEnv).read();
-  config = _.merge(config, netlifyConfig)
+  config = _.merge(config, netlifyConfig);
   postProcessConfig(config);
   return config;
 };

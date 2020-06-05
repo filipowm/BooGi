@@ -2,9 +2,10 @@
 metadata:
   name: GitBook Starter
   short_name: GitBook
-  description: 
+  description: Example Gitbook
+  language: en
   pathPrefix: "/"
-  ogImage: 
+  ogImage:
   docsLocation: https://github.com/filipowm/gatsby-gitbook-starter
   docsLocationType: github
   editable: true
@@ -12,43 +13,43 @@ metadata:
   themeColor: "#ff0000"
 header:
   enabled: true
-  logo: ''
+  logo: ""
   logoLink: "/"
-  helpUrl: ''
+  helpUrl: ""
   links:
-  - text: GitBook
-    link: https://github.com/filipowm/gatsby-gitbook-starter
-    external: true
-  - text: Gatsby
-    link: https://www.gatsbyjs.org
-    external: true
-  - text: Docs
-    link: "/"
-    external: false
+    - text: GitBook
+      link: https://github.com/filipowm/gatsby-gitbook-starter
+      external: true
+    - text: Gatsby
+      link: https://www.gatsbyjs.org
+      external: true
+    - text: Docs
+      link: "/"
+      external: false
 sidebar:
   enabled: true
   forcedNavOrder:
-  - "/introduction"
-  - "/configuration/basic"
-  - "/configuration/advanced"
-  expanded: 
+    - "/introduction"
+    - "/configuration/basic"
+    - "/configuration/advanced"
+  expanded:
   groups:
-  - order: 1
-    path: "/configuration"
-    icon: "/assets/settings.svg"
-    title: Configuration
-  - order: 2
-    path: "/syntax"
-    icon: "/assets/code.svg"
-    title: Syntax
-  - order: 3
-    path: "/developing"
-    title: Lol
+    - order: 1
+      path: "/configuration"
+      icon: "/assets/settings.svg"
+      title: Configuration
+    - order: 2
+      path: "/syntax"
+      icon: "/assets/code.svg"
+      title: Syntax
+    - order: 3
+      path: "/developing"
+      title: Lol
   links:
-  - text: Gitbook
-    link: https://github.com/filipowm/gatsby-gitbook-starter
-  - text: React
-    link: https://reactjs.org
+    - text: Gitbook
+      link: https://github.com/filipowm/gatsby-gitbook-starter
+    - text: React
+      link: https://reactjs.org
   ignoreIndex: true
   poweredBy:
     trademark: "/assets/gatsby.png"
@@ -60,9 +61,9 @@ pwa:
     display: standalone
     crossOrigin: use-credentials
     icons:
-    - src: src/pwa-512.png
-      sizes: 512x512
-      type: image/png
+      - src: src/pwa-512.png
+        sizes: 512x512
+        type: image/png
 features:
   search:
     enabled: true
@@ -76,17 +77,29 @@ features:
   propagateNetlifyEnv: true
   pageProgress:
     enabled: true
-    includePaths: 
+    includePaths:
       - "/configuration/advanced/theme"
       - regex: "^/syntax"
     excludePaths:
       - "/"
     height: 3
     prependToBody: false
-    color: '#A05EB5'
+    color: "#A05EB5"
   mermaid:
-    language: 'mermaid'
-    theme: 'dark'
+    language: "mermaid"
+    theme: "dark"
     options:
     width: 300
     height: 300
+  rss:
+    enabled: true
+    copyright: "2020, Mateusz Filipowicz"
+    webMaster: "Mateusz Filipowicz"
+    managingEditor: "Mateusz Filipowicz"
+    categories:
+      - Category 1
+      - Category 2
+    ttl: 60
+    matchRegex: "^/"
+    outputPath: "/rss.xml"
+    generator: "gidocs"

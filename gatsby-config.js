@@ -5,6 +5,8 @@ const readConfig = require('./config/config-reader');
 const writeConfig = require('./config/config-js-writer');
 const path = require('path');
 const globImporter = require('node-sass-glob-importer');
+const emoji = require('node-emoji');
+const _ = require('lodash');
 
 const config = readConfig();
 writeConfig(__dirname + '/.generated.config.js', config);
@@ -61,11 +63,11 @@ const plugins = [
             language: config.features.mermaid.language,
             theme: config.features.mermaid.theme,
             viewport: {
-                width: config.features.mermaid.width,
-                height: config.features.mermaid.height
+              width: config.features.mermaid.width,
+              height: config.features.mermaid.height,
             },
-            mermaidOptions: config.features.mermaid.options
-          }
+            mermaidOptions: config.features.mermaid.options,
+          },
         },
         'gatsby-remark-graphviz',
         'gatsby-remark-sectionize',
@@ -127,24 +129,100 @@ const plugins = [
     resolve: `gatsby-plugin-canonical-urls`,
     options: {
       siteUrl: config.metadata.url,
-      stripQueryString: true
+      stripQueryString: true,
     },
   },
 ];
 
 if (config.features.pageProgress && config.features.pageProgress.enabled) {
-  plugins.push(
-    {
-      resolve: "gatsby-plugin-page-progress",
-      options: {
-        includePaths: config.features.pageProgress.includePaths,
-        excludePaths: config.features.pageProgress.excludePaths,
-        height: config.features.pageProgress.height,
-        prependToBody: config.features.pageProgress.prependToBody,
-        color: config.features.pageProgress.color
-      }
-    });
+  plugins.push({
+    resolve: 'gatsby-plugin-page-progress',
+    options: {
+      includePaths: config.features.pageProgress.includePaths,
+      excludePaths: config.features.pageProgress.excludePaths,
+      height: config.features.pageProgress.height,
+      prependToBody: config.features.pageProgress.prependToBody,
+      color: config.features.pageProgress.color,
+    },
+  });
 }
+
+if (config.features.rss && config.features.rss.enabled) {
+  plugins.push({
+    resolve: `gatsby-plugin-feed`,
+    options: {
+      ...config.features.rss,
+      language: config.metadata.language,
+      query: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
+          }
+        }
+      `,
+      feeds: [
+        {
+          serialize: ({ query: { site, allMdx } }) => {
+            const items = allMdx.edges.map((edge) => {
+              const frontmatter = edge.node.frontmatter;
+              const fields = edge.node.parent.fields;
+              const rawTitle = frontmatter.metaTitle ? frontmatter.metaTitle : frontmatter.title;
+              const title = emoji.strip(emoji.emojify(rawTitle, (name) => name));
+              const date = fields && fields.gitLogLatestDate ? fields.gitLogLatestDate : new Date();
+              const author =
+                fields && fields.gitLogLatestAuthorName ? fields.gitLogLatestAuthorName : 'unknown';
+              return {
+                title: title,
+                description: frontmatter.metaDescription
+                  ? frontmatter.metaDescription
+                  : edge.node.excerpt,
+                date: date,
+                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                author: author,
+              };
+            });
+            return _.orderBy(items, ['date', 'title'], ['desc', 'asc']);
+          },
+          query: `
+          {
+            allMdx {
+              edges {
+                node {
+                  excerpt
+                  fields {
+                    slug
+                  }
+                  parent {
+                    ... on File {
+                      fields {
+                        gitLogLatestDate
+                        gitLogLatestAuthorName
+                      }
+                    }
+                  }
+                  frontmatter {
+                    title
+                    metaTitle
+                    metaDescription
+                  }
+                }
+              }
+            }
+          }
+          `,
+          output: config.features.rss.outputPath,
+          match: config.features.rss.matchRegex,
+        },
+      ],
+    },
+  });
+}
+
 // check and add algolia
 if (
   config.features.search &&
