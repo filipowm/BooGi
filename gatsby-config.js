@@ -87,6 +87,17 @@ const plugins = [
             directory: `${__dirname}/snippets/`,
           },
         },
+        {
+          resolve: `gatsby-remark-embedder`,
+          options: {
+            customTransformers: [
+              // Your custom transformers
+            ],
+            services: {
+              // The service-specific options by the name of the service
+            },
+          },
+        },
       ],
       extensions: ['.mdx', '.md'],
     },

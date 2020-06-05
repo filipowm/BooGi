@@ -37,6 +37,7 @@
     "gatsby-plugin-sitemap": "2.4.3",
     "gatsby-remark-copy-linked-files": "2.3.3",
     "gatsby-remark-embed-snippet": "4.3.3",
+    "gatsby-remark-embedder": "^2.1.1",
     "gatsby-remark-graphviz": "1.3.3",
     "gatsby-remark-images": "3.3.8",
     "gatsby-remark-jargon": "2.6.0",

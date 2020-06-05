@@ -279,3 +279,11 @@ Lines with `-` highlighted in red shade indicating a deletion.
 ```javascript react-live=true
 <button className={'btn btn-default'}>Change my text</button>
 ```
+
+## Embeddable
+
+https://www.youtube.com/watch?v=GuvAMcsoreI
+
+https://codepen.io/rcyou/pen/QEObEk
+
+https://giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO
