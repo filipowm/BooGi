@@ -17,7 +17,7 @@ const Icon = ({ ...props }) => {
 
   const config = {
     size: props.size || 22,
-    color: props.color || theme.colors.color,
+    color: props.color || theme.colors.font,
   };
   const margin = props.margin || '5px';
   return (

@@ -61,7 +61,7 @@ const ContentTreeGroup = styled(({ className, treeState, title, icon, location, 
     letter-spacing: 1.2px;
     text-transform: uppercase;
     position: relative;
-    color: ${(props) => props.theme.navigationSidebar.font.header};
+    color: ${(props) => props.theme.navigationSidebar.font.group};
   }
   > span {
     margin-bottom: 5px;

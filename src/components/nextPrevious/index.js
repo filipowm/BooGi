@@ -60,7 +60,7 @@ const RightArrow = () => (
 const Arrow = styled(({ className, arrow }) => <div className={className}>{arrow()}</div>)`
   display: block;
   margin: 0;
-  color: rgb(157, 170, 182);
+  color: ${(props) => props.theme.previousNext.font};
   flex: 0 0 auto;
   font-size: 24px;
   transition: color 200ms ease 0s;
@@ -84,7 +84,7 @@ const Label = styled.div`
   display: block;
   margin: 0;
   padding: 0;
-  color: #6e6e6e;
+  color: ${(props) => props.theme.previousNext.fontLabel};
 
   span {
     font-size: 12px;
@@ -147,20 +147,20 @@ const Button = styled(({ className, url, children }) => {
   flex-direction: row;
   align-items: center;
   place-self: stretch;
-  color: rgb(36, 42, 49);
-  background-color: rgb(255, 255, 255);
+  color: ${(props) => props.theme.previousNext.font};
+  background-color: ${(props) => props.theme.previousNext.background};
   border-radius: 4px;
-  border: 1px solid rgb(230, 236, 241);
+  border: 1px solid ${(props) => props.theme.previousNext.border};
   transition: border 200ms ease 0s;
-  box-shadow: rgba(116, 129, 141, 0.1) 0 3px 8px;
+  box-shadow: ${(props) => props.theme.previousNext.shadow} 0 3px 8px;
   text-decoration: none;
 
   &:hover {
-    color: ${(props) => props.theme.colors.blue};
+    color: ${(props) => props.theme.previousNext.hover};
     text-decoration: none;
-    border: 1px solid ${(props) => props.theme.colors.blue};
+    border: 1px solid ${(props) => props.theme.previousNext.hover};
     svg * {
-      color: ${(props) => props.theme.colors.blue};
+      color: ${(props) => props.theme.previousNext.hover};
     }
   }
 `;
@@ -214,8 +214,8 @@ const setArrowNavigation = (previous, next) => {
         navigate(next.url);
       }
     };
-  }, [previous, next])
-}
+  }, [previous, next]);
+};
 
 const nextPrevious = ({ mdx }) => {
   const edges = getNavigationData();

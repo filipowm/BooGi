@@ -24,6 +24,7 @@ const Content = styled('main')`
   flex-grow: 1;
   flex-direction: column;
   padding: 50px 70px;
+  background-color: ${(props) => props.theme.content.background};
 
   @media only screen and (max-width: 1023px) {
     padding-right: 0;

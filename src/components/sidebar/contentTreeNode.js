@@ -15,12 +15,12 @@ import emoji from 'node-emoji';
 // let SomeComponent = styled('div')`${dynamicStyle}`
 
 const activeNode = (theme) => css`
-  border: 1px solid ${theme.navigationSidebar.rowActiveBorder};
+  border: 1px solid ${theme.navigationSidebar.row.activeBorder};
   border-right: none;
   > a,
   button {
     padding: 7px 23px 7px 17px;
-    background-color: ${theme.navigationSidebar.rowActive};
+    background-color: ${theme.navigationSidebar.row.active};
     color: ${theme.navigationSidebar.font.active} !important;
   }
 `;
@@ -59,7 +59,7 @@ const NodeContent = styled(({ className, text, link, children }) => (
   &:hover {
     > a,
     > button {
-      background-color: ${(props) => props.theme.navigationSidebar.rowHover};
+      background-color: ${(props) => props.theme.navigationSidebar.row.hover};
     }
   }
 `;
@@ -109,7 +109,7 @@ const NodeCollapseButton = styled(({ className, isCollapsed, collapse }) => {
   }
   &:hover {
     svg path {
-      fill: ${(props) => props.theme.navigationSidebar.collapseHover};
+      fill: ${(props) => props.theme.navigationSidebar.row.collapseHover};
     }
   }
 `;

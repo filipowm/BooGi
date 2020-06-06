@@ -31,7 +31,7 @@ const PoweredByWrapper = styled.div`
   display: block;
   padding: 0;
   position: relative;
-  box-shadow: 0 -7px 10px -5px ${(props) => props.theme.navigationSidebar.backgroundDark};
+  box-shadow: 0 -7px 10px -5px ${(props) => props.theme.navigationSidebar.backgroundPrimary};
 `;
 
 const NavigationWrapper = styled(({ className, children, ...props }) => {
@@ -45,53 +45,53 @@ const NavigationWrapper = styled(({ className, children, ...props }) => {
   top: 0;
   z-index: 15;
   flex: 0 0 ${(props) => props.theme.layout.leftWidth};
-  background: ${(props) => props.theme.navigationSidebar.backgroundDark};
+  background: ${(props) => props.theme.navigationSidebar.backgroundPrimary};
   background: linear-gradient(
-    ${(props) => props.theme.navigationSidebar.backgroundDark},
-    ${(props) => props.theme.navigationSidebar.backgroundLight}
+    ${(props) => props.theme.navigationSidebar.backgroundPrimary},
+    ${(props) => props.theme.navigationSidebar.backgroundSecondary}
   );
   /* Safari 4-5, Chrome 1-9 */
   background: linear-gradient(
-    ${(props) => props.theme.navigationSidebar.backgroundDark},
-    ${(props) => props.theme.navigationSidebar.backgroundLight}
+    ${(props) => props.theme.navigationSidebar.backgroundPrimary},
+    ${(props) => props.theme.navigationSidebar.backgroundSecondary}
   );
   background: -webkit-gradient(
     linear,
     0% 0%,
     0% 100%,
-    from(${(props) => props.theme.navigationSidebar.backgroundDark}),
-    to(${(props) => props.theme.navigationSidebar.backgroundLight})
+    from(${(props) => props.theme.navigationSidebar.backgroundPrimary}),
+    to(${(props) => props.theme.navigationSidebar.backgroundSecondary})
   );
   /* Safari 5.1, Chrome 10+ */
   background: -webkit-linear-gradient(
     top,
-    ${(props) => props.theme.navigationSidebar.backgroundDark},
-    ${(props) => props.theme.navigationSidebar.backgroundLight}
+    ${(props) => props.theme.navigationSidebar.backgroundPrimary},
+    ${(props) => props.theme.navigationSidebar.backgroundSecondary}
   );
   /* Firefox 3.6+ */
   background: -moz-linear-gradient(
     top,
-    ${(props) => props.theme.navigationSidebar.backgroundDark},
-    ${(props) => props.theme.navigationSidebar.backgroundLight}
+    ${(props) => props.theme.navigationSidebar.backgroundPrimary},
+    ${(props) => props.theme.navigationSidebar.backgroundSecondary}
   );
   /* IE 10 */
   background: -ms-linear-gradient(
     top,
-    ${(props) => props.theme.navigationSidebar.backgroundDark},
-    ${(props) => props.theme.navigationSidebar.backgroundLight}
+    ${(props) => props.theme.navigationSidebar.backgroundPrimary},
+    ${(props) => props.theme.navigationSidebar.backgroundSecondary}
   );
   /* Opera 11.10+ */
   background: -o-linear-gradient(
     top,
-    ${(props) => props.theme.navigationSidebar.backgroundDark},
-    ${(props) => props.theme.navigationSidebar.backgroundLight}
+    ${(props) => props.theme.navigationSidebar.backgroundPrimary},
+    ${(props) => props.theme.navigationSidebar.backgroundSecondary}
   );
   border-right: 1px solid ${(props) => props.theme.navigationSidebar.border};
   position: sticky;
   @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
     width: 100%;
     height: auto;
-    background: ${(props) => props.theme.navigationSidebar.backgroundDark};
+    background: ${(props) => props.theme.navigationSidebar.backgroundPrimary};
   }
 `;
 
@@ -105,7 +105,7 @@ const Divider = styled((props) => (
     margin: 0;
     padding: 0;
     border: 0;
-    border-bottom: 1px solid #ede7f3;
+    border-bottom: 1px solid ${(props) => props.theme.navigationSidebar.border};
   }
 `;
 const ContentNavigation = ({ className, location }) => {

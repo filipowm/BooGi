@@ -1,9 +1,11 @@
 import * as React from 'react';
+import { anchor } from '../../styles/base';
+import { useTheme } from 'emotion-theming';
 
 const AnchorTag = ({ children: link, ...props }) => {
   if (link) {
     return (
-      <a href={props.href} target="_blank" rel="noopener noreferrer">
+      <a href={props.href} css={anchor(useTheme())} target="_blank" rel="noopener noreferrer">
         {link}
       </a>
     );

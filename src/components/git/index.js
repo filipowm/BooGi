@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import React from 'react';
 import { Link } from '$components';
 import 'css';
@@ -15,16 +16,15 @@ const Edit = styled('div')`
     min-width: 175px;
     outline: none;
     transition: ${(props) => props.theme.transitions.hover};
-    border: 1px solid ${(props) => props.theme.colors.border};
+    border: 1px solid ${(props) => props.theme.editOnRepo.border};
     border-radius: 4px;
-    color: ${(props) => props.theme.colors.color};
-    background-color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.editOnRepo.font.base};
+    background-color: ${(props) => props.theme.editOnRepo.background};
     height: 30px;
     padding: 5px 16px;
     &:hover {
-      background-color: ${(props) => props.theme.colors.primary};
-      border-color: ${(props) => props.theme.colors.primaryDark};
-      color: ${(props) => props.theme.colors.border};
+      background-color: ${(props) => props.theme.editOnRepo.hover};
+      color: ${(props) => props.theme.editOnRepo.font.hover};
     }
   }
 `;
@@ -52,6 +52,8 @@ const EditButton = styled(({ className, icon, link, text }) => {
   }
 `;
 
+const rootDir = 'content';
+
 const EditOnRepo = ({ repoType, branch, location, path }) => {
   let icon = null;
   let link = `${location}/${path}`;
@@ -64,17 +66,17 @@ const EditOnRepo = ({ repoType, branch, location, path }) => {
       const host = splitted[2];
       // it does not support contexts
       const repo = splitted.slice(3).join('/');
-      link = `${protocol}//${host}/-/ide/project/${repo}/blob/${branch}/-/${path}`;
+      link = `${protocol}//${host}/-/ide/project/${repo}/blob/${branch}/-/${rootDir}/${path}`;
       text += 'GitLab';
       break;
     case 'github':
       icon = require('images/github.svg');
-      link = `${location}/edit/${branch}/${path}`;
+      link = `${location}/edit/${branch}/${rootDir}/${path}`;
       text += 'Github';
       break;
     case 'bitbucket':
       icon = require('images/bitbucket.svg');
-      link = `${location}/src/${branch}/${path}?mode=edit&spa=0&at=${branch}`;
+      link = `${location}/src/${branch}/${rootDir}/${path}?mode=edit&spa=0&at=${branch}`;
       text += 'Bitbucket';
       break;
     default:

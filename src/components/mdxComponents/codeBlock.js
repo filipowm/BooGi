@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import prismTheme from 'prism-react-renderer/themes/vsDark';
+import theme from 'prism-react-renderer/themes/dracula';
 import Loadable from 'react-loadable';
 import LoadingProvider from './loading';
 
@@ -30,7 +30,7 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
     return <LoadableComponent code={exampleCode} />;
   } else {
     return (
-      <Highlight {...defaultProps} code={exampleCode} language="javascript" theme={prismTheme}>
+      <Highlight {...defaultProps} code={exampleCode} language="javascript" theme={theme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className + ' pre'} style={style} p={3}>
             {cleanTokens(tokens).map((line, i) => {

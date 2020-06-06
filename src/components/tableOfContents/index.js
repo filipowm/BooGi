@@ -7,22 +7,18 @@ import Scrollspy from 'react-scrollspy';
 import { sleep } from '../../utils/utils';
 
 const Sidebar = styled.aside`
-  margin-top: 10px;
+  background-color: ${(props) => props.theme.tableOfContents.background};
 
   min-width: 260px;
   height: 100vh;
   overflow: auto;
-  padding: 40px 15px 0 5px;
+  padding: 50px 15px 0 5px;
   position: sticky;
   top: 0;
 
   @media only screen and (max-width: 50rem) {
     width: 100%;
     position: relative;
-  }
-
-  > ul {
-    padding-top: 5px;
   }
 
   li {
@@ -36,7 +32,7 @@ const Sidebar = styled.aside`
       text-decoration: none;
       display: block;
       position: relative;
-      border-left: 1px solid rgb(230, 236, 241);
+      border-left: 1px solid ${(props) => props.theme.tableOfContents.border};
       transition: ${(props) => props.theme.transitions.hover};
     }
 
@@ -48,8 +44,9 @@ const Sidebar = styled.aside`
     }
   }
   .currentItem {
-    border-left: 2px solid ${(props) => props.theme.tableOfContents.font.current} !important;
     a {
+      padding-left: 13px !important;
+      border-left: 2px solid ${(props) => props.theme.tableOfContents.font.current} !important;
       color: ${(props) => props.theme.tableOfContents.font.current} !important;
     }
   }
@@ -90,7 +87,6 @@ const TocTitle = styled(({ className }) => {
   letter-spacing: 1.2px;
   padding: 7px 24px 7px 16px;
   border-left: 1px solid ${(props) => props.theme.tableOfContents.border};
-  border-left-color: rgb(230, 236, 241);
   color: ${(props) => props.theme.tableOfContents.font.base};
   display: flex;
   align-items: center;

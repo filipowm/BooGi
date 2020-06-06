@@ -3,11 +3,10 @@ import CodeBlock from './codeBlock';
 import AnchorTag from './anchor';
 import Layout from './layout';
 import Highlights from './highlights';
-import 'css';
 import Icon from './icon';
 import Badge from './badge';
 import Jargon from './jargon';
-import { blockquote } from '../../styles/base';
+import { blockquote, pre, table } from '../../styles/base';
 import { useTheme } from 'emotion-theming';
 
 const idFromHeader = (props) => {
@@ -47,7 +46,8 @@ export default {
   section: (props) => Section(props),
   blockquote: (props) => <blockquote css={blockquote(useTheme())} {...props} />,
   p: (props) => <p className="paragraph" {...props} />,
-  pre: (props) => <pre className="pre" {...props} />,
+  pre: (props) => <pre css={pre(useTheme())} {...props} />,
+  table: (props) => <table css={table(useTheme())} {...props} />,
   em: Jargon,
   code: CodeBlock,
   a: AnchorTag,

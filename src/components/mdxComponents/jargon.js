@@ -20,12 +20,13 @@ const JargonWrapper = styled.em`
       cursor: help;
 
       .jargon-info {
+        color: ${(props) => props.theme.jargon.font};
         display: block;
         position: absolute;
         top: 1.5em;
         left: 0;
-        background: ${(props) => props.theme.colors.grayLightest};
-        border: 1px solid ${(props) => props.theme.colors.grayLight};
+        background: ${(props) => props.theme.jargon.background};
+        border: 1px solid ${(props) => props.theme.jargon.border};
         border-left: 4px solid ${(props) => props.theme.colors.primary};
         padding: 1rem;
         border-radius: 4px;
@@ -33,7 +34,7 @@ const JargonWrapper = styled.em`
         min-width: 300px;
         max-width: 400px;
         z-index: 1;
-        box-shadow: 0 0 4px 2px ${(props) => props.theme.colors.shadow};
+        box-shadow: 0 0 4px 2px ${(props) => props.theme.jargon.shadow};
         span:first-child {
           width: 100%;
           padding-bottom: 10px;

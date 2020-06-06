@@ -28,15 +28,18 @@ const HighlightWrapper = styled(({ className, children }) => (
   border-radius: 4px;
 `;
 
-const Highlight = ({ children, border, background, font, icon, ...props }) => {
+const Highlight = ({ children, color, icon, ...props }) => {
   const theme = useTheme();
-  const borderColor = theme.colors[border];
-  const backgroundColor = theme.colors[background];
-  const fontColor = theme.colors[font || theme.colors.color];
+  const highlightColor = theme.highlights[color];
   return (
-    <HighlightWrapper background={backgroundColor} border={borderColor} font={fontColor} {...props}>
+    <HighlightWrapper
+      background={highlightColor.background}
+      border={highlightColor.border}
+      font={highlightColor.font}
+      {...props}
+    >
       <div css={{ marginRight: '16px', lineHeight: 0 }}>
-        {icon.render({ color: borderColor, size: 24 })}
+        {icon.render({ color: highlightColor.border, size: 24 })}
       </div>
       <div css={skipParagraph}>{children}</div>
     </HighlightWrapper>
@@ -46,30 +49,26 @@ const Highlight = ({ children, border, background, font, icon, ...props }) => {
 export default {
   Note: (props) =>
     Highlight({
-      border: 'orange',
+      color: 'note',
       icon: AlertTriangle,
-      background: 'orangeLight',
       ...props,
     }),
   Warning: (props) =>
     Highlight({
-      border: 'red',
+      color: 'warning',
       icon: AlertOctagon,
-      background: 'redLight',
       ...props,
     }),
   Info: (props) =>
     Highlight({
-      border: 'blue',
+      color: 'info',
       icon: AlertCircle,
-      background: 'blueLight',
       ...props,
     }),
   Tip: (props) =>
     Highlight({
-      border: 'green',
+      color: 'tip',
       icon: AlertCircle,
-      background: 'greenLight',
       ...props,
     }),
 };

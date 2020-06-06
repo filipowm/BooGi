@@ -49,7 +49,7 @@ const PoweredBy = styled(({ className, trademark, name, link }) => (
   border-radius: 4px;
   text-decoration: none;
   background-color: ${(props) => props.theme.navigationSidebar.poweredBy.background};
-  transition: ${(props) => props.theme.transitions.hoverFast2};
+  transition: ${(props) => props.theme.transitions.hoverColor};
   &:hover {
     border: 1px solid ${(props) => props.theme.navigationSidebar.poweredBy.hover};
     margin-top: 11px;

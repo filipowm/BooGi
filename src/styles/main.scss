@@ -11,29 +11,10 @@
   position: relative;
 }
 
-::-webkit-input-placeholder {
-  /* Edge */
-  color: #C2C2C2;
-}
-
-:-ms-input-placeholder {
-  /* Internet Explorer */
-  color: #C2C2C2;
-}
-
-::placeholder {
-  color: #C2C2C2;
-}
-
 html, body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Roboto Light", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   scroll-behavior: smooth;
-}
-
-a {
-  transition: color 0.15s;
-  color: $base-color;
 }
 
 body {
@@ -67,26 +48,18 @@ a {
   height: 100%;
 }
 
+// TO CHANGE
 .diffNewLine {
   color: #22863a;
   background-color: #f0fff4;
 }
 
+// TO CHANGE
 .diffRemoveLine {
   color: red;
   background-color: #ffcccc;
 }
 
-.divider {
-  height: 30px;
-  margin: 0 15px;
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
-
-  @include tablet {
-    margin: 0 5px;
-    height: 20px;
-  }
-}
 
 .githubSection {
   display: flex;
@@ -105,79 +78,6 @@ pre {
   border: 0 !important;
   background-color: rgb(245, 247, 249);
 }
-
-.mainWrapper {
-  color: rgb(59, 69, 78);
-  max-width: 750px;
-  code {
-    background: #f9f7fb;
-    border: 1px solid #ede7f3;
-    border-radius: 4px;
-    padding: 2px 6px;
-    font-size: 0.9375em;
-  }
-  ul, ol {
-    -webkit-padding-start: 40px;
-    -moz-padding-start: 40px;
-    -o-padding-start: 40px;
-    margin: 24px 0px;
-    padding: 0px 0px 0px 2em;
-  }
-
-  ul li, ol li {
-    font-size: 16px;
-    line-height: 1.8;
-    font-weight: 400;
-  }
-}
-
-
-.addPaddTopBottom {
-  padding: 50px 0;
-}
-
-
-/* tables.css */
-
-table {
-  padding: 0;
-
-  tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-
-    &:nth-child(2n) {
-      background-color: #f8f8f8;
-    }
-
-    th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    th :first-child, td :first-child {
-      margin-top: 0;
-    }
-
-    th :last-child, td :last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-/* end - tables.css */
 
 /* Image styling */
 
@@ -285,24 +185,12 @@ img {
   line-height: 1.625;
 }
 
-.pre {
-  font-size: 14px;
-  margin: 0;
-  padding: 16px;
-  overflow: auto;
-  border-radius: 4px;
-}
-
-.poweredBy {
-  font-size: 0.6em;
-  text-align: end;
-  padding: 0;
-}
 @media (max-width: $breakpoint-medium) {
   .hiddenTablet {
     display: none !important;
   }
 }
+
 @media (max-width: ($breakpoint-small - 1)) {
   .responsive {
     margin-top: 15px;
@@ -328,19 +216,6 @@ img {
     margin-bottom: 0;
   }
 
-  .mainWrapper {
-    padding: 0 15px;
-  }
-
-  .nextPreviousWrapper {
-    display: block;
-    padding: 0 15px;
-  }
-
-  .previousBtn {
-    margin-bottom: 20px;
-  }
-
   .mobileView {
     text-align: left !important;
     padding-left: 0 !important;
@@ -354,6 +229,3 @@ img {
 .hidden {
   display: none;
 }
-//*:hover {
-//  @include hover-transition;
-//}

@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { Layout } from '$components';
 import NextPrevious from '$components/nextPrevious';
 import config from 'config';
-import EditOnRepo from '$components/gitlab';
+import EditOnRepo from '$components/git';
 import emoji from 'node-emoji';
 
 const Title = styled.h1`
@@ -24,8 +24,9 @@ const PageTitle = styled.div`
   flex-flow: wrap;
   align-items: center;
   padding-bottom: 30px;
-  border-bottom: 1px solid rgb(230, 236, 241);
+  border-bottom: 1px solid ${(props) => props.theme.content.border};
   margin-bottom: 20px;
+  color: ${(props) => props.theme.content.titleFont};
   @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
     padding: 0 15px;
     display: block;
@@ -41,14 +42,14 @@ const TitleWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  color: ${(props) => props.theme.colors.color};
-  // max-width: 750px;
+  color: ${(props) => props.theme.content.font};
   code {
-    background: #f9f7fb;
-    border: 1px solid #ede7f3;
+    background: ${(props) => props.theme.content.code.background};
+    border: 1px solid ${(props) => props.theme.content.code.border};
     border-radius: 4px;
     padding: 2px 6px;
     font-size: 0.9375em;
+    color: ${(props) => props.theme.content.code.font};
   }
   ul,
   ol {
@@ -134,41 +135,41 @@ export default class MDXRuntimeTest extends React.Component {
                 branch={gitBranch.name}
                 path={mdx.parent.relativePath}
                 repoType={docsLocationType}
-                text="Edit on GitLab"
               />
             ) : (
               ''
             )}
           </TitleWrapper>
-          {(config.features.showMetadata === true && mdx.frontmatter.showMetadata !== false) 
-            || mdx.frontmatter.showMetadata === true ? (  
-              <div css={{ display: 'block' }}>
-                {mdx.parent.fields ? (
-                  <LastUpdated
-                    time={mdx.parent.fields.gitLogLatestDate}
-                    name={mdx.parent.fields.gitLogLatestAuthorName}
-                    email={mdx.parent.fields.gitLogLatestAuthorEmail}
-                  />
-                ) : (
-                  ''
-                )}
-                <ReadingTime time={mdx.timeToRead * 2} />
-              </div>
-            ) : (
-              ''
+          {(config.features.showMetadata === true && mdx.frontmatter.showMetadata !== false) ||
+          mdx.frontmatter.showMetadata === true ? (
+            <div css={{ display: 'block' }}>
+              {mdx.parent.fields ? (
+                <LastUpdated
+                  time={mdx.parent.fields.gitLogLatestDate}
+                  name={mdx.parent.fields.gitLogLatestAuthorName}
+                  email={mdx.parent.fields.gitLogLatestAuthorEmail}
+                />
+              ) : (
+                ''
+              )}
+              <ReadingTime time={mdx.timeToRead * 2} />
+            </div>
+          ) : (
+            ''
           )}
         </PageTitle>
         <ContentWrapper>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </ContentWrapper>
-        {(config.features.previousNext.enabled === true && mdx.frontmatter.showPreviousNext !== false) ||
-            mdx.frontmatter.showPreviousNext ? (
-              <div css={{ padding: '50px 0' }}>
-                <NextPrevious mdx={mdx} />
-              </div>
-            ) : (
-              ''
-            )}
+        {(config.features.previousNext.enabled === true &&
+          mdx.frontmatter.showPreviousNext !== false) ||
+        mdx.frontmatter.showPreviousNext ? (
+          <div css={{ padding: '50px 0' }}>
+            <NextPrevious mdx={mdx} />
+          </div>
+        ) : (
+          ''
+        )}
       </Layout>
     );
   }

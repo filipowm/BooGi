@@ -11,7 +11,7 @@ const ScrollTop = styled(({ className }) => {
     </div>
   );
 })`
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.scrollTop.background};
   width: 35px;
   height: 35px;
   position: fixed;
@@ -30,11 +30,11 @@ const ScrollTop = styled(({ className }) => {
     right: 0;
     bottom: 0;
     path {
-      fill: ${(props) => props.theme.colors.primaryLightest};
+      fill: ${(props) => props.theme.scrollTop.arrow};
     }
   }
   &:hover {
-    background: ${(props) => props.theme.colors.blueDark};
+    background: ${(props) => props.theme.scrollTop.hover};
   }
 `;
 

@@ -47,8 +47,8 @@ const Header = styled.header`
   border: 0;
   display: flex;
   align-items: center;
-  box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
-  border-bottom: 1px solid #d4dadf;
+  box-shadow: 0 3px 8px 0 ${(props) => props.theme.header.shadow};
+  border-bottom: 1px solid ${(props) => props.theme.header.border};
   z-index: 100;
   padding: 15px 0;
   position: relative;

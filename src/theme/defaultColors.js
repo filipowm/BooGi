@@ -11,12 +11,10 @@ const colors = {
   yellow: '#FFC72C',
   orange: '#ED8B00',
   orangeLight: '#FBE9D0',
-  cyan: '#00E5EF',
   white: '#FFFFFF',
   black: '#000000',
   gray: '#5C6975',
   grayLight: '#AEAEAE',
-  grayLightest: '#DEDEDE',
   grayDark: '#3B4656',
 };
 

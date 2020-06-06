@@ -21,7 +21,7 @@ const MobileToggle = styled(({ className }) => (
     <span></span>
   </span>
 ))`
-  border: 1px solid $white;
+  border: 1px solid ${(props) => props.theme.header.border};
   border-radius: 4px;
   width: 36px;
   height: 33px;
