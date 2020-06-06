@@ -5,6 +5,7 @@ import { AlignRight } from 'react-feather';
 import config from 'config';
 import Scrollspy from 'react-scrollspy';
 import { sleep } from '../../utils/utils';
+import { scrollbar } from '../../styles/base'
 
 const Sidebar = styled.aside`
   background-color: ${(props) => props.theme.tableOfContents.background};
@@ -195,7 +196,7 @@ const TableOfContents = ({ className, location }) => (
           }
         };
         return (
-          <Sidebar className={className}>
+          <Sidebar className={className} css={scrollbar}>
             <TocTitle>Contents</TocTitle>
             <Scrollspy
               ref={scrollspyRef}

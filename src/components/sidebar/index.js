@@ -5,6 +5,7 @@ import ContentTree from './contentTree';
 import Links from './links';
 import PoweredBy from './poweredBy';
 import { getNavigationData } from '../navigation';
+import { scrollbar } from '../../styles/base'
 
 const Sidebar = styled.div`
   margin-left: ${(props) => props.theme.layout.leftMargin};
@@ -112,7 +113,7 @@ const ContentNavigation = ({ className, location }) => {
   const edges = getNavigationData();
   return (
     <NavigationWrapper className={className}>
-      <SidebarMain>
+      <SidebarMain css={scrollbar}>
         <ContentTree edges={edges} location={location} />
         {config.sidebar.links && config.sidebar.links.length > 0 ? (
           <>

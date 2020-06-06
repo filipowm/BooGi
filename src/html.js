@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import config from 'config';
+import { scrollbar } from './styles/base';
 
 export default class HTML extends React.Component {
   render() {
@@ -23,7 +24,7 @@ export default class HTML extends React.Component {
           <noscript key="noscript"></noscript>
           {this.props.headComponents}
         </head>
-        <body {...this.props.bodyAttributes}>
+        <body css={scrollbar} {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
           <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           {this.props.postBodyComponents}
