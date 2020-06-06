@@ -102,6 +102,6 @@ module.exports = {
     darkMode: {
       enabled: true,
       default: false,
-    }
+    },
   },
 };

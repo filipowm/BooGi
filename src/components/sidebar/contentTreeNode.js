@@ -144,12 +144,9 @@ const ContentTreeNode = ({ className, toggle, collapsed, url, title, location, c
       </NodeContent>
 
       {!isCollapsed ? (
-        <NestedContentTreeNode
-          collapsed={collapsed}
-          location={location}
-          setCollapsed={toggle}
-          children={children}
-        />
+        <NestedContentTreeNode collapsed={collapsed} location={location} setCollapsed={toggle}>
+          {children}
+        </NestedContentTreeNode>
       ) : null}
     </>
   );

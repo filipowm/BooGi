@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Link from '../link';
 import styled from '@emotion/styled';
 import emoji from 'node-emoji';

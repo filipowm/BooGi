@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from 'react';
 import CodeBlock from './codeBlock';
 import AnchorTag from './anchor';
@@ -46,7 +47,7 @@ export default {
   section: (props) => Section(props),
   blockquote: (props) => <blockquote css={blockquote(useTheme())} {...props} />,
   p: (props) => <p className="paragraph" {...props} />,
-  pre: (props) => <pre css={pre(useTheme())} {...props} />,
+  pre: (props) => <pre css={pre} {...props} />,
   table: (props) => <table css={table(useTheme())} {...props} />,
   em: Jargon,
   code: CodeBlock,

@@ -17,7 +17,9 @@
     "react/prop-types": 0,
     "react/react-in-jsx-scope": "off",
     "lines-between-class-members": ["error", "always"],
-    "padding-line-between-statements": "off"
+    "padding-line-between-statements": "off",
+    "import/no-unresolved": "off",
+    "jsx-a11y/click-events-have-key-events": "off"
   },
   "parser": "babel-eslint",
   "parserOptions": {
