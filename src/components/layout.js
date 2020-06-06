@@ -35,13 +35,17 @@ const Content = styled('main')`
 
 const Layout = ({ children, location }) => {
   const [showSearch, setShowSearch] = useState(false);
-
+  const themeProviderRef = React.createRef();
   return (
-    <ThemeProvider>
+    <ThemeProvider ref={themeProviderRef} darkModeConfig={config.features.darkMode}>
       {config.header.enabled === true ? (
         <>
           <SearchSidebar show={showSearch} setShow={setShowSearch} />
-          <Header location={location} setShowSearch={setShowSearch} />
+          <Header
+            location={location}
+            setShowSearch={setShowSearch}
+            themeProvider={themeProviderRef}
+          />
         </>
       ) : (
         ''

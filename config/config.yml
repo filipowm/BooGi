@@ -103,3 +103,7 @@ features:
     matchRegex: "^/"
     outputPath: "/rss.xml"
     generator: "gidocs"
+  darkMode:
+    enabled: true  
+    default: false
+

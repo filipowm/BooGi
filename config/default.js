@@ -99,5 +99,9 @@ module.exports = {
       outputPath: '/rss.xml',
       generator: 'gidocs',
     },
+    darkMode: {
+      enabled: true,
+      default: false,
+    }
   },
 };

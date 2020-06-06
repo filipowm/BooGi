@@ -1,4 +1,4 @@
-const colors = {
+export default {
   blue: '#0066CC',
   blueLight: '#CDDFF5',
   blueDark: '#264D99',
@@ -17,5 +17,3 @@ const colors = {
   grayLight: '#AEAEAE',
   grayDark: '#3B4656',
 };
-
-export default colors;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import 'css';
 import config from 'config';
@@ -8,6 +8,7 @@ import Navigation from './navigation';
 import Sidebar from '../sidebar';
 import styled from '@emotion/styled';
 import SearchBox from '../search/input';
+import { DarkModeSwitch } from '../darkModeSwitch';
 
 const isSearchEnabled = config.features.search && config.features.search.enabled;
 
@@ -85,7 +86,7 @@ const TopNavigation = styled.div`
   }
 `;
 
-const Index = ({ setShowSearch, location }) => (
+const Index = ({ setShowSearch, location, themeProvider }) => (
   <StaticQuery
     query={graphql`
       query headerTitleQuery {
@@ -114,6 +115,12 @@ const Index = ({ setShowSearch, location }) => (
       } = data;
       const logoLink = logo.link !== '' ? logo.link : '/';
       const logoImg = require('images/logo.svg');
+      const [darkMode, setDarkMode] = useState(false);
+
+      useEffect(() => {
+        setDarkMode(themeProvider.current.retrieveActiveTheme());
+      });
+
       return (
         <Header>
           <Logo link={logoLink} img={logoImg} title={headerTitle} />
@@ -142,6 +149,18 @@ const Index = ({ setShowSearch, location }) => (
               />
             </SearchWrapper>
           ) : null}
+
+          {config.features.darkMode.enabled ? (
+            <DarkModeSwitch
+              css={{ flex: '0' }}
+              isDarkThemeActive={darkMode}
+              toggleActiveTheme={() => {
+                setDarkMode(themeProvider.current.toggleActiveTheme());
+              }}
+            />
+          ) : (
+            ''
+          )}
         </Header>
       );
     }}
