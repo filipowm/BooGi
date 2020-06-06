@@ -45,7 +45,6 @@ const Sidebar = styled.aside`
   }
   .currentItem {
     a {
-      padding-left: 13px !important;
       border-left: 2px solid ${(props) => props.theme.tableOfContents.font.current} !important;
       color: ${(props) => props.theme.tableOfContents.font.current} !important;
     }

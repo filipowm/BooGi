@@ -1,0 +1,11 @@
+{
+    "name": "gatsby-remark-sectionize-toc",
+    "description": "Forked sectionize plugin used to generate sections to make react-scrollspy work with Table of Contents",
+    "author": "Mateusz Filipowicz <matfilipowicz@gmail.com>",
+    "version": "0.1.0",
+    "dependencies": {
+        "remark": "^12.0.0"
+    },
+    "license": "MIT",
+    "main": "index.js"
+}

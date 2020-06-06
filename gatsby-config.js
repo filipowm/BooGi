@@ -70,7 +70,12 @@ const plugins = [
           },
         },
         'gatsby-remark-graphviz',
-        'gatsby-remark-sectionize',
+        {
+          resolve: require.resolve(`./plugins/gatsby-remark-sectionize-toc`),
+          options: {
+            maxDepth: config.features.toc.depth
+          }
+        },
         {
           resolve: 'gatsby-remark-images',
           options: {
