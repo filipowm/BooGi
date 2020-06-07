@@ -38,7 +38,7 @@ const DarkModeSwitch = ({ isDarkThemeActive, toggleActiveTheme, ...props }) => {
 
 DarkModeSwitch.propTypes = {
   isDarkThemeActive: PropTypes.bool.isRequired,
-  toogleActiveTheme: PropTypes.func.isRequired
+  toggleActiveTheme: PropTypes.func.isRequired
 }
 
 export default DarkModeSwitch;
