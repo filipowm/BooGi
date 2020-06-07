@@ -3,10 +3,8 @@ import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import styled from '@emotion/styled';
-import { Layout } from '$components';
-import NextPrevious from '$components/nextPrevious';
+import { Layout, EditOnRepo, PreviousNext } from '$components';
 import config from 'config';
-import EditOnRepo from '$components/git';
 import emoji from 'node-emoji';
 
 const Title = styled.h1`
@@ -165,7 +163,7 @@ export default class MDXRuntimeTest extends React.Component {
           mdx.frontmatter.showPreviousNext !== false) ||
         mdx.frontmatter.showPreviousNext ? (
           <div css={{ padding: '50px 0' }}>
-            <NextPrevious mdx={mdx} />
+            <PreviousNext mdx={mdx} />
           </div>
         ) : (
           ''

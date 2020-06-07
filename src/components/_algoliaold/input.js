@@ -5,7 +5,7 @@ import { connectSearchBox } from 'react-instantsearch-dom';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 // import { Search } from "styled-icons/fa-solid/Search";
-import { shadowAround } from '../../styles/base';
+import { shadowAround } from '../../styles';
 import { useTheme } from 'emotion-theming';
 import { Search } from 'react-feather';
 
