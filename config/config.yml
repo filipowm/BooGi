@@ -5,7 +5,7 @@ metadata:
   description: Example Gitbook
   language: en
   pathPrefix: "/"
-  ogImage:
+  siteImage:
   docsLocation: https://github.com/filipowm/gatsby-gitbook-starter
   docsLocationType: github
   editable: true

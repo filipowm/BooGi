@@ -1,9 +1,8 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import styled from '@emotion/styled';
-import { Layout, EditOnRepo, PreviousNext } from '$components';
+import { Layout, EditOnRepo, PreviousNext, Seo } from '$components';
 import config from 'config';
 import emoji from 'node-emoji';
 
@@ -107,22 +106,14 @@ export default class MDXRuntimeTest extends React.Component {
 
     // meta tags
     const metaTitle = mdx.frontmatter.metaTitle;
-    const metaDescription = mdx.frontmatter.metaDescription;
+    const description = mdx.frontmatter.description;
     const docTitle = emoji.emojify(mdx.fields.title, (name) => name);
     const headTitle = metaTitle ? metaTitle : emoji.strip(docTitle);
     return (
       <Layout {...this.props}>
-        <Helmet>
-          <title>{headTitle}</title>
-          <meta name="title" content={headTitle} />
-          <meta property="og:title" content={headTitle} />
-          <meta property="twitter:title" content={headTitle} />
-          {metaDescription ? <meta name="description" content={metaDescription} /> : null}
-          {metaDescription ? <meta property="og:description" content={metaDescription} /> : null}
-          {metaDescription ? (
-            <meta property="twitter:description" content={metaDescription} />
-          ) : null}
-        </Helmet>
+        <Seo frontmatter={mdx.frontmatter} 
+             url={this.props.location.href}
+             title={headTitle} />
         <PageTitle>
           <TitleWrapper>
             <Title>{docTitle}</Title>
@@ -203,7 +194,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         metaTitle
-        metaDescription
+        description
         showMetadata
         editable
         showPreviousNext

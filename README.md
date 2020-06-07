@@ -158,7 +158,7 @@ file using MDX Frontmatter.
 ---
 title: "Title of the page"
 metaTitle: "Meta Title Tag for this page"
-metaDescription: "Meta Description Tag for this page"
+description: "Meta Description Tag for this page"
 ---
 ```
 

@@ -8,6 +8,7 @@ export * from './Navigation';
 export PreviousNext from './PreviousNext';
 export ScrollTop from './ScrollTop';
 export * from './Search';
+export Seo from './Seo';
 export Sidebar from './Sidebar';
 export TableOfContents from './TableOfContents';
 export ThemeProvider from './ThemeProvider';

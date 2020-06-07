@@ -183,8 +183,8 @@ if (config.features.rss && config.features.rss.enabled) {
                 fields && fields.gitLogLatestAuthorName ? fields.gitLogLatestAuthorName : 'unknown';
               return {
                 title: title,
-                description: frontmatter.metaDescription
-                  ? frontmatter.metaDescription
+                description: frontmatter.description
+                  ? frontmatter.description
                   : edge.node.excerpt,
                 date: date,
                 url: site.siteMetadata.siteUrl + edge.node.fields.slug,
@@ -213,7 +213,7 @@ if (config.features.rss && config.features.rss.enabled) {
                   frontmatter {
                     title
                     metaTitle
-                    metaDescription
+                    description
                   }
                 }
               }
@@ -270,7 +270,7 @@ module.exports = {
     docsLocation: config.metadata.docsLocation,
     docsLocationType: config.metadata.docsLocationType,
     editable: config.metadata.editable,
-    ogImage: config.metadata.ogImage,
+    siteImage: config.metadata.siteImage,
     favicon: config.metadata.favicon,
     logo: {
       link: config.header.logoLink ? config.header.logoLink : '/',

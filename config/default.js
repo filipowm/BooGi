@@ -7,7 +7,7 @@ module.exports = {
     url: 'http://localhost',
     pathPrefix: '/',
     gaTrackingId: null,
-    ogImage: null,
+    siteImage: null,
     docsLocation: 'https://github.com/filipowm/gatsby-gitbook-starter',
     docsLocationType: 'github',
     favicon: '/assets/favicon.png',
