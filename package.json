@@ -14,7 +14,7 @@
     "@mdx-js/react": "1.6.5",
     "@philpl/buble": "0.19.7",
     "@playlyfe/gql": "2.6.2",
-    "algoliasearch": "4.2.0",
+    "algoliasearch": "4.3.0",
     "dotenv": "8.2.0",
     "emotion-theming": "10.0.27",
     "gatsby": "2.23.1",
