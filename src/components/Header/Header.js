@@ -9,15 +9,6 @@ import { DarkModeSwitch, SearchInput, Sidebar } from '../';
 
 const isSearchEnabled = config.features.search && config.features.search.enabled;
 
-let searchIndices = [];
-if (isSearchEnabled && config.features.search.indexName) {
-  searchIndices.push({
-    name: `${config.features.search.indexName}`,
-    title: `Results`,
-    hitComp: `PageHit`,
-  });
-}
-
 const SearchWrapper = styled.div`
   padding-left: 20px;
   margin-right: 20px;
@@ -48,7 +39,7 @@ const HeaderWrapper = styled.header`
   box-shadow: 0 3px 8px 0 ${(props) => props.theme.header.shadow};
   border-bottom: 1px solid ${(props) => props.theme.header.border};
   z-index: 100;
-  padding: 15px 0;
+  padding: 13px 0;
   position: relative;
   @media (max-width: ${(props) => props.theme.breakpoints['large']}) {
     padding: 10px;
@@ -61,7 +52,7 @@ const HeaderWrapper = styled.header`
 const TopNavigation = styled.div`
   -webkit-transition: top 0.5s, bottom 0.5s;
   transition: top 0.5s, bottom 0.5s;
-  margin-left: 70px;
+  margin-left: 55px;
   margin-right: 30px;
   flex: 1 1 auto;
   padding: 10px 0;
@@ -139,10 +130,8 @@ const Header = ({ setShowSearch, location, themeProvider }) => (
           {isSearchEnabled ? (
             <SearchWrapper className={'hiddenMobile'}>
               <SearchInput
-                search={() => {
-                  console.log('entering search');
-                  setShowSearch(true);
-                }}
+                onChange={(e) => (e.target.value = '')}
+                onFocus={() => setShowSearch(true)}
               />
             </SearchWrapper>
           ) : null}

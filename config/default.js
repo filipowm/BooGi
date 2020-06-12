@@ -19,13 +19,6 @@ module.exports = {
     helpUrl: '',
     links: [],
   },
-  search: {
-    enabled: false,
-    indexName: 'docs',
-    algoliaAppId: null,
-    algoliaSearchKey: null,
-    algoliaAdminKey: null,
-  },
   sidebar: {
     enabled: true,
     ignoreIndex: true,
@@ -62,6 +55,12 @@ module.exports = {
       algoliaAppId: null,
       algoliaSearchKey: null,
       algoliaAdminKey: null,
+      engine: 'algolia',
+      placeholder: 'Search',
+      searchStartMethod: 'input', // 'icon',
+      debounceTime: 380,
+      snippetLength: 22,
+      hitsPerPage: 10
     },
     toc: {
       depth: 3,

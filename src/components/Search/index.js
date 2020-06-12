@@ -1,2 +1,2 @@
-export { default as SearchInput } from './Input';
+export { SearchInput, SidebarSearchInput } from './Input';
 export { default as SearchSidebar } from './Sidebar';

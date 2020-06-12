@@ -240,7 +240,7 @@ if (
     options: {
       appId: config.features.search.algoliaAppId, // algolia application id
       apiKey: config.features.search.algoliaAdminKey, // algolia admin key to index
-      queries,
+      queries: queries(config.features.search.indexName),
       chunkSize: 10000, // default: 1000
     },
   });

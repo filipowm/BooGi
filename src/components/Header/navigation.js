@@ -37,7 +37,7 @@ const Navigation = styled(({ className, links, helpUrl }) => {
   display: flex;
   align-items: center;
   -webkit-overflow-scrolling: touch;
-  float: right;
+  float: left;
   @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
     position: static;
     display: none;

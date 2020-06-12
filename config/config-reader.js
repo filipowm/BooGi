@@ -53,7 +53,14 @@ class EnvReader extends ConfigReader {
     if (key in process.env) {
       const value = process.env[key];
       try {
-        return value === 'true' ? true : value === 'false' ? false : parseFloat(value);
+        if (value === 'true') {
+          return true;
+        } else if (value === 'false') {
+          return false;
+        } else if (typeof value === 'number') {
+          return parseFloat(value)
+        }
+        return value;
       } catch (err) {
         return value;
       }

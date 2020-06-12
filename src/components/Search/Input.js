@@ -1,46 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { shadowAround } from '../../styles';
 import { useTheme } from 'emotion-theming';
-import { Search } from 'react-feather';
+import { X, Search } from 'react-feather';
+import useDebounce from '../../utils/useDebounce';
+import config from 'config';
+import { marginLeftRight } from './styles';
 
 const SearchIcon = styled(Search)`
   width: 1.2em;
   pointer-events: none;
   margin: 0 10px;
 `;
-// const focus = (props) => css`
-//   color: ${(props) => props.theme.colors.primary};
-//   cursor: text;
-//   width: 5em;
-//   + ${SearchIcon} {
-//     color: ${(props) => props.theme.colors.primary};
-//     margin: 0.3em;
-//   }
-// `;
-// const collapse = (props) => css`
-//   width: 0;
-//   cursor: pointer;
-//   color: ${props => props.theme.colors.primary};
-//   + ${SearchIcon} {
-//     color: white;
-//   }
-//   ${props => props.focus && focus()}
-//   margin-left: ${props => (props.focus ? `-1.6em` : `-1em`)};
-//   padding-left: ${props => (props.focus ? `1.6em` : `1em`)};
-//   ::placeholder {
-//     color: ${props => props.theme.gray};
-//   }
-// `;
-// const expand = (props) => css`
-//   background: ${props => props.theme.colors.grayLight};
-//   width: 6em;
-//   margin-left: -1.6em;
-//   padding-left: 1.6em;
-//   + ${SearchIcon} {
-//     margin: 0.3em;
-//   }
-// `;
+
+const CleanSearch = styled(({ ...props }) => (
+  <div {...props} role={'button'} aria-label="clean search">
+    <X />
+  </div>
+))`
+  cursor: pointer;
+  &:hover {
+    svg {
+      fill: ${(props) => props.theme.colors.primary};
+      stroke: ${(props) => props.theme.colors.primary};
+    }
+  }
+`;
 
 const Input = styled.input`
   outline: none;
@@ -60,7 +45,6 @@ const Input = styled.input`
 
 const Form = styled.form`
   display: flex;
-  // z-index: 5;
   flex-direction: row;
   align-items: center;
   @media only screen and (max-width: 767px) {
@@ -90,23 +74,56 @@ const Form = styled.form`
   }
 `;
 
-const SearchBox = ({ search, ...props }) => {
+const SidebarSearchInputWrapper = styled.div`
+${marginLeftRight}
+`;
+
+const SidebarSearchInput = ({ search, inputRef, showClean, ...props }) => (
+  <SidebarSearchInputWrapper>
+    <SearchInput search={search} inputRef={inputRef} showClean={showClean} {...props} />
+  </SidebarSearchInputWrapper>
+)
+
+const SearchInput = ({ search, inputRef, showClean, ...props }) => {
   const theme = useTheme();
   const preventSubmit = (e) => {
     e.preventDefault();
   };
+  const [searchTerm, setSearchTerm] = useState('');
+  const debouncedSearchTerm = useDebounce(searchTerm, config.features.search.debounceTime);
+
+  useEffect(() => {
+    if (search && debouncedSearchTerm !== null) {
+      search(debouncedSearchTerm);
+    }
+  }, [debouncedSearchTerm]);
+
+  const clean = (e) => {
+    e.preventDefault();
+    setSearchTerm('');
+    inputRef.current.value = '';
+  };
+
   return (
     <Form css={shadowAround(theme)} onSubmit={preventSubmit}>
       <SearchIcon />
       <Input
+        ref={inputRef}
+        className={'searchInput '}
         type="text"
-        placeholder="Search"
+        placeholder={config.features.search.placeholder}
         aria-label="Search"
-        onChange={(e) => search(e.target.value)}
+        onChange={(e) => {
+          const value = e.target.value;
+          if (value && value.length > 0) {
+            setSearchTerm(value);
+          }
+        }}
         {...props}
       />
+      {showClean ? <CleanSearch onClick={clean} /> : ''}
     </Form>
   );
 };
 
-export default SearchBox;
+export { SearchInput, SidebarSearchInput };

@@ -93,6 +93,21 @@ const header = (colors) => ({
   border: colors.border,
 });
 
+const search = (colors) => ({
+  background: colors.background,
+  mark: {
+    font: colors.font,
+    background: colors.primary
+  },
+  font: {
+    base: colors.font,
+    hover: colors.font,
+    highlight: colors.fontDark
+  },
+  hover: colors.border,
+  border: colors.border
+});
+
 const darkModeSwitch = (colors) => ({
   background: colors.background,
   shadow: colors.shadow,
@@ -182,6 +197,7 @@ export default {
   layout: pageLayout,
   transitions: transitions,
   header: header,
+  search: search,
   darkModeSwitch: darkModeSwitch,
   navigationSidebar: navigationSidebar,
   content: content,

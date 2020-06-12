@@ -67,6 +67,12 @@ pwa:
 features:
   search:
     enabled: true
+    engine: 'algolia'
+    placeholder: 'Search'
+    searchStartMethod: 'input'
+    debounceTime: 380
+    snippetLength: 23
+    hitsPerPage: 10
   toc:
     depth: 3
   previousNext:
