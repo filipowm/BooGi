@@ -15,6 +15,7 @@ const Button = styled(({ refine, page, children, ...props }) => {
 })`
   width: 32px;
   height: 32px;
+  visibility: ${(props) => props.visible || props.visible === undefined ? 'visible' : 'hidden' };
   vertical-align: middle;
   transition: ${(props) => props.theme.transitions.hover};
   background-color: ${(props) =>
@@ -71,7 +72,7 @@ const Pagination = ({ totalPages, nbPages, currentPage, refine, showPrevious, sh
       <PagesList>
         {showPrevious ? (
           <li style={{ marginRight: leftRightMargin }}>
-            <Button refine={refine} page={previousPage}>
+            <Button visible={currentPage > 1} refine={refine} page={previousPage}>
               <ChevronLeft />
             </Button>
           </li>
@@ -90,7 +91,7 @@ const Pagination = ({ totalPages, nbPages, currentPage, refine, showPrevious, sh
         })}
         {showNext ? (
           <li style={{ marginLeft: leftRightMargin }}>
-            <Button refine={refine} page={nextPage}>
+            <Button visible={currentPage !== pagesToShow} refine={refine} page={nextPage}>
               <ChevronRight />
             </Button>
           </li>
