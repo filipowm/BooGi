@@ -39,6 +39,7 @@ jobs:
   netlify:
     name: Build and Deploy preview on Netlify
     runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/master'
     steps:
       - uses: actions/checkout@master
       - name: Waiting for 300sec from the Netlify preview
