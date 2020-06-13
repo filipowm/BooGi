@@ -12,7 +12,8 @@ import config from 'config';
 import Input from './input';
 import { PageHit }  from './hitComps';
 import styled from '@emotion/styled';
-import SearchStatus from '../Status'
+import SearchStatus from '../Status';
+import Pagination from './pagination';
  
 
 const Root = styled.div`
@@ -78,17 +79,15 @@ class Algolia extends React.Component {
             )}
           </Index>
         </HitsWrapper>
-
-        {/* <Pagination
-          // Optional parameters
-          showFirst={true}
-          showPrevious={true}
-          showNext={true}
-          showLast={true}
-          padding={3}
-          totalPages={10}
-          // translations={object}
-        /> */}
+        {this.state.query.length > 1 &&
+        this.state.ready &&
+        config.features.search.pagination.enabled ? (
+          <Pagination
+            totalPages={config.features.search.pagination.totalPages}
+            showPrevious={config.features.search.pagination.showPrevious}
+            showNext={config.features.search.pagination.showNext}
+          />
+        ) : null}
         <Configure
           hitsPerPage={config.features.search.hitsPerPage}
           attributesToSnippet={[`excerpt:${config.features.search.snippetLength}`]}

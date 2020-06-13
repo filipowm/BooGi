@@ -15,6 +15,10 @@ const decreaseIntensivity = (color, factor) => {
   return intensified.hex();
 };
 
+const grayscaleCompatible = (color) => {
+  return increaseIntensivity(colorfn(color).negate().grayscale().hex(), .7);
+}
+
 const colors = {
   ...defaultColors,
 
@@ -105,7 +109,17 @@ const search = (colors) => ({
     highlight: colors.fontDark
   },
   hover: colors.border,
-  border: colors.border
+  border: colors.border,
+  pagination: {
+    background: colors.mainBackground,
+    border: colors.border,
+    font: colors.font,
+    hover: colors.border,
+    current: {
+      background: colors.primary,
+      font: grayscaleCompatible(colors.primary)
+    }
+  }
 });
 
 const darkModeSwitch = (colors) => ({
@@ -122,7 +136,7 @@ const editOnRepo = (colors) => ({
   hover: colors.hover,
   font: {
     base: colors.font,
-    hover: colorfn(colors.hover).rotate(90).grayscale().hex(),
+    hover: grayscaleCompatible(colors.hover),
   },
 });
 

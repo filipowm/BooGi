@@ -12,7 +12,7 @@ const SearchWrapper = styled.div`
   right: 0;
   left: auto;
   top: 0;
-  width: 490px;
+  width: 480px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   background: ${(props) => props.theme.colors.background};
   display: flex;

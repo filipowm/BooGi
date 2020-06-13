@@ -43,7 +43,6 @@ export const HitsWrapper = styled.div`
   }
   * {
     margin-top: 0;
-    padding: 0;
     color: ${(props) => props.theme.search.font.base};
   }
   ul {
