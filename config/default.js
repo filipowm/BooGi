@@ -61,6 +61,7 @@ module.exports = {
       debounceTime: 380,
       snippetLength: 22,
       hitsPerPage: 10,
+      showStats: true,
       pagination: {
         enabled: true,
         totalPages: 10,

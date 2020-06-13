@@ -73,6 +73,7 @@ features:
     debounceTime: 380
     snippetLength: 23
     hitsPerPage: 10
+    showStats: true
     pagination:
       enabled: true
       totalPages: 10

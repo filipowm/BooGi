@@ -6,15 +6,15 @@ import {
   Configure,
   connectStateResults,
 } from 'react-instantsearch-dom';
-import algoliasearch from 'algoliasearch/lite'
+import algoliasearch from 'algoliasearch/lite';
 import { HitsWrapper } from '../Hits';
 import config from 'config';
 import Input from './input';
-import { PageHit }  from './hitComps';
+import { PageHit } from './hitComps';
 import styled from '@emotion/styled';
 import SearchStatus from '../Status';
 import Pagination from './pagination';
- 
+import Stats from './stats';
 
 const Root = styled.div`
   position: relative;
@@ -30,10 +30,9 @@ const Root = styled.div`
 //     (searching && `Searching...`) || (res && res.nbHits === 0 && `No results for '${state.query}'`)
 // );
 
-const Results = connectStateResults(
-  ({ searching, searchState: state, searchResults: res }) =>
-    <SearchStatus noHits={res && res.nbHits === 0} searching={searching} query={state.query}/>
-);
+const Results = connectStateResults(({ searching, searchState: state, searchResults: res }) => (
+  <SearchStatus noHits={res && res.nbHits === 0} searching={searching} query={state.query} />
+));
 
 class Algolia extends React.Component {
   state = {
@@ -56,6 +55,7 @@ class Algolia extends React.Component {
   render() {
     const ref = this.ref;
     const focus = this.focus;
+    const showResults = this.state.query.length > 1 && this.state.ready && this.state.focus;
     return (
       <InstantSearch
         searchClient={this.searchClient}
@@ -69,19 +69,20 @@ class Algolia extends React.Component {
           {...{ focus }}
         />
 
+        {showResults && config.features.search.showStats ? <Stats /> : null}
+        <Results />
         <HitsWrapper>
           <Index key={this.index} indexName={this.index}>
-            <Results />
-            {this.state.query.length > 1 && this.state.ready && this.state.focus ? (
-              <Hits hitComponent={PageHit} />
+            {showResults ? (
+              <>
+                <Hits hitComponent={PageHit} />
+              </>
             ) : (
               ''
             )}
           </Index>
         </HitsWrapper>
-        {this.state.query.length > 1 &&
-        this.state.ready &&
-        config.features.search.pagination.enabled ? (
+        {showResults && config.features.search.pagination.enabled ? (
           <Pagination
             totalPages={config.features.search.pagination.totalPages}
             showPrevious={config.features.search.pagination.showPrevious}
