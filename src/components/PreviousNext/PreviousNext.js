@@ -1,11 +1,17 @@
 import React, { useEffect } from 'react';
-import { Link}  from '../';
+import { Link } from '../';
 import styled from '@emotion/styled';
 import emoji from 'node-emoji';
 import { navigate } from 'gatsby';
 import config from 'config';
 
 import { calculateFlatNavigation, getNavigationData } from '../Navigation';
+
+const conf = {
+  pathDivider: ' — ',
+  previousName: 'Previous',
+  nextName: 'Next',
+};
 
 const PreviousNextWrapper = styled.div`
   margin: 0;
@@ -169,35 +175,28 @@ const calculatePreviousNext = (nav, index) => {
   const nextInfo = {};
   const previousInfo = {};
   let currentIndex = index;
+  const set = (nav, info) => {
+    if (nav) {
+      info.url = nav.url;
+      info.title = nav.title;
+      info.path = emoji.emojify(nav.groupName, (name) => name);
+    }
+  };
   if (currentIndex === undefined) {
     // index
     if (nav[0]) {
       nextInfo.url = nav[0].url;
       nextInfo.title = nav[0].title;
+      nextInfo.path = nav[0].groupName;
     }
     previousInfo.url = null;
     previousInfo.title = null;
     currentIndex = -1;
-  } else if (currentIndex === 0) {
-    // first page
-    nextInfo.url = nav[currentIndex + 1] ? nav[currentIndex + 1].url : null;
-    nextInfo.title = nav[currentIndex + 1] ? nav[currentIndex + 1].title : null;
-    previousInfo.url = null;
-    previousInfo.title = null;
-  } else if (currentIndex === nav.length - 1) {
-    // last page
-    nextInfo.url = null;
-    nextInfo.title = null;
-    previousInfo.url = nav[currentIndex - 1] ? nav[currentIndex - 1].url : null;
-    previousInfo.title = nav[currentIndex - 1] ? nav[currentIndex - 1].title : null;
-  } else if (currentIndex) {
-    // any other page
-    nextInfo.url = nav[currentIndex + 1].url;
-    nextInfo.title = nav[currentIndex + 1].title;
-    if (nav[currentIndex - 1]) {
-      previousInfo.url = nav[currentIndex - 1].url;
-      previousInfo.title = nav[currentIndex - 1].title;
-    }
+  } else {
+    const next = nav[currentIndex + 1] ? nav[currentIndex + 1] : null;
+    const previous = nav[currentIndex - 1] ? nav[currentIndex - 1] : null;
+    set(next, nextInfo);
+    set(previous, previousInfo);
   }
   return [previousInfo, nextInfo];
 };
@@ -220,6 +219,7 @@ const setArrowNavigation = (previous, next) => {
 const PreviousNext = ({ mdx }) => {
   const edges = getNavigationData();
   const navigation = calculateFlatNavigation(edges);
+  console.log(navigation);
   let currentIndex;
   navigation.every((el, index) => {
     if (el && el.url === mdx.fields.slug) {
@@ -233,19 +233,20 @@ const PreviousNext = ({ mdx }) => {
   if (config.features.previousNext.arrowKeyNavigation === true) {
     setArrowNavigation(previous, next);
   }
-
+  const previousLabel = `${previous.path ? previous.path + conf.pathDivider : ''} ${conf.previousName}`;
+  const nextLabel = `${conf.nextName} ${next.path ? conf.pathDivider + next.path : ''}`;
   return (
     <PreviousNextWrapper>
       {currentIndex >= 0 ? (
         <>
           {previous.url ? (
-            <LeftButton url={previous.url} title={previous.title} label={'Previous'} />
+            <LeftButton url={previous.url} title={previous.title} label={previousLabel} />
           ) : null}
           {next.url ? (
             <RightButton
               url={next.url}
-              title={navigation[currentIndex + 1] && next.title}
-              label={'Next'}
+              title={next.title}
+              label={nextLabel}
             />
           ) : null}
         </>

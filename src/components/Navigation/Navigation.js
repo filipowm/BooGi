@@ -58,7 +58,6 @@ const calculateTreeDataForData = (contentData) => {
         children: [],
         title: node.fields.title,
         order: node.frontmatter.order,
-        type: '',
       };
     });
 
@@ -89,7 +88,9 @@ const calculateTreeDataForData = (contentData) => {
       }
       return true;
     });
-    if (!parent) {
+    if (parent) {
+      data.parent = parent.title;
+    } else {
       data.parent = null;
     }
     if (!isChild) {
@@ -111,6 +112,12 @@ const calculateTreeDataForData = (contentData) => {
           result[group.id] = group;
         }
       }
+      data.groupName = group.title;
+      data.groupIcon = group.icon;
+      data.children.forEach((child) => {
+        child.groupName = group.title;
+        child.groupIcon = group.icon;
+      })
       group.children.push(data);
     }
   });

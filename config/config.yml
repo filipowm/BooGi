@@ -41,10 +41,10 @@ sidebar:
     - order: 2
       path: "/syntax"
       icon: "/assets/code.svg"
-      title: Syntax
+      title: "Syntax"
     - order: 3
       path: "/developing"
-      title: Lol
+      title: ":computer: Developing"
   links:
     - text: Gitbook
       link: https://github.com/filipowm/gatsby-gitbook-starter
