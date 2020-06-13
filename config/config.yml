@@ -69,7 +69,7 @@ features:
     enabled: true
     engine: 'algolia'
     placeholder: 'Search'
-    searchStartMethod: 'input'
+    startComponent: 'input' # icon
     debounceTime: 380
     snippetLength: 23
     hitsPerPage: 10

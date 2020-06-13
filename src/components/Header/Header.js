@@ -5,7 +5,15 @@ import 'css';
 import config from 'config';
 import Logo from './logo';
 import Navigation from './navigation';
-import { DarkModeSwitch, SearchInput, Sidebar } from '../';
+import { ButtonIcon, DarkModeSwitch, SearchInput, Sidebar } from '../';
+import { Search } from 'react-feather';
+import { useTheme } from 'emotion-theming';
+
+const SearchIcon = styled(Search)`
+  width: 1.2em;
+  pointer-events: cursor;
+  margin: 0 10px;
+`;
 
 const isSearchEnabled = config.features.search && config.features.search.enabled;
 
@@ -47,6 +55,9 @@ const HeaderWrapper = styled.header`
   @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
     display: block;
   }
+  div:last-child {
+    margin-right: 25px;
+  }
 `;
 
 const TopNavigation = styled.div`
@@ -73,6 +84,37 @@ const TopNavigation = styled.div`
     }
   }
 `;
+
+const SearchOpener = ({ open }) => {
+  const theme = useTheme();
+  const method = config.features.search.startComponent;
+  let opener = <div></div>;
+  switch (method.toLowerCase()) {
+    case 'input':
+      opener = (
+        <SearchWrapper className={'hiddenMobile'}>
+          <SearchInput onChange={(e) => (e.target.value = '')} onFocus={open} />
+        </SearchWrapper>
+      );
+      break;
+    case 'icon':
+      opener = (
+        <ButtonIcon
+          background={theme.darkModeSwitch.background}
+          hover={theme.darkModeSwitch.hover}
+          fill={'transparent'}
+          stroke={theme.darkModeSwitch.stroke}
+          icon={Search}
+          onClick={open}
+        />
+      );
+      break;
+    default:
+      console.error(`Provided show component '${method}' is not supported. Use 'icon' or 'input'.`);
+      opener = <div></div>;
+  }
+  return opener;
+};
 
 const Header = ({ setShowSearch, location, themeProvider }) => (
   <StaticQuery
@@ -104,11 +146,13 @@ const Header = ({ setShowSearch, location, themeProvider }) => (
       const logoLink = logo.link !== '' ? logo.link : '/';
       const logoImg = require('images/logo.svg');
       const [darkMode, setDarkMode] = useState(false);
-
       useEffect(() => {
         setDarkMode(themeProvider.current.retrieveActiveTheme());
       });
 
+      const open = () => {
+        setShowSearch(true);
+      };
       return (
         <HeaderWrapper>
           <Logo link={logoLink} img={logoImg} title={headerTitle} />
@@ -118,23 +162,12 @@ const Header = ({ setShowSearch, location, themeProvider }) => (
               <Sidebar location={location} />
               <hr />
 
-              {isSearchEnabled ? (
-                <SearchWrapper>
-                  <SearchInput />
-                </SearchWrapper>
-              ) : null}
+              {isSearchEnabled ? <SearchOpener open={open} /> : null}
             </div>
             <Navigation links={headerLinks} helpUrl={helpUrl} />
           </TopNavigation>
 
-          {isSearchEnabled ? (
-            <SearchWrapper className={'hiddenMobile'}>
-              <SearchInput
-                onChange={(e) => (e.target.value = '')}
-                onFocus={() => setShowSearch(true)}
-              />
-            </SearchWrapper>
-          ) : null}
+          {isSearchEnabled ? <SearchOpener open={open} /> : null}
 
           {config.features.darkMode.enabled ? (
             <DarkModeSwitch

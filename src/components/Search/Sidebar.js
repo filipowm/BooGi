@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import styled from '@emotion/styled';
-import React, { useRef, useEffect, useState, createRef } from 'react';
+import React, { useRef } from 'react';
 import config from 'config';
 import VisibilitySensor from 'react-visibility-sensor';
 
@@ -18,12 +18,6 @@ const SearchWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 12px 0;
-`;
-
-const HitsWrapper = styled.div`
-  margin-top: 69px;
-  padding: 20px;
-  border-top: 1px solid ${(props) => props.theme.colors.border};
 `;
 
 const SearchSidebar = styled.div`

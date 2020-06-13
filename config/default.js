@@ -57,10 +57,10 @@ module.exports = {
       algoliaAdminKey: null,
       engine: 'algolia',
       placeholder: 'Search',
-      searchStartMethod: 'input', // 'icon',
+      startComponent: 'input', // 'icon',
       debounceTime: 380,
       snippetLength: 22,
-      hitsPerPage: 10
+      hitsPerPage: 10,
     },
     toc: {
       depth: 3,

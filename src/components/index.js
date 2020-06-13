@@ -1,3 +1,4 @@
+export * from './Buttons';
 export DarkModeSwitch from './DarkModeSwitch';
 export EditOnRepo from './EditOnRepo';
 export Header from './Header';
