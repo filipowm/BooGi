@@ -1,0 +1,29 @@
+name: Clean repository
+on:
+  schedule:
+  - cron: "0 4 * * *"
+
+jobs:
+
+  cleanup:
+    name: Cleanup repository from stale draft, PRs and issues
+    runs-on: ubuntu-latest
+   
+    steps:
+    - name: Delete draft releases
+      uses: hugo19941994/delete-draft-releases@v0.1.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Cleanup stale issues and PRs
+      uses: actions/stale@v3
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-issue-message: 'This issue is stale because it has been open 30 days with no activity. Remove stale label or comment or this will be closed in 5 days'
+        stale-pr-message: 'This PR is stale because it has been open 30 days with no activity. Remove stale label or comment or this will be closed in 5 days'
+        days-before-stale: 30
+        days-before-close: 5
+        stale-issue-label: 'no-activity'
+        exempt-issue-labels: 'work-in-progress'
+        stale-pr-label: 'no-activity'
+        exempt-pr-labels: 'work-in-progress'
