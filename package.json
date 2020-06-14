@@ -14,7 +14,7 @@
     "mdx",
     "static-site-generator"
   ],
-  "version": "0.0.1",
+  "version": "0.1.0",
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "7.10.1",
     "@emotion/core": "10.0.28",
