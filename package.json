@@ -1,9 +1,20 @@
 {
   "name": "gatsby-gitbook-starter",
-  "private": true,
-  "description": "Gitbook-like documentation",
+  "description": "Generate GitBook style modern docs/tutorial websites using Gatsby",
   "author": "Mateusz Filipowicz <matfilipowicz@gmail.com>",
-  "version": "0.1.0",
+  "homepage": "https://gatsby-gitbook-starter.netlify.app/",
+  "keywords": [
+    "gatsby",
+    "gatsby-starter",
+    "gitbook",
+    "documentation-tool",
+    "documentation-generator",
+    "docs-generator",
+    "markdown",
+    "mdx",
+    "static-site-generator"
+  ],
+  "version": "0.0.1",
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "7.10.1",
     "@emotion/core": "10.0.28",
