@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-gitbook-starter",
-  "description": "Generate GitBook style modern docs/tutorial websites using Gatsby",
+  "name": "BooGi",
+  "description": "Generate GitBook-like modern docs/tutorial websites using Gatsby",
   "author": "Mateusz Filipowicz <matfilipowicz@gmail.com>",
-  "homepage": "https://gatsby-gitbook-starter.netlify.app/",
+  "homepage": "https://boogi.netlify.app/",
   "keywords": [
     "gatsby",
     "gatsby-starter",

@@ -1,13 +1,12 @@
-# Gitbook
+# BooGi
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c0cec88f-db01-4c57-8b8d-782e07a9f73f/deploy-status)](https://app.netlify.com/sites/gatsby-gitbook-starter/deploys)
-![CI](https://github.com/filipowm/gatsby-gitbook-starter/workflows/CI/badge.svg)
-![Docker Pulls](https://img.shields.io/docker/pulls/filipowm/gatsby-gitbook-starter)
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/filipowm/gatsby-gitbook-starter)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c0cec88f-db01-4c57-8b8d-782e07a9f73f/deploy-status)](https://app.netlify.com/sites/boogi/deploys)
+![CI](https://github.com/filipowm/boogi/workflows/CI/badge.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/filipowm/boogi)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/filipowm/boogi)
 
-
-Kick off your project with this template to create a powerful/flexible 
-docs/tutorial web apps.
+Create awesome documentation or tutorial pages following modern look-and-feel.
+Customize it to your needs
 
 ## Motivation
 
@@ -46,14 +45,14 @@ to Gitbook, make it more configurable and easier to start.
 
 ## 🔗 Live Demo
 
-Here's a [live demo](https://gatsby-gitbook-starter.netlify.app).
+Here's a [live demo](https://boogi.netlify.app).
 
 ## 🚀 Quickstart
 
 Get started by running the following commands:
 
 ```
-$ git clone git@github.com:filipowm/gatsby-gitbook-starter.git
+$ git clone git@github.com:filipowm/boogi.git
 $ yarn
 $ gatsby develop
 ```
@@ -166,4 +165,4 @@ Canonical URLs are generated automatically.
 
 ## ☁️ Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/filipowm/gatsby-gitbook-starter)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/filipowm/boogi)
