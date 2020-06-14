@@ -25,7 +25,7 @@ jobs:
       with:
         username: filipowm
         password: ${{ secrets.DOCKER_REGISTRY_PASS }}
-        repository: filipowm/gatsby-gitbook-starter-${{ matrix.dockerfile }}
+        repository: filipowm/boogi-${{ matrix.dockerfile }}
         tags: latest
         tag_with_ref: true
         tag_with_sha: true 

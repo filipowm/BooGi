@@ -51,7 +51,7 @@ jobs:
         uses: jakepartusch/wait-for-netlify-action@v1
         id: waitFor300
         with:
-          site_name: "gatsby-gitbook-starter"
+          site_name: "boogi"
           max_timeout: 300
       - name: Netlify deploy logs
         uses: bdougie/loglify@master  
@@ -74,7 +74,7 @@ jobs:
       with:
         username: filipowm
         password: ${{ secrets.DOCKER_REGISTRY_PASS }}
-        repository: filipowm/gatsby-gitbook-starter
+        repository: filipowm/boogi
         tags: latest
         tag_with_ref: true
         tag_with_sha: false 

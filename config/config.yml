@@ -1,12 +1,12 @@
 ---
 metadata:
-  name: GitBook Starter
-  short_name: GitBook
-  description: Example Gitbook
+  name: BooGi
+  short_name: BooGi
+  description: BooGi - awesome GitBook-like documentation generator using Gatsby
   language: en
   pathPrefix: "/"
   siteImage:
-  docsLocation: https://github.com/filipowm/gatsby-gitbook-starter
+  docsLocation: https://github.com/filipowm/boogi
   docsLocationType: github
   editable: true
   favicon: "/assets/favicon.png"
@@ -17,8 +17,8 @@ header:
   logoLink: "/"
   helpUrl: ""
   links:
-    - text: GitBook
-      link: https://github.com/filipowm/gatsby-gitbook-starter
+    - text: BooGi
+      link: https://github.com/filipowm/boogi
       external: true
     - text: Gatsby
       link: https://www.gatsbyjs.org
@@ -46,8 +46,8 @@ sidebar:
       path: "/developing"
       title: ":computer: Developing"
   links:
-    - text: Gitbook
-      link: https://github.com/filipowm/gatsby-gitbook-starter
+    - text: BooGi
+      link: https://github.com/filipowm/boogi
     - text: React
       link: https://reactjs.org
   ignoreIndex: true
@@ -114,7 +114,7 @@ features:
     ttl: 60
     matchRegex: "^/"
     outputPath: "/rss.xml"
-    generator: "gidocs"
+    generator: "boogi"
   darkMode:
     enabled: true  
     default: false

@@ -1,6 +1,6 @@
 module.exports = {
   metadata: {
-    name: 'Gitbook Starter',
+    name: 'BooGi',
     short_name: '',
     description: '',
     language: 'en',
@@ -8,7 +8,7 @@ module.exports = {
     pathPrefix: '/',
     gaTrackingId: null,
     siteImage: null,
-    docsLocation: 'https://github.com/filipowm/gatsby-gitbook-starter',
+    docsLocation: 'https://github.com/filipowm/boogi',
     docsLocationType: 'github',
     favicon: '/assets/favicon.png',
     themeColor: '#',
@@ -32,8 +32,8 @@ module.exports = {
   pwa: {
     enabled: true, // disabling this will also remove the existing service worker.
     manifest: {
-      name: 'Gitbook',
-      short_name: 'GitbookStarter',
+      name: 'BooGi',
+      short_name: 'BooGi',
       start_url: '/',
       background_color: '#6b37bf',
       theme_color: '#6b37bf',
