@@ -3,6 +3,7 @@ import { useTheme } from 'emotion-theming';
 import styled from '@emotion/styled';
 
 const JargonWrapper = styled.em`
+  display: inline-block;
   .jargon-term {
     text-decoration: underline dotted ${(props) => props.theme.colors.primary};
     &::after {
