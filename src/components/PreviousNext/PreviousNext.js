@@ -219,7 +219,6 @@ const setArrowNavigation = (previous, next) => {
 const PreviousNext = ({ mdx }) => {
   const edges = getNavigationData();
   const navigation = calculateFlatNavigation(edges);
-  console.log(navigation);
   let currentIndex;
   navigation.every((el, index) => {
     if (el && el.url === mdx.fields.slug) {
