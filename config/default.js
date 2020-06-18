@@ -70,6 +70,7 @@ module.exports = {
       }
     },
     toc: {
+      show: true,
       depth: 3,
     },
     previousNext: {

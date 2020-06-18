@@ -95,10 +95,10 @@ const TocTitle = styled(({ className }) => {
   }
 `;
 
-const buildToC = (item, items, depth = 1) => {
+const buildToC = (item, items, maxDepth, depth) => {
   if (item.items) {
     item.items.forEach((innerItem) => {
-      if (depth > config.features.toc.depth) {
+      if (depth > maxDepth) {
         return;
       }
       const itemId = innerItem.title ? innerItem.title.replace(/\s+/g, '').toLowerCase() : '#';
@@ -108,28 +108,30 @@ const buildToC = (item, items, depth = 1) => {
         </ListItem>
       );
       items.push(listItem);
-      buildToC(innerItem, items, depth + 1);
+      buildToC(innerItem, items, maxDepth, depth + 1);
     });
   }
 };
 
 const generateToCItems = (allMdx, location) => {
   let finalNavItems = [];
+  const isCurrentPage = (slug) => slug === location.pathname || config.metadata.pathPrefix + slug === location.pathname;
+  const showToc = (showToc) => (config.features.toc.show === true && showToc !== false) || showToc === true;
+
   if (allMdx.edges !== undefined && allMdx.edges.length > 0) {
-    allMdx.edges.forEach((item) => {
+    allMdx.edges.every((item) => {
       let innerItems = [];
       if (item !== undefined) {
-        if (
-          (item.node.fields.slug === location.pathname ||
-            config.metadata.pathPrefix + item.node.fields.slug === location.pathname) &&
-          !item.node.frontmatter.skipToC
-        ) {
-          buildToC(item.node.tableOfContents, innerItems);
+        if ( isCurrentPage(item.node.fields.slug) && showToc(item.node.frontmatter.showToc)) {
+          const maxDepth = item.node.frontmatter.tocDepth ? item.node.frontmatter.tocDepth : config.features.toc.depth;
+          buildToC(item.node.tableOfContents, innerItems, maxDepth, 1);
         }
       }
       if (innerItems.length > 0) {
         finalNavItems = innerItems;
+        return false;
       }
+      return true;
     });
   }
   return finalNavItems;
@@ -163,7 +165,8 @@ const TableOfContents = ({ className, location }) => (
               tableOfContents
 
               frontmatter {
-                skipToC
+                showToc
+                tocDepth
               }
             }
           }
