@@ -50,6 +50,7 @@ export default {
   pre: (props) => <pre css={pre} {...props} />,
   table: (props) => <table css={table(useTheme())} {...props} />,
   em: Jargon,
+  img: (props) => <a href={props.src} target="_blank" rel="noopener noreferrer"><img {...props} /></a>,
   code: CodeBlock,
   a: AnchorTag,
   Badge,
