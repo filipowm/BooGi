@@ -11,7 +11,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       frontmatter: MdxFrontmatter
     }
     type MdxFrontmatter {
-      skipToC: Boolean
+      showToc: Boolean
+      tocDepth: Int
       editable: Boolean
       showMetadata: Boolean
       showPreviousNext: Boolean
