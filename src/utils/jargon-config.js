@@ -1,4 +1,4 @@
-const jargonData = require('./jargon.json');
+const jargonData = require('../../config/jargon.json');
 
 const validateProperty = (entry, property, key) => {
   const value = entry[property];

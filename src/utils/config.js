@@ -1,7 +1,15 @@
 const fs = require('fs');
+
 const _ = require('lodash');
-const yaml = require('js-yaml');
-const defaults = require('./default');
+const defaults = require('../../config/default');
+const { readYamlOrJson } = require('./fileUtils');
+
+const generate = (path, config) => {
+  const generated = `module.exports = ${JSON.stringify(config, undefined, 4)};`;
+  fs.writeFile(path, generated, function (err) {
+    if (err) return console.log(err);
+  });
+};
 
 const readEnvOrDefault = (name, def) => {
   let value = process.env[name];
@@ -16,27 +24,12 @@ class ConfigReader {
 
 class FileReader extends ConfigReader {
   getPath() {
-    return readEnvOrDefault('CONFIG_PATH', __dirname + '/config.yml');
-  }
-
-  readPath(path) {
-    try {
-      if (path.endsWith('.yml') || path.endsWith('.yaml')) {
-        const fileContents = fs.readFileSync(path, 'utf8');
-        return yaml.safeLoad(fileContents);
-      } else if (path.endsWith('.json')) {
-        return require(path);
-      }
-      throw 'Config file must be either YAML or JSON';
-    } catch (err) {
-      console.error(err);
-      return {};
-    }
+    return readEnvOrDefault('CONFIG_PATH', __dirname + '/../../config/config.yml');
   }
 
   read() {
     const path = this.getPath();
-    return this.readPath(path);
+    return readYamlOrJson(path);
   }
 }
 
@@ -132,9 +125,13 @@ class NetlifyEnvReader extends ConfigReader {
       );
       return {
         metadata: {
-          url: deployUrl,
-          docsLocation: repositoryUrl,
+          url: deployUrl
         },
+        features: {
+          editOnRepo: {
+            location: repositoryUrl
+          }
+        }
       };
     }
     return {};
@@ -171,4 +168,4 @@ const postProcessConfig = (config) => {
   });
 };
 
-module.exports = read;
+module.exports = { read, generate };
