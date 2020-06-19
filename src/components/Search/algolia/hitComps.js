@@ -1,16 +1,14 @@
 import React from 'react';
 import { Highlight, Snippet } from 'react-instantsearch-dom';
 import { Hit } from '../Hits';
-import emoji from 'node-emoji';
+import emoji from '../../../utils/emoji';
 
 export const PageHit = ({ hit }) => {
   hit._highlightResult.title.value = emoji.emojify(
-    hit._highlightResult.title.value,
-    (name) => name
+    hit._highlightResult.title.value
   );
   hit._snippetResult.excerpt.value = emoji.emojify(
-    hit._snippetResult.excerpt.value,
-    (name) => name
+    hit._snippetResult.excerpt.value
   );
   return (
     <Hit

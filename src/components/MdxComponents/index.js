@@ -9,13 +9,14 @@ import Badge from './badge';
 import Jargon from './jargon';
 import { blockquote, pre, table, list } from '../../styles';
 import { useTheme } from 'emotion-theming';
+import emoji from '../../utils/emoji';
 
 const idFromHeader = (props) => {
   let name = props.children;
   if (Array.isArray(name)) {
     name = props.children[0];
   }
-  return name.replace(/\s+/g, '').toLowerCase();
+  return emoji.clean(name).replace(/\s+/g, '').toLowerCase();
 };
 const Header = (level, props) => {
   let name = idFromHeader(props);
@@ -43,7 +44,7 @@ const emphasis = (props) => {
     return <Jargon {...props} />;
   }
   return <em {...props} />;
-}
+};
 
 export default {
   h1: (props) => Header(1, props),
@@ -58,7 +59,11 @@ export default {
   pre: (props) => <pre css={pre} {...props} />,
   table: (props) => <table css={table(useTheme())} {...props} />,
   em: emphasis,
-  img: (props) => <a href={props.src} target="_blank" rel="noopener noreferrer"><img {...props} /></a>,
+  img: (props) => (
+    <a href={props.src} target="_blank" rel="noopener noreferrer">
+      <img {...props} />
+    </a>
+  ),
   code: CodeBlock,
   ul: (props) => <ul css={list} {...props} />,
   ol: (props) => <ol css={list} {...props} />,
