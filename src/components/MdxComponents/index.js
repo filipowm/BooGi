@@ -7,7 +7,7 @@ import Highlights from './highlights';
 import Icon from './icon';
 import Badge from './badge';
 import Jargon from './jargon';
-import { blockquote, pre, table } from '../../styles';
+import { blockquote, pre, table, list } from '../../styles';
 import { useTheme } from 'emotion-theming';
 
 const idFromHeader = (props) => {
@@ -37,6 +37,14 @@ const Section = (props) => {
   return <section id={name} {...props} />;
 };
 
+const emphasis = (props) => {
+  const useJargon = !(typeof props.children === 'string');
+  if (useJargon) {
+    return <Jargon {...props} />;
+  }
+  return <em {...props} />;
+}
+
 export default {
   h1: (props) => Header(1, props),
   h2: (props) => Header(2, props),
@@ -49,9 +57,11 @@ export default {
   p: (props) => <p className="paragraph" {...props} />,
   pre: (props) => <pre css={pre} {...props} />,
   table: (props) => <table css={table(useTheme())} {...props} />,
-  em: Jargon,
+  em: emphasis,
   img: (props) => <a href={props.src} target="_blank" rel="noopener noreferrer"><img {...props} /></a>,
   code: CodeBlock,
+  ul: (props) => <ul css={list} {...props} />,
+  ol: (props) => <ol css={list} {...props} />,
   a: AnchorTag,
   Badge,
   Layout,

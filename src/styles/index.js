@@ -38,10 +38,10 @@ export const shadowAround = (theme) => css`
 export const blockquote = (theme) => css`
   font-size: 1.4em;
   width: 100%;
-  margin: 50px auto;
+  margin: 30px auto;
   font-style: italic;
   color: ${theme.colors.font};
-  padding: 14px 30px 14px 75px;
+  padding: 14px 25px 14px 75px;
   border-left: 8px solid ${theme.colors.primary};
   line-height: 1.6;
   position: relative;
@@ -53,7 +53,7 @@ export const blockquote = (theme) => css`
     font-size: 4em;
     position: absolute;
     left: 10px;
-    top: -10px;
+    top: -13px;
   }
 
   &::after {
@@ -61,7 +61,6 @@ export const blockquote = (theme) => css`
   }
   p {
     font-size: 16px;
-    margin-top: 1.5em;
   }
 `;
 
@@ -166,3 +165,30 @@ export const scrollbar = css`
     background-color: #555;
 }
 `;
+
+export const skipParagraph = css`
+&:first-child {
+  margin-top: 0;
+}
+&:last-child {
+  margin-bottom: 0;
+}
+`;
+
+export const list = css`
+  li {
+    p {
+      margin: 8px 0;
+    }
+    p:first-child {
+      margin-top: 0;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+    p:nth-child(n+2):last-child {
+      margin-bottom: 10px;
+    }
+  }
+
+`
