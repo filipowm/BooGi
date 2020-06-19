@@ -1,15 +1,14 @@
 // 08:46
 require('dotenv').config();
 const queries = require('./src/utils/algolia');
-const readConfig = require('./config/config-reader');
-const writeConfig = require('./config/config-js-writer');
+const configManager = require('./src/utils/config');
 const path = require('path');
 const globImporter = require('node-sass-glob-importer');
 const emoji = require('node-emoji');
 const _ = require('lodash');
 
-const config = readConfig();
-writeConfig(__dirname + '/.generated.config.js', config);
+const config = configManager.read();
+configManager.generate(__dirname + '/.generated.config.js', config);
 
 const plugins = [
   'gatsby-plugin-sitemap',
@@ -86,7 +85,7 @@ const plugins = [
         'gatsby-remark-copy-linked-files',
         {
           resolve: 'gatsby-remark-jargon',
-          options: { jargon: require('./config/jargon-config.js') },
+          options: { jargon: require('./src/utils/jargon-config.js') },
         },
         {
           resolve: `gatsby-remark-embed-snippet`,

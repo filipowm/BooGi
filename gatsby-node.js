@@ -1,7 +1,7 @@
 const path = require('path');
 const startCase = require('lodash.startcase');
 const chokidar = require(`chokidar`);
-const touch = require('./src/utils/fileUtils');
+const { touch } = require('./src/utils/fileUtils');
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
