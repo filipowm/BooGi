@@ -8,8 +8,6 @@ module.exports = {
     pathPrefix: '/',
     gaTrackingId: null,
     siteImage: null,
-    docsLocation: 'https://github.com/filipowm/boogi',
-    docsLocationType: 'github',
     favicon: '/assets/favicon.png',
     themeColor: '#',
   },
@@ -49,6 +47,11 @@ module.exports = {
     },
   },
   features: {
+    editOnRepo: {
+      editable: true,
+      location: 'https://github.com/filipowm/boogi',
+      type: 'github',
+    },
     search: {
       enabled: true,
       indexName: 'docs',

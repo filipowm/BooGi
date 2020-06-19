@@ -266,9 +266,9 @@ module.exports = {
   siteMetadata: {
     title: config.metadata.name,
     description: config.metadata.description,
-    docsLocation: config.metadata.docsLocation,
-    docsLocationType: config.metadata.docsLocationType,
-    editable: config.metadata.editable,
+    docsLocation: config.features.editOnRepo.location,
+    docsLocationType: config.features.editOnRepo.type,
+    editable: config.features.editOnRepo.editable,
     siteImage: config.metadata.siteImage,
     favicon: config.metadata.favicon,
     logo: {

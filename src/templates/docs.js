@@ -99,14 +99,13 @@ export default class MDXRuntimeTest extends React.Component {
     const {
       mdx,
       site: {
-        siteMetadata: { docsLocation, docsLocationType, title },
+        siteMetadata: { docsLocation, docsLocationType, editable },
       },
       gitBranch,
     } = data;
 
     // meta tags
     const metaTitle = mdx.frontmatter.metaTitle;
-    const description = mdx.frontmatter.description;
     const docTitle = emoji.emojify(mdx.fields.title, (name) => name);
     const headTitle = metaTitle ? metaTitle : emoji.strip(docTitle);
     return (
@@ -117,7 +116,7 @@ export default class MDXRuntimeTest extends React.Component {
         <PageTitle>
           <TitleWrapper>
             <Title>{docTitle}</Title>
-            {(config.metadata.editable && mdx.frontmatter.editable != false) ||
+            {(editable && mdx.frontmatter.editable != false) ||
             mdx.frontmatter.editable ? (
               <EditOnRepo
                 location={docsLocation}
@@ -171,6 +170,7 @@ export const pageQuery = graphql`
         title
         docsLocation
         docsLocationType
+        editable
       }
     }
     mdx(fields: { id: { eq: $id } }) {
@@ -194,7 +194,6 @@ export const pageQuery = graphql`
       }
       frontmatter {
         metaTitle
-        description
         showMetadata
         editable
         showPreviousNext

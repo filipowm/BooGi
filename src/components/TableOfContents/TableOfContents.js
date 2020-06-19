@@ -6,6 +6,7 @@ import config from 'config';
 import Scrollspy from 'react-scrollspy';
 import { sleep } from '../../utils/utils';
 import { scrollbar } from '../../styles'
+import emoji from 'node-emoji';
 
 const Sidebar = styled.aside`
   background-color: ${(props) => props.theme.tableOfContents.background};
@@ -102,9 +103,10 @@ const buildToC = (item, items, maxDepth, depth) => {
         return;
       }
       const itemId = innerItem.title ? innerItem.title.replace(/\s+/g, '').toLowerCase() : '#';
+      const title = emoji.emojify(innerItem.title, name => name);
       let listItem = (
         <ListItem key={items.length} to={`#${itemId}`} level={depth}>
-          {innerItem.title}
+          {title}
         </ListItem>
       );
       items.push(listItem);
