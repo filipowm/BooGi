@@ -7,7 +7,7 @@ import { css } from '@emotion/core';
 
 import styled from '@emotion/styled';
 import { useTheme } from 'emotion-theming';
-import emoji from 'node-emoji';
+import emoji from '../../utils/emoji';
 
 // If you want to have a css call based on props, create a function that returns a css call like this
 // let dynamicStyle = (props) => css`color: ${props.color}`
@@ -113,7 +113,6 @@ const NodeCollapseButton = styled(({ className, isCollapsed, collapse }) => {
     }
   }
 `;
-// key pass:XNLxUeb7Z6XjzfP7
 
 const ContentTreeNode = ({ className, toggle, collapsed, url, title, location, children }) => {
   const hasChildren = children.length !== 0;
@@ -127,7 +126,7 @@ const ContentTreeNode = ({ className, toggle, collapsed, url, title, location, c
   };
   const theme = useTheme();
   let isCollapsed = collapsed[url];
-  const text = emoji.emojify(title, (name) => name);
+  const text = emoji.emojify(title);
   return (
     <>
       <NodeContent

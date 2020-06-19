@@ -4,7 +4,7 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import styled from '@emotion/styled';
 import { Layout, EditOnRepo, PreviousNext, Seo } from '$components';
 import config from 'config';
-import emoji from 'node-emoji';
+import emoji from '../utils/emoji';
 
 const Title = styled.h1`
   font-size: 32px;
@@ -106,8 +106,8 @@ export default class MDXRuntimeTest extends React.Component {
 
     // meta tags
     const metaTitle = mdx.frontmatter.metaTitle;
-    const docTitle = emoji.emojify(mdx.fields.title, (name) => name);
-    const headTitle = metaTitle ? metaTitle : emoji.strip(docTitle);
+    const docTitle = emoji.emojify(mdx.fields.title);
+    const headTitle = metaTitle ? metaTitle : emoji.clean(docTitle);
     return (
       <Layout {...this.props}>
         <Seo frontmatter={mdx.frontmatter} 

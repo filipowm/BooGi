@@ -4,7 +4,7 @@ const queries = require('./src/utils/algolia');
 const configManager = require('./src/utils/config');
 const path = require('path');
 const globImporter = require('node-sass-glob-importer');
-const emoji = require('node-emoji');
+const emoji = require('./src/utils/emoji');
 const _ = require('lodash');
 
 const config = configManager.read();
@@ -72,8 +72,8 @@ const plugins = [
         {
           resolve: require.resolve(`./plugins/gatsby-remark-sectionize-toc`),
           options: {
-            maxDepth: config.features.toc.depth
-          }
+            maxDepth: config.features.toc.depth,
+          },
         },
         {
           resolve: 'gatsby-remark-images',
@@ -176,15 +176,13 @@ if (config.features.rss && config.features.rss.enabled) {
               const frontmatter = edge.node.frontmatter;
               const fields = edge.node.parent.fields;
               const rawTitle = frontmatter.metaTitle ? frontmatter.metaTitle : frontmatter.title;
-              const title = emoji.strip(emoji.emojify(rawTitle, (name) => name));
+              const title = emoji.clean(rawTitle);
               const date = fields && fields.gitLogLatestDate ? fields.gitLogLatestDate : new Date();
               const author =
                 fields && fields.gitLogLatestAuthorName ? fields.gitLogLatestAuthorName : 'unknown';
               return {
                 title: title,
-                description: frontmatter.description
-                  ? frontmatter.description
-                  : edge.node.excerpt,
+                description: frontmatter.description ? frontmatter.description : edge.node.excerpt,
                 date: date,
                 url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                 author: author,

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from '../';
 import styled from '@emotion/styled';
-import emoji from 'node-emoji';
+import emoji from '../../utils/emoji';
 import { navigate } from 'gatsby';
 import config from 'config';
 
@@ -106,7 +106,7 @@ const ContentWrapper = styled(({ className, label, title }) => {
         <span>{label}</span>
       </Label>
       <Title>
-        <span>{emoji.emojify(title, (name) => name)}</span>
+        <span>{emoji.emojify(title)}</span>
       </Title>
     </div>
   );
@@ -179,7 +179,7 @@ const calculatePreviousNext = (nav, index) => {
     if (nav) {
       info.url = nav.url;
       info.title = nav.title;
-      info.path = emoji.emojify(nav.groupName, (name) => name);
+      info.path = emoji.emojify(nav.groupName);
     }
   };
   if (currentIndex === undefined) {
