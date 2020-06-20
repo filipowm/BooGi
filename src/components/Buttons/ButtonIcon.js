@@ -13,8 +13,8 @@ const ButtonIconWrapper = styled('div')`
   cursor: pointer;
   &:hover {
     svg {
-      fill: ${(props) => props.hover};
-      stroke: ${(props) => props.hover};
+      fill: ${(props) => props.hoverFill};
+      stroke: ${(props) => props.hoverStroke};
     }
   }
   svg {
@@ -34,10 +34,11 @@ const ButtonIcon = ({ icon, ...props }) => {
 };
 
 ButtonIcon.propTypes = {
-  background: PropTypes.string.isRequired,
-  hover: PropTypes.string.isRequired,
-  fill: PropTypes.string.isRequired,
-  stroke: PropTypes.string.isRequired,
+  background: PropTypes.string,
+  hoverFill: PropTypes.string,
+  hoverStroke: PropTypes.string,
+  fill: PropTypes.string,
+  stroke: PropTypes.string,
   icon: PropTypes.object.isRequired,
 };
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const help = require('images/help.svg');
-const Navigation = styled(({ className, links, helpUrl }) => {
+const Navigation = styled(({ className, links }) => {
   return (
     <nav>
       <ul className={className}>
@@ -23,13 +22,6 @@ const Navigation = styled(({ className, links, helpUrl }) => {
               }
             })
           : null}
-        {helpUrl !== '' ? (
-          <li>
-            <a href={helpUrl}>
-              <img src={help} alt={'Help icon'} />
-            </a>
-          </li>
-        ) : null}
       </ul>
     </nav>
   );
