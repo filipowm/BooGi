@@ -9,7 +9,8 @@ const DarkModeSwitch = ({ isDarkThemeActive, toggleActiveTheme, ...props }) => {
   const img = isDarkThemeActive ? NightImage : DayImage;
   return (
     <ButtonIcon background={theme.darkModeSwitch.background}
-                hover={theme.darkModeSwitch.hover}
+                hoverFill={theme.darkModeSwitch.hover}
+                hoverStroke={theme.darkModeSwitch.hover}
                 fill={theme.darkModeSwitch.fill}
                 stroke={theme.darkModeSwitch.stroke}
                 icon={img} 

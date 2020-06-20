@@ -6,7 +6,7 @@ import config from 'config';
 import Logo from './logo';
 import Navigation from './navigation';
 import { ButtonIcon, DarkModeSwitch, SearchInput, Sidebar } from '../';
-import { Search } from 'react-feather';
+import { HelpCircle, Search } from 'react-feather';
 import { useTheme } from 'emotion-theming';
 
 const SearchIcon = styled(Search)`
@@ -101,7 +101,7 @@ const SearchOpener = ({ open }) => {
       opener = (
         <ButtonIcon
           background={theme.darkModeSwitch.background}
-          hover={theme.darkModeSwitch.hover}
+          hoverStroke={theme.darkModeSwitch.hover}
           fill={'transparent'}
           stroke={theme.darkModeSwitch.stroke}
           icon={Search}
@@ -114,6 +114,21 @@ const SearchOpener = ({ open }) => {
       opener = <div></div>;
   }
   return opener;
+};
+
+const HelpButton = ({ helpUrl, ...props }) => {
+  const theme = useTheme();
+  const open = () => {
+    const help = window.open(helpUrl, '_blank');
+    help.focus();
+  }
+  return (
+    <ButtonIcon hoverStroke={theme.darkModeSwitch.hover}
+                stroke={theme.darkModeSwitch.stroke}
+                icon={HelpCircle} 
+                onClick={open}
+                {...props} />
+  );
 };
 
 const Header = ({ setShowSearch, location, themeProvider }) => (
@@ -164,11 +179,13 @@ const Header = ({ setShowSearch, location, themeProvider }) => (
 
               {isSearchEnabled ? <SearchOpener open={open} /> : null}
             </div>
-            <Navigation links={headerLinks} helpUrl={helpUrl} />
+            <Navigation links={headerLinks} />
           </TopNavigation>
 
           {isSearchEnabled ? <SearchOpener open={open} /> : null}
-
+          {helpUrl && helpUrl.length > 0 ? (
+            <HelpButton helpUrl={helpUrl} />
+          ) : ''}
           {config.features.darkMode.enabled ? (
             <DarkModeSwitch
               css={{ flex: '0' }}

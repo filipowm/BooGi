@@ -3,6 +3,7 @@ const fs = require('fs');
 const _ = require('lodash');
 const defaults = require('../../config/default');
 const { readYamlOrJson } = require('./fileUtils');
+const processPwa = require('./config-pwa');
 
 const generate = (path, config) => {
   const generated = `module.exports = ${JSON.stringify(config, undefined, 4)};`;
@@ -152,13 +153,9 @@ const read = () => {
 };
 
 const postProcessConfig = (config) => {
-  config['pwa']['manifest']['name'] = config.metadata.name;
-  config['pwa']['manifest']['short_name'] = config.metadata.short_name
-    ? config.metadata.short_name
-    : config.metadata.name.replace(/\w+/, '');
-  config['pwa']['manifest']['start_url'] = config.metadata.pathPrefix;
-  config['pwa']['manifest']['background_color'] = config.metadata.themeColor;
-  config['pwa']['manifest']['theme_color'] = config.metadata.themeColor;
+  if (config.pwa.enabled === true) {
+    processPwa(config);
+  }
 
   config.sidebar.groups.sort(function (a, b) {
     // ASC  -> a.length - b.length

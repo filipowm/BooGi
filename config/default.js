@@ -35,8 +35,8 @@ module.exports = {
       start_url: '/',
       background_color: '#6b37bf',
       theme_color: '#6b37bf',
-      display: 'standalone',
-      crossOrigin: 'use-credentials',
+      display: 'minimal-ui',
+      crossOrigin: 'anonymous',
       icons: [
         {
           src: 'src/pwa-512.png',
