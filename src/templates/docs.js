@@ -48,6 +48,9 @@ const ContentWrapper = styled.div`
     font-size: 0.9375em;
     color: ${(props) => props.theme.content.code.font};
   }
+  section {
+    margin: 24px 0;
+  }
   ul,
   ol {
     -webkit-padding-start: 40px;
@@ -91,6 +94,13 @@ const LastUpdated = styled(({ className, time, name }) => {
 `;
 
 export default class MDXRuntimeTest extends React.Component {
+  componentDidMount() {
+    if (window.location.hash) {
+      const element = document.getElementById(window.location.hash.substring(1));
+      element.scrollIntoView(true);
+    }
+  }
+
   render() {
     const { data } = this.props;
     if (!data) {
@@ -110,14 +120,11 @@ export default class MDXRuntimeTest extends React.Component {
     const headTitle = metaTitle ? metaTitle : emoji.clean(docTitle);
     return (
       <Layout {...this.props}>
-        <Seo frontmatter={mdx.frontmatter} 
-             url={this.props.location.href}
-             title={headTitle} />
+        <Seo frontmatter={mdx.frontmatter} url={this.props.location.href} title={headTitle} />
         <PageTitle>
           <TitleWrapper>
             <Title>{docTitle}</Title>
-            {(editable && mdx.frontmatter.editable != false) ||
-            mdx.frontmatter.editable ? (
+            {(editable && mdx.frontmatter.editable != false) || mdx.frontmatter.editable ? (
               <EditOnRepo
                 location={docsLocation}
                 branch={gitBranch.name}
