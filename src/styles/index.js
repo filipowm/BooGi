@@ -68,6 +68,7 @@ export const pre = css`
   background-color: transparent;
   border: 0 !important;
   font-size: 14px;
+  display: grid;
   pre.prism-code {
     margin: 0;
     padding: 16px;
