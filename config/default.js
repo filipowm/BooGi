@@ -46,6 +46,19 @@ module.exports = {
       ],
     },
   },
+  social: {
+    facebook: '',
+    github: '',
+    gitlab: '',
+    instagram: '',
+    linkedin: '',
+    mail: '',
+    gmail: '',
+    slack: '',
+    twich: '',
+    twitter: '',
+    youtube: ''
+  },
   features: {
     editOnRepo: {
       editable: true,
