@@ -24,8 +24,12 @@ const SidebarMain = styled.div`
   padding: 0;
   padding-top: 32px;
   overflow-x: hidden;
-  overflow-y: overlay;
-  -webkit-overflow-scrolling: touch;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: hidden;
+  &:hover, &:focus {
+    overflow-y: overlay;
+    -webkit-overflow-scrolling: touch;
+  }
 `;
 
 const PoweredByWrapper = styled.div`
