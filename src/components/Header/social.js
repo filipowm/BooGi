@@ -22,7 +22,7 @@ const SocialButtonsBuilder = (baseProps) => {
 }
 
 export default (iconBaseProps, socialConfig) => {
-    const buttons = new SocialButtonsBuilder(iconBaseProps);
+    const buttons = SocialButtonsBuilder(iconBaseProps);
     buttons.create(socialConfig.facebook, 'Facebook', link => link);
     buttons.create(socialConfig.github, 'Github', link => link);
     buttons.create(socialConfig.gitlab, 'Gitlab', link => link);
