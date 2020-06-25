@@ -113,6 +113,7 @@ module.exports = {
     },
     rss: {
       enabled: true,
+      showIcon: true,
       copyright: '2020, Mateusz Filipowicz',
       webMaster: 'Mateusz Filipowicz (matfilipowicz@gmail.com)',
       managingEditor: 'Mateusz Filipowicz (matfilipowicz@gmail.com)',
