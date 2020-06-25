@@ -5,8 +5,7 @@ import styled from '@emotion/styled';
 const ButtonIconWrapper = styled('div')`
   display: flex;
   justify-content: flex-end;
-  margin: 0 5px;
-  padding: 6px;
+  padding: 4px;
 
   background-color: ${(props) => props.background};
   border-radius: 50%;

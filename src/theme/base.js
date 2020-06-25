@@ -95,6 +95,13 @@ const header = (colors) => ({
     hover: colorfn(colors.primary).negate().hex(),
   },
   border: colors.border,
+  icons: {
+    background: colors.background,
+    shadow: colors.shadow,
+    fill: decreaseIntensivity(colors.background, 0.4),
+    stroke: decreaseIntensivity(colors.background, 0.4),
+    hover: colors.primary,
+  }
 });
 
 const search = (colors) => ({
@@ -120,14 +127,6 @@ const search = (colors) => ({
       font: grayscaleCompatible(colors.primary)
     }
   }
-});
-
-const darkModeSwitch = (colors) => ({
-  background: colors.background,
-  shadow: colors.shadow,
-  fill: decreaseIntensivity(colors.background, 0.4),
-  stroke: decreaseIntensivity(colors.background, 0.4),
-  hover: colors.primary,
 });
 
 const editOnRepo = (colors) => ({
@@ -212,7 +211,6 @@ export default {
   transitions: transitions,
   header: header,
   search: search,
-  darkModeSwitch: darkModeSwitch,
   navigationSidebar: navigationSidebar,
   content: content,
   editOnRepo: editOnRepo,

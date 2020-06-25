@@ -8,6 +8,7 @@ import Navigation from './navigation';
 import { ButtonIcon, DarkModeSwitch, SearchInput, Sidebar } from '../';
 import { HelpCircle, Search } from 'react-feather';
 import { useTheme } from 'emotion-theming';
+import SocialButtons from './social';
 
 const SearchIcon = styled(Search)`
   width: 1.2em;
@@ -19,11 +20,9 @@ const isSearchEnabled = config.features.search && config.features.search.enabled
 
 const SearchWrapper = styled.div`
   padding-left: 20px;
-  margin-right: 20px;
-  flex: 1;
-  max-width: 448px;
-  min-width: 150px;
+  flex: 1 1 auto;
   position: relative;
+  min-width: 290px;
   border-left: 1px solid ${(props) => props.theme.header.border};
   @media (max-width: ${(props) => props.theme.breakpoints['large']}) {
     padding-left: 0;
@@ -55,7 +54,7 @@ const HeaderWrapper = styled.header`
   @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
     display: block;
   }
-  div:last-child {
+  & > div:last-child {
     margin-right: 25px;
   }
 `;
@@ -85,6 +84,16 @@ const TopNavigation = styled.div`
   }
 `;
 
+const ButtonsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  min-width: 458px;
+  a,
+  > div {
+    margin: 0 6px;
+  }
+`;
+
 const SearchOpener = ({ open }) => {
   const theme = useTheme();
   const method = config.features.search.startComponent;
@@ -92,7 +101,7 @@ const SearchOpener = ({ open }) => {
   switch (method.toLowerCase()) {
     case 'input':
       opener = (
-        <SearchWrapper className={'hiddenMobile'}>
+        <SearchWrapper className={'hiddenMobile'} style={{ marginRight: '20px' }}>
           <SearchInput onChange={(e) => (e.target.value = '')} onFocus={open} />
         </SearchWrapper>
       );
@@ -100,10 +109,10 @@ const SearchOpener = ({ open }) => {
     case 'icon':
       opener = (
         <ButtonIcon
-          background={theme.darkModeSwitch.background}
-          hoverStroke={theme.darkModeSwitch.hover}
+          background={theme.header.icons.background}
+          hoverStroke={theme.header.icons.hover}
           fill={'transparent'}
-          stroke={theme.darkModeSwitch.stroke}
+          stroke={theme.header.icons.stroke}
           icon={Search}
           onClick={open}
         />
@@ -121,13 +130,15 @@ const HelpButton = ({ helpUrl, ...props }) => {
   const open = () => {
     const help = window.open(helpUrl, '_blank');
     help.focus();
-  }
+  };
   return (
-    <ButtonIcon hoverStroke={theme.darkModeSwitch.hover}
-                stroke={theme.darkModeSwitch.stroke}
-                icon={HelpCircle} 
-                onClick={open}
-                {...props} />
+    <ButtonIcon
+      hoverStroke={theme.header.icons.hover}
+      stroke={theme.header.icons.stroke}
+      icon={HelpCircle}
+      onClick={open}
+      {...props}
+    />
   );
 };
 
@@ -168,6 +179,12 @@ const Header = ({ setShowSearch, location, themeProvider }) => (
       const open = () => {
         setShowSearch(true);
       };
+      const theme = useTheme();
+      const iconBaseProps = {
+        background: theme.header.icons.background,
+        hoverStroke: theme.header.icons.hover,
+        stroke: theme.header.icons.stroke,
+      };
       return (
         <HeaderWrapper>
           <Logo link={logoLink} img={logoImg} title={headerTitle} />
@@ -182,21 +199,24 @@ const Header = ({ setShowSearch, location, themeProvider }) => (
             <Navigation links={headerLinks} />
           </TopNavigation>
 
-          {isSearchEnabled ? <SearchOpener open={open} /> : null}
-          {helpUrl && helpUrl.length > 0 ? (
-            <HelpButton helpUrl={helpUrl} />
-          ) : ''}
-          {config.features.darkMode.enabled ? (
-            <DarkModeSwitch
-              css={{ flex: '0' }}
-              isDarkThemeActive={darkMode}
-              toggleActiveTheme={() => {
-                setDarkMode(themeProvider.current.toggleActiveTheme());
-              }}
-            />
-          ) : (
-            ''
-          )}
+          <ButtonsWrapper>
+            {isSearchEnabled ? <SearchOpener open={open} /> : null}
+            {helpUrl && helpUrl.length > 0 ? <HelpButton helpUrl={helpUrl} /> : ''}
+            { SocialButtons(iconBaseProps, config.social) }
+            {config.features.darkMode.enabled ? (
+              <DarkModeSwitch
+                {...iconBaseProps}
+                hoverFill={theme.header.icons.hover}
+                fill={theme.header.icons.fill}
+                isDarkThemeActive={darkMode}
+                toggleActiveTheme={() => {
+                  setDarkMode(themeProvider.current.toggleActiveTheme());
+                }}
+              />
+            ) : (
+              ''
+            )}
+          </ButtonsWrapper>
         </HeaderWrapper>
       );
     }}

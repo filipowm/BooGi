@@ -2,26 +2,25 @@ import PropTypes from "prop-types";
 import React from 'react';
 import { Sun as DayImage, Moon as NightImage } from 'react-feather';
 import { ButtonIcon } from '../';
-import { useTheme } from 'emotion-theming';
 
 const DarkModeSwitch = ({ isDarkThemeActive, toggleActiveTheme, ...props }) => {
-  const theme = useTheme();
   const img = isDarkThemeActive ? NightImage : DayImage;
   return (
-    <ButtonIcon background={theme.darkModeSwitch.background}
-                hoverFill={theme.darkModeSwitch.hover}
-                hoverStroke={theme.darkModeSwitch.hover}
-                fill={theme.darkModeSwitch.fill}
-                stroke={theme.darkModeSwitch.stroke}
-                icon={img} 
+    <ButtonIcon icon={img} 
                 onClick={toggleActiveTheme}
+                title={'Switch theme'}
                 {...props} />
   );
 };
 
 DarkModeSwitch.propTypes = {
   isDarkThemeActive: PropTypes.bool.isRequired,
-  toggleActiveTheme: PropTypes.func.isRequired
+  toggleActiveTheme: PropTypes.func.isRequired,
+  background: PropTypes.string,
+  hoverFill: PropTypes.string,
+  hoverStroke: PropTypes.string,
+  fill: PropTypes.string,
+  stroke: PropTypes.string,
 }
 
 export default DarkModeSwitch;
