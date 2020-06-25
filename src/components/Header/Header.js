@@ -9,6 +9,7 @@ import { ButtonIcon, DarkModeSwitch, SearchInput, Sidebar } from '../';
 import { HelpCircle, Search } from 'react-feather';
 import { useTheme } from 'emotion-theming';
 import SocialButtons from './social';
+import { Rss } from '../Buttons'
 
 const SearchIcon = styled(Search)`
   width: 1.2em;
@@ -142,6 +143,13 @@ const HelpButton = ({ helpUrl, ...props }) => {
   );
 };
 
+const RssIcon = (iconBaseProps) => {
+  if (config.features.rss && config.features.rss.enabled && config.features.rss.showIcon) {
+    return <Rss {...iconBaseProps} link={config.features.rss.outputPath} title={'RSS feed'}/>
+  }
+  return null;
+}
+
 const Header = ({ setShowSearch, location, themeProvider }) => (
   <StaticQuery
     query={graphql`
@@ -203,9 +211,11 @@ const Header = ({ setShowSearch, location, themeProvider }) => (
             {isSearchEnabled ? <SearchOpener open={open} /> : null}
             {helpUrl && helpUrl.length > 0 ? <HelpButton helpUrl={helpUrl} /> : ''}
             { SocialButtons(iconBaseProps, config.social) }
+            <RssIcon {...iconBaseProps}/>
             {config.features.darkMode.enabled ? (
               <DarkModeSwitch
                 {...iconBaseProps}
+                style={{marginLeft: '10px'}}
                 hoverFill={theme.header.icons.hover}
                 fill={theme.header.icons.fill}
                 isDarkThemeActive={darkMode}
