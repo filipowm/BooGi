@@ -87,6 +87,7 @@ const TopNavigation = styled.div`
 
 const ButtonsWrapper = styled.div`
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   min-width: 458px;
   a,
