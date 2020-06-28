@@ -5,9 +5,18 @@ import config from 'config';
 import VisibilitySensor from 'react-visibility-sensor';
 
 const SearchWrapper = styled.div`
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+`;
+
+const SearchSidebar = styled.div`
+  display: block; //${(props) => (props.show ? 'block' : 'none')};
+  z-index: 20;
+  height: 100vh;
   position: fixed;
   right: 0;
   left: auto;
@@ -15,14 +24,6 @@ const SearchWrapper = styled.div`
   width: 480px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   background: ${(props) => props.theme.colors.background};
-  display: flex;
-  flex-direction: column;
-  padding: 12px 0;
-`;
-
-const SearchSidebar = styled.div`
-  display: block; //${(props) => (props.show ? 'block' : 'none')};
-  z-index: 200;
 `;
 
 import Algolia from './algolia/index';

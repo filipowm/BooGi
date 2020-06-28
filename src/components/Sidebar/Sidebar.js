@@ -23,8 +23,7 @@ const SidebarMain = styled.div`
   display: block;
   padding: 0;
   padding-top: 32px;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
   -webkit-overflow-scrolling: hidden;
   &:hover, &:focus {
     overflow-y: overlay;
@@ -48,7 +47,6 @@ const NavigationWrapper = styled(({ className, children, ...props }) => {
 })`
   height: 100vh;
   top: 0;
-  z-index: 15;
   flex: 0 0 ${(props) => props.theme.layout.leftWidth};
   background: ${(props) => props.theme.navigationSidebar.backgroundPrimary};
   background: linear-gradient(

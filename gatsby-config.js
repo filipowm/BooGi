@@ -78,8 +78,11 @@ const plugins = [
         {
           resolve: 'gatsby-remark-images',
           options: {
-            maxWidth: 1035,
-            sizeByPixelDensity: true,
+            maxWidth: 100,
+            quality: 75,
+            showCaptions: true,
+            disableBgImageOnAlpha: true,
+            withWebp: true
           },
         },
         'gatsby-remark-copy-linked-files',
