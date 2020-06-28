@@ -33,7 +33,7 @@ const EditButton = styled(({ className, icon, link, text }) => {
   return (
     <Edit className={'mobileView'}>
       <Link className={className} to={link} css={shadowAround} target={'_blank'}>
-        <img src={icon} alt={'Git Repository'} /> {text}
+        <img src={icon} alt={'Git Repository'} loading={'lazy'} /> {text}
       </Link>
     </Edit>
   );
