@@ -46,7 +46,6 @@ const HeaderWrapper = styled.header`
   align-items: center;
   box-shadow: 0 3px 8px 0 ${(props) => props.theme.header.shadow};
   border-bottom: 1px solid ${(props) => props.theme.header.border};
-  z-index: 100;
   padding: 13px 0;
   position: relative;
   @media (max-width: ${(props) => props.theme.breakpoints['large']}) {

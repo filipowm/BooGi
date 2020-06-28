@@ -80,7 +80,7 @@ const Layout = ({ children, location }) => {
     <ThemeProvider ref={themeProviderRef} darkModeConfig={config.features.darkMode}>
       {config.header.enabled === true ? (
         <>
-          <div css={{ zIndex: '200', display: showSearch || searchVisible ? 'block' : 'none' }}>
+          <div css={{ zIndex: 20,  position: 'relative', display: showSearch || searchVisible ? 'block' : 'none' }}>
             <Slide right delay={0} duration={400} when={showSearch}>
                 <SearchSidebar ref={searchSidebarRef} onVisibleChange={setSearchVisible}/>
             </Slide>
