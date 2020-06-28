@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const Trademark = styled(({ className, trademark }) => {
   return (
     <div className={className}>
-      <img src={trademark} alt="powered by logo" />
+      <img src={trademark} alt="powered by logo" loading={'lazy'} />
     </div>
   );
 })`
