@@ -47,15 +47,15 @@ const Highlight = ({ children, color, icon, ...props }) => {
 };
 
 export default {
-  Note: (props) =>
-    Highlight({
-      color: 'note',
-      icon: AlertTriangle,
-      ...props,
-    }),
   Warning: (props) =>
     Highlight({
       color: 'warning',
+      icon: AlertTriangle,
+      ...props,
+    }),
+  Error: (props) =>
+    Highlight({
+      color: 'error',
       icon: AlertOctagon,
       ...props,
     }),

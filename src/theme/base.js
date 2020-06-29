@@ -147,12 +147,12 @@ const jargon = (colors) => ({
 });
 
 const highlights = (colors) => ({
-  note: {
+  warning: {
     border: colors.orange,
     background: colors.orangeLight,
     font: colors.fontDark,
   },
-  warning: {
+  error: {
     border: colors.red,
     background: colors.redLight,
     font: colors.fontDark,
