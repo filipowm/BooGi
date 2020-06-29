@@ -1,0 +1,37 @@
+---
+msf:
+  name: MSF
+  long_name: Médecins Sans Frontières / Doctors Without Borders
+  description: An international, independent, medical humanitarian organization. See
+    <a href='https://www.msf.org/'>msf.org</a>
+markdown:
+  name: Markdown
+  description: Very simple and lightweight markup language with plain-text-formatting
+    syntax.
+seo:
+  name: SEO
+  long_name: Search Engine Optimization
+  description: The process of growing the quality and quantity of website traffic
+    by increasing the visibility of a website or a web page to users of a web search
+    engine
+git:
+  name: Git
+  description: Distributed version-control system for tracking changes in source code.It
+    is designed for coordinating work among programmers, but it can be used to track
+    changes in any set of files. Its goals include speed, data integrity and support
+    for distributed, non-linear workflows
+api:
+  name: API
+  long_name: Application Programming Interface
+  description: Computing interface which defines interactions between multiple software
+    intermediaries
+saas:
+  name: SaaS
+  long_name: Software as a Service
+  description: Software licensing and delivery model in which software is licensed
+    on a subscription basis and is centrally hosted and managed
+pwa:
+  name: PWA
+  long_name: Progressive Web App
+  description: Web app that uses modern web capabilities to deliver an app-like experience
+    to users

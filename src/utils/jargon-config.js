@@ -1,4 +1,5 @@
-const jargonData = require('../../config/jargon.json');
+const { readYamlOrJson } = require('./fileUtils');
+const jargonData = readYamlOrJson(__dirname + '/../../config/jargon.yml');
 
 const validateProperty = (entry, property, key) => {
   const value = entry[property];
