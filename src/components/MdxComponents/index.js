@@ -61,7 +61,7 @@ export default {
   em: emphasis,
   img: (props) => (
     <a href={props.src} target="_blank" rel="noopener noreferrer">
-      <img {...props} />
+      <img loading={'lazy'} {...props} />
     </a>
   ),
   code: CodeBlock,
