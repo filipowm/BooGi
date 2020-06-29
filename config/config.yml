@@ -6,9 +6,6 @@ metadata:
   language: en
   pathPrefix: "/"
   siteImage:
-  docsLocation: https://github.com/filipowm/boogi
-  docsLocationType: github
-  editable: true
   favicon: "/assets/favicon.png"
   themeColor: "#ff0000"
 header:
@@ -28,21 +25,25 @@ header:
       external: false
 sidebar:
   enabled: true
-  forcedNavOrder:
-    - "/introduction"
-    - "/configuration/basic"
-    - "/configuration/advanced"
-  expanded:
+  # forcedNavOrder:
+  #   - "/introduction"
+  #   - "/configuration/basic"
+  #   - "/configuration/advanced"
+  # expanded:
   groups:
     - order: 1
-      path: "/configuration"
-      icon: "/assets/settings.svg"
-      title: Configuration
+      path: "/gettingstarted"
+      title: ":rocket: Getting Started"
     - order: 2
-      path: "/syntax"
-      icon: "/assets/code.svg"
-      title: "Syntax"
+      path: "/configuration"
+      title: ":wrench: Configuration"
     - order: 3
+      path: "/editing"
+      title: ":writing_hand: Editing Content"
+    - order: 4
+      path: "/deployment"
+      title: ":rocket: Deployment"
+    - order: 5
       path: "/developing"
       title: ":computer: Developing"
   links:
@@ -50,7 +51,7 @@ sidebar:
       link: https://github.com/filipowm/boogi
     - text: React
       link: https://reactjs.org
-  ignoreIndex: true
+  ignoreIndex: false
   poweredBy:
     trademark: "/assets/gatsby.png"
     name: GatsbyJS
@@ -59,12 +60,55 @@ pwa:
   enabled: true
   manifest:
     display: standalone
-    crossOrigin: use-credentials
-    icons:
-      - src: src/pwa-512.png
-        sizes: 512x512
-        type: image/png
+    crossOrigin: anonymous
+    icon: "/assets/favicon.png"
+
+social:
+  github: https://github.com/filipowm/boogi
+  linkedin: https://www.linkedin.com/in/mateusz-filipowicz-437b4768/
+  twitter: twitter url
+
 features:
+  darkMode:
+    enabled: true  
+    default: false
+  editOnRepo:
+    location: https://github.com/filipowm/boogi 
+    type: github
+    editable: true
+  mermaid:
+    language: "mermaid"
+    theme: "dark"
+    options:
+    width: 400
+    height: 300
+  pageProgress:
+    enabled: true
+    includePaths:
+      - "/configuration/settingup/features"
+    excludePaths:
+      - "/"
+    height: 3
+    prependToBody: false
+    color: "#A05EB5"
+  previousNext:
+    enabled: true
+    arrowKeyNavigation: true
+  propagateNetlifyEnv: true
+  rss:
+    enabled: true
+    showIcon: false
+    copyright: "2020, Mateusz Filipowicz"
+    webMaster: "Mateusz Filipowicz"
+    managingEditor: "Mateusz Filipowicz"
+    categories:
+      - Docs as Code
+      - GatsbyJS
+    ttl: 60
+    matchRegex: "^/"
+    outputPath: "/rss.xml"
+    generator: "boogi"
+  scrollTop: true
   search:
     enabled: true
     engine: 'algolia'
@@ -79,43 +123,8 @@ features:
       totalPages: 10
       showPrevious: true
       showNext: true
-  toc:
-    depth: 3
-  previousNext:
-    enabled: true
-    arrowKeyNavigation: true
-  scrollTop: true
   showMetadata: true
-  propagateNetlifyEnv: true
-  pageProgress:
-    enabled: true
-    includePaths:
-      - "/configuration/advanced/theme"
-      - regex: "^/syntax"
-    excludePaths:
-      - "/"
-    height: 3
-    prependToBody: false
-    color: "#A05EB5"
-  mermaid:
-    language: "mermaid"
-    theme: "dark"
-    options:
-    width: 300
-    height: 300
-  rss:
-    enabled: true
-    copyright: "2020, Mateusz Filipowicz"
-    webMaster: "Mateusz Filipowicz"
-    managingEditor: "Mateusz Filipowicz"
-    categories:
-      - Category 1
-      - Category 2
-    ttl: 60
-    matchRegex: "^/"
-    outputPath: "/rss.xml"
-    generator: "boogi"
-  darkMode:
-    enabled: true  
-    default: false
+  toc:
+    show: true
+    depth: 3
 

@@ -1,6 +1,6 @@
 ---
 title: ":package: Custom Components"
-order: 2
+order: 1
 ---
 
 Custom components are extensions to Markdown. To use them, use proper
@@ -95,15 +95,15 @@ Highlights can be used to distinguish some part of text.
 **Syntax**
 
 ```html
-<Note>
+<Warning>
 
-Some **note** text</Note>
+Some **note** text</Warning>
 <Tip>
 
 Some _tip_ text
 </Tip>
 <Info>Some **error** text</Info>
-<Warning>Some _warning/error_ text</Warning>
+<Error>Some _warning/error_ text</Error>
 ```
 
 **Important!** There must be newline between highlight tag
@@ -112,16 +112,16 @@ newline content will be displayed as written, without any markdown rendering.
 
 **Examples**
 
-<Note>
+<Warning>
 
 Some **note** text
-</Note>
+</Warning>
 <Tip>
 
 Some _tip_ text
 </Tip>
 <Info>Some **info** text</Info>
-<Warning>Some _warning/error_ text</Warning>
+<Error>Some _warning/error_ text</Error>
 
 ## Badges
 
