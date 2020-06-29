@@ -1,5 +1,0 @@
----
-title: "Custom theme"
----
-
-TBD
