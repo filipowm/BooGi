@@ -78,7 +78,7 @@ const plugins = [
         {
           resolve: 'gatsby-remark-images',
           options: {
-            maxWidth: 100,
+            maxWidth: 1050,
             quality: 75,
             showCaptions: true,
             disableBgImageOnAlpha: true,
