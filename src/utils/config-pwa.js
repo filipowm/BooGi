@@ -7,9 +7,9 @@ const calculateValue = (value, fallbackValue) => {
 }
 
 const calculateIconLocalPath = (icon) => {
-    if (icon.startsWith('/assets/')) {
+    if (icon && icon.startsWith('/assets/')) {
         return `static${icon}`;
-    } else if (icon.startsWith('assets/')) {
+    } else if (icon && icon.startsWith('assets/')) {
         return `static/${icon}`;
     }
     return icon;
