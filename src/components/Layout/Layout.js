@@ -14,8 +14,9 @@ import config from 'config';
 import React, { useRef, useEffect, useState } from 'react';
 import { Slide } from 'react-reveal';
 
-const Wrapper = styled('div')`
+const Wrapper = styled.div`
   display: flex;
+  overflow-wrap: anywhere;
   justify-content: space-between;
 
   @media only screen and (max-width: ${(props) => props.theme.breakpoints['small']}) {
