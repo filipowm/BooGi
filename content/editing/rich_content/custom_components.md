@@ -176,114 +176,27 @@ or PascalCase (UpperCamelCase) <Icon name="PhoneCall" color="#34e187"/> for icon
 If can use kebab case <Icon name="phone-call" color="#3487e1"/> 
 or camel case <Icon name="PhoneCall" color="#34e187"/>syntax.
 
-## Jargon / Definitions
+## Abbreviations
 
-Gatsby uses `remark-jargon` plugin to inline definitions of 
-popular jargon used. This is a good way to define abbreviations
-used in your company / area / profession.
-
-First define your jargon / definitions in `jargon.json` in main
-directory.
-
-**Syntax**
-
-`jargon.json`
-```json
-{
-  "msf": {
-    "name": "MSF",
-    "long_name": "Médecins Sans Frontières / Doctors Without Borders",
-    "description": "An international, independent, medical humanitarian organisation."
-  }
-}
-```
-
-Then in markdown wrap word defined as key above in `_` to use Jargon. 
-```markdown
-Organization _MSF_ is helping society a lot.
-```  
-
-**Example**
-
-Organization _MSF_ is helping society a lot.
+Follow [this guide](/editing/rich_content/abbreviations) to learn about 
+abbreviations (jargon).
 
 ## Emoticons
 
+Follow [this guide](/editing/rich_content/emojis) to learn about 
+emojis (emoticons).
+
 ## Diagrams
 
-### Mermaid
+Follow [this guide](/editing/rich_content/graphs) to learn about 
+diagrams and graphs.
 
-```mermaid
-graph TD
-	A[Christmas] -->|Get money| B(Go shopping)
-	B --> C{Let me think}
-	C -->|One| D[Laptop]
-	C -->|Two| E[iPhone]
-	C -->|Three| F[fa:fa-car Car]
-```
+## Code snippets
 
-### Graphviz
+Follow [this guide](/editing/rich_content/snippets) to learn about 
+code highlighting and code snippets.
 
-```dot
-digraph graphname {
-  a -> b;
-  b -> c;
-  a -> c;
-}
-```
+## Embeds
 
-```dot
-graph mygraph {
-    rankdir=LR
-    label="My Graph"
-    a -- b[color=red,penwidth=3.0];
-    b -- c;
-    c -- d[color=red,penwidth=3.0];
-    d -- e;
-    e -- f;
-    a -- d;
-    b -- d[color=blue,penwidth=2.0];
-    c -- f[color=blue,penwidth=2.0];
-}
-```
-
-## Diff
-
-The following is a code block with diff. 
-Lines with `+` highlighted in green shade indicating an addition. 
-Lines with `-` highlighted in red shade indicating a deletion.
-
-```javascript
-- const data = ['1','2'];
-+ const data = [1,2];
-```
-
-## Embed external code snippets
-
-`embed:hello-js.js#L1`
-
-`embed:hello.java`
-
-## Live Editing
-
-**Syntax**
-
-```
-```javascript react-live=true
-<button className={'btn btn-default'}>Change my text</button>
-`` `
-```
-
-**Example**
-
-```javascript react-live=true
-<button className={'btn btn-default'}>Change my text</button>
-```
-
-## Embeddable
-
-https://www.youtube.com/watch?v=GuvAMcsoreI
-
-https://codepen.io/rcyou/pen/QEObEk
-
-https://giphy.com/gifs/howtogiphygifs-how-to-XatG8bioEwwVO
+Follow [this guide](/editing/rich_content/embed) to learn about 
+embedding external services into your page (like Youtube, Twitter, Instagram, Codepen etc..).
