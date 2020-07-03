@@ -40,6 +40,7 @@ const JargonWrapper = styled.em`
           width: 100%;
           padding-bottom: 10px;
           display: inline-block;
+          position: relative;
           &::after {
             content: '';
             position: absolute;
