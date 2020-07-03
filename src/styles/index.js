@@ -90,6 +90,7 @@ export const table = (theme) => css`
   border: 1px solid ${theme.table.border};
   border-radius: 4px;
   border-spacing: 0;
+  overflow-wrap: normal;
   thead {
     background-color: ${theme.table.header.background};
     color: ${theme.table.header.font};

@@ -47,6 +47,7 @@ const ContentWrapper = styled.div`
     padding: 2px 6px;
     font-size: 0.9375em;
     color: ${(props) => props.theme.content.code.font};
+    // overflow-wrap: break-word;
   }
   section {
     margin: 24px 0;
@@ -56,7 +57,7 @@ const ContentWrapper = styled.div`
     -webkit-padding-start: 40px;
     -moz-padding-start: 40px;
     -o-padding-start: 40px;
-    margin: 24px 0px;
+    margin: 12px 0px;
     padding: 0px 0px 0px 2em;
   }
 
