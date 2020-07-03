@@ -10,38 +10,44 @@ Customize it to your needs
 
 ## Motivation
 
-Core intention is to provide a great template inspired by famous Gitbook.
-The content would be written by developers (and not only!) 
-and what better than writing it in Markdown! And since this needs to be 
-user friendly documentation, we also needed rich embeds, syntax highlighting and more
-customizations. End goal is to have a powerful and simple template
-which could be used by anyone who needs to have 
-documentation as code and beautiful site generated out of it.
+Goal is to give teams powerful tool which they can use to efficiently and
+collaboratively share their knowledge. They can easily host it on any
+infrastructure of choice or SaaS hosting like Netlify, Vercel or
+GitHub / GitLab Pages. We want to provide a product, which can be customized
+to (nearly) any needs, either using basic or advanced configuration options.
+
+BooGi is inspired by popular [Gitbook](https://gitbook.com) look and feel.
+It offers custom styling and components that enable building beautiful documentation
+for projects and products quickly. It follows docs-as-code principles, where
+you treat your documentation in the same way as your code.
 
 To serve all these requirements, we decided to use Gatsby + MDX (Markdown + JSX) 
 to extend markdown and used a neat consistent theme like the one at 
-[GitBook](https://www.gitbook.com) and deployed as docker containers.
+[GitBook](https://www.gitbook.com).
 
 It is a fork of https://github.com/hasura/gatsby-gitbook-starter. Intention
-is to improve Gitbook to provide more features, make look-and-feel more similar
-to Gitbook, make it more configurable and easier to start.
+is to improve this starter to provide significantly more features, make 
+look-and-feel more similar to Gitbook, improve stability, performance,
+make it more configurable and easier to start.
 
 ## 🔥 Features
+
 - Write using Markdown / [MDX](https://github.com/mdx-js/mdx)
-- GitBook style theme, based on https://docs.gitbook.com/
-- Syntax Highlighting using Prism [`Bonus`: Code diff highlighting]
-- Search Integration with [Algolia](https://www.algolia.com/) (local search capabilities
+- customizing your page to match your branding and needs
+- GitBook-like style theme, inspired by https://docs.gitbook.com/
+- light / dark mode themes
+- rich-content and rich-text features like text formatting, graphs and diagrams, 
+  quotes, columnar layout, emojis, highlights, live code editor, syntax highlighting,
+  external code snippets and many many more!
+- search integration with [Algolia](https://www.algolia.com/) (local search capabilities
   are planned)
-- Progressive Web App, Works Offline
-- Google Analytics Integration
-- Automatically generated sidebar navigation, table of contents, previous/next
-- Additional components to make documentation beautiful and user friendly, e.g.
-  emojis, badges, icons, column layout, highlights, jargon/abbreviations and more!
-- Edit on Gitlab, Github or Bitbucket
-- Fully customisable
-- Rich embeds and live code editor using MDX
-- Easy deployment: Deploy on Netlify / Now.sh / Docker
-- Easily reusable in multiple projects
+- Progressive Web App which can work offline
+- integration with Google Analytics
+- Search Engine Optimization (_SEO_) friendliness
+- RSS feed
+- easy way to edit content on Gitlab, Github or Bitbucket
+- easy deployment on platform of your choice
+- easily reusable in multiple projects
 
 ## 🔗 Docs and live Demo
 
