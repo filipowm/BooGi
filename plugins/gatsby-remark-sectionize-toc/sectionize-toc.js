@@ -5,14 +5,14 @@ const MAX_HEADING_DEPTH = 6;
 
 module.exports = () => transform;
 
-const transform = (tree, maxDepth, title) => {
+const transform = (tree, maxDepth) => {
   const maxTocDepth = maxDepth ? maxDepth : MAX_HEADING_DEPTH;
-  const visitFunction = sectionize(maxTocDepth, title);
+  const visitFunction = sectionize(maxTocDepth);
   for (let depth = MAX_HEADING_DEPTH; depth > 0; depth--) {
     visit(tree, (node) => node.type === 'heading' && node.depth === depth, visitFunction);
   }
 };
-const sectionize = (maxTocDepth, title) => {
+const sectionize = (maxTocDepth) => {
   let minDepth = MAX_HEADING_DEPTH;
   return (node, ancestors) => {
     const start = node;
