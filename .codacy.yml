@@ -1,0 +1,7 @@
+---
+exclude_paths:
+  - 'config/**'
+  - 'content/**/*'
+  - 'snippets/**/*'
+  - 'static/**/*'
+  - '**/package.json'
