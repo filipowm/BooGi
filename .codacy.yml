@@ -7,3 +7,4 @@ exclude_paths:
   - '**/package.json'
   - '**/*.md'
   - '**/*.mdx'
+  - 'CHANGELOG.md'
