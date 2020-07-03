@@ -117,14 +117,14 @@ const calculateTreeDataForData = (contentData) => {
       data.children.forEach((child) => {
         child.groupName = group.title;
         child.groupIcon = group.icon;
-      })
+      });
       group.children.push(data);
     }
   });
   result = Object.values(result);
   result.sort(function (a, b) {
     const ordered = a.order - b.order;
-    return ordered != 0 ? ordered : a.title.localeCompare(b.title);
+    return ordered !== 0 ? ordered : a.title.localeCompare(b.title);
   });
   return result;
 };

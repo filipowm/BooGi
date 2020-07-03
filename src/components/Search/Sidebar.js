@@ -28,18 +28,18 @@ const SearchSidebar = styled.div`
 
 import Algolia from './algolia/index';
 
-const Search = React.forwardRef(({onVisibleChange, ...props}, ref) => {
+const Search = React.forwardRef(({ onVisibleChange, ...props }, ref) => {
   const inputRef = useRef(null);
   const searchRef = useRef(null);
-  const onVisibilityChange = isVisible => {
-    searchRef.current.setState({ready: isVisible})
+  const onVisibilityChange = (isVisible) => {
+    searchRef.current.setState({ ready: isVisible });
     if (isVisible && inputRef.current) {
       inputRef.current.focus();
     }
     if (onVisibleChange) {
       onVisibleChange(isVisible);
     }
-  }
+  };
   return (
     <SearchSidebar {...props} ref={ref}>
       <SearchWrapper {...props}>

@@ -75,14 +75,14 @@ const Form = styled.form`
 `;
 
 const SidebarSearchInputWrapper = styled.div`
-${marginLeftRight}
+  ${marginLeftRight}
 `;
 
 const SidebarSearchInput = ({ search, inputRef, showClean, ...props }) => (
   <SidebarSearchInputWrapper>
     <SearchInput search={search} inputRef={inputRef} showClean={showClean} {...props} />
   </SidebarSearchInputWrapper>
-)
+);
 
 const SearchInput = ({ search, inputRef, showClean, ...props }) => {
   const theme = useTheme();

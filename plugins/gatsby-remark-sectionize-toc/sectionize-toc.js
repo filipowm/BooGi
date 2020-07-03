@@ -23,7 +23,9 @@ const sectionize = (maxTocDepth) => {
       (node.type === 'heading' && node.depth <= depth) ||
       // node.depth - (minDepth - 1) was added to fix case, when headers
       // do not start from h1 or h2 (etc..)
-      (node.type === 'section' && node.depth > depth && (node.depth - (minDepth - 1) ) <= maxTocDepth) ||
+      (node.type === 'section' &&
+        node.depth > depth &&
+        node.depth - (minDepth - 1) <= maxTocDepth) ||
       node.type === 'export';
     const end = findAfter(parent, start, isEnd);
     const startIndex = parent.children.indexOf(start);

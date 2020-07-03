@@ -28,7 +28,8 @@ const ContentTreeGroup = styled(({ className, treeState, title, icon, location, 
       {title ? (
         <>
           <span>
-            {icon ? <img src={icon} alt={`group ${emojified}`} loading={'lazy'} /> : null} {emojified}
+            {icon ? <img src={icon} alt={`group ${emojified}`} loading={'lazy'} /> : null}{' '}
+            {emojified}
           </span>
         </>
       ) : null}

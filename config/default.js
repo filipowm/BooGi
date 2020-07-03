@@ -57,7 +57,7 @@ module.exports = {
     slack: '',
     twich: '',
     twitter: '',
-    youtube: ''
+    youtube: '',
   },
   features: {
     editOnRepo: {
@@ -82,8 +82,8 @@ module.exports = {
         enabled: true,
         totalPages: 10,
         showNext: true,
-        showPrevious: true
-      }
+        showPrevious: true,
+      },
     },
     toc: {
       show: true,

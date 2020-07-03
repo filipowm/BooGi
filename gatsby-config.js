@@ -85,7 +85,7 @@ const plugins = [
             quality: 75,
             showCaptions: true,
             disableBgImageOnAlpha: true,
-            withWebp: true
+            withWebp: true,
           },
         },
         'gatsby-remark-copy-linked-files',

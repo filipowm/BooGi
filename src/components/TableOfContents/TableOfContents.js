@@ -5,7 +5,7 @@ import { AlignRight } from 'react-feather';
 import config from 'config';
 import Scrollspy from 'react-scrollspy';
 import { sleep } from '../../utils/utils';
-import { scrollbar } from '../../styles'
+import { scrollbar } from '../../styles';
 import emoji from '../../utils/emoji';
 
 const Sidebar = styled.aside`
@@ -102,7 +102,9 @@ const buildToC = (item, items, maxDepth, depth) => {
       if (depth > maxDepth) {
         return;
       }
-      const itemId = innerItem.title ? emoji.clean(innerItem.title).replace(/\s+/g, '').toLowerCase() : '#';
+      const itemId = innerItem.title
+        ? emoji.clean(innerItem.title).replace(/\s+/g, '').toLowerCase()
+        : '#';
       const title = emoji.emojify(innerItem.title);
       let listItem = (
         <ListItem key={items.length} to={`#${itemId}`} level={depth}>
@@ -117,15 +119,19 @@ const buildToC = (item, items, maxDepth, depth) => {
 
 const generateToCItems = (allMdx, location) => {
   let finalNavItems = [];
-  const isCurrentPage = (slug) => slug === location.pathname || config.metadata.pathPrefix + slug === location.pathname;
-  const showToc = (showToc) => (config.features.toc.show === true && showToc !== false) || showToc === true;
+  const isCurrentPage = (slug) =>
+    slug === location.pathname || config.metadata.pathPrefix + slug === location.pathname;
+  const showToc = (showToc) =>
+    (config.features.toc.show === true && showToc !== false) || showToc === true;
 
   if (allMdx.edges !== undefined && allMdx.edges.length > 0) {
     allMdx.edges.every((item) => {
       let innerItems = [];
       if (item !== undefined) {
-        if ( isCurrentPage(item.node.fields.slug) && showToc(item.node.frontmatter.showToc)) {
-          const maxDepth = item.node.frontmatter.tocDepth ? item.node.frontmatter.tocDepth : config.features.toc.depth;
+        if (isCurrentPage(item.node.fields.slug) && showToc(item.node.frontmatter.showToc)) {
+          const maxDepth = item.node.frontmatter.tocDepth
+            ? item.node.frontmatter.tocDepth
+            : config.features.toc.depth;
           buildToC(item.node.tableOfContents, innerItems, maxDepth, 1);
         }
       }

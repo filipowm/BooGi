@@ -5,3 +5,5 @@ exclude_paths:
   - 'snippets/**/*'
   - 'static/**/*'
   - '**/package.json'
+  - '**/*.md'
+  - '**/*.mdx'

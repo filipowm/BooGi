@@ -52,7 +52,7 @@ class EnvReader extends ConfigReader {
         } else if (value === 'false') {
           return false;
         } else if (typeof value === 'number') {
-          return parseFloat(value)
+          return parseFloat(value);
         }
         return value;
       } catch (err) {
@@ -112,6 +112,7 @@ class NetlifyEnvReader extends ConfigReader {
   }
 
   read() {
+    let result = {};
     if (this.allowNetlifyEnvPropagation && readEnvOrDefault('NETLIFY', false)) {
       const context = readEnvOrDefault('CONTEXT');
       const repositoryUrl = readEnvOrDefault('REPOSITORY_URL');
@@ -124,18 +125,18 @@ class NetlifyEnvReader extends ConfigReader {
         'Docs Location:',
         repositoryUrl
       );
-      return {
+      result = {
         metadata: {
-          url: deployUrl
+          url: deployUrl,
         },
         features: {
           editOnRepo: {
-            location: repositoryUrl
-          }
-        }
+            location: repositoryUrl,
+          },
+        },
       };
     }
-    return {};
+    return result;
   }
 }
 

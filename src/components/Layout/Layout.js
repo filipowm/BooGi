@@ -53,7 +53,7 @@ function actOnClose(ref, onClose) {
     }
 
     function handleEscape(event) {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         onClose(ref.current);
       }
     }
@@ -76,14 +76,20 @@ const Layout = ({ children, location }) => {
   const themeProviderRef = React.createRef();
   const searchSidebarRef = useRef(null);
   actOnClose(searchSidebarRef, () => setShowSearch(false));
-  
+
   return (
     <ThemeProvider ref={themeProviderRef} darkModeConfig={config.features.darkMode}>
       {config.header.enabled === true ? (
         <>
-          <div css={{ zIndex: 20,  position: 'relative', display: showSearch || searchVisible ? 'block' : 'none' }}>
+          <div
+            css={{
+              zIndex: 20,
+              position: 'relative',
+              display: showSearch || searchVisible ? 'block' : 'none',
+            }}
+          >
             <Slide right delay={0} duration={400} when={showSearch}>
-                <SearchSidebar ref={searchSidebarRef} onVisibleChange={setSearchVisible}/>
+              <SearchSidebar ref={searchSidebarRef} onVisibleChange={setSearchVisible} />
             </Slide>
           </div>
           <Header

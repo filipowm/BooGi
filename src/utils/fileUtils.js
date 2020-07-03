@@ -34,4 +34,4 @@ const readYamlOrJson = (path) => {
 
 const rootDir = () => path.dirname(require.main.filename);
 
-module.exports = { touch, readYamlOrJson, rootDir } ;
+module.exports = { touch, readYamlOrJson, rootDir };

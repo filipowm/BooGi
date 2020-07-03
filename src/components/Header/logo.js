@@ -1,7 +1,7 @@
 // import Link from "../Link";
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link}  from '../';
+import { Link } from '../';
 import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 

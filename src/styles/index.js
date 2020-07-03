@@ -150,31 +150,31 @@ export const table = (theme) => css`
 `;
 
 export const scrollbar = css`
-&::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
-    background-color: #F5F5F5;
-}
+    background-color: #f5f5f5;
+  }
 
-&::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 10px;
-    background-color: #F5F5F5;
-}
+    background-color: #f5f5f5;
+  }
 
-&::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb {
     border-radius: 8px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #555;
-}
+  }
 `;
 
 export const skipParagraph = css`
-&:first-child {
-  margin-top: 0;
-}
-&:last-child {
-  margin-bottom: 0;
-}
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const list = css`
@@ -188,9 +188,8 @@ export const list = css`
     p:last-child {
       margin-bottom: 0;
     }
-    p:nth-child(n+2):last-child {
+    p:nth-child(n + 2):last-child {
       margin-bottom: 10px;
     }
   }
-
-`
+`;

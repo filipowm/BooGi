@@ -15,7 +15,7 @@ const Button = styled(({ refine, page, children, ...props }) => {
 })`
   width: 32px;
   height: 32px;
-  visibility: ${(props) => props.visible || props.visible === undefined ? 'visible' : 'hidden' };
+  visibility: ${(props) => (props.visible || props.visible === undefined ? 'visible' : 'hidden')};
   vertical-align: middle;
   transition: ${(props) => props.theme.transitions.hover};
   background-color: ${(props) =>

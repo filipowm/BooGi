@@ -4,7 +4,9 @@ import { Helmet } from 'react-helmet';
 import config from 'config';
 
 const Seo = ({ frontmatter, title, url }) => {
-  const description = frontmatter.description ? frontmatter.description : config.metadata.description;
+  const description = frontmatter.description
+    ? frontmatter.description
+    : config.metadata.description;
   const image = frontmatter.cover ? frontmatter.cover : config.metadata.siteImage;
 
   return (

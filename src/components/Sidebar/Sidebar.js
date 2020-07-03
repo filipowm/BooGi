@@ -5,7 +5,7 @@ import ContentTree from './contentTree';
 import Links from './links';
 import PoweredBy from './poweredBy';
 import { getNavigationData } from '../Navigation';
-import { scrollbar } from '../../styles'
+import { scrollbar } from '../../styles';
 
 const Sidebar = styled.div`
   margin-left: ${(props) => props.theme.layout.leftMargin};
@@ -25,7 +25,8 @@ const SidebarMain = styled.div`
   padding-top: 32px;
   overflow: hidden;
   -webkit-overflow-scrolling: hidden;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     overflow-y: overlay;
     -webkit-overflow-scrolling: touch;
   }

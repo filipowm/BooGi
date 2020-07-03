@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
-@import 'variables';
 @import 'mixins';
 @import '../components/**/*.scss'; // find scss files in whole components directory tree
 
@@ -62,18 +61,6 @@ a {
   background-color: #ffcccc;
 }
 
-.githubSection {
-  display: flex;
-  align-items: center;
-  color: #000;
-  opacity: 0.7;
-
-  &:hover {
-    text-decoration: none;
-    opacity: 1;
-  }
-}
-
 /* Header section starts here */
 pre {
   border: 0 !important;
@@ -87,51 +74,6 @@ img {
 }
 
 /* end image */
-
-.communitySection {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.authorSection {
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-}
-
-.authorName {
-  display: flex;
-  align-items: center;
-}
-
-.authorImg img {
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  min-width: 75px;
-  max-width: 75px;
-  min-height: 75px;
-  max-height: 75px;
-}
-
-.authorDetails {
-  padding-left: 10px;
-}
-
-.authorDesc {
-  padding-top: 5px;
-  font-size: 14px;
-}
-
-.authorName img {
-  margin-left: 10px;
-  display: inline-block;
-  width: 20px;
-
-  &:hover {
-    opacity: 0.7;
-  }
-}
 
 .heading1 {
   font-size: 26px;
@@ -198,6 +140,7 @@ img {
     position: relative;
     padding-bottom: 10px;
     border-top: 1px solid #fff;
+    
     .visibleMobile {
       display: block !important;
     }

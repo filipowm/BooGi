@@ -90,7 +90,7 @@ EditOnRepo.propTypes = {
   repoType: PropTypes.string.isRequired,
   branch: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired
-}
+  path: PropTypes.string.isRequired,
+};
 
 export default EditOnRepo;

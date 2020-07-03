@@ -1,4 +1,4 @@
-module.exports = indexName => {
+module.exports = (indexName) => {
   const pageQuery = `{
     pages: allMdx {
       edges {
@@ -19,16 +19,16 @@ module.exports = indexName => {
       }
     }
   }`;
-  
+
   const flatten = (arr) =>
     arr.map(({ node: { frontmatter, fields, ...rest } }) => ({
       ...frontmatter,
       ...fields,
       ...rest,
     }));
-  
+
   const settings = { attributesToSnippet: [`excerpt:20`] };
-  
+
   return [
     {
       query: pageQuery,

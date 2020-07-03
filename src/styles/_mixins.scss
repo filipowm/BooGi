@@ -1,5 +1,4 @@
-@import "variables";
-
+$hover-transition: 1s;
 @mixin hover-transition {
   transform: $hover-transition !important;
   -ms-transform: $hover-transition !important;
@@ -9,6 +8,7 @@
 /* Media queries */
 $breakpoint-small: 768px;
 $breakpoint-medium: 1024px;
+
 @mixin desktop {
   @media (min-width: #{$breakpoint-medium}) {
     @content;

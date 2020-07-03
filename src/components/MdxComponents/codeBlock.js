@@ -31,7 +31,7 @@ const CodeBlock = ({ children: code, ...props }) => {
   } else {
     const lang = props.className ? props.className.split('-')[1] : null;
     return (
-      <Highlight {...defaultProps} code={code} language={lang ? lang : "javascript"} theme={theme}>
+      <Highlight {...defaultProps} code={code} language={lang ? lang : 'javascript'} theme={theme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className + ' pre'} style={style} p={3}>
             {cleanTokens(tokens).map((line, i) => {

@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import emoji from '../../utils/emoji';
 import { navigate } from 'gatsby';
 import config from 'config';
+import { ChevronLeft, ChevronRight } from 'react-feather'
 
 import { calculateFlatNavigation, getNavigationData } from '../Navigation';
 
@@ -23,54 +24,16 @@ const PreviousNextWrapper = styled.div`
   grid-template-columns: calc(50% - 8px) calc(50% - 8px);
 `;
 
-const LeftArrow = () => (
-  <svg
-    preserveAspectRatio="xMidYMid meet"
-    height="1em"
-    width="1em"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    stroke="currentColor"
-    className="_13gjrqj"
-  >
-    <g>
-      <line x1="19" y1="12" x2="5" y2="12" />
-      <polyline points="12 19 5 12 12 5" />
-    </g>
-  </svg>
-);
-const RightArrow = () => (
-  <svg
-    preserveAspectRatio="xMidYMid meet"
-    height="1em"
-    width="1em"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    stroke="currentColor"
-    className="_13gjrqj"
-  >
-    <g>
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
-    </g>
-  </svg>
-);
-const Arrow = styled(({ className, arrow }) => <div className={className}>{arrow()}</div>)`
+const Arrow = styled(({ className, arrow }) => <div className={className}>{arrow.render({color: ''})}</div>)`
   display: block;
   margin: 0;
-  color: ${(props) => props.theme.previousNext.font};
   flex: 0 0 auto;
   font-size: 24px;
   transition: color 200ms ease 0s;
   padding: 16px;
+  svg {
+    stroke: ${(props) => props.theme.previousNext.font};
+  }
 `;
 
 const Title = styled.div`
@@ -120,7 +83,7 @@ const ContentWrapper = styled(({ className, label, title }) => {
 const LeftButton = ({ url, title, label }) => {
   return (
     <Button url={url}>
-      <Arrow arrow={LeftArrow} />
+      <Arrow arrow={ChevronLeft} />
       <ContentWrapper title={title} label={label} css={{ textAlign: 'right' }} />
     </Button>
   );
@@ -130,7 +93,7 @@ const RightButton = ({ url, title, label }) => {
   return (
     <Button url={url}>
       <ContentWrapper title={title} label={label} />
-      <Arrow arrow={RightArrow} />
+      <Arrow arrow={ChevronRight} />
     </Button>
   );
 };
@@ -166,7 +129,7 @@ const Button = styled(({ className, url, children }) => {
     text-decoration: none;
     border: 1px solid ${(props) => props.theme.previousNext.hover};
     svg * {
-      color: ${(props) => props.theme.previousNext.hover};
+      stroke: ${(props) => props.theme.previousNext.hover};
     }
   }
 `;
@@ -232,7 +195,9 @@ const PreviousNext = ({ mdx }) => {
   if (config.features.previousNext.arrowKeyNavigation === true) {
     setArrowNavigation(previous, next);
   }
-  const previousLabel = `${previous.path ? previous.path + conf.pathDivider : ''} ${conf.previousName}`;
+  const previousLabel = `${previous.path ? previous.path + conf.pathDivider : ''} ${
+    conf.previousName
+  }`;
   const nextLabel = `${conf.nextName} ${next.path ? conf.pathDivider + next.path : ''}`;
   return (
     <PreviousNextWrapper>
@@ -241,13 +206,7 @@ const PreviousNext = ({ mdx }) => {
           {previous.url ? (
             <LeftButton url={previous.url} title={previous.title} label={previousLabel} />
           ) : null}
-          {next.url ? (
-            <RightButton
-              url={next.url}
-              title={next.title}
-              label={nextLabel}
-            />
-          ) : null}
+          {next.url ? <RightButton url={next.url} title={next.title} label={nextLabel} /> : null}
         </>
       ) : null}
     </PreviousNextWrapper>

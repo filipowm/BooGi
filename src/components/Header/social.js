@@ -45,11 +45,11 @@ export default (iconBaseProps, socialConfig) => {
   });
   buttons.create(socialConfig.mail, 'Mail', {
     linkFn: (address) => `mailto:${address}`,
-    titleFn: (name) => `Send email to owner`,
+    titleFn: () => `Send email to owner`,
   });
   buttons.create(socialConfig.gmail, 'Mail', {
     linkFn: (address) => `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${address}`,
-    titleFn: (name) => `Send email to owner`,
+    titleFn: () => `Send email to owner`,
   });
   buttons.create(socialConfig.slack, 'Slack');
   buttons.create(socialConfig.twitch, 'Twitch');

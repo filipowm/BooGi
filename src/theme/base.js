@@ -16,8 +16,8 @@ const decreaseIntensivity = (color, factor) => {
 };
 
 const grayscaleCompatible = (color) => {
-  return increaseIntensivity(colorfn(color).negate().grayscale().hex(), .7);
-}
+  return increaseIntensivity(colorfn(color).negate().grayscale().hex(), 0.7);
+};
 
 const colors = {
   ...defaultColors,
@@ -101,19 +101,19 @@ const header = (colors) => ({
     fill: decreaseIntensivity(colors.background, 0.4),
     stroke: decreaseIntensivity(colors.background, 0.4),
     hover: colors.primary,
-  }
+  },
 });
 
 const search = (colors) => ({
   background: colors.background,
   mark: {
     font: colors.font,
-    background: colors.primary
+    background: colors.primary,
   },
   font: {
     base: colors.font,
     hover: colors.font,
-    highlight: colors.fontDark
+    highlight: colors.fontDark,
   },
   hover: colors.border,
   border: colors.border,
@@ -124,9 +124,9 @@ const search = (colors) => ({
     hover: colors.border,
     current: {
       background: colors.primary,
-      font: grayscaleCompatible(colors.primary)
-    }
-  }
+      font: grayscaleCompatible(colors.primary),
+    },
+  },
 });
 
 const editOnRepo = (colors) => ({

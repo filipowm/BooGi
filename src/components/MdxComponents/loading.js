@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-const LoadingProvider = ({ retry, timedOut, pastDelay, isLoading, ...props }) => {
+const LoadingProvider = ({ isLoading, ...props }) => {
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
   return <div {...props}></div>;
 };
