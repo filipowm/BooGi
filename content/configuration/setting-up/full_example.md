@@ -2,3 +2,135 @@
 title: 'Full example'
 order: 999
 ---
+
+```yaml
+---
+metadata:
+  name: BooGi
+  short_name: BooGi
+  description: Awesome GitBook-like documentation generator using Gatsby
+  language: en
+  pathPrefix: "/"
+  siteImage:
+  favicon: "/assets/favicon.png"
+  themeColor: "#ff0000"
+header:
+  enabled: true
+  logo: ""
+  logoLink: "/"
+  helpUrl: ""
+  links:
+    - text: BooGi
+      link: https://github.com/filipowm/boogi
+      external: true
+    - text: Gatsby
+      link: https://www.gatsbyjs.org
+      external: true
+    - text: Docs
+      link: "/"
+      external: false
+sidebar:
+  enabled: true
+  # forcedNavOrder:
+  #   - "/introduction"
+  #   - "/configuration/basic"
+  #   - "/configuration/advanced"
+  # expanded:
+  groups:
+    - order: 1
+      path: "/gettingstarted"
+      title: ":rocket: Getting Started"
+    - order: 2
+      path: "/configuration"
+      title: ":wrench: Configuration"
+    - order: 3
+      path: "/editing"
+      title: ":writing_hand: Editing Content"
+    - order: 4
+      path: "/deployment"
+      title: ":rocket: Deployment"
+    - order: 5
+      path: "/developing"
+      title: ":computer: Developing"
+  links:
+    - text: BooGi
+      link: https://github.com/filipowm/boogi
+    - text: React
+      link: https://reactjs.org
+  ignoreIndex: false
+  poweredBy:
+    trademark: "/assets/gatsby.png"
+    name: GatsbyJS
+    link: https://www.gatsbyjs.org
+pwa:
+  enabled: true
+  manifest:
+    display: standalone
+    crossOrigin: anonymous
+    icon: "/assets/favicon.png"
+
+social:
+  github: https://github.com/filipowm/boogi
+  linkedin: https://www.linkedin.com/in/mateusz-filipowicz-437b4768/
+  twitter: twitter url
+
+features:
+  darkMode:
+    enabled: true  
+    default: false
+  editOnRepo:
+    location: https://github.com/filipowm/boogi 
+    type: github
+    editable: true
+  mermaid:
+    language: "mermaid"
+    theme: "dark"
+    options:
+    width: 400
+    height: 300
+  pageProgress:
+    enabled: true
+    includePaths:
+      - "/configuration/settingup/features"
+    excludePaths:
+      - "/"
+    height: 3
+    prependToBody: false
+    color: "#A05EB5"
+  previousNext:
+    enabled: true
+    arrowKeyNavigation: true
+  propagateNetlifyEnv: true
+  rss:
+    enabled: true
+    showIcon: false
+    copyright: "2020, Mateusz Filipowicz"
+    webMaster: "Mateusz Filipowicz"
+    managingEditor: "Mateusz Filipowicz"
+    categories:
+      - Docs as Code
+      - GatsbyJS
+    ttl: 60
+    matchRegex: "^/"
+    outputPath: "/rss.xml"
+    generator: "boogi"
+  scrollTop: true
+  search:
+    enabled: true
+    engine: 'algolia'
+    placeholder: 'Search'
+    startComponent: 'input' # icon
+    debounceTime: 380
+    snippetLength: 23
+    hitsPerPage: 10
+    showStats: true
+    pagination:
+      enabled: true
+      totalPages: 10
+      showPrevious: true
+      showNext: true
+  showMetadata: true
+  toc:
+    show: true
+    depth: 3
+```
