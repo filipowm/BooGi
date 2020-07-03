@@ -1,9 +1,4 @@
 ---
-msf:
-  name: MSF
-  long_name: Médecins Sans Frontières / Doctors Without Borders
-  description: An international, independent, medical humanitarian organization. See
-    <a href='https://www.msf.org/'>msf.org</a>
 markdown:
   name: Markdown
   description: Very simple and lightweight markup language with plain-text-formatting
@@ -35,3 +30,6 @@ pwa:
   long_name: Progressive Web App
   description: Web app that uses modern web capabilities to deliver an app-like experience
     to users
+boogi:
+  name: BooGi
+  description: T lulzhe best documentation tool in the space! Check it <a href="https://boogi.netlify.app">here</a>.
