@@ -8,3 +8,4 @@ exclude_paths:
   - '**/*.md'
   - '**/*.mdx'
   - 'CHANGELOG.md'
+  - 'README.md'
