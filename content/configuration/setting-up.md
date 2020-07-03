@@ -1,6 +1,7 @@
 ---
 title: "Setting up"
 order: 1
+tocDepth: 1
 ---
 
 Primary configuration is set in `config.yml` within `config` directory
@@ -48,7 +49,9 @@ property1:
 
 then env variable should be: `PROPERTY1_CHILD_PROPERTY`.
 
-**Examples:**
+## Examples
+
+**Example 1:**
 
 <Layout>
 
@@ -61,12 +64,14 @@ features:
     startComponent: 'input'
 ```
 
-```env
+```bash
 METADATA_NAME=MyApp Test
 FEATURES_SEARCH_START_COMPONENT=icon
 ```
 
 </Layout>
+
+**Example 2:**
 
 <Layout>
 
@@ -76,7 +81,7 @@ features:
     enabled: false
 ```
 
-```env
+```bash
 FEATURES_SEARCH_ENABLED=true
 FEATURES_SEARCH_ALGOLIA_APP_ID=XXXYYYZZZ9
 FEATURES_SEARCH_ALGOLIA_SEARCH_KEY=aabbccddeeffgghhiijjkk
