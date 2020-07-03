@@ -1,4 +1,52 @@
-# 0.1.0 (2020-06-14)
+# [0.2.0](https://github.com/filipowm/BooGi/compare/v0.1.0...v0.2.0) (2020-07-03)
+
+
+### Bug Fixes
+
+* **components:** :bug: fix issue with setting up code block language ([98750c7](https://github.com/filipowm/BooGi/commit/98750c73eddef784a969723a8e31dc45caef7a03))
+* **deps:** update dependency @babel/plugin-proposal-export-default-from to v7.10.4 ([9752199](https://github.com/filipowm/BooGi/commit/975219952ac6c43ef6eb419a184fc7660ca586f1))
+* **deps:** update dependency puppeteer to v4.0.1 ([3ada07a](https://github.com/filipowm/BooGi/commit/3ada07a7bf9795393ea5a2463a7e714cdbdf4405))
+* **deps:** update dependency puppeteer to v5 ([470cada](https://github.com/filipowm/BooGi/commit/470cada1e03d162b07adaf473a1c8234456ed4e9))
+* **deps:** update mdx monorepo to v1.6.6 ([82d8a51](https://github.com/filipowm/BooGi/commit/82d8a51d5bf04e06f8ef7c2fdb96595d6a5eddae))
+* **toc:** :bug: fix issue with sections creation when headers not start from h1 ([b0c0ba4](https://github.com/filipowm/BooGi/commit/b0c0ba4b85dd427568f60962c8cd91bd1863d641))
+* :bug: fix content images not showing up due to invalid position of components ([33f407b](https://github.com/filipowm/BooGi/commit/33f407b4324a1c14d3c3fd447c0c856759b73b3f))
+* :bug: fix embed images size from 100 to 1050 ([9ad41c6](https://github.com/filipowm/BooGi/commit/9ad41c6ca546c3a17d61d73679c174dc51884019))
+* :bug: fix instagram, twitter and pinterest embeds ([65f1ed1](https://github.com/filipowm/BooGi/commit/65f1ed1fb22143c85c4f26979fa75a83c691d805))
+* :bug: fix scrolling to section from URL anchor ([15c9e77](https://github.com/filipowm/BooGi/commit/15c9e776ad6546f89de5c3d5088d5f72ec56d911))
+* :lipstick: fix content taking expanding to wide in code tags ([7ff0676](https://github.com/filipowm/BooGi/commit/7ff067665180360d74a7b63e22a253dacc7e79ab))
+* :lipstick: fix header buttons positioning ([e5040e2](https://github.com/filipowm/BooGi/commit/e5040e28ffdee10043996e8df8090c2960b4634a))
+* :lipstick: fix issue with content overflow-x ([b0fe6e8](https://github.com/filipowm/BooGi/commit/b0fe6e8fc8fa49e8334d438c19641c7b1f916fc8))
+* fix constructor issue with social button builder ([6349bb4](https://github.com/filipowm/BooGi/commit/6349bb44de74701134d4146e17ffebe2025f1051))
+* when icon not provided generation of PWA icons fail ([bf16786](https://github.com/filipowm/BooGi/commit/bf167869a9712569da76f07c8fdb67e6f4be2aa6))
+* **components:** :bug: fix issue with jargon term split into two lines ([372e606](https://github.com/filipowm/BooGi/commit/372e606680522d101df0a8ab4b57092cf0a215e2))
+* **deps:** update dependency puppeteer to v4 ([8df6be8](https://github.com/filipowm/BooGi/commit/8df6be86ff2d5db46b56f99757c6216e6474767e))
+* **deps:** update dependency react-instantsearch-dom to v6.6.0 ([22b73b6](https://github.com/filipowm/BooGi/commit/22b73b69a8e300d9d1514aac9d6213abdfbc5fc8))
+* **deps:** update gatsby monorepo ([7f707fc](https://github.com/filipowm/BooGi/commit/7f707fc81d2e92246e06295a8ab0b75b413fc10b))
+* **toc:** fix issue with emojis not rendered in ToC ([d7840e5](https://github.com/filipowm/BooGi/commit/d7840e5b7c99ca92e3d92d464543ca029e32d1d9))
+
+
+### Features
+
+* :lipstick: add option to fill social buttons ([d345364](https://github.com/filipowm/BooGi/commit/d345364a1b7b2c84cab62d20a355042b7f6a0a12))
+* :sparkles: add social buttons ([3be9caa](https://github.com/filipowm/BooGi/commit/3be9caa1be37f52325c73dd2c0778b9cbc6c6254))
+* :sparkles: show RSS feed icon in header ([e939b34](https://github.com/filipowm/BooGi/commit/e939b34e372626e5807fb91fc4ff91fd298f97aa))
+* change highlight names to improve usability ([ac6eb2e](https://github.com/filipowm/BooGi/commit/ac6eb2ee028ca43e7c4b369c0d473873f5a3a7a9))
+* jargon will now use yaml config instead of json ([34753fd](https://github.com/filipowm/BooGi/commit/34753fdb9b3d881f54c7c45283aa28b166315e57))
+* **components:** :lipstick: improve list and emphasis styling ([a6d34a0](https://github.com/filipowm/BooGi/commit/a6d34a04c482fd7c32d5ea82ef66fe19aac662c4))
+* **components:** :sparkles: click on image in content will open it in a new window ([acb94ea](https://github.com/filipowm/BooGi/commit/acb94ea651c40f4f94cd17700c23e2e845d4944c))
+* **config:** improve and automate PWA configuration ([0f0b7d2](https://github.com/filipowm/BooGi/commit/0f0b7d2358f419fa80dc95b2d7a62775b4b3a28a))
+* **sidebar:** :lipstick: left sidebar scrollbar should be visible only on hover ([65c62a0](https://github.com/filipowm/BooGi/commit/65c62a027ae296a8190d897943c18cb90764a97f))
+* **toc:** :sparkles: allow configuring ToC depth per page ([f0d7d42](https://github.com/filipowm/BooGi/commit/f0d7d424bd5604382cd8adeeb30ca9e59f50c32c))
+
+
+### Performance Improvements
+
+* :zap: images are lazy-loaded ([99ea55c](https://github.com/filipowm/BooGi/commit/99ea55c25104db6b603475c2a37984ecea03896a))
+* :zap: lazy-loading external images in content ([bd36713](https://github.com/filipowm/BooGi/commit/bd36713a30847fe9522ad2c5ea2787d03d0366c7))
+
+
+
+# [0.1.0](https://github.com/filipowm/BooGi/compare/60df99447af563aba96c98ede16cc19ada41233b...v0.1.0) (2020-06-14)
 
 
 ### Bug Fixes
