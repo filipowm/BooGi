@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/filipowm/BooGi/compare/v0.2.0...v0.2.1) (2020-07-03)
+
+
+### Bug Fixes
+
+* revert puppeteer dependency ([7835833](https://github.com/filipowm/BooGi/commit/7835833f91410fc1fcaadec14496534114440740))
+
+
+
 # [0.2.0](https://github.com/filipowm/BooGi/compare/v0.1.0...v0.2.0) (2020-07-03)
 
 
