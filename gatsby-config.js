@@ -12,13 +12,16 @@ configManager.generate(__dirname + '/.generated.config.js', config);
 
 const plugins = [
   'gatsby-plugin-sitemap',
+  'gatsby-plugin-instagram-embed',
+  'gatsby-plugin-pinterest',
+  'gatsby-plugin-twitter',
+  'gatsby-plugin-sharp',
   {
     resolve: 'gatsby-plugin-sass',
     options: {
       importer: globImporter(),
     },
   },
-  'gatsby-plugin-sharp',
   {
     resolve: `gatsby-plugin-layout`,
     options: {
