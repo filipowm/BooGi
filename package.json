@@ -64,7 +64,7 @@
     "gatsby-transformer-remark": "2.8.16",
     "gatsby-transformer-sharp": "2.5.5",
     "is-absolute-url": "3.0.3",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "lodash.flatten": "4.4.0",
     "lodash.startcase": "4.4.0",
     "node-sass": "4.14.1",
