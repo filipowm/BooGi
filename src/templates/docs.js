@@ -125,7 +125,7 @@ export default class MDXRuntimeTest extends React.Component {
         <PageTitle>
           <TitleWrapper>
             <Title>{docTitle}</Title>
-            {(editable && mdx.frontmatter.editable != false) || mdx.frontmatter.editable ? (
+            {docsLocation && ((editable && mdx.frontmatter.editable !== false) || mdx.frontmatter.editable === true) ? (
               <EditOnRepo
                 location={docsLocation}
                 branch={gitBranch.name}
@@ -205,7 +205,7 @@ export const pageQuery = graphql`
         showMetadata
         editable
         showPreviousNext
-        skipToC
+        showToc
       }
     }
     gitBranch {
