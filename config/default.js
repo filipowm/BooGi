@@ -1,7 +1,7 @@
 module.exports = {
   metadata: {
     name: 'BooGi',
-    short_name: '',
+    short_name: 'BooGi',
     description: '',
     language: 'en',
     url: 'http://localhost',
@@ -37,13 +37,6 @@ module.exports = {
       theme_color: '#6b37bf',
       display: 'minimal-ui',
       crossOrigin: 'anonymous',
-      icons: [
-        {
-          src: 'src/pwa-512.png',
-          sizes: `512x512`,
-          type: `image/png`,
-        },
-      ],
     },
   },
   social: {
@@ -114,9 +107,10 @@ module.exports = {
     rss: {
       enabled: true,
       showIcon: true,
-      copyright: '2020, Mateusz Filipowicz',
-      webMaster: 'Mateusz Filipowicz (matfilipowicz@gmail.com)',
-      managingEditor: 'Mateusz Filipowicz (matfilipowicz@gmail.com)',
+      title: 'My RSS feed',
+      copyright: '',
+      webMaster: 'M',
+      managingEditor: '',
       categories: ['GatsbyJS', 'Docs'],
       ttl: '60',
       matchRegex: '^/',

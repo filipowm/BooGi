@@ -181,7 +181,7 @@ if (config.features.rss && config.features.rss.enabled) {
             const items = allMdx.edges.map((edge) => {
               const frontmatter = edge.node.frontmatter;
               const fields = edge.node.parent.fields;
-              const rawTitle = frontmatter.metaTitle ? frontmatter.metaTitle : frontmatter.title;
+              const rawTitle = frontmatter.metaTitle && frontmatter.metaTitle.length > 0 ? frontmatter.metaTitle : frontmatter.title;
               const title = emoji.clean(rawTitle);
               const date = fields && fields.gitLogLatestDate ? fields.gitLogLatestDate : new Date();
               const author =
@@ -225,6 +225,7 @@ if (config.features.rss && config.features.rss.enabled) {
           `,
           output: config.features.rss.outputPath,
           match: config.features.rss.matchRegex,
+          title: config.features.rss.title ? config.features.rss.title : config.metadata.title
         },
       ],
     },
