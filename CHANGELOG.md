@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/filipowm/BooGi/compare/v0.2.1...v0.2.2) (2020-07-19)
+
+
+### Bug Fixes
+
+* :ambulance: hotfixing issues causing it impossible to create BooGi project from scratch ([6f5d77c](https://github.com/filipowm/BooGi/commit/6f5d77ca2ed1397bf9a27fb6b89b68e40e00637a))
+
+
+
 ## [0.2.1](https://github.com/filipowm/BooGi/compare/v0.2.0...v0.2.1) (2020-07-03)
 
 
