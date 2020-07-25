@@ -82,7 +82,7 @@
     "react-scrollspy": "3.4.3",
     "react-visibility-sensor": "5.1.1",
     "remark-abbr": "1.4.0",
-    "remark-autolink-headings": "6.0.0",
+    "remark-autolink-headings": "6.0.1",
     "remark-emoji": "2.1.0"
   },
   "license": "MIT",
