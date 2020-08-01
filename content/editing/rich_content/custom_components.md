@@ -88,46 +88,46 @@ luctus mi imperdiet lobortis vitae at urna. Sed posuere lacinia turpis a commodo
 </div>
 </Layout>
 
-## Collapsible
+## Accordion
 
-Collapsible component allow hiding (collapsing) a content and revealing it on click.
-You can use other components inside collapsible.
+Accordion component allow hiding (collapsing) a content and revealing it on click.
+You can use other components inside accordion.
 
 **Syntax**
 
 ```html
-<Collapsible title="Click here to open">
+<Accordion title="Click here to open">
 
 *Lorem ipsum* dolor **sit amet**, consectetur adipiscing elit. Aenean lobortis turpis 
 luctus mi imperdiet lobortis vitae at urna. Sed posuere lacinia turpis a commodo.
 
-</Collapsible>
+</Accordion>
 
-<Collapsible title=":thumbsdown: Now is closed" titleWhenOpen=":thumbsup: Now is open" open="true">
+<Accordion title=":thumbsdown: Now is closed" titleWhenOpen=":thumbsup: Now is open" open="true">
 
 `open` define whether collapsible should be open or closed by default. Defaults to closed.
 
 You can change title when collapsible is open by setting `titleWhenOpen` property.
 
-</Collapsible>
+</Accordion>
 ```
 
 **Examples**
 
-<Collapsible title="Click here to open">
+<Accordion title="Click here to open">
 
 *Lorem ipsum* dolor **sit amet**, consectetur adipiscing elit. Aenean lobortis turpis 
 luctus mi imperdiet lobortis vitae at urna. Sed posuere lacinia turpis a commodo.
 
-</Collapsible>  
+</Accordion>  
 
-<Collapsible title=":thumbsdown: Now is closed" titleWhenOpen=":thumbsup: Now is open" open="true">
+<Accordion title=":thumbsdown: Now is closed" titleWhenOpen=":thumbsup: Now is open" open="true">
 
-`open` define whether collapsible should be open or closed by default. Default to closed.
+`open` define whether accordion should be open or closed by default. Default to closed.
 
-You can change title when collapsible is open by setting `titleWhenOpen` property.
+You can change title when arccordion is open by setting `titleWhenOpen` property.
 
-</Collapsible>
+</Accordion>
 
 ## Highlights
 

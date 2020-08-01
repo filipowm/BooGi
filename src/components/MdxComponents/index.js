@@ -1,9 +1,9 @@
 /* eslint-disable react/display-name */
 import React from 'react';
+import Accordion from './accordion';
 import AnchorTag from './anchor';
 import Badge from './badge';
 import CodeBlock from './codeBlock';
-import Collapsible from './collapsible';
 import Highlights from './highlights';
 import Icon from './icon';
 import Jargon from './jargon';
@@ -73,7 +73,7 @@ export default {
   Badge,
   Layout,
   Icon,
-  Collapsible,
+  Accordion,
   LinkCard,
   ...Highlights,
 };
