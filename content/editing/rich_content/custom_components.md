@@ -88,6 +88,47 @@ luctus mi imperdiet lobortis vitae at urna. Sed posuere lacinia turpis a commodo
 </div>
 </Layout>
 
+## Collapsible
+
+Collapsible component allow hiding (collapsing) a content and revealing it on click.
+You can use other components inside collapsible.
+
+**Syntax**
+
+```html
+<Collapsible title="Click here to open">
+
+*Lorem ipsum* dolor **sit amet**, consectetur adipiscing elit. Aenean lobortis turpis 
+luctus mi imperdiet lobortis vitae at urna. Sed posuere lacinia turpis a commodo.
+
+</Collapsible>
+
+<Collapsible title=":thumbsdown: Now is closed" titleWhenOpen=":thumbsup: Now is open" open="true">
+
+`open` define whether collapsible should be open or closed by default. Defaults to closed.
+
+You can change title when collapsible is open by setting `titleWhenOpen` property.
+
+</Collapsible>
+```
+
+**Examples**
+
+<Collapsible title="Click here to open">
+
+*Lorem ipsum* dolor **sit amet**, consectetur adipiscing elit. Aenean lobortis turpis 
+luctus mi imperdiet lobortis vitae at urna. Sed posuere lacinia turpis a commodo.
+
+</Collapsible>  
+
+<Collapsible title=":thumbsdown: Now is closed" titleWhenOpen=":thumbsup: Now is open" open="true">
+
+`open` define whether collapsible should be open or closed by default. Default to closed.
+
+You can change title when collapsible is open by setting `titleWhenOpen` property.
+
+</Collapsible>
+
 ## Highlights
 
 Highlights can be used to distinguish some part of text.

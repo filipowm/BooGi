@@ -1,12 +1,13 @@
 /* eslint-disable react/display-name */
 import React from 'react';
-import CodeBlock from './codeBlock';
 import AnchorTag from './anchor';
-import Layout from './layout';
+import Badge from './badge';
+import CodeBlock from './codeBlock';
+import Collapsible from './collapsible';
 import Highlights from './highlights';
 import Icon from './icon';
-import Badge from './badge';
 import Jargon from './jargon';
+import Layout from './layout';
 import { blockquote, pre, table, list } from '../../styles';
 import { useTheme } from 'emotion-theming';
 import emoji from '../../utils/emoji';
@@ -71,5 +72,6 @@ export default {
   Badge,
   Layout,
   Icon,
+  Collapsible,
   ...Highlights,
 };
