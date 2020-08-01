@@ -8,6 +8,7 @@ import Highlights from './highlights';
 import Icon from './icon';
 import Jargon from './jargon';
 import Layout from './layout';
+import LinkCard from './linkCard';
 import { blockquote, pre, table, list } from '../../styles';
 import { useTheme } from 'emotion-theming';
 import emoji from '../../utils/emoji';
@@ -73,5 +74,6 @@ export default {
   Layout,
   Icon,
   Collapsible,
+  LinkCard,
   ...Highlights,
 };

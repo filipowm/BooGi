@@ -32,7 +32,7 @@ export const transparent = css`
 `;
 
 export const shadowAround = (theme) => css`
-  box-shadow: 0 0 4px 0 ${theme.colors.shadow};
+  box-shadow: 0 0 6px 0 ${theme.colors.shadow};
 `;
 
 export const blockquote = (theme) => css`

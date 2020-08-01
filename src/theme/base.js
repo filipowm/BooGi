@@ -1,29 +1,13 @@
 import defaultColors from './defaultColors';
 import colorfn from 'color';
-
-const increaseIntensivity = (color, factor) => {
-  const clr = colorfn(color);
-  const intensified = clr.isDark() ? clr.darken(factor) : clr.lighten(factor);
-  return intensified.hex();
-};
-
-const decreaseIntensivity = (color, factor) => {
-  const clr = colorfn(color);
-  const luminStd = 1 / clr.luminosity();
-  const fc = luminStd > 6 ? factor * 6 : factor * luminStd;
-  const intensified = clr.isDark() ? clr.lighten(fc) : clr.darken(fc);
-  return intensified.hex();
-};
-
-const grayscaleCompatible = (color) => {
-  return increaseIntensivity(colorfn(color).negate().grayscale().hex(), 0.7);
-};
+import { increaseIntensivity, decreaseIntensivity, grayscaleCompatible } from '../utils/colors';
 
 const colors = {
   ...defaultColors,
 
   primary: defaultColors.red,
   primaryDark: defaultColors.blueDark,
+  fontLight: '#efefef',
   font: '#dddddd',
   fontDark: '#8a8a8a',
   background: '#29282A',

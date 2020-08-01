@@ -164,6 +164,21 @@ Some _tip_ text
 <Info>Some **info** text</Info>
 <Error>Some _warning/error_ text</Error>
 
+## Link Card
+
+Link card can be used to distinguish a link and make it
+stand out from the text. 
+
+**Syntax**
+
+```html
+<LinkCard title="This is the best page!" url="/editing/rich_content/custom_components" />
+```
+
+**Example**
+
+<LinkCard title="This is the best page!" url="/editing/rich_content/custom_components" />
+
 ## Badges
 
 **Syntax**
