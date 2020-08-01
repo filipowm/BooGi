@@ -5,11 +5,12 @@ import Collapsible from 'react-collapsible';
 import { ChevronUp, ChevronDown } from 'react-feather';
 import { renderToStaticMarkup } from 'react-dom/server';
 import emoji from '../../utils/emoji';
+import { shadowAround } from '../../styles';
 
 const AccordionWrapper = styled.div`
 margin: 10px 0;
 & > div {
-    box-shadow: 0 0 6px 0 ${(props) => props.theme.header.shadow};
+    ${(props) => shadowAround(props.theme)};
     border-radius: 4px;
 
     & > span {
