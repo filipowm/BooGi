@@ -3,6 +3,7 @@ import React from 'react';
 import Accordion from './accordion';
 import AnchorTag from './anchor';
 import Badge from './badge';
+import Card from './card';
 import CodeBlock from './codeBlock';
 import Highlights from './highlights';
 import Icon from './icon';
@@ -74,6 +75,7 @@ export default {
   Layout,
   Icon,
   Accordion,
+  Card,
   LinkCard,
   ...Highlights,
 };

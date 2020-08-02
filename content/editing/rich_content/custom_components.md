@@ -164,6 +164,41 @@ Some _tip_ text
 <Info>Some **info** text</Info>
 <Error>Some _warning/error_ text</Error>
 
+## Card
+
+Card can be used to distinguish a text and make it stand out.
+Other components can be used inside card.
+
+**Syntax**
+
+```html
+<Card>Here goes some one-liner text</Card>
+
+<Card>
+
+*Lorem ipsum* dolor **sit amet**, consectetur adipiscing elit. Aenean lobortis turpis 
+luctus mi imperdiet lobortis vitae at urna. Sed posuere lacinia turpis a commodo.
+
+*Lorem ipsum* dolor **sit amet**, consectetur adipiscing elit. Aenean lobortis turpis 
+luctus mi imperdiet lobortis vitae at urna. Sed posuere lacinia turpis a commodo.
+
+</Card>
+```
+
+**Example**
+
+<Card>Here goes some one-liner text</Card>
+
+<Card>
+
+*Lorem ipsum* dolor **sit amet**, consectetur adipiscing elit. Aenean lobortis turpis 
+luctus mi imperdiet lobortis vitae at urna. Sed posuere lacinia turpis a commodo.
+
+*Lorem ipsum* dolor **sit amet**, consectetur adipiscing elit. Aenean lobortis turpis 
+luctus mi imperdiet lobortis vitae at urna. Sed posuere lacinia turpis a commodo.
+
+</Card>
+
 ## Link Card
 
 Link card can be used to distinguish a link and make it
