@@ -216,8 +216,8 @@ stand out from the text.
 
 ## Image Card
 
-Link card can be used to distinguish a link and make it
-stand out from the text. 
+Image card can be used to distinguish an image 
+and its description.
 
 **Syntax**
 
