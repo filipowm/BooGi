@@ -214,6 +214,24 @@ stand out from the text.
 
 <LinkCard title="This is the best page!" url="/editing/rich_content/custom_components" />
 
+## Image Card
+
+Link card can be used to distinguish a link and make it
+stand out from the text. 
+
+**Syntax**
+
+```html
+<ImageCard src="https://sites.google.com/site/mojeczolo/_/rsrc/1365421980319/nyan-cat/nyan_cat_wallpaper_by_nyakiru-d3e1zfl.png"> Here goes some text</ImageCard>
+```
+
+**Example**
+
+<ImageCard src="https://sites.google.com/site/mojeczolo/_/rsrc/1365421980319/nyan-cat/nyan_cat_wallpaper_by_nyakiru-d3e1zfl.png"> 
+
+Here goes :rocket: some text
+</ImageCard>
+
 ## Badges
 
 **Syntax**

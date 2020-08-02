@@ -7,6 +7,7 @@ import Card from './card';
 import CodeBlock from './codeBlock';
 import Highlights from './highlights';
 import Icon from './icon';
+import ImageCard from './imageCard';
 import Jargon from './jargon';
 import Layout from './layout';
 import LinkCard from './linkCard';
@@ -77,5 +78,6 @@ export default {
   Accordion,
   Card,
   LinkCard,
+  ImageCard,
   ...Highlights,
 };
