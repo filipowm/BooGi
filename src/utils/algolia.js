@@ -1,4 +1,4 @@
-module.exports = (indexName) => {
+module.exports = (indexName, excerptSize) => {
   const pageQuery = `{
     pages: allMdx {
       edges {
@@ -14,7 +14,7 @@ module.exports = (indexName) => {
             title
             description
           }
-          excerpt(pruneLength: 50000)
+          excerpt(pruneLength: ${excerptSize})
         }
       }
     }

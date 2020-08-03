@@ -64,6 +64,7 @@ module.exports = {
       algoliaAppId: null,
       algoliaSearchKey: null,
       algoliaAdminKey: null,
+      excerptSize: 20000,
       engine: 'algolia',
       placeholder: 'Search',
       startComponent: 'input', // 'icon',

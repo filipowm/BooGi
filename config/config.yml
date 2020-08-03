@@ -10,7 +10,7 @@ metadata:
   themeColor: "#ff0000"
 header:
   enabled: true
-  logo: ""
+  logo: "/assets/code.svg"
   logoLink: "/"
   helpUrl: ""
   links:
@@ -97,6 +97,7 @@ features:
   propagateNetlifyEnv: true
   rss:
     enabled: true
+    title: BooGi Docs
     showIcon: false
     copyright: "2020, Mateusz Filipowicz"
     webMaster: "Mateusz Filipowicz"
@@ -114,6 +115,7 @@ features:
     engine: 'algolia'
     placeholder: 'Search'
     startComponent: 'input' # icon
+    excerptSize: 8000
     debounceTime: 380
     snippetLength: 23
     hitsPerPage: 10

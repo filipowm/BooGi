@@ -29,7 +29,7 @@ To provide best search experience, following data is indexed:
 
 * page title
 * page description
-* content excerpt (up to 5000 characters)
+* content excerpt (number of characters is configurable)
 * page path (URL)
 * page internal ID
 * page category (_coming soon_)
@@ -121,9 +121,10 @@ Search configuration is set in `config.yaml` under `features.search` key.
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------|
 | `search.enabled`                 | Set to `true` to enable search.                                                                                                                                                                                                                | Yes      | `true`      |
 | `search.indexName`               | Name of the search index                                                                                                                                                                                                                       | Yes      | `docs`      |
-| `search.algoliaAppId`            | Algolia Application ID. It can be found in _API Keys_ section in Algolia dashboard.<br/>Example: `AB1CDE2FGH`                                                                                                                                   | Yes      |             |
-| `search.algoliaSearchKey`        | Algolia Search API Key.<br/>More details about Search Key in section above.                                                                                                                                                                     | Yes      |             |
-| `search.algoliaAdminKey`         | Algolia Search API Key.<br/>More details about Admin Key in section above.                                                                                                                                                                      | Yes      |             |
+| `search.algoliaAppId`            | Algolia Application ID. It can be found in _API Keys_ section in Algolia dashboard.<br/>Example: `AB1CDE2FGH`                                                                                                                                  | Yes      |             |
+| `search.algoliaSearchKey`        | Algolia Search API Key.<br/>More details about Search Key in section above.                                                                                                                                                                    | Yes      |             |
+| `search.algoliaAdminKey`         | Algolia Search API Key.<br/>More details about Admin Key in section above.                                                                                                                                                                     | Yes      |             |
+| `search.excerptSize`             | A number of content excerpt characters sent to Algolia for indexing                                                                                                                                                                                         | Yes      | `30000`     |
 | `search.placeholder`             | Placeholder text visible on search input.                                                                                                                                                                                                      | No       | `Search...` |
 | `search.startComponent`          | Component used in header to initialize search.<br/><br/>**Allowed values**: `input`, `icon`.<br/>When `input` is used then search input form is shown in header.<br/>When `icon` is used, just a search icon is shown in header (it is compact option). | No       | `input`     |
 | `search.debounceTime`            | Time in milliseconds between last keystroke and invoking search operation. It is used to minimize number of search operations and improve overall site performance.<br/><br/>Reasonable values are between 250ms and 600ms.                      | No       | `380`       |
@@ -142,6 +143,7 @@ features:
   search:
     enabled: true,
     indexName: 'myindex',
+    excerptSize: 10000
     placeholder: 'Search here...',
     startComponent: 'input',
     debounceTime: 380,
