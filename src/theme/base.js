@@ -17,11 +17,6 @@ const colors = {
   shadow: defaultColors.gray + '33',
 };
 
-const breakpoints = {
-  small: '768px',
-  large: '1024px',
-};
-
 const pageLayout = {
   leftWidth: '318px',
   leftMargin: '30px',
@@ -190,7 +185,6 @@ const scrollTop = (colors) => ({
 
 export default {
   colors: colors,
-  breakpoints: breakpoints,
   layout: pageLayout,
   transitions: transitions,
   header: header,

@@ -6,10 +6,13 @@ import config from 'config';
 import Logo from './logo';
 import Navigation from './navigation';
 import { ButtonIcon, DarkModeSwitch, SearchInput, Sidebar } from '../';
-import { HelpCircle, Search } from 'react-feather';
+import { HelpCircle, Menu, Search } from 'react-feather';
 import { useTheme } from 'emotion-theming';
 import SocialButtons from './social';
 import { Rss } from '../Buttons';
+import { globalHistory } from '@reach/router';
+import { hiddenMobile, visibleMobile, visibleTablet, hiddenTablet } from '../../styles';
+import { onMobile, onTablet, isMobile } from '../../styles/responsive';
 
 const isSearchEnabled = config.features.search && config.features.search.enabled;
 
@@ -19,10 +22,10 @@ const SearchWrapper = styled.div`
   position: relative;
   min-width: 290px;
   border-left: 1px solid ${(props) => props.theme.header.border};
-  @media (max-width: ${(props) => props.theme.breakpoints['large']}) {
+  ${onTablet} {
     padding-left: 0;
   }
-  @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
+  ${onMobile} {
     padding: 20px 0 0;
     width: calc(100% - 30px);
   }
@@ -42,14 +45,13 @@ const HeaderWrapper = styled.header`
   border-bottom: 1px solid ${(props) => props.theme.header.border};
   padding: 13px 0;
   position: relative;
-  @media (max-width: ${(props) => props.theme.breakpoints['large']}) {
+  overflow: hidden;
+  z-index: 1;
+  ${onTablet} {
     padding: 10px;
   }
-  @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
-    display: block;
-  }
-  & > div:last-child {
-    margin-right: 25px;
+  ${onMobile} {
+    flex-wrap: wrap;
   }
 `;
 
@@ -60,14 +62,13 @@ const TopNavigation = styled.div`
   margin-right: 30px;
   flex: 1 1 auto;
   padding: 10px 0;
-
-  @media (max-width: ${(props) => props.theme.breakpoints['large']}) {
+  ${onTablet} {
     margin-left: 15px;
   }
-  @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
+  ${onMobile} {
     &.responsive {
       .visibleMobile {
-        display: block !important;
+        display: block;
       }
 
       ul {
@@ -80,23 +81,29 @@ const TopNavigation = styled.div`
 
 const ButtonsWrapper = styled.div`
   display: flex;
+  flex: auto;
   justify-content: flex-end;
   align-items: center;
   min-width: 458px;
+  margin-right: 25px;
+  ${onTablet} {
+    margin-right: 10px !important;
+    min-width: auto;
+  }
   a,
   > div {
     margin: 0 6px;
   }
 `;
 
-const SearchOpener = ({ open }) => {
+const SearchOpener = ({ open, forcedComponent, ...props }) => {
   const theme = useTheme();
-  const method = config.features.search.startComponent;
+  const method = forcedComponent || config.features.search.startComponent;
   let opener = <div></div>;
   switch (method.toLowerCase()) {
     case 'input':
       opener = (
-        <SearchWrapper className={'hiddenMobile'} style={{ marginRight: '20px' }}>
+        <SearchWrapper css={hiddenMobile} style={{ marginRight: '20px' }} {...props}>
           <SearchInput onChange={(e) => (e.target.value = '')} onFocus={open} />
         </SearchWrapper>
       );
@@ -110,6 +117,7 @@ const SearchOpener = ({ open }) => {
           stroke={theme.header.icons.stroke}
           icon={Search}
           onClick={open}
+          {...props}
         />
       );
       break;
@@ -139,10 +147,58 @@ const HelpButton = ({ helpUrl, ...props }) => {
 
 const RssIcon = (iconBaseProps) => {
   if (config.features.rss && config.features.rss.enabled && config.features.rss.showIcon) {
-    return <Rss {...iconBaseProps} link={config.features.rss.outputPath} title={'RSS feed'} />;
+    return (
+      <Rss
+        className={hiddenMobile}
+        {...iconBaseProps}
+        link={config.features.rss.outputPath}
+        title={'RSS feed'}
+      />
+    );
   }
   return null;
 };
+
+const MobileNavigation = styled.div`
+  display: ${(props) => (props.show ? 'flex' : 'none')} !important;
+  flex-basis: 100%;
+  flex-direction: column;
+`;
+
+const MobileMenuToggle = styled(({ open, toggle, className, ...props }) => {
+  const theme = useTheme();
+  return (
+    <div className={className} {...props}>
+      <ButtonIcon
+        title={'Open menu'}
+        background={theme.header.icons.background}
+        hoverStroke={theme.header.icons.hover}
+        fill={'transparent'}
+        stroke={open === true ? theme.header.icons.hover : theme.header.icons.stroke}
+        icon={Menu}
+        onClick={toggle}
+        {...props}
+      />
+    </div>
+  );
+})`
+  display: none;
+  ${onMobile} {
+    display: flex;
+  }
+`;
+
+const SocialButtonsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 6px;
+  ${onTablet} {
+    justify-content: space-evenly;
+    margin-top: 10px;
+  }
+`;
 
 const Header = ({ setShowSearch, location, themeProvider }) => (
   <StaticQuery
@@ -181,46 +237,72 @@ const Header = ({ setShowSearch, location, themeProvider }) => (
       const open = () => {
         setShowSearch(true);
       };
+      const [menuOpen, setMenuOpen] = useState(false);
+
       const theme = useTheme();
       const iconBaseProps = {
         background: theme.header.icons.background,
         hoverStroke: theme.header.icons.hover,
         stroke: theme.header.icons.stroke,
       };
+      const DarkModeButton = config.features.darkMode.enabled ? (
+        <DarkModeSwitch
+          {...iconBaseProps}
+          style={{ marginLeft: '10px' }}
+          hoverFill={theme.header.icons.hover}
+          fill={theme.header.icons.fill}
+          isDarkThemeActive={darkMode}
+          toggleActiveTheme={() => {
+            setDarkMode(themeProvider.current.toggleActiveTheme());
+          }}
+        />
+      ) : (
+        ''
+      );
+      const toggleMenuOpen = () => setMenuOpen(!menuOpen);
+      globalHistory.listen((location) => {
+        setMenuOpen(false);
+        setShowSearch(false);
+      });
       return (
         <HeaderWrapper>
           <Logo link={logoLink} img={logoImg} title={headerTitle} />
-
-          <TopNavigation id="navbar" className={'topnav'}>
-            <div className={'visibleMobile'}>
-              <Sidebar location={location} />
-              <hr />
-
-              {isSearchEnabled ? <SearchOpener open={open} /> : null}
-            </div>
+          <TopNavigation css={hiddenMobile}>
             <Navigation links={headerLinks} />
           </TopNavigation>
-
           <ButtonsWrapper>
-            {isSearchEnabled ? <SearchOpener open={open} /> : null}
-            {helpUrl && helpUrl.length > 0 ? <HelpButton helpUrl={helpUrl} /> : ''}
-            {SocialButtons(iconBaseProps, config.social)}
-            <RssIcon {...iconBaseProps} />
-            {config.features.darkMode.enabled ? (
-              <DarkModeSwitch
-                {...iconBaseProps}
-                style={{ marginLeft: '10px' }}
-                hoverFill={theme.header.icons.hover}
-                fill={theme.header.icons.fill}
-                isDarkThemeActive={darkMode}
-                toggleActiveTheme={() => {
-                  setDarkMode(themeProvider.current.toggleActiveTheme());
-                }}
-              />
+            {isSearchEnabled ? (
+              <>
+                <SearchOpener open={open} forcedComponent={'icon'} css={visibleTablet} />
+                <SearchOpener open={open} css={hiddenTablet} />
+              </>
+            ) : null}
+            {helpUrl && helpUrl.length > 0 ? (
+              <HelpButton css={hiddenMobile} helpUrl={helpUrl} />
             ) : (
               ''
             )}
+            <SocialButtonsWrapper css={hiddenMobile}>
+              {SocialButtons(iconBaseProps, config.social)}
+            </SocialButtonsWrapper>
+            <RssIcon {...iconBaseProps} />
+            {DarkModeButton}
+            <MobileMenuToggle toggle={toggleMenuOpen} open={menuOpen} />
           </ButtonsWrapper>
+
+          {isMobile() ? (
+            <MobileNavigation css={visibleMobile} show={menuOpen}>
+              <Sidebar location={location} />
+
+              <Navigation links={headerLinks} />
+
+              <SocialButtonsWrapper css={visibleMobile}>
+                {SocialButtons(iconBaseProps, config.social)}
+              </SocialButtonsWrapper>
+            </MobileNavigation>
+          ) : (
+            ''
+          )}
         </HeaderWrapper>
       );
     }}

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Arrow from 'images/up-arrow.inline.svg';
+import { onMobile, onTablet } from '../../styles/responsive';
 
 const scrollToTop = () => window.scrollTo(0, 0);
 
@@ -21,6 +22,16 @@ const ScrollTop = styled(({ className }) => {
   cursor: pointer;
   z-index: 10;
   transition: ${(props) => props.theme.transitions.hover};
+  ${onTablet} {
+    background-color: ${(props) => props.theme.scrollTop.background + 'bc'};
+  }
+  ${onMobile} {
+    bottom: 25px;
+    right: 25px;
+    width: 30px;
+    height: 30px;
+    background-color: ${(props) => props.theme.scrollTop.background + '9b'};
+  }
   svg {
     width: 50%;
     position: absolute;

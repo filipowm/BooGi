@@ -7,6 +7,7 @@ import config from 'config';
 import { ChevronLeft, ChevronRight } from 'react-feather'
 
 import { calculateFlatNavigation, getNavigationData } from '../Navigation';
+import { onMobile } from '../../styles/responsive';
 
 const conf = {
   pathDivider: ' — ',
@@ -21,16 +22,20 @@ const PreviousNextWrapper = styled.div`
   display: grid;
   grid-template-rows: auto;
   column-gap: 24px;
-  grid-template-columns: calc(50% - 8px) calc(50% - 8px);
+  grid-template-columns: calc(50% - 12px) calc(50% - 12px);
 `;
 
 const Arrow = styled(({ className, arrow }) => <div className={className}>{arrow.render({color: ''})}</div>)`
   display: block;
   margin: 0;
   flex: 0 0 auto;
-  font-size: 24px;
+  font-size: 16pt;
   transition: color 200ms ease 0s;
   padding: 16px;
+  
+  ${onMobile} {
+    padding: 6px;
+  }
   svg {
     stroke: ${(props) => props.theme.previousNext.font};
   }
@@ -78,6 +83,9 @@ const ContentWrapper = styled(({ className, label, title }) => {
   margin: 0;
   flex: 1 1 0%;
   padding: 16px;
+  ${onMobile} {
+    padding: 6px;
+  }
 `;
 
 const LeftButton = ({ url, title, label }) => {
@@ -100,7 +108,7 @@ const RightButton = ({ url, title, label }) => {
 
 const Button = styled(({ className, url, children }) => {
   return (
-    <Link to={url} className={className}>
+    <Link to={url ? url : '#'} className={className}>
       {children}
     </Link>
   );
@@ -123,6 +131,8 @@ const Button = styled(({ className, url, children }) => {
   transition: border 200ms ease 0s;
   box-shadow: ${(props) => props.theme.previousNext.shadow} 0 3px 8px;
   text-decoration: none;
+  visibility: ${(props) => props.url ? 'visible' : 'hidden'};
+  opacity: ${(props) => props.url ? 1 : 0};
 
   &:hover {
     color: ${(props) => props.theme.previousNext.hover};
@@ -203,10 +213,8 @@ const PreviousNext = ({ mdx }) => {
     <PreviousNextWrapper>
       {currentIndex >= 0 ? (
         <>
-          {previous.url ? (
-            <LeftButton url={previous.url} title={previous.title} label={previousLabel} />
-          ) : null}
-          {next.url ? <RightButton url={next.url} title={next.title} label={nextLabel} /> : null}
+          <LeftButton url={previous.url} title={previous.title} label={previousLabel} />
+          <RightButton url={next.url} title={next.title} label={nextLabel} />
         </>
       ) : null}
     </PreviousNextWrapper>

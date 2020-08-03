@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { onMobile } from '../../styles/responsive';
 
 const Navigation = styled(({ className, links }) => {
   return (
-    <nav>
+    <nav css={{display: 'flex'}}>
       <ul className={className}>
         {links
           ? links.map((link, key) => {
@@ -30,12 +31,11 @@ const Navigation = styled(({ className, links }) => {
   align-items: center;
   -webkit-overflow-scrolling: touch;
   float: left;
-  @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
-    position: static;
-    display: none;
-    align-items: center;
-    margin: 7.5px 0;
-
+  ${onMobile} {
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 10px;
     li {
       height: 37px;
 
@@ -47,6 +47,7 @@ const Navigation = styled(({ className, links }) => {
   }
   li {
     list-style-type: none;
+    display: flex;
     & > a:before {
       content: '';
       position: absolute;

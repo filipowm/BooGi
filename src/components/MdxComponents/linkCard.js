@@ -20,10 +20,10 @@ const LinkPath = styled.div`
   color: ${(props) => decreaseIntensivity(props.theme.colors.fontLight, 0.25)};
   font-size: 9pt;
   padding-left: 16px;
+  text-align: right;
 `;
 
 const Title = styled.div`
-  flex: 1 0;
   padding: 0 14px;
   color: ${(props) => props.theme.colors.primary};
   font-size: 12pt;

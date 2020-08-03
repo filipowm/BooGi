@@ -1,4 +1,5 @@
 import { css } from '@emotion/core';
+import { onMobile, onTablet } from './responsive';
 
 export const show = css`
   display: block;
@@ -192,4 +193,30 @@ export const list = css`
       margin-bottom: 10px;
     }
   }
+`;
+
+export const hiddenMobile = css`
+${onMobile} {
+  display: none;
+}
+`;
+
+export const hiddenTablet = css`
+${onTablet} {
+  display: none;
+}
+`;
+
+export const visibleMobile = css`
+display: none;
+${onMobile} {
+  display: flex;
+}
+`;
+
+export const visibleTablet = css`
+display: none;
+${onTablet} {
+  display: flex;
+}
 `;

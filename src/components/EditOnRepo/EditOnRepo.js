@@ -4,11 +4,24 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from '../';
 import { shadowAround } from '../../styles';
+import { onTablet, onMobile } from '../../styles/responsive';
 
 const Edit = styled('div')`
-  padding: 0 16px;
   text-align: right;
+  ${onMobile} {
+    padding-left: 0;
+  }
   a {
+    ${onTablet} {
+      padding: 5px 12px;
+      min-width: auto;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    ${onMobile} {
+      padding: 4px 8px;
+      font-size: 13px;
+    }
     font-weight: 500;
     line-height: 1em;
     cursor: pointer;
@@ -31,9 +44,10 @@ const Edit = styled('div')`
 
 const EditButton = styled(({ className, icon, link, text }) => {
   return (
-    <Edit className={'mobileView'}>
+    <Edit>
       <Link className={className} to={link} css={shadowAround} target={'_blank'}>
-        <img src={icon} alt={'Git Repository'} loading={'lazy'} /> {text}
+        <img src={icon} alt={'Git Repository'} loading={'lazy'} /> 
+        <span>{text}</span>
       </Link>
     </Edit>
   );
@@ -42,8 +56,13 @@ const EditButton = styled(({ className, icon, link, text }) => {
   min-height: 40px;
   display: flex;
   align-items: center;
-  @media (max-width: ${(props) => props.theme.breakpoints.small}) {
-    width: fit-content;
+  ${onTablet} {
+    height: 37px;
+    min-height: 37px;
+  }
+  ${onMobile} {
+    height: 32px;
+    min-height: 32px;
   }
   img {
     width: 20px;

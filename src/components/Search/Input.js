@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { shadowAround } from '../../styles';
 import { useTheme } from 'emotion-theming';
-import { X, Search } from 'react-feather';
+import { Search, Trash } from 'react-feather';
 import useDebounce from '../../utils/useDebounce';
 import config from 'config';
 import { marginLeftRight } from './styles';
+import { onMobile } from '../../styles/responsive';
 
 const SearchIcon = styled(Search)`
   width: 1.2em;
@@ -15,10 +16,14 @@ const SearchIcon = styled(Search)`
 
 const CleanSearch = styled(({ ...props }) => (
   <div {...props} role={'button'} aria-label="clean search">
-    <X />
+    <Trash />
   </div>
 ))`
   cursor: pointer;
+  margin: 0 10px;
+  svg{
+    width: 1.2em;
+  }
   &:hover {
     svg {
       fill: ${(props) => props.theme.colors.primary};
@@ -47,9 +52,8 @@ const Form = styled.form`
   display: flex;
   flex-direction: row;
   align-items: center;
-  @media only screen and (max-width: 767px) {
+  ${onMobile} {
     width: 100%;
-    margin-left: 15px;
   }
   padding: 12px 4px;
   border-radius: 4px;

@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
-@import 'mixins';
-@import '../components/**/*.scss'; // find scss files in whole components directory tree
 
 * {
   margin: 0;
@@ -11,7 +9,7 @@
 
 html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Roboto Light', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont,  'Roboto', 'Roboto Light', 'Segoe UI','Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 16px;
@@ -22,43 +20,12 @@ body {
   font-family: 'Roboto';
 }
 
-.visibleMobile {
-  display: none;
-}
-
-.video-responsive {
-  position: relative;
-  padding-bottom: 56.2%;
-}
-
 a {
   text-decoration: none;
 
   &:hover {
     text-decoration: none;
   }
-}
-
-.displayInline {
-  display: inline-block;
-}
-
-.video-responsive iframe {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-// TO CHANGE
-.diffNewLine {
-  color: #22863a;
-  background-color: #f0fff4;
-}
-
-// TO CHANGE
-.diffRemoveLine {
-  color: red;
-  background-color: #ffcccc;
 }
 
 /* Header section starts here */
@@ -126,52 +93,6 @@ img {
 .paragraph {
   margin: 16px 0;
   line-height: 1.625;
-}
-
-@media (max-width: $breakpoint-medium) {
-  .hiddenTablet {
-    display: none !important;
-  }
-}
-
-@media (max-width: ($breakpoint-small - 1)) {
-  .responsive {
-    margin-top: 15px;
-    position: relative;
-    padding-bottom: 10px;
-    border-top: 1px solid #fff;
-    
-    .visibleMobile {
-      display: block !important;
-    }
-
-    ul {
-      display: block;
-      text-align: left;
-    }
-  }
-
-  .hiddenMobile {
-    display: none !important;
-  }
-
-  hr {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .mobileView {
-    text-align: left !important;
-    padding-left: 0 !important;
-  }
-}
-
-.show {
-  display: block;
-}
-
-.hidden {
-  display: none;
 }
 
 .gatsby-resp-image-figcaption {

@@ -5,15 +5,22 @@ import styled from '@emotion/styled';
 import { Layout, EditOnRepo, PreviousNext, Seo } from '$components';
 import config from 'config';
 import emoji from '../utils/emoji';
+import { onMobile, onTablet } from '../styles/responsive';
 
 const Title = styled.h1`
-  font-size: 32px;
+  font-size: 24pt
   line-height: 1.5;
   font-weight: 500;
   border-left: 2px solid ${(props) => props.theme.colors.primary};
   padding: 0 16px;
   flex: 1;
   margin-top: 0;
+  ${onTablet} {
+    font-size: 22pt;
+  }
+  ${onMobile} {
+    font-size: 20pt;
+  }
 `;
 
 const PageTitle = styled.div`
@@ -22,11 +29,10 @@ const PageTitle = styled.div`
   align-items: center;
   padding-bottom: 30px;
   border-bottom: 1px solid ${(props) => props.theme.content.border};
-  margin-bottom: 20px;
   color: ${(props) => props.theme.content.titleFont};
-  @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
-    padding: 0 15px;
-    display: block;
+  ${onMobile} {
+    padding: 15px;
+    margin-bottom: 0;
   }
 `;
 
@@ -40,6 +46,7 @@ const TitleWrapper = styled.div`
 
 const ContentWrapper = styled.div`
   color: ${(props) => props.theme.content.font};
+  flex: 1;
   code {
     background: ${(props) => props.theme.content.code.background};
     border: 1px solid ${(props) => props.theme.content.code.border};
@@ -160,7 +167,7 @@ export default class MDXRuntimeTest extends React.Component {
         {(config.features.previousNext.enabled === true &&
           mdx.frontmatter.showPreviousNext !== false) ||
         mdx.frontmatter.showPreviousNext ? (
-          <div css={{ padding: '50px 0' }}>
+          <div css={{ padding: '30px 0' }}>
             <PreviousNext mdx={mdx} />
           </div>
         ) : (

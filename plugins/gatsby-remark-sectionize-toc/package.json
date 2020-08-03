@@ -4,7 +4,8 @@
   "author": "Mateusz Filipowicz <matfilipowicz@gmail.com>",
   "version": "0.1.0",
   "dependencies": {
-    "remark": "^12.0.0"
+    "remark": "12.0.0",
+    "unist-util-find-after": "^3.0.0"
   },
   "license": "MIT",
   "main": "index.js"

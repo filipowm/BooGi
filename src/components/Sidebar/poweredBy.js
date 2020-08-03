@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { onMobile } from '../../styles/responsive';
 
 const Trademark = styled(({ className, trademark }) => {
   return (
@@ -55,7 +56,7 @@ const PoweredBy = styled(({ className, trademark, name, link }) => (
     margin-top: 11px;
     color: ${(props) => props.theme.navigationSidebar.poweredBy.hover};
   }
-  @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
+  ${onMobile} {
     display: none;
   }
 `;

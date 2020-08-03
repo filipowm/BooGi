@@ -57,7 +57,6 @@
     "gatsby-remark-images": "3.3.10",
     "gatsby-remark-jargon": "2.7.1",
     "gatsby-remark-mermaid": "2.0.0",
-    "gatsby-remark-sectionize": "1.0.0",
     "gatsby-source-filesystem": "2.3.11",
     "gatsby-source-local-git": "1.0.0",
     "gatsby-transformer-gitinfo": "1.1.0",
@@ -68,7 +67,6 @@
     "lodash.flatten": "4.4.0",
     "lodash.startcase": "4.4.0",
     "node-sass": "4.14.1",
-    "node-sass-glob-importer": "5.3.2",
     "puppeteer": "5.2.1",
     "react": "16.13.1",
     "react-collapsible": "^2.8.0",
@@ -83,8 +81,8 @@
     "react-scrollspy": "3.4.3",
     "react-visibility-sensor": "5.1.1",
     "remark-abbr": "1.4.0",
-    "remark-autolink-headings": "6.0.1",
-    "remark-emoji": "2.1.0"
+    "remark-emoji": "2.1.0",
+    "unist-util-find-after": "3.0.0"
   },
   "license": "MIT",
   "main": "n/a",

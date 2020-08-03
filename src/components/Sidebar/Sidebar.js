@@ -6,6 +6,7 @@ import Links from './links';
 import PoweredBy from './poweredBy';
 import { getNavigationData } from '../Navigation';
 import { scrollbar } from '../../styles';
+import { onMobile } from '../../styles/responsive';
 
 const Sidebar = styled.div`
   margin-left: ${(props) => props.theme.layout.leftMargin};
@@ -14,6 +15,9 @@ const Sidebar = styled.div`
   overflow-y: hidden;
   align-items: stretch;
   flex-direction: column;
+  ${onMobile} {
+    margin-left: 10px;
+  }
 `;
 
 const SidebarMain = styled.div`
@@ -92,9 +96,11 @@ const NavigationWrapper = styled(({ className, children, ...props }) => {
   );
   border-right: 1px solid ${(props) => props.theme.navigationSidebar.border};
   position: sticky;
-  @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
+  ${onMobile} {
     width: 100%;
     height: auto;
+    border-right: none;
+    position: relative;
     background: ${(props) => props.theme.navigationSidebar.backgroundPrimary};
   }
 `;

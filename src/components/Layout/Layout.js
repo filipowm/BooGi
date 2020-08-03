@@ -13,14 +13,17 @@ import {
 import config from 'config';
 import React, { useRef, useEffect, useState } from 'react';
 import { Slide } from 'react-reveal';
+import { hiddenMobile, hiddenTablet } from '../../styles';
+import { onMobile, onTablet } from '../../styles/responsive';
 
 const Wrapper = styled.div`
   display: flex;
   overflow-wrap: anywhere;
   justify-content: space-between;
+  position: relative;
 
-  @media only screen and (max-width: ${(props) => props.theme.breakpoints['small']}) {
-    display: block;
+  ${onMobile} {
+    min-height: 95vh;
   }
 `;
 
@@ -31,10 +34,11 @@ const Content = styled('main')`
   padding: 50px 70px;
   background-color: ${(props) => props.theme.content.background};
 
-  @media only screen and (max-width: 1023px) {
-    padding-right: 0;
-    padding-left: 0;
-    margin: 0 10px;
+  ${onTablet} {
+    padding: 30px;
+  }
+  ${onMobile} {
+    padding: 15px;
   }
 `;
 
@@ -75,7 +79,8 @@ const Layout = ({ children, location }) => {
   const [searchVisible, setSearchVisible] = useState(false);
   const themeProviderRef = React.createRef();
   const searchSidebarRef = useRef(null);
-  actOnClose(searchSidebarRef, () => setShowSearch(false));
+  const closeSearch = () => setShowSearch(false);
+  actOnClose(searchSidebarRef, closeSearch);
 
   return (
     <ThemeProvider ref={themeProviderRef} darkModeConfig={config.features.darkMode}>
@@ -89,7 +94,7 @@ const Layout = ({ children, location }) => {
             }}
           >
             <Slide right delay={0} duration={400} when={showSearch}>
-              <SearchSidebar ref={searchSidebarRef} onVisibleChange={setSearchVisible} />
+              <SearchSidebar ref={searchSidebarRef} onVisibleChange={setSearchVisible} closeSelf={closeSearch} />
             </Slide>
           </div>
           <Header
@@ -105,12 +110,12 @@ const Layout = ({ children, location }) => {
         {config.features.scrollTop === true ? <ScrollTop /> : ''}
         <Wrapper>
           {config.sidebar.enabled === true ? (
-            <Sidebar location={location} className={'hiddenMobile'} />
+            <Sidebar location={location} css={hiddenMobile} />
           ) : (
             ''
           )}
           <Content id="main-content">{children}</Content>
-          <TableOfContents location={location} className={'hiddenMobile hiddenTablet'} />
+          <TableOfContents location={location} css={hiddenTablet} />
         </Wrapper>
       </MDXProvider>
     </ThemeProvider>

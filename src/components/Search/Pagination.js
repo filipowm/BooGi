@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 
-const Button = styled(({ refine, page, children, ...props }) => {
+const Button = styled(({ refine, page, show, isCurrent,  children, ...props }) => {
   const changePage = (event) => {
     event.preventDefault();
     refine(page);
@@ -15,7 +15,7 @@ const Button = styled(({ refine, page, children, ...props }) => {
 })`
   width: 32px;
   height: 32px;
-  visibility: ${(props) => (props.visible || props.visible === undefined ? 'visible' : 'hidden')};
+  visibility: ${(props) => (props.show || props.show === undefined ? 'visible' : 'hidden')};
   vertical-align: middle;
   transition: ${(props) => props.theme.transitions.hover};
   background-color: ${(props) =>
@@ -72,7 +72,7 @@ const Pagination = ({ totalPages, nbPages, currentPage, refine, showPrevious, sh
       <PagesList>
         {showPrevious ? (
           <li style={{ marginRight: leftRightMargin }}>
-            <Button visible={currentPage > 1} refine={refine} page={previousPage}>
+            <Button show={currentPage > 1} refine={refine} page={previousPage}>
               <ChevronLeft />
             </Button>
           </li>
@@ -91,7 +91,7 @@ const Pagination = ({ totalPages, nbPages, currentPage, refine, showPrevious, sh
         })}
         {showNext ? (
           <li style={{ marginLeft: leftRightMargin }}>
-            <Button visible={currentPage !== pagesToShow} refine={refine} page={nextPage}>
+            <Button show={currentPage !== pagesToShow} refine={refine} page={nextPage}>
               <ChevronRight />
             </Button>
           </li>

@@ -2,11 +2,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from 'emotion-theming';
 import Card from './card';
+import { onMobile } from '../../styles/responsive';
 
 const ImageCard = styled(Card)`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  @media (max-width: ${(props) => props.theme.breakpoints['small']}) {
+  ${onMobile} {
     width: 100%;
     height: 100%;
   }

@@ -3,7 +3,6 @@ require('dotenv').config();
 const queries = require('./src/utils/algolia');
 const configManager = require('./src/utils/config');
 const path = require('path');
-const globImporter = require('node-sass-glob-importer');
 const emoji = require('./src/utils/emoji');
 const _ = require('lodash');
 
@@ -16,12 +15,7 @@ const plugins = [
   'gatsby-plugin-pinterest',
   'gatsby-plugin-twitter',
   'gatsby-plugin-sharp',
-  {
-    resolve: 'gatsby-plugin-sass',
-    options: {
-      importer: globImporter(),
-    },
-  },
+  'gatsby-plugin-sass',
   {
     resolve: `gatsby-plugin-layout`,
     options: {

@@ -6,6 +6,7 @@ const ButtonIconWrapper = styled('div')`
   display: flex;
   justify-content: flex-end;
   padding: 4px;
+  outline: none;
 
   background-color: ${(props) => props.background};
   border-radius: 50%;
