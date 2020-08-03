@@ -122,5 +122,6 @@ module.exports = {
       enabled: true,
       default: false,
     },
+    publishDraft: false
   },
 };

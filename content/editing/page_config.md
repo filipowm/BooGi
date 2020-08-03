@@ -23,6 +23,7 @@ title: String # title of the page, visible in navigation sidebar, page content t
 metaTitle: String # used for SEO if provided, otherwise title is used
 description: String # page description used for search and SEO
 order: Int # page order in navigation sidebar, the lower the higher it will appear
+draft: Boolean # set to true to mark page as draft and not publish it (unless overriden by features.publishDraft property)
 editable: Boolean # set to true to show Edit on Repo button, set to false to hide it
 showMetadata: Boolean # set to true to show page metadata, set to false to hide it
 showToc: Boolean # set to true to show Table of Contents, set to false to hide it
@@ -44,6 +45,7 @@ title: 'Navigation'
 ---
 title: 'Navigation'
 order: 4
+draft: true
 editable: true
 tocDepth: 1
 ---

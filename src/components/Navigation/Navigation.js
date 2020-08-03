@@ -4,7 +4,7 @@ import config from 'config';
 const getNavigationData = () => {
   const { allMdx } = useStaticQuery(graphql`
     query NavigationQuery {
-      allMdx {
+      allMdx(filter: {fields: {draft: {ne: true}}}) {
         edges {
           node {
             fields {

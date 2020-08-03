@@ -164,7 +164,7 @@ const TableOfContents = ({ className, location }) => (
   <StaticQuery
     query={graphql`
       query {
-        allMdx {
+        allMdx(filter: {fields: {draft: {ne: true}}}) {
           edges {
             node {
               fields {

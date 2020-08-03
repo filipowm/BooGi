@@ -1,6 +1,6 @@
 module.exports = (indexName, excerptSize) => {
   const pageQuery = `{
-    pages: allMdx {
+    pages: allMdx(filter: {fields: {draft: {ne: true}}}) {
       edges {
         node {
           objectID: id

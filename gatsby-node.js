@@ -47,14 +47,11 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allMdx {
+            allMdx(filter: {fields: {draft: {ne: true}}}) {
               edges {
                 node {
                   fields {
                     id
-                  }
-                  tableOfContents
-                  fields {
                     slug
                   }
                 }
@@ -72,7 +69,7 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.join(process.cwd(), 'src/pages/404.js'),
         });
 
-        // Create blog posts pages.
+        // Create pages.
         result.data.allMdx.edges.forEach(({ node }) => {
           createPage({
             path: node.fields.slug ? node.fields.slug : '/',

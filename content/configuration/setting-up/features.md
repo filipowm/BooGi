@@ -5,6 +5,18 @@ order: 4
 
 //TODO add screenshots
 
+## Publishing draft docs
+
+BooGi allows marking pages as drafts, thus not publishing
+them while you are still working on them. However, you can
+alter this behavior by setting up `features.publishDraft`
+property, or passing `FEATURES_PUBLISH_DRAFT` environment
+variable.
+
+```yaml
+features:
+  publishDraft: true # set to true to publish draft pages
+```
 
 ## Dark Mode theme
 

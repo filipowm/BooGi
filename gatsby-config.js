@@ -24,6 +24,12 @@ const plugins = [
   },
   'gatsby-plugin-emotion',
   'gatsby-plugin-remove-trailing-slashes',
+  {
+    resolve: require.resolve(`./plugins/gatsby-plugin-draft`),
+    options: {
+      publishDraft: config.features.publishDraft,
+    },
+  },
   'gatsby-transformer-sharp',
   {
     resolve: 'gatsby-plugin-react-svg',
@@ -192,7 +198,7 @@ if (config.features.rss && config.features.rss.enabled) {
           },
           query: `
           {
-            allMdx {
+            allMdx(filter: {fields: {draft: {ne: true}}}) {
               edges {
                 node {
                   excerpt
