@@ -31,6 +31,14 @@ const Header = (level, props) => {
   });
 };
 
+const Table = ({...props}) => (
+  <div css={{ display: 'grid' }}>
+    <div css={{ overflowX: 'auto' }}>
+      <table css={table(useTheme())} {...props} />
+    </div>
+  </div>
+);
+
 const Section = (props) => {
   let header = '';
   if (Array.isArray(props.children)) {
@@ -61,7 +69,7 @@ export default {
   blockquote: (props) => <blockquote css={blockquote(useTheme())} {...props} />,
   p: (props) => <p className="paragraph" {...props} />,
   pre: (props) => <pre css={pre} {...props} />,
-  table: (props) => <table css={table(useTheme())} {...props} />,
+  table: (props) => <Table {...props}/>,
   em: emphasis,
   img: (props) => (
     <a href={props.src} target="_blank" rel="noopener noreferrer">

@@ -155,6 +155,7 @@ const table = (colors) => ({
   },
   oddRow: colors.mainBackground,
   evenRow: colors.background,
+  rowHover: colors.hover + '3d',
   border: colors.border,
 });
 

@@ -92,6 +92,9 @@ export const table = (theme) => css`
   border-radius: 4px;
   border-spacing: 0;
   overflow-wrap: normal;
+  ${onMobile} {
+    white-space: pre;
+  }
   thead {
     background-color: ${theme.table.header.background};
     color: ${theme.table.header.font};
@@ -112,6 +115,7 @@ export const table = (theme) => css`
   }
 
   tbody tr {
+    transition: ${theme.transitions.hover};
     border-top: 1px solid ${theme.table.primary};
     margin: 0;
     padding: 0;
@@ -137,6 +141,10 @@ export const table = (theme) => css`
       margin: 0;
       padding: 6px 13px;
     }
+  }
+
+  tbody tr:hover {
+    background-color: ${theme.table.rowHover};
   }
 
   th :first-child,
