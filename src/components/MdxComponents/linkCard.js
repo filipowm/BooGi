@@ -28,6 +28,7 @@ const Title = styled.div`
   color: ${(props) => props.theme.colors.primary};
   font-size: 12pt;
   font-weight: 500;
+  flex: 1;
 `;
 
 export default ({ title, url }) => {
