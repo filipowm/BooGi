@@ -201,3 +201,20 @@ Even if table of contents is globally turned off or on, it can be altered
 per page by setting up `showToc` property in [frontmatter](/editingcontent/page_config#frontmatter). 
 Also on page you can alter depth of table of contents by setting up
 `tocDepth` in frontmatter. Both settings have precedence over global configuration.
+
+## Full screen mode
+
+Full screen mode can be used to hide any disruptive page elements
+and focus only on content. You can configure which elements should
+be hidden while in full screen mode.
+
+**Important:** Full screen mode is disabled by default.
+
+```yaml
+features:
+  fullScreenMode:
+    enabled: false # set to true to enable full screen mode
+    hideHeader: true # set to true to hide header while in full screen mode
+    hideSidebar: true # set to true to hide sidebar while in full screen mode
+    hideToc: true # set to true to hide Table of Contents while in full screen mode
+```

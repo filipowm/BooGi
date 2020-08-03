@@ -122,6 +122,12 @@ module.exports = {
       enabled: true,
       default: false,
     },
-    publishDraft: false
+    publishDraft: false,
+    fullScreenMode: {
+      enabled: false,
+      hideHeader: true,
+      hideToc: true,
+      hideSidebar: true
+    }
   },
 };

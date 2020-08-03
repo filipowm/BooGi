@@ -15,6 +15,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Slide } from 'react-reveal';
 import { hiddenMobile, hiddenTablet } from '../../styles';
 import { onMobile, onTablet } from '../../styles/responsive';
+import 'css';
 
 const Wrapper = styled.div`
   display: flex;
@@ -77,6 +78,7 @@ function actOnClose(ref, onClose) {
 const Layout = ({ children, location }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchVisible, setSearchVisible] = useState(false);
+  const [fullscreenMode, setFullScreenMode] = useState(false);
   const themeProviderRef = React.createRef();
   const searchSidebarRef = useRef(null);
   const closeSearch = () => setShowSearch(false);
@@ -98,9 +100,11 @@ const Layout = ({ children, location }) => {
             </Slide>
           </div>
           <Header
+            show={! (config.features.fullScreenMode.hideHeader && fullscreenMode)}
             location={location}
             setShowSearch={setShowSearch}
             themeProvider={themeProviderRef}
+            toggleFullscreenMode={() => setFullScreenMode(!fullscreenMode)}
           />
         </>
       ) : (
@@ -110,12 +114,12 @@ const Layout = ({ children, location }) => {
         {config.features.scrollTop === true ? <ScrollTop /> : ''}
         <Wrapper>
           {config.sidebar.enabled === true ? (
-            <Sidebar location={location} css={hiddenMobile} />
+            <Sidebar show={! (config.features.fullScreenMode.hideSidebar && fullscreenMode)} location={location} css={hiddenMobile} />
           ) : (
             ''
           )}
           <Content id="main-content">{children}</Content>
-          <TableOfContents location={location} css={hiddenTablet} />
+          <TableOfContents show={! (config.features.fullScreenMode.hideToc && fullscreenMode)} location={location} css={hiddenTablet} />
         </Wrapper>
       </MDXProvider>
     </ThemeProvider>

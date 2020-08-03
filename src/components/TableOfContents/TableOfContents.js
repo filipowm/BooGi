@@ -10,7 +10,7 @@ import emoji from '../../utils/emoji';
 
 const Sidebar = styled.aside`
   background-color: ${(props) => props.theme.tableOfContents.background};
-
+  display: ${(props) => props.show ? 'block' : 'none'};
   min-width: 260px;
   height: 100vh;
   overflow: auto;
@@ -160,7 +160,7 @@ const tocItemsEqual = (items, targetItems) => {
   return true;
 };
 
-const TableOfContents = ({ className, location }) => (
+const TableOfContents = ({ show, className, location }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -207,7 +207,7 @@ const TableOfContents = ({ className, location }) => (
           }
         };
         return (
-          <Sidebar className={className} css={scrollbar}>
+          <Sidebar show={show} className={className} css={scrollbar}>
             <TocTitle>Contents</TocTitle>
             <Scrollspy
               ref={scrollspyRef}

@@ -129,4 +129,8 @@ features:
   toc:
     show: true
     depth: 4
-
+  fullScreenMode: 
+    enabled: true
+    hideHeader: true
+    hideToc: true
+    hideSidebar: true

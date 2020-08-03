@@ -43,13 +43,14 @@ const PoweredByWrapper = styled.div`
   box-shadow: 0 -7px 10px -5px ${(props) => props.theme.navigationSidebar.backgroundPrimary};
 `;
 
-const NavigationWrapper = styled(({ className, children, ...props }) => {
+const NavigationWrapper = styled(({ className, children }) => {
   return (
-    <aside className={className} {...props}>
+    <aside className={className}>
       <Sidebar>{children}</Sidebar>
     </aside>
   );
 })`
+  display: ${(props) => props.show ? 'block' : 'none'};
   height: 100vh;
   top: 0;
   flex: 0 0 ${(props) => props.theme.layout.leftWidth};
@@ -118,10 +119,10 @@ const Divider = styled((props) => (
     border-bottom: 1px solid ${(props) => props.theme.navigationSidebar.border};
   }
 `;
-const ContentNavigation = ({ className, location }) => {
+const ContentNavigation = ({ show, className, location }) => {
   const edges = getNavigationData();
   return (
-    <NavigationWrapper className={className}>
+    <NavigationWrapper className={className} show={show}>
       <SidebarMain css={scrollbar}>
         <ContentTree edges={edges} location={location} />
         {config.sidebar.links && config.sidebar.links.length > 0 ? (

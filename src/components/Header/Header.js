@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
-import 'css';
 import config from 'config';
 import Logo from './logo';
 import Navigation from './navigation';
@@ -13,6 +12,7 @@ import { Rss } from '../Buttons';
 import { globalHistory } from '@reach/router';
 import { hiddenMobile, visibleMobile, visibleTablet, hiddenTablet } from '../../styles';
 import { onMobile, onTablet, isMobile } from '../../styles/responsive';
+import { FullScreenClose, FullScreenEnter, FullScreenHeader } from './fullscreen';
 
 const isSearchEnabled = config.features.search && config.features.search.enabled;
 
@@ -39,7 +39,7 @@ const HeaderWrapper = styled.header`
   border-radius: 0;
   margin-bottom: 0;
   border: 0;
-  display: flex;
+  display: ${(props) => (props.show ? 'flex' : 'none')};
   align-items: center;
   box-shadow: 0 3px 8px 0 ${(props) => props.theme.header.shadow};
   border-bottom: 1px solid ${(props) => props.theme.header.border};
@@ -200,7 +200,7 @@ const SocialButtonsWrapper = styled.div`
   }
 `;
 
-const Header = ({ setShowSearch, location, themeProvider }) => (
+const Header = ({ setShowSearch, location, themeProvider, show, toggleFullscreenMode }) => (
   <StaticQuery
     query={graphql`
       query headerTitleQuery {
@@ -248,7 +248,6 @@ const Header = ({ setShowSearch, location, themeProvider }) => (
       const DarkModeButton = config.features.darkMode.enabled ? (
         <DarkModeSwitch
           {...iconBaseProps}
-          style={{ marginLeft: '10px' }}
           hoverFill={theme.header.icons.hover}
           fill={theme.header.icons.fill}
           isDarkThemeActive={darkMode}
@@ -265,45 +264,62 @@ const Header = ({ setShowSearch, location, themeProvider }) => (
         setShowSearch(false);
       });
       return (
-        <HeaderWrapper>
-          <Logo link={logoLink} img={logoImg} title={headerTitle} />
-          <TopNavigation css={hiddenMobile}>
-            <Navigation links={headerLinks} />
-          </TopNavigation>
-          <ButtonsWrapper>
-            {isSearchEnabled ? (
-              <>
-                <SearchOpener open={open} forcedComponent={'icon'} css={visibleTablet} />
-                <SearchOpener open={open} css={hiddenTablet} />
-              </>
-            ) : null}
-            {helpUrl && helpUrl.length > 0 ? (
-              <HelpButton css={hiddenMobile} helpUrl={helpUrl} />
-            ) : (
-              ''
-            )}
-            <SocialButtonsWrapper css={hiddenMobile}>
-              {SocialButtons(iconBaseProps, config.social)}
-            </SocialButtonsWrapper>
-            <RssIcon {...iconBaseProps} />
-            {DarkModeButton}
-            <MobileMenuToggle toggle={toggleMenuOpen} open={menuOpen} />
-          </ButtonsWrapper>
-
-          {isMobile() ? (
-            <MobileNavigation css={visibleMobile} show={menuOpen}>
-              <Sidebar location={location} />
-
-              <Navigation links={headerLinks} />
-
-              <SocialButtonsWrapper css={visibleMobile}>
-                {SocialButtons(iconBaseProps, config.social)}
-              </SocialButtonsWrapper>
-            </MobileNavigation>
+        <>
+          {config.features.fullScreenMode.enabled &&
+          config.features.fullScreenMode.enabled === true ? (
+            <FullScreenHeader show={!show} css={hiddenMobile}>
+              <FullScreenClose toggle={toggleFullscreenMode} />
+              {DarkModeButton}
+            </FullScreenHeader>
           ) : (
             ''
           )}
-        </HeaderWrapper>
+          <HeaderWrapper show={show}>
+            <Logo link={logoLink} img={logoImg} title={headerTitle} />
+            <TopNavigation css={hiddenMobile}>
+              <Navigation links={headerLinks} />
+            </TopNavigation>
+            <ButtonsWrapper>
+              {isSearchEnabled ? (
+                <>
+                  <SearchOpener open={open} forcedComponent={'icon'} css={visibleTablet} />
+                  <SearchOpener open={open} css={hiddenTablet} />
+                </>
+              ) : null}
+              {helpUrl && helpUrl.length > 0 ? (
+                <HelpButton css={hiddenMobile} helpUrl={helpUrl} />
+              ) : (
+                ''
+              )}
+              <SocialButtonsWrapper css={hiddenMobile}>
+                {SocialButtons(iconBaseProps, config.social)}
+              </SocialButtonsWrapper>
+              <RssIcon {...iconBaseProps} />
+              {config.features.fullScreenMode.enabled &&
+              config.features.fullScreenMode.enabled === true ? (
+                <FullScreenEnter toggle={toggleFullscreenMode} css={hiddenMobile} />
+              ) : (
+                ''
+              )}
+              {DarkModeButton}
+              <MobileMenuToggle toggle={toggleMenuOpen} open={menuOpen} />
+            </ButtonsWrapper>
+
+            {isMobile() ? (
+              <MobileNavigation css={visibleMobile} show={menuOpen}>
+                <Sidebar location={location} show={true} />
+
+                <Navigation links={headerLinks} />
+
+                <SocialButtonsWrapper css={visibleMobile}>
+                  {SocialButtons(iconBaseProps, config.social)}
+                </SocialButtonsWrapper>
+              </MobileNavigation>
+            ) : (
+              ''
+            )}
+          </HeaderWrapper>
+        </>
       );
     }}
   />
