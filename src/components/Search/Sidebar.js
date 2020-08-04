@@ -1,13 +1,15 @@
 /* eslint-disable react/display-name */
-import Algolia from './algolia/index';
 import styled from '@emotion/styled';
 import React, { useRef } from 'react';
 import config from 'config';
 import VisibilitySensor from 'react-visibility-sensor';
 import { X } from 'react-feather';
+import loadable from '@loadable/component';
 
 import { onMobile } from '../../styles/responsive';
 import { visibleMobile, shadowAround } from '../../styles';
+
+const Algolia = loadable(() => import('./algolia/'))
 
 const SearchWrapper = styled.div`
   display: flex;
@@ -43,6 +45,8 @@ width: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
+cursor: pointer;
+box-shadow: 0 3px 8px 0 ${(props) => props.theme.colors.shadow};
 border-bottom: 1px solid ${(props) => props.theme.colors.border};
 svg {
   width: 1.2em;
@@ -72,7 +76,7 @@ const Search = React.forwardRef(({ onVisibleChange, closeSelf, ...props }, ref) 
       <SearchWrapper {...props}>
         <CloseSearch css={visibleMobile} onClick={closeSelf}>
           <X />
-          <span css={{marginLeft: '5px'}}>Close Search</span>
+          <span css={{marginLeft: '5px'}}>Close</span>
         </CloseSearch>
         <VisibilitySensor onChange={onVisibilityChange}>
           <Algolia ref={searchRef} inputRef={inputRef} index={config.features.search.indexName} />
