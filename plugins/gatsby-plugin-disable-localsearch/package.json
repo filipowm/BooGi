@@ -1,0 +1,11 @@
+{
+  "name": "gatsby-plugin-disable-localsearch",
+  "description": "Plugin to to disable local search",
+  "author": "Mateusz Filipowicz <matfilipowicz@gmail.com>",
+  "version": "0.1.0",
+  "dependencies": {
+    "gatsby": "2.23.4"
+  },
+  "license": "MIT",
+  "main": "index.js"
+}

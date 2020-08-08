@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { ChevronLeft, ChevronRight } from 'react-feather';
+import { onMobile } from '../../styles/responsive';
 
 const Button = styled(({ refine, page, show, isCurrent,  children, ...props }) => {
   const changePage = (event) => {
@@ -47,6 +48,11 @@ const PagesList = styled.ul`
   list-style: none;
   margin: 0 auto;
   align-items: center;
+
+  padding: 12px 0;
+  ${onMobile} {
+    padding: 8px 0;
+  }
   li {
     margin: 0 1px;
     cursor: pointer;
@@ -54,11 +60,13 @@ const PagesList = styled.ul`
 `;
 
 const PagesListWrapper = styled.div`
-  padding-top: 14px;
-  padding-bottom: 2px;
   border-top: 1px solid ${(props) => props.theme.search.pagination.border};
+  background: ${(props) => props.theme.colors.background};
   width: 100%;
   display: flex;
+  position: sticky;
+  bottom: 0;
+  box-shadow: 0 -2px 4px 0 ${(props) => props.theme.colors.shadow};
 `;
 
 const leftRightMargin = '12px';

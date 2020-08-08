@@ -36,16 +36,20 @@ performance, make it more configurable and easier to start with.
 - customizing your page to match your branding and needs
 - GitBook-like style theme, inspired by https://docs.gitbook.com/
 - light / dark mode themes
+- responsive design with mobile / tablet support
 - rich-content and rich-text features like text formatting, graphs and diagrams, 
   quotes, columnar layout, emojis, highlights, live code editor, 
   syntax highlighting, external code snippets and many many more!
-- search integration with [Algolia](https://www.algolia.com/) (local search 
-- capabilities are planned)
+- draft pages
+- search integration with [Algolia](https://www.algolia.com/)
+- local search (search in a browser without need to integrate with Algolia)
 - Progressive Web App which can work offline
 - integration with Google Analytics
+- full screen mode
 - Search Engine Optimization (_SEO_) friendliness
 - RSS feed
 - easy way to edit content on Gitlab, Github or Bitbucket
+- custom CLI to easily initialize and develop BooGi app
 - easy deployment on platform of your choice
 
 ## 🔗 Docs and live Demo

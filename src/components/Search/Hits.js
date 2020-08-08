@@ -10,7 +10,6 @@ const topBottomPadding = css`
 `;
 
 export const HitsWrapper = styled.div`
-  height: 100%;
   left: 0;
   display: flex;
   flex-direction: column;

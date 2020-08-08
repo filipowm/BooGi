@@ -1,15 +1,17 @@
 // 08:46
 require('dotenv').config();
-const queries = require('./src/utils/algolia');
+const { algolia, localsearch } = require('./src/utils/search');
 const configManager = require('./src/utils/config');
 const path = require('path');
 const emoji = require('./src/utils/emoji');
 const _ = require('lodash');
+const { truncate } = require('lodash');
 
 const config = configManager.read();
 configManager.generate(__dirname + '/.generated.config.js', config);
 
 const plugins = [
+  'gatsby-plugin-loadable-components-ssr',
   'gatsby-plugin-sitemap',
   'gatsby-plugin-instagram-embed',
   'gatsby-plugin-pinterest',
@@ -181,7 +183,10 @@ if (config.features.rss && config.features.rss.enabled) {
             const items = allMdx.edges.map((edge) => {
               const frontmatter = edge.node.frontmatter;
               const fields = edge.node.parent.fields;
-              const rawTitle = frontmatter.metaTitle && frontmatter.metaTitle.length > 0 ? frontmatter.metaTitle : frontmatter.title;
+              const rawTitle =
+                frontmatter.metaTitle && frontmatter.metaTitle.length > 0
+                  ? frontmatter.metaTitle
+                  : frontmatter.title;
               const title = emoji.clean(rawTitle);
               const date = fields && fields.gitLogLatestDate ? fields.gitLogLatestDate : new Date();
               const author =
@@ -225,30 +230,49 @@ if (config.features.rss && config.features.rss.enabled) {
           `,
           output: config.features.rss.outputPath,
           match: config.features.rss.matchRegex,
-          title: config.features.rss.title ? config.features.rss.title : config.metadata.title
+          title: config.features.rss.title ? config.features.rss.title : config.metadata.title,
         },
       ],
     },
   });
 }
 
-// check and add algolia
-if (
-  config.features.search &&
-  config.features.search.enabled &&
-  config.features.search.algoliaAppId &&
-  config.features.search.algoliaAdminKey
-) {
-  plugins.push({
-    resolve: `gatsby-plugin-algolia`,
-    options: {
-      appId: config.features.search.algoliaAppId, // algolia application id
-      apiKey: config.features.search.algoliaAdminKey, // algolia admin key to index
-      queries: queries(config.features.search.indexName, config.features.search.excerptSize),
-      chunkSize: 10000, // default: 1000
-    },
-  });
+if (config.features.search && config.features.search.enabled === true) {
+  if (
+    config.features.search.algoliaAppId &&
+    config.features.search.algoliaAdminKey &&
+    config.features.search.engine.toLowerCase() === 'algolia'
+  ) {
+    plugins.push({
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: config.features.search.algoliaAppId, // algolia application id
+        apiKey: config.features.search.algoliaAdminKey, // algolia admin key to index
+        queries: algolia(config.features.search.indexName, config.features.search.excerptSize),
+        chunkSize: 10000, // default: 1000
+      },
+    });
+    plugins.push(  {
+      resolve: require.resolve(`./plugins/gatsby-plugin-disable-localsearch`),
+      options: {
+        name: 'Boogi',
+      },
+    })
+  } else if (config.features.search.engine.toLowerCase() === 'localsearch') {
+    const conf = localsearch(config.features.search.excerptSize);
+    plugins.push({
+      resolve: 'gatsby-plugin-local-search',
+      options: {
+        engine: 'flexsearch',
+        engineOptions: config.features.search.localSearchEngine,
+        ...conf,
+      },
+    });
+  } else {
+    console.warn(`Unknown search engine: ${config.features.search.engine}`);
+  }
 }
+
 // check and add pwa functionality
 if (config.pwa && config.pwa.enabled && config.pwa.manifest) {
   plugins.push({

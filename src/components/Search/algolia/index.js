@@ -38,7 +38,6 @@ class Algolia extends React.Component {
   state = {
     query: '',
     focus: false,
-    ready: false,
   };
 
   constructor(props) {
@@ -55,7 +54,7 @@ class Algolia extends React.Component {
   render() {
     const ref = this.ref;
     const focus = this.focus;
-    const showResults = this.state.query.length > 1 && this.state.ready && this.state.focus;
+    const showResults = this.state.query.length > 1 && this.state.focus;
     return (
       <InstantSearch
         searchClient={this.searchClient}
@@ -69,19 +68,25 @@ class Algolia extends React.Component {
           {...{ focus }}
         />
 
-        {showResults && config.features.search.showStats ? <Stats /> : null}
-        <Results />
-        <HitsWrapper>
-          <Index key={this.index} indexName={this.index}>
-            {showResults ? (
-              <>
-                <Hits hitComponent={PageHit} />
-              </>
-            ) : (
-              ''
-            )}
-          </Index>
-        </HitsWrapper>
+        <div style={{ flex: '1' }}>
+          {showResults && config.features.search.showStats ? (
+            <div>
+              <Stats />
+            </div>
+          ) : null}
+          <Results />
+          <HitsWrapper>
+            <Index key={this.index} indexName={this.index}>
+              {showResults ? (
+                <>
+                  <Hits hitComponent={PageHit} />
+                </>
+              ) : (
+                ''
+              )}
+            </Index>
+          </HitsWrapper>
+        </div>
         {showResults && config.features.search.pagination.enabled ? (
           <Pagination
             totalPages={config.features.search.pagination.totalPages}

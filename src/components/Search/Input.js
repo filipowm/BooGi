@@ -26,7 +26,6 @@ const CleanSearch = styled(({ ...props }) => (
   }
   &:hover {
     svg {
-      fill: ${(props) => props.theme.colors.primary};
       stroke: ${(props) => props.theme.colors.primary};
     }
   }
@@ -50,10 +49,14 @@ const Input = styled.input`
 
 const Form = styled.form`
   display: flex;
+  margin-top: 12px;
+  margin-bottom: 12px;
   flex-direction: row;
   align-items: center;
   ${onMobile} {
     width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
   padding: 12px 4px;
   border-radius: 4px;
@@ -79,7 +82,11 @@ const Form = styled.form`
 `;
 
 const SidebarSearchInputWrapper = styled.div`
-  ${marginLeftRight}
+position: sticky;
+top: 0;
+background: ${(props) => props.theme.colors.background};
+width: 100%;
+padding: 0 24px;
 `;
 
 const SidebarSearchInput = ({ search, inputRef, showClean, ...props }) => (

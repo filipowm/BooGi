@@ -10,17 +10,15 @@ import { onMobile } from '../../styles/responsive';
 import { visibleMobile, shadowAround } from '../../styles';
 
 const Algolia = loadable(() => import('./algolia/'))
+const LocalSearch = loadable(() => import('./localsearch/'))
 
 const SearchWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 12px 0;
+  padding: 0;
   height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  ${onMobile} {
-    padding: 0 0 12px;
-  }
 `;
 
 const SearchSidebar = styled.div`
@@ -59,11 +57,21 @@ svg {
 }
 `;
 
+const SearchEngine = React.forwardRef((props, ref) => {
+  const engine = config.features.search.engine.toLowerCase();
+  switch(engine) {
+    case 'algolia':
+      return <Algolia inputRef={ref} index={config.features.search.indexName} />
+    case 'localsearch':
+      return <LocalSearch inputRef={ref} />
+  }
+  console.warn(`Unsupported search engine: ${engine}`);
+  return null;
+});
+
 const Search = React.forwardRef(({ onVisibleChange, closeSelf, ...props }, ref) => {
   const inputRef = useRef(null);
-  const searchRef = useRef(null);
   const onVisibilityChange = (isVisible) => {
-    searchRef.current.setState({ ready: isVisible });
     if (isVisible && inputRef.current) {
       inputRef.current.focus();
     }
@@ -79,7 +87,7 @@ const Search = React.forwardRef(({ onVisibleChange, closeSelf, ...props }, ref) 
           <span css={{marginLeft: '5px'}}>Close</span>
         </CloseSearch>
         <VisibilitySensor onChange={onVisibilityChange}>
-          <Algolia ref={searchRef} inputRef={inputRef} index={config.features.search.indexName} />
+          <SearchEngine ref={inputRef} />
         </VisibilitySensor>
       </SearchWrapper>
     </SearchSidebar>
