@@ -118,7 +118,7 @@ const Layout = ({ children, location }) => {
           ) : (
             ''
           )}
-          <Content id="main-content">{children}</Content>
+          <Content>{children}</Content>
           <TableOfContents show={! (config.features.fullScreenMode.hideToc && fullscreenMode)} location={location} css={hiddenTablet} />
         </Wrapper>
       </MDXProvider>
