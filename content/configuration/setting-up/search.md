@@ -39,6 +39,7 @@ To provide best search experience, following data is indexed:
 - constant, low memory usage
 - very fast, minimal network overhead
 - need to be enabled explicitly (`features.search.engine=algolia`)
+- index created only during page build
 - paid, free tier for small indices and low load
 
 </p>
@@ -52,6 +53,7 @@ To provide best search experience, following data is indexed:
   as index and excerpts are stored on the client
 - very fast, no additional network calls involved to query data
 - enabled by default
+- index created during page build or running development server
 - free
 
 </p>
@@ -77,11 +79,11 @@ FlexSearch engine is customizable and you can configure to satisfy your needs
 Default engine configuration is tuned to provide best search results,
 keeping great search speed and reasonable memory consumption.
 
-<Warn>
+<Warning>
 
 Don't change Flexsearch engine configuration if you don't know what you
 are doing. Default settings provide great results already.
-</Warn>
+</Warning>
 
 Follow [this guide](https://github.com/nextapps-de/flexsearch#options) to learn
 more how you can set up FlexSearch engine to satisfy your needs.

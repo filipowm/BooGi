@@ -3,6 +3,9 @@ title: "Running Locally"
 order: 1
 ---
 
+If you want to develop BooGi or use plain Gatsby for your BooGi app
+development, then you can follow this guide.
+
 ## Download dependencies
 
 ```
@@ -19,7 +22,7 @@ This will run BooGi on port 8000 on localhost.
 ## Build and run docker image locally
 
 ```
-docker build -t boogi .
+docker build -t boogi -f docker/Dockerfile .
 docker run -dp 80:80 boogi
 ```
 This will run BooGi on port 80 on localhost.

@@ -72,7 +72,6 @@ pwa:
 social:
   github: https://github.com/filipowm/boogi
   linkedin: https://www.linkedin.com/in/mateusz-filipowicz-437b4768/
-  twitter: twitter url
 
 features:
   darkMode:
@@ -133,4 +132,10 @@ features:
   toc:
     show: true
     depth: 3
+  publishDraft: false
+  fullScreenMode:
+    enabled: true
+    hideHeader: false
+    hideSidebar: true
+    hideToc: true
 ```
