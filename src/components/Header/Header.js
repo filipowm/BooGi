@@ -20,7 +20,8 @@ const SearchWrapper = styled.div`
   padding-left: 20px;
   flex: 1 1 auto;
   position: relative;
-  min-width: 290px;
+  min-width: 200px;
+  max-width: 280px;
   border-left: 1px solid ${(props) => props.theme.header.border};
   ${onTablet} {
     padding-left: 0;
@@ -43,7 +44,7 @@ const HeaderWrapper = styled.header`
   align-items: center;
   box-shadow: 0 3px 8px 0 ${(props) => props.theme.header.shadow};
   border-bottom: 1px solid ${(props) => props.theme.header.border};
-  padding: 13px 0;
+  padding: 10px 0;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -103,8 +104,8 @@ const SearchOpener = ({ open, forcedComponent, ...props }) => {
   switch (method.toLowerCase()) {
     case 'input':
       opener = (
-        <SearchWrapper css={hiddenMobile} style={{ marginRight: '20px' }} {...props}>
-          <SearchInput onChange={(e) => (e.target.value = '')} onFocus={open} />
+        <SearchWrapper css={hiddenMobile} style={{ marginRight: '10px' }} {...props}>
+          <SearchInput style={{marginTop: '0', marginBottom: '0'}} onChange={(e) => (e.target.value = '')} onFocus={open} />
         </SearchWrapper>
       );
       break;

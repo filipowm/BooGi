@@ -29,7 +29,6 @@ const search = (query, index, store, page) => {
   const pageHits = calculatePage(results, page);
   const t2 = performance.now();
   const processingTimeMS = (t2 - t1).toFixed(2);
-  console.log(index);
   return {
     hits: pageHits,
     nbHits: nbHits,

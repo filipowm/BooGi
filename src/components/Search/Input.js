@@ -95,7 +95,7 @@ const SidebarSearchInput = ({ search, inputRef, showClean, ...props }) => (
   </SidebarSearchInputWrapper>
 );
 
-const SearchInput = ({ search, inputRef, showClean, ...props }) => {
+const SearchInput = ({ search, inputRef, showClean, style, ...props }) => {
   const theme = useTheme();
   const preventSubmit = (e) => {
     e.preventDefault();
@@ -116,7 +116,7 @@ const SearchInput = ({ search, inputRef, showClean, ...props }) => {
   };
 
   return (
-    <Form css={shadowAround(theme)} onSubmit={preventSubmit}>
+    <Form css={shadowAround(theme)} onSubmit={preventSubmit} style={style} >
       <SearchIcon />
       <Input
         ref={inputRef}
