@@ -1,4 +1,4 @@
-import defaultColors from './defaultColors';
+import defaultColors from './colors';
 
 const colors = {
   ...defaultColors,

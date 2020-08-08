@@ -1,4 +1,4 @@
-import defaultColors from './defaultColors';
+import defaultColors from './colors';
 import colorfn from 'color';
 import { increaseIntensivity, decreaseIntensivity, grayscaleCompatible } from '../utils/colors';
 
