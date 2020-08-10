@@ -1,6 +1,6 @@
 // 08:46
 require('dotenv').config();
-const { algolia, localsearch } = require('./src/utils/search');
+const { getSearchPlugins } = require('./src/utils/search');
 const configManager = require('./src/utils/config');
 const path = require('path');
 const emoji = require('./src/utils/emoji');
@@ -237,41 +237,8 @@ if (config.features.rss && config.features.rss.enabled) {
   });
 }
 
-if (config.features.search && config.features.search.enabled === true) {
-  if (
-    config.features.search.algoliaAppId &&
-    config.features.search.algoliaAdminKey &&
-    config.features.search.engine.toLowerCase() === 'algolia'
-  ) {
-    plugins.push({
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: config.features.search.algoliaAppId, // algolia application id
-        apiKey: config.features.search.algoliaAdminKey, // algolia admin key to index
-        queries: algolia(config.features.search.indexName, config.features.search.excerptSize),
-        chunkSize: 10000, // default: 1000
-      },
-    });
-    plugins.push(  {
-      resolve: require.resolve(`./plugins/gatsby-plugin-disable-localsearch`),
-      options: {
-        name: 'Boogi',
-      },
-    })
-  } else if (config.features.search.engine.toLowerCase() === 'localsearch') {
-    const conf = localsearch(config.features.search.excerptSize);
-    plugins.push({
-      resolve: 'gatsby-plugin-local-search',
-      options: {
-        engine: 'flexsearch',
-        engineOptions: config.features.search.localSearchEngine,
-        ...conf,
-      },
-    });
-  } else {
-    console.warn(`Unknown search engine: ${config.features.search.engine}`);
-  }
-}
+const searchPlugins = getSearchPlugins(config.features.search);
+searchPlugins.forEach(plugin => plugins.push(plugin));
 
 // check and add pwa functionality
 if (config.pwa && config.pwa.enabled && config.pwa.manifest) {
