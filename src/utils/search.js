@@ -25,7 +25,7 @@ const flatten = (arr) =>
 
 const transformer = ({ data }) => flatten(data.pages.edges);
 
-module.exports.algolia = (indexName, excerptSize) => {
+const algolia = (indexName, excerptSize) => {
   const settings = { attributesToSnippet: [`excerpt:20`] };
   return [
     {
@@ -37,7 +37,7 @@ module.exports.algolia = (indexName, excerptSize) => {
   ];
 };
 
-module.exports.localsearch = (excerptSize) => ({
+const localsearch = (excerptSize) => ({
   query: query(excerptSize),
   normalizer: transformer,
   name: 'Boogi',
