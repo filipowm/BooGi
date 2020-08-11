@@ -1,3 +1,60 @@
+# [1.0.0](https://github.com/filipowm/BooGi/compare/v0.2.2...v1.0.0) (2020-08-11)
+
+
+### Bug Fixes
+
+* **components:** fix link card path not showing up on right side ([daedbaf](https://github.com/filipowm/BooGi/commit/daedbafc5c68d8859d5945d8840730d686d556c7))
+* **components:** rename collapsible to accordion to make name more meaningful ([892a19b](https://github.com/filipowm/BooGi/commit/892a19b9d62ff6174e3bb8a5a143c5d5e4caaf2b))
+* **deps:** revert puppeteer to working version ([7669602](https://github.com/filipowm/BooGi/commit/7669602627ee47afceeb41e8ae51a1ee34b67513))
+* **deps:** update dependency @emotion/core to v10.0.34 ([7ce7b6d](https://github.com/filipowm/BooGi/commit/7ce7b6def666cb3fa36cd8164e28f73105d12a23))
+* **deps:** update dependency algoliasearch to v4.3.1 ([3a24ef4](https://github.com/filipowm/BooGi/commit/3a24ef48e5bc376996a31c8835a643de4f700cac))
+* **deps:** update dependency algoliasearch to v4.4.0 ([8e36266](https://github.com/filipowm/BooGi/commit/8e36266c97628883f0ecfc8460f02c7d193b3ef2))
+* **deps:** update dependency gatsby-plugin-algolia to v0.11.2 ([82aed6d](https://github.com/filipowm/BooGi/commit/82aed6d32c2f574dc997e424357cff9c74f4a565))
+* **deps:** update dependency gatsby-remark-embedder to v3 ([2bdb973](https://github.com/filipowm/BooGi/commit/2bdb973100c1af85ef63889921288e0872f38bb7))
+* **deps:** update dependency gatsby-remark-jargon to v2.7.1 ([26b9067](https://github.com/filipowm/BooGi/commit/26b90673a0bfcc506c88ff20520f6c26e7c9a56d))
+* **deps:** update dependency gatsby-remark-jargon to v2.7.2 ([3c5b9e9](https://github.com/filipowm/BooGi/commit/3c5b9e9baad568fed1aeb6f1dd6c5221ee80fe9c))
+* **deps:** update dependency gatsby-remark-jargon to v2.8.0 ([2ced28e](https://github.com/filipowm/BooGi/commit/2ced28e9b7a56c6b3984d0d7ad54165d467a2fcd))
+* **deps:** update dependency gatsby-source-local-git to v1.1.1 ([f318f1a](https://github.com/filipowm/BooGi/commit/f318f1a7696585e61874071b219423ac4fc133c1))
+* **deps:** update dependency lodash to v4.17.19 [security] ([eae2a90](https://github.com/filipowm/BooGi/commit/eae2a900893a93f865f61effab42739bc0899936))
+* **deps:** update dependency puppeteer to v5 ([efcecf5](https://github.com/filipowm/BooGi/commit/efcecf5d7f6a7ee35d262b33b0502124058b3c87))
+* **deps:** update dependency react-id-generator to v3.0.1 ([de486e1](https://github.com/filipowm/BooGi/commit/de486e1c4b8daf5415dfeffe77e389aa40c40741))
+* **deps:** update dependency react-instantsearch-dom to v6.7.0 ([3d87e23](https://github.com/filipowm/BooGi/commit/3d87e23a8ef5b9ea69d470051b140ae2f5b92b91))
+* **deps:** update dependency react-scrollspy to v3.4.3 ([3c4e485](https://github.com/filipowm/BooGi/commit/3c4e485aef0ec634dd51eca1f27001a6b3896638))
+* **deps:** update dependency remark-autolink-headings to v6.0.1 ([73ddbed](https://github.com/filipowm/BooGi/commit/73ddbedb3abeb25dfc09f006b2646d9508c81585))
+* **deps:** update gatsby monorepo ([bf55286](https://github.com/filipowm/BooGi/commit/bf55286cb66f3ac85041884cc57d60c711bcd440))
+* **deps:** update mdx monorepo to v1.6.16 ([7fa0e3e](https://github.com/filipowm/BooGi/commit/7fa0e3e265a2b7da8c347f9a9f820b08fc33e4fc))
+* :ambulance: hotfixing issues causing it impossible to create BooGi project from scratch ([12488f7](https://github.com/filipowm/BooGi/commit/12488f7f18f2abc76d84c87386afe3e724869805))
+* :bug: fix header search styling ([bb85c17](https://github.com/filipowm/BooGi/commit/bb85c17862c447482da5d22ecadfc77b0fc0b952))
+* :bug: fix incorrect previous / next pages calculation ([5ff87f0](https://github.com/filipowm/BooGi/commit/5ff87f07b1f36e7f7cdb3659f4bdd9e7fe99536d))
+* :bug: fix issue when accessing document object in SSR ([5603035](https://github.com/filipowm/BooGi/commit/5603035f77a60499350f8dbb56d191579db2c5f4))
+* :bug: force downgrade culprit dependency ([c869b6a](https://github.com/filipowm/BooGi/commit/c869b6a56eea20a9b11209b6c5351d859b5f9bab))
+* search building issue due to not visible methods ([0667e24](https://github.com/filipowm/BooGi/commit/0667e247399cce9cd4b82ed569db16a2ead41f10))
+* **deps:** update dependency remark to v12.0.1 ([34ffb7b](https://github.com/filipowm/BooGi/commit/34ffb7b87e596e7e371c0aab1ab1fd7351aedec6))
+* **deps:** update mdx monorepo to v1.6.14 ([48bf29d](https://github.com/filipowm/BooGi/commit/48bf29d93900a77bda4f7d481d6af0f94fee4bc8))
+* **search:** :bug: disable localsearch plugin was not added when algolia used without keys ([62a6ffa](https://github.com/filipowm/BooGi/commit/62a6ffaeb6a3620114d94b259aa0d0cadc3a15d2))
+* improve table styling on mobile / tablet ([b005982](https://github.com/filipowm/BooGi/commit/b00598254829f32fbb2f79e4408d0661cfd1cc4d))
+
+
+### Features
+
+* **components:** :sparkles: add file download card component ([87e2c0b](https://github.com/filipowm/BooGi/commit/87e2c0bf52dbe52591fc48bc60525786e171bdbb))
+* **search:** :sparkles: added local search engine ([c2e0543](https://github.com/filipowm/BooGi/commit/c2e05431c03e70ac4d945e0ab53700b87c2c3a85))
+* :iphone: complete responsive design on mobile / tablet ([1ba2f9d](https://github.com/filipowm/BooGi/commit/1ba2f9df7ed0d3c072031b8b1585e89b3f650a91))
+* :sparkles: add flag to mark pages as drafts ([909ab00](https://github.com/filipowm/BooGi/commit/909ab0033d7635eb7b6c2aca3410b703b14e12b0))
+* :sparkles: added configurable full screen mode ([b2c954f](https://github.com/filipowm/BooGi/commit/b2c954f998170116a0488709e8f254527806694a))
+* **components:** :sparkles: created card component ([0143c6c](https://github.com/filipowm/BooGi/commit/0143c6cf97bf68f668e8eabd4c1e39d5e766c2a2))
+* **components:** :sparkles: created collapsible / accordion component ([8bf15c2](https://github.com/filipowm/BooGi/commit/8bf15c23370048c4ff584ae92c10ec9a65404c45))
+* **components:** :sparkles: created image card component ([a39a488](https://github.com/filipowm/BooGi/commit/a39a4882cbe7602131aa240102d20a1696ce6ce3))
+* **components:** :sparkles: created link card component ([60e52a0](https://github.com/filipowm/BooGi/commit/60e52a0b92296ab69d979c2dec543e68e75874e2))
+* **search:** :sparkles: add customizable excerpt size indexed by Algolia\ ([bec70cd](https://github.com/filipowm/BooGi/commit/bec70cdc26657d904b08d419a6e43ab77e9b2218))
+
+
+### BREAKING CHANGES
+
+* **components:** Release 1.0.0
+
+
+
 ## [0.2.2](https://github.com/filipowm/BooGi/compare/v0.2.1...v0.2.2) (2020-07-19)
 
 
