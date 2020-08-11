@@ -214,6 +214,21 @@ stand out from the text.
 
 <LinkCard title="This is the best page!" url="/editing/rich_content/custom_components" />
 
+## File Download Card
+
+Download card can be used to distinguish a download file link and make it
+stand out from the text. 
+
+**Syntax**
+
+```html
+<DownloadCard title="Download this awesome PDF!" url="/assets/example.pdf" />
+```
+
+**Example**
+
+<DownloadCard title="Download this awesome PDF!" url="/assets/example.pdf" />
+
 ## Image Card
 
 Image card can be used to distinguish an image 

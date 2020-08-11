@@ -15,7 +15,8 @@ Available components:
 - highlights
 - badges
 - cards
-- link cards
+- link, cards
+- file download cards
 - image cards
 - graphs and diagrams
 - code snippets / code highlighting
@@ -24,7 +25,6 @@ Available components:
   Codesandbox, Pinterest, Spotify, Twitch, Twitter, Youtube
 
 Components which are planned:
-- file download card
 - tabs
 - math formulas
 - embedded code snippets from public repositories on Github, Gitlab, Bitbucket
