@@ -1,79 +1,52 @@
-## [0.2.2](https://github.com/filipowm/BooGi/compare/v0.2.1...v0.2.2) (2020-07-19)
-
-
-### Bug Fixes
-
-* :ambulance: hotfixing issues causing it impossible to create BooGi project from scratch ([6f5d77c](https://github.com/filipowm/BooGi/commit/6f5d77ca2ed1397bf9a27fb6b89b68e40e00637a))
-
-
-
-## [0.2.1](https://github.com/filipowm/BooGi/compare/v0.2.0...v0.2.1) (2020-07-03)
-
-
-### Bug Fixes
-
-* revert puppeteer dependency ([7835833](https://github.com/filipowm/BooGi/commit/7835833f91410fc1fcaadec14496534114440740))
-
-
-
-# [0.2.0](https://github.com/filipowm/BooGi/compare/v0.1.0...v0.2.0) (2020-07-03)
+# 0.3.0 (2020-08-11)
 
 
 ### Bug Fixes
 
 * **components:** :bug: fix issue with setting up code block language ([98750c7](https://github.com/filipowm/BooGi/commit/98750c73eddef784a969723a8e31dc45caef7a03))
+* **components:** fix link card path not showing up on right side ([daedbaf](https://github.com/filipowm/BooGi/commit/daedbafc5c68d8859d5945d8840730d686d556c7))
+* **components:** rename collapsible to accordion to make name more meaningful ([892a19b](https://github.com/filipowm/BooGi/commit/892a19b9d62ff6174e3bb8a5a143c5d5e4caaf2b))
+* **deps:** revert puppeteer to working version ([7669602](https://github.com/filipowm/BooGi/commit/7669602627ee47afceeb41e8ae51a1ee34b67513))
 * **deps:** update dependency @babel/plugin-proposal-export-default-from to v7.10.4 ([9752199](https://github.com/filipowm/BooGi/commit/975219952ac6c43ef6eb419a184fc7660ca586f1))
+* **deps:** update dependency @emotion/core to v10.0.34 ([7ce7b6d](https://github.com/filipowm/BooGi/commit/7ce7b6def666cb3fa36cd8164e28f73105d12a23))
+* **deps:** update dependency algoliasearch to v4.3.1 ([3a24ef4](https://github.com/filipowm/BooGi/commit/3a24ef48e5bc376996a31c8835a643de4f700cac))
+* **deps:** update dependency algoliasearch to v4.4.0 ([8e36266](https://github.com/filipowm/BooGi/commit/8e36266c97628883f0ecfc8460f02c7d193b3ef2))
+* **deps:** update dependency gatsby-plugin-algolia to v0.11.2 ([82aed6d](https://github.com/filipowm/BooGi/commit/82aed6d32c2f574dc997e424357cff9c74f4a565))
+* **deps:** update dependency gatsby-remark-embedder to v3 ([2bdb973](https://github.com/filipowm/BooGi/commit/2bdb973100c1af85ef63889921288e0872f38bb7))
+* **deps:** update dependency gatsby-remark-jargon to v2.7.1 ([26b9067](https://github.com/filipowm/BooGi/commit/26b90673a0bfcc506c88ff20520f6c26e7c9a56d))
+* **deps:** update dependency gatsby-remark-jargon to v2.7.2 ([3c5b9e9](https://github.com/filipowm/BooGi/commit/3c5b9e9baad568fed1aeb6f1dd6c5221ee80fe9c))
+* **deps:** update dependency gatsby-remark-jargon to v2.8.0 ([2ced28e](https://github.com/filipowm/BooGi/commit/2ced28e9b7a56c6b3984d0d7ad54165d467a2fcd))
+* **deps:** update dependency gatsby-source-local-git to v1.1.1 ([f318f1a](https://github.com/filipowm/BooGi/commit/f318f1a7696585e61874071b219423ac4fc133c1))
+* **deps:** update dependency lodash to v4.17.19 [security] ([eae2a90](https://github.com/filipowm/BooGi/commit/eae2a900893a93f865f61effab42739bc0899936))
 * **deps:** update dependency puppeteer to v4.0.1 ([3ada07a](https://github.com/filipowm/BooGi/commit/3ada07a7bf9795393ea5a2463a7e714cdbdf4405))
+* **deps:** update dependency puppeteer to v5 ([efcecf5](https://github.com/filipowm/BooGi/commit/efcecf5d7f6a7ee35d262b33b0502124058b3c87))
 * **deps:** update dependency puppeteer to v5 ([470cada](https://github.com/filipowm/BooGi/commit/470cada1e03d162b07adaf473a1c8234456ed4e9))
-* **deps:** update mdx monorepo to v1.6.6 ([82d8a51](https://github.com/filipowm/BooGi/commit/82d8a51d5bf04e06f8ef7c2fdb96595d6a5eddae))
-* **toc:** :bug: fix issue with sections creation when headers not start from h1 ([b0c0ba4](https://github.com/filipowm/BooGi/commit/b0c0ba4b85dd427568f60962c8cd91bd1863d641))
+* **deps:** update dependency react-id-generator to v3.0.1 ([de486e1](https://github.com/filipowm/BooGi/commit/de486e1c4b8daf5415dfeffe77e389aa40c40741))
+* **deps:** update dependency react-instantsearch-dom to v6.7.0 ([3d87e23](https://github.com/filipowm/BooGi/commit/3d87e23a8ef5b9ea69d470051b140ae2f5b92b91))
+* **deps:** update dependency react-scrollspy to v3.4.3 ([3c4e485](https://github.com/filipowm/BooGi/commit/3c4e485aef0ec634dd51eca1f27001a6b3896638))
+* **deps:** update dependency remark-autolink-headings to v6.0.1 ([73ddbed](https://github.com/filipowm/BooGi/commit/73ddbedb3abeb25dfc09f006b2646d9508c81585))
+* **deps:** update gatsby monorepo ([bf55286](https://github.com/filipowm/BooGi/commit/bf55286cb66f3ac85041884cc57d60c711bcd440))
+* **deps:** update mdx monorepo to v1.6.16 ([7fa0e3e](https://github.com/filipowm/BooGi/commit/7fa0e3e265a2b7da8c347f9a9f820b08fc33e4fc))
+* :ambulance: hotfixing issues causing it impossible to create BooGi project from scratch ([6f5d77c](https://github.com/filipowm/BooGi/commit/6f5d77ca2ed1397bf9a27fb6b89b68e40e00637a))
+* :ambulance: hotfixing issues causing it impossible to create BooGi project from scratch ([12488f7](https://github.com/filipowm/BooGi/commit/12488f7f18f2abc76d84c87386afe3e724869805))
 * :bug: fix content images not showing up due to invalid position of components ([33f407b](https://github.com/filipowm/BooGi/commit/33f407b4324a1c14d3c3fd447c0c856759b73b3f))
 * :bug: fix embed images size from 100 to 1050 ([9ad41c6](https://github.com/filipowm/BooGi/commit/9ad41c6ca546c3a17d61d73679c174dc51884019))
+* :bug: fix header search styling ([bb85c17](https://github.com/filipowm/BooGi/commit/bb85c17862c447482da5d22ecadfc77b0fc0b952))
+* :bug: fix incorrect previous / next pages calculation ([5ff87f0](https://github.com/filipowm/BooGi/commit/5ff87f07b1f36e7f7cdb3659f4bdd9e7fe99536d))
 * :bug: fix instagram, twitter and pinterest embeds ([65f1ed1](https://github.com/filipowm/BooGi/commit/65f1ed1fb22143c85c4f26979fa75a83c691d805))
+* :bug: fix issue when accessing document object in SSR ([5603035](https://github.com/filipowm/BooGi/commit/5603035f77a60499350f8dbb56d191579db2c5f4))
 * :bug: fix scrolling to section from URL anchor ([15c9e77](https://github.com/filipowm/BooGi/commit/15c9e776ad6546f89de5c3d5088d5f72ec56d911))
+* :bug: force downgrade culprit dependency ([c869b6a](https://github.com/filipowm/BooGi/commit/c869b6a56eea20a9b11209b6c5351d859b5f9bab))
 * :lipstick: fix content taking expanding to wide in code tags ([7ff0676](https://github.com/filipowm/BooGi/commit/7ff067665180360d74a7b63e22a253dacc7e79ab))
 * :lipstick: fix header buttons positioning ([e5040e2](https://github.com/filipowm/BooGi/commit/e5040e28ffdee10043996e8df8090c2960b4634a))
-* :lipstick: fix issue with content overflow-x ([b0fe6e8](https://github.com/filipowm/BooGi/commit/b0fe6e8fc8fa49e8334d438c19641c7b1f916fc8))
 * fix constructor issue with social button builder ([6349bb4](https://github.com/filipowm/BooGi/commit/6349bb44de74701134d4146e17ffebe2025f1051))
-* when icon not provided generation of PWA icons fail ([bf16786](https://github.com/filipowm/BooGi/commit/bf167869a9712569da76f07c8fdb67e6f4be2aa6))
-* **components:** :bug: fix issue with jargon term split into two lines ([372e606](https://github.com/filipowm/BooGi/commit/372e606680522d101df0a8ab4b57092cf0a215e2))
-* **deps:** update dependency puppeteer to v4 ([8df6be8](https://github.com/filipowm/BooGi/commit/8df6be86ff2d5db46b56f99757c6216e6474767e))
-* **deps:** update dependency react-instantsearch-dom to v6.6.0 ([22b73b6](https://github.com/filipowm/BooGi/commit/22b73b69a8e300d9d1514aac9d6213abdfbc5fc8))
-* **deps:** update gatsby monorepo ([7f707fc](https://github.com/filipowm/BooGi/commit/7f707fc81d2e92246e06295a8ab0b75b413fc10b))
-* **toc:** fix issue with emojis not rendered in ToC ([d7840e5](https://github.com/filipowm/BooGi/commit/d7840e5b7c99ca92e3d92d464543ca029e32d1d9))
-
-
-### Features
-
-* :lipstick: add option to fill social buttons ([d345364](https://github.com/filipowm/BooGi/commit/d345364a1b7b2c84cab62d20a355042b7f6a0a12))
-* :sparkles: add social buttons ([3be9caa](https://github.com/filipowm/BooGi/commit/3be9caa1be37f52325c73dd2c0778b9cbc6c6254))
-* :sparkles: show RSS feed icon in header ([e939b34](https://github.com/filipowm/BooGi/commit/e939b34e372626e5807fb91fc4ff91fd298f97aa))
-* change highlight names to improve usability ([ac6eb2e](https://github.com/filipowm/BooGi/commit/ac6eb2ee028ca43e7c4b369c0d473873f5a3a7a9))
-* jargon will now use yaml config instead of json ([34753fd](https://github.com/filipowm/BooGi/commit/34753fdb9b3d881f54c7c45283aa28b166315e57))
-* **components:** :lipstick: improve list and emphasis styling ([a6d34a0](https://github.com/filipowm/BooGi/commit/a6d34a04c482fd7c32d5ea82ef66fe19aac662c4))
-* **components:** :sparkles: click on image in content will open it in a new window ([acb94ea](https://github.com/filipowm/BooGi/commit/acb94ea651c40f4f94cd17700c23e2e845d4944c))
-* **config:** improve and automate PWA configuration ([0f0b7d2](https://github.com/filipowm/BooGi/commit/0f0b7d2358f419fa80dc95b2d7a62775b4b3a28a))
-* **sidebar:** :lipstick: left sidebar scrollbar should be visible only on hover ([65c62a0](https://github.com/filipowm/BooGi/commit/65c62a027ae296a8190d897943c18cb90764a97f))
-* **toc:** :sparkles: allow configuring ToC depth per page ([f0d7d42](https://github.com/filipowm/BooGi/commit/f0d7d424bd5604382cd8adeeb30ca9e59f50c32c))
-
-
-### Performance Improvements
-
-* :zap: images are lazy-loaded ([99ea55c](https://github.com/filipowm/BooGi/commit/99ea55c25104db6b603475c2a37984ecea03896a))
-* :zap: lazy-loading external images in content ([bd36713](https://github.com/filipowm/BooGi/commit/bd36713a30847fe9522ad2c5ea2787d03d0366c7))
-
-
-
-# [0.1.0](https://github.com/filipowm/BooGi/compare/60df99447af563aba96c98ede16cc19ada41233b...v0.1.0) (2020-06-14)
-
-
-### Bug Fixes
-
+* search building issue due to not visible methods ([0667e24](https://github.com/filipowm/BooGi/commit/0667e247399cce9cd4b82ed569db16a2ead41f10))
 * **ci:** do not duplicate same jobs on push and pr ([6387513](https://github.com/filipowm/BooGi/commit/63875138ce7bc2b81d94b73696b9bf8e2c1f80b1))
 * **ci:** remove ignore branches from pr trigger ([7c69c7b](https://github.com/filipowm/BooGi/commit/7c69c7bc16b5a62ff716554a278b1fd38729ed39))
 * **ci:** remove textlint and align config ([78a41f8](https://github.com/filipowm/BooGi/commit/78a41f87c9c6f30597596133c8db016313ade713))
 * **ci:** use github gatsby action ([4df8770](https://github.com/filipowm/BooGi/commit/4df87704185ddaf32a60a40b98b37a3194052deb))
 * **components:** :bug: fix improper next-previous after navigation change ([cdb5335](https://github.com/filipowm/BooGi/commit/cdb53353790aaa259fee823776eaa04bf7f815f8))
+* **components:** :bug: fix issue with jargon term split into two lines ([372e606](https://github.com/filipowm/BooGi/commit/372e606680522d101df0a8ab4b57092cf0a215e2))
 * **components:** show highlights without unnecessary margins ([1ad8792](https://github.com/filipowm/BooGi/commit/1ad8792425150178c16e8bb907e06f0556cab877))
 * **components:** show highlights without unnecessary margins ([1169d6f](https://github.com/filipowm/BooGi/commit/1169d6f4e3b02a14e3d68f5225826b627e888e5a))
 * **config:** :bug: use env variable for URL or default to localhost ([63fa0f0](https://github.com/filipowm/BooGi/commit/63fa0f093030f2dffbb4e2c44c190f4010583bd4))
@@ -84,30 +57,60 @@
 * **deps:** update dependency algoliasearch to v4.3.0 ([ac28cfc](https://github.com/filipowm/BooGi/commit/ac28cfc1b6d079df2920ac52505aa0be708d25a4))
 * **deps:** update dependency gatsby-plugin-algolia to v0.11.1 ([218774b](https://github.com/filipowm/BooGi/commit/218774bbe1738d3ba78840d374c684abd9780ef9))
 * **deps:** update dependency gatsby-plugin-page-progress to v2.1.0 ([4f63846](https://github.com/filipowm/BooGi/commit/4f6384695dfe90bf9adb3ba8521361d261ba75fa))
+* **deps:** update dependency puppeteer to v4 ([8df6be8](https://github.com/filipowm/BooGi/commit/8df6be86ff2d5db46b56f99757c6216e6474767e))
 * **deps:** update dependency react-helmet to v6.1.0 ([ea3eaf4](https://github.com/filipowm/BooGi/commit/ea3eaf411decfa81c1ad92b22ea559daecfb485e))
+* **deps:** update dependency react-instantsearch-dom to v6.6.0 ([22b73b6](https://github.com/filipowm/BooGi/commit/22b73b69a8e300d9d1514aac9d6213abdfbc5fc8))
+* **deps:** update dependency remark to v12.0.1 ([34ffb7b](https://github.com/filipowm/BooGi/commit/34ffb7b87e596e7e371c0aab1ab1fd7351aedec6))
+* **deps:** update gatsby monorepo ([7f707fc](https://github.com/filipowm/BooGi/commit/7f707fc81d2e92246e06295a8ab0b75b413fc10b))
 * **deps:** update gatsby monorepo ([83d6521](https://github.com/filipowm/BooGi/commit/83d6521c813abbc1020d84e33eff142b2f8a78d3))
 * **deps:** update gatsby monorepo ([3b73927](https://github.com/filipowm/BooGi/commit/3b7392753c5a8b558305a01e561cf52dc3a19611))
+* **deps:** update mdx monorepo to v1.6.14 ([48bf29d](https://github.com/filipowm/BooGi/commit/48bf29d93900a77bda4f7d481d6af0f94fee4bc8))
+* **search:** :bug: disable localsearch plugin was not added when algolia used without keys ([62a6ffa](https://github.com/filipowm/BooGi/commit/62a6ffaeb6a3620114d94b259aa0d0cadc3a15d2))
+* :lipstick: fix issue with content overflow-x ([b0fe6e8](https://github.com/filipowm/BooGi/commit/b0fe6e8fc8fa49e8334d438c19641c7b1f916fc8))
+* improve table styling on mobile / tablet ([b005982](https://github.com/filipowm/BooGi/commit/b00598254829f32fbb2f79e4408d0661cfd1cc4d))
+* revert puppeteer dependency ([7835833](https://github.com/filipowm/BooGi/commit/7835833f91410fc1fcaadec14496534114440740))
+* **deps:** update mdx monorepo to v1.6.6 ([82d8a51](https://github.com/filipowm/BooGi/commit/82d8a51d5bf04e06f8ef7c2fdb96595d6a5eddae))
+* **toc:** :bug: fix issue with sections creation when headers not start from h1 ([b0c0ba4](https://github.com/filipowm/BooGi/commit/b0c0ba4b85dd427568f60962c8cd91bd1863d641))
 * **toc:** :bug: fix issue with table of contents not following properly ([c1a8ca7](https://github.com/filipowm/BooGi/commit/c1a8ca7222ec24c2b71f156d40c4b8f6f5950c8c))
+* **toc:** fix issue with emojis not rendered in ToC ([d7840e5](https://github.com/filipowm/BooGi/commit/d7840e5b7c99ca92e3d92d464543ca029e32d1d9))
 * accessibility for community authors ([45764f1](https://github.com/filipowm/BooGi/commit/45764f16c35c9bf1a25f82a5cfad3ad30564be74))
 * align defaults ([50a9c75](https://github.com/filipowm/BooGi/commit/50a9c752af9819eb9d3ef7522cfbd9e20a8c10c9))
 * fix arrow navigation ([85128da](https://github.com/filipowm/BooGi/commit/85128dae3c819f5b2d9ea4c2d93358f2196bddf2))
 * following whole sections instead of just headers ([fb1fd4c](https://github.com/filipowm/BooGi/commit/fb1fd4ceddd00d8d1528f6414575a90fc5a800c8))
 * handle document location for build phase ([#23](https://github.com/filipowm/BooGi/issues/23)) ([0c4d894](https://github.com/filipowm/BooGi/commit/0c4d89437e509270a711cf90d8ba8a83a084a01f))
 * header height ([#48](https://github.com/filipowm/BooGi/issues/48)) ([779ee37](https://github.com/filipowm/BooGi/commit/779ee37ffb61ede271fe05f4184dea4e4a5880d8))
-* reinitialize right sidebar scrollspy on page change ([37787c5](https://github.com/filipowm/BooGi/commit/37787c51d35e4fcc0195060b9337f1b66a3c3f4f))
 * require config for indexName ([544bba5](https://github.com/filipowm/BooGi/commit/544bba58441a1214a8712ce70d8168bdbea56a9c))
-* search result panel positioning ([#14](https://github.com/filipowm/BooGi/issues/14)) ([3ccc80c](https://github.com/filipowm/BooGi/commit/3ccc80c6991d463bcd0839a5fdb168a0a34812e2))
+* template indexName for search ([60df994](https://github.com/filipowm/BooGi/commit/60df99447af563aba96c98ede16cc19ada41233b))
 * temporarily do not require config in algolia ([16cc264](https://github.com/filipowm/BooGi/commit/16cc26491782355871307646eddf905685bc47c0))
 * **sidebar:** :bug: fix issue when multiple items are added to none group ([7e5ea1e](https://github.com/filipowm/BooGi/commit/7e5ea1e7d94a5f102d73afd595d89b65a17d3f15))
+* reinitialize right sidebar scrollspy on page change ([37787c5](https://github.com/filipowm/BooGi/commit/37787c51d35e4fcc0195060b9337f1b66a3c3f4f))
+* search result panel positioning ([#14](https://github.com/filipowm/BooGi/issues/14)) ([3ccc80c](https://github.com/filipowm/BooGi/commit/3ccc80c6991d463bcd0839a5fdb168a0a34812e2))
 * styling for community author ([#49](https://github.com/filipowm/BooGi/issues/49)) ([d17468f](https://github.com/filipowm/BooGi/commit/d17468f9b3505a0fe41180c0612d4523cd743b29))
-* template indexName for search ([60df994](https://github.com/filipowm/BooGi/commit/60df99447af563aba96c98ede16cc19ada41233b))
+* when icon not provided generation of PWA icons fail ([bf16786](https://github.com/filipowm/BooGi/commit/bf167869a9712569da76f07c8fdb67e6f4be2aa6))
 
 
 ### Features
 
-* **search:** :lipstick: show/hide next-previous buttons based on context ([7a45498](https://github.com/filipowm/BooGi/commit/7a45498607a07094b17855ee1bdd1406dbeddbf8))
-* **search:** :sparkles: add option to show search stats ([396048f](https://github.com/filipowm/BooGi/commit/396048fe0bf91b3e4b07bfd767d501e3dfc7f2ea))
-* :lipstick: show group info in previous-next navigation ([2c75d6e](https://github.com/filipowm/BooGi/commit/2c75d6e25b74e34336e6f1384456bac6a80ca9ac))
+* **components:** :sparkles: add file download card component ([83318fe](https://github.com/filipowm/BooGi/commit/83318fe320f417f8cad798917541201227aacc32))
+* **search:** :sparkles: added local search engine ([c2e0543](https://github.com/filipowm/BooGi/commit/c2e05431c03e70ac4d945e0ab53700b87c2c3a85))
+* :iphone: complete responsive design on mobile / tablet ([1ba2f9d](https://github.com/filipowm/BooGi/commit/1ba2f9df7ed0d3c072031b8b1585e89b3f650a91))
+* :sparkles: add flag to mark pages as drafts ([909ab00](https://github.com/filipowm/BooGi/commit/909ab0033d7635eb7b6c2aca3410b703b14e12b0))
+* :sparkles: added configurable full screen mode ([b2c954f](https://github.com/filipowm/BooGi/commit/b2c954f998170116a0488709e8f254527806694a))
+* **components:** :lipstick: improve list and emphasis styling ([a6d34a0](https://github.com/filipowm/BooGi/commit/a6d34a04c482fd7c32d5ea82ef66fe19aac662c4))
+* **components:** :sparkles: click on image in content will open it in a new window ([acb94ea](https://github.com/filipowm/BooGi/commit/acb94ea651c40f4f94cd17700c23e2e845d4944c))
+* **components:** :sparkles: created card component ([0143c6c](https://github.com/filipowm/BooGi/commit/0143c6cf97bf68f668e8eabd4c1e39d5e766c2a2))
+* **components:** :sparkles: created collapsible / accordion component ([8bf15c2](https://github.com/filipowm/BooGi/commit/8bf15c23370048c4ff584ae92c10ec9a65404c45))
+* **components:** :sparkles: created image card component ([a39a488](https://github.com/filipowm/BooGi/commit/a39a4882cbe7602131aa240102d20a1696ce6ce3))
+* **components:** :sparkles: created link card component ([60e52a0](https://github.com/filipowm/BooGi/commit/60e52a0b92296ab69d979c2dec543e68e75874e2))
+* **search:** :sparkles: add customizable excerpt size indexed by Algolia\ ([bec70cd](https://github.com/filipowm/BooGi/commit/bec70cdc26657d904b08d419a6e43ab77e9b2218))
+* :lipstick: add option to fill social buttons ([d345364](https://github.com/filipowm/BooGi/commit/d345364a1b7b2c84cab62d20a355042b7f6a0a12))
+* :lipstick: redesign theming to make components easily customizable ([abd0474](https://github.com/filipowm/BooGi/commit/abd04749786bf68b03ba42b14b429958b0a85e71))
+* :lipstick: use custom-styled scrollbar in scrollable areas ([651b318](https://github.com/filipowm/BooGi/commit/651b31850d13aa7d0177acfb1c8ae755858db850))
+* :sparkles: add social buttons ([3be9caa](https://github.com/filipowm/BooGi/commit/3be9caa1be37f52325c73dd2c0778b9cbc6c6254))
+* :sparkles: allow navigation between pages using left/right arrows ([3b3294f](https://github.com/filipowm/BooGi/commit/3b3294fa8bde4387762cc777ed9062aef32d9f51))
+* :sparkles: show RSS feed icon in header ([e939b34](https://github.com/filipowm/BooGi/commit/e939b34e372626e5807fb91fc4ff91fd298f97aa))
+* change highlight names to improve usability ([ac6eb2e](https://github.com/filipowm/BooGi/commit/ac6eb2ee028ca43e7c4b369c0d473873f5a3a7a9))
+* jargon will now use yaml config instead of json ([34753fd](https://github.com/filipowm/BooGi/commit/34753fdb9b3d881f54c7c45283aa28b166315e57))
 * **components:** :sparkles: add graphviz graphs rendering ([dd7738c](https://github.com/filipowm/BooGi/commit/dd7738c2f7dec3b596cb6a679d9a5948331c39fe))
 * **components:** :sparkles: add mermaid diagrams rendering ([79668ba](https://github.com/filipowm/BooGi/commit/79668baeef504b1082d25c7386f7a2717eece914))
 * **components:** :sparkles: embed external code snippets ([ade24dd](https://github.com/filipowm/BooGi/commit/ade24dd41e14b18d625dfb0c6c7118b038db0cd6))
@@ -121,17 +124,26 @@
 * **config:** :sparkles: support for setting up config using env vars ([e611e4b](https://github.com/filipowm/BooGi/commit/e611e4bd079535af05a50f0ebf25dd92b129f4d3))
 * **config:** add option to enable/disable header ([dd3f9c8](https://github.com/filipowm/BooGi/commit/dd3f9c8f99eee17a02d8004a000c6d6bc568a06f))
 * **config:** add option to enable/disable navigation sidebar ([d9a4e3b](https://github.com/filipowm/BooGi/commit/d9a4e3bfab5c0f15e7f8defa65199e5a021032ae))
-* **search:** :lipstick: add alternative search show method with icon ([3170c51](https://github.com/filipowm/BooGi/commit/3170c517f604ea02f06ab95383998b8aec6b1ce6))
-* **search:** :lipstick: show search in a right-side drawer ([aa64116](https://github.com/filipowm/BooGi/commit/aa6411639ea979aac49d7cb228dd17afbdcc1e93))
-* **search:** :sparkles: add search results pagination ([620a2e1](https://github.com/filipowm/BooGi/commit/620a2e1e03ab291ffd54bffeff311d0139e8b62b))
-* :lipstick: redesign theming to make components easily customizable ([abd0474](https://github.com/filipowm/BooGi/commit/abd04749786bf68b03ba42b14b429958b0a85e71))
-* :lipstick: use custom-styled scrollbar in scrollable areas ([651b318](https://github.com/filipowm/BooGi/commit/651b31850d13aa7d0177acfb1c8ae755858db850))
-* :sparkles: add dark mode support ([ba1a983](https://github.com/filipowm/BooGi/commit/ba1a98309abcad0d99fa7c319db36af6e1670f99))
-* :sparkles: allow navigation between pages using left/right arrows ([3b3294f](https://github.com/filipowm/BooGi/commit/3b3294fa8bde4387762cc777ed9062aef32d9f51))
-* :sparkles: publish RSS feed ([a1a23b9](https://github.com/filipowm/BooGi/commit/a1a23b9cd96694f3b7a9cd9c33b585417045d1bd))
 * **config:** add option to enable/disable scroll to top button ([dd2cd58](https://github.com/filipowm/BooGi/commit/dd2cd58ed7ccdc73718b489c5fd4e0a0ddc3c7a5))
 * **config:** allow propagation of netlify env vars to config ([#33](https://github.com/filipowm/BooGi/issues/33)) ([9f7c3df](https://github.com/filipowm/BooGi/commit/9f7c3dfe78d8687029b5ce8e4517156d59a4c98e))
+* **config:** improve and automate PWA configuration ([0f0b7d2](https://github.com/filipowm/BooGi/commit/0f0b7d2358f419fa80dc95b2d7a62775b4b3a28a))
 * **config:** use generate config.js imported by frontend code ([1888270](https://github.com/filipowm/BooGi/commit/1888270c0d9d03602324dfcd4b2d6f9f96cabed1))
+* **search:** :lipstick: add alternative search show method with icon ([3170c51](https://github.com/filipowm/BooGi/commit/3170c517f604ea02f06ab95383998b8aec6b1ce6))
+* **search:** :lipstick: show search in a right-side drawer ([aa64116](https://github.com/filipowm/BooGi/commit/aa6411639ea979aac49d7cb228dd17afbdcc1e93))
+* **search:** :lipstick: show/hide next-previous buttons based on context ([7a45498](https://github.com/filipowm/BooGi/commit/7a45498607a07094b17855ee1bdd1406dbeddbf8))
+* **search:** :sparkles: add option to show search stats ([396048f](https://github.com/filipowm/BooGi/commit/396048fe0bf91b3e4b07bfd767d501e3dfc7f2ea))
+* **search:** :sparkles: add search results pagination ([620a2e1](https://github.com/filipowm/BooGi/commit/620a2e1e03ab291ffd54bffeff311d0139e8b62b))
+* **sidebar:** :lipstick: left sidebar scrollbar should be visible only on hover ([65c62a0](https://github.com/filipowm/BooGi/commit/65c62a027ae296a8190d897943c18cb90764a97f))
+* **toc:** :sparkles: allow configuring ToC depth per page ([f0d7d42](https://github.com/filipowm/BooGi/commit/f0d7d424bd5604382cd8adeeb30ca9e59f50c32c))
+* :lipstick: show group info in previous-next navigation ([2c75d6e](https://github.com/filipowm/BooGi/commit/2c75d6e25b74e34336e6f1384456bac6a80ca9ac))
+* :sparkles: add dark mode support ([ba1a983](https://github.com/filipowm/BooGi/commit/ba1a98309abcad0d99fa7c319db36af6e1670f99))
+* :sparkles: publish RSS feed ([a1a23b9](https://github.com/filipowm/BooGi/commit/a1a23b9cd96694f3b7a9cd9c33b585417045d1bd))
+
+
+### Performance Improvements
+
+* :zap: images are lazy-loaded ([99ea55c](https://github.com/filipowm/BooGi/commit/99ea55c25104db6b603475c2a37984ecea03896a))
+* :zap: lazy-loading external images in content ([bd36713](https://github.com/filipowm/BooGi/commit/bd36713a30847fe9522ad2c5ea2787d03d0366c7))
 
 
 
