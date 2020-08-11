@@ -5,6 +5,7 @@ import AnchorTag from './anchor';
 import Badge from './badge';
 import Card from './card';
 import CodeBlock from './codeBlock';
+import DownloadCard from './fileDownloadCard';
 import Highlights from './highlights';
 import Icon from './icon';
 import ImageCard from './imageCard';
@@ -87,5 +88,6 @@ export default {
   Card,
   LinkCard,
   ImageCard,
+  DownloadCard,
   ...Highlights,
 };
