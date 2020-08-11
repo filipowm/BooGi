@@ -107,5 +107,9 @@
     "gatsby-plugin-remove-trailing-slashes": "2.3.5",
     "prettier": "2.0.5",
     "prism-react-renderer": "1.1.1"
+  },
+  "resolutions": {
+    "gatsby-react-router-scroll": "3.0.3",
+    "lodash": "4.17.19"
   }
 }
