@@ -11,6 +11,15 @@ import { StaticQuery, graphql } from 'gatsby';
 
 const Results = ({ q }) => <SearchStatus noHits={true} searching={false} query={q} />;
 
+const getPerformance = () => {
+  if (typeof window !== `undefined` && window.performance) {
+    return window.performance;
+  }
+  return {
+    now: () => new Date().getMilliseconds()
+  }
+}
+
 const calculatePage = (results, page) => {
   const hitsPerPage = config.features.search.hitsPerPage;
   const startIdx = hitsPerPage * page - hitsPerPage;
@@ -19,6 +28,7 @@ const calculatePage = (results, page) => {
 };
 
 const search = (query, index, store, page) => {
+  const performance = getPerformance();
   const t1 = performance.now();
   const results = useFlexSearch(query, index, JSON.parse(store));
   const maxResults =
