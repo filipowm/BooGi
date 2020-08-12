@@ -1,3 +1,13 @@
+## [1.0.1](https://github.com/filipowm/BooGi/compare/v1.0.0...v1.0.1) (2020-08-12)
+
+
+### Bug Fixes
+
+* **search:** :bug: fix issue with performance not avaialble during SSR ([cd4eaa8](https://github.com/filipowm/BooGi/commit/cd4eaa8b186bdc703a787c32702e8462bd425ea7))
+* **search:** :bug: remove async search worker ([e7dd75f](https://github.com/filipowm/BooGi/commit/e7dd75fd27f54934684b3c1de511b226ac2e8fc3))
+
+
+
 # [1.0.0](https://github.com/filipowm/BooGi/compare/v0.2.2...v1.0.0) (2020-08-11)
 
 
