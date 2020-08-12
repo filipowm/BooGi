@@ -77,9 +77,7 @@ module.exports = {
         tokenize: "full",
         threshold: 2,
         resolution: 30,
-        depth: 20,
-        async: true,
-        worker: 5
+        depth: 20
       },
       pagination: {
         enabled: true,
