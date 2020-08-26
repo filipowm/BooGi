@@ -8065,10 +8065,10 @@ gatsby-plugin-page-creator@^2.3.22:
     lodash "^4.17.15"
     slugify "^1.4.4"
 
-gatsby-plugin-page-progress@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-page-progress/-/gatsby-plugin-page-progress-2.1.0.tgz#9c0036309b7843fd4ca26c86611aafd69f6279e2"
-  integrity sha512-mepkiRQykQ8AFizV5/cHy6l84qhzeLLkB3h7/Om2TjkgR4XXCq1kjW1eCVYy+R8D0ZyeQ7Y+AlvjgYjuTtXmcw==
+gatsby-plugin-page-progress@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-page-progress/-/gatsby-plugin-page-progress-2.1.1.tgz#864d72db11b4504786574cb703026af057478846"
+  integrity sha512-IWdJGaPUJAOvl8o1okQccHXAnpmgeVQFP86DTm6KypbSV3wOU8fB/rrqcnXQ8PVuwWZzJdXWOWHWCdhc2zLj8A==
 
 gatsby-plugin-pinterest@3.0.0:
   version "3.0.0"
