@@ -5200,13 +5200,6 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
-crypto-random-string@^3.0.1:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-3.2.0.tgz#d513ef0c2ac6ff7cad5769de585d9bf2ad5a2b4d"
-  integrity sha512-8vPu5bsKaq2uKRy3OL7h1Oo7RayAWB8sYexLKAqvCXVib8SxgbmoF1IN4QMKjBv8uI8mp5gPPMbiRah25GMrVQ==
-  dependencies:
-    type-fest "^0.8.1"
-
 css-b64-images@~0.2.5:
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/css-b64-images/-/css-b64-images-0.2.5.tgz#42005d83204b2b4a5d93b6b1a5644133b5927a02"
@@ -6579,11 +6572,6 @@ escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
-
-escaper@^2.5.3:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/escaper/-/escaper-2.5.3.tgz#8b8fe90ba364054151ab7eff18b4ce43b1e13ab5"
-  integrity sha512-QGb9sFxBVpbzMggrKTX0ry1oiI4CSDAl9vIL702hzl1jGW8VZs7qfqTRX7WDOjoNDoEVGcEtu1ZOQgReSfT2kQ==
 
 eslint-config-prettier@6.11.0:
   version "6.11.0"
@@ -8336,12 +8324,12 @@ gatsby-remark-jargon@2.8.1:
   dependencies:
     remark-jargon "^2.8.1"
 
-gatsby-remark-mermaid@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-mermaid/-/gatsby-remark-mermaid-2.0.0.tgz#31972a955e3d10dd45c54bb939beeba291d46c5e"
-  integrity sha512-VqCNjtvThhY/4j0So/suki8gACPmW7sQ8UhWBVvh/LHi/vSwgH2ud4xpJX5X9FMYbbFsVbmFB5PjSX7cs4hawQ==
+gatsby-remark-mermaid@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-mermaid/-/gatsby-remark-mermaid-2.1.0.tgz#8e429a3e038cdde588cdcfbe5f584d3564322359"
+  integrity sha512-9SVQkD5aE0u8XFlnnuxWx1HTjTuVkynv9dZJAZQV0S/eZX9YR07f5LtDVqT89n9qwwKbCf3pWT82DcMatFbjeA==
   dependencies:
-    mermaid "^8.0.0"
+    mermaid "^8.7.0"
     unist-util-visit "^1.4.0"
 
 gatsby-source-filesystem@2.3.24:
@@ -10813,6 +10801,11 @@ keyv@^3.0.0:
   dependencies:
     json-buffer "3.0.0"
 
+khroma@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/khroma/-/khroma-1.1.0.tgz#cc17723eb719c5245ea66d23dd577d5695452db5"
+  integrity sha512-aTO+YX22tYOLEQJYFiatAj1lc5QZ+H5sHWFRBWNCiKwc5NWNUJZyeSeiHEPeURJ2a1GEVYcmyMUwGjjLe5ec5A==
+
 killable@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
@@ -11604,22 +11597,23 @@ merge2@^1.2.3, merge2@^1.3.0:
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.3.0.tgz#5b366ee83b2f1582c48f87e47cf1a9352103ca81"
   integrity sha512-2j4DAdlBOkiSZIsaXk4mTE3sRS02yBHAtfy127xRV3bQUFqXkjHCHLW6Scv7DwNRbIWNHH8zpnz9zMaKXIdvYw==
 
-mermaid@^8.0.0:
-  version "8.5.1"
-  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.5.1.tgz#c3b3a39d14315c8b00ba43c047101c2d7cf463f1"
-  integrity sha512-CU8jEceILn/zS5Fs6CxxAIilhXoQd9b3Hy/UR/ZIioK75yyLf8f+V8WX2Voq4oaXiwExCwYUcBA9WV4oyr31wA==
+mermaid@^8.7.0:
+  version "8.7.0"
+  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.7.0.tgz#741a1c4e81a29b612010f623b2abd25c4bc3d71e"
+  integrity sha512-SkinxAY3sIdML+o5U4U7rQEIa628OEywEw+pfhc3wSVDFqLk2XNdX2j3YmkyCw3Kcbp9BXar533ei+/saYBs5g==
   dependencies:
     "@braintree/sanitize-url" "^3.1.0"
-    crypto-random-string "^3.0.1"
+    babel-eslint "^10.1.0"
     d3 "^5.7.0"
     dagre "^0.8.4"
     dagre-d3 "^0.6.4"
     entity-decode "^2.0.2"
     graphlib "^2.1.7"
     he "^1.2.0"
+    khroma "^1.1.0"
     minify "^4.1.1"
     moment-mini "^2.22.1"
-    scope-css "^1.2.1"
+    stylis "^3.5.2"
 
 methods@~1.1.2:
   version "1.1.2"
@@ -15122,15 +15116,6 @@ schema-utils@^2.6.5:
     ajv "^6.12.2"
     ajv-keywords "^3.4.1"
 
-scope-css@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/scope-css/-/scope-css-1.2.1.tgz#c35768bc900cad030a3e0d663a818c0f6a57f40e"
-  integrity sha512-UjLRmyEYaDNiOS673xlVkZFlVCtckJR/dKgr434VMm7Lb+AOOqXKdAcY7PpGlJYErjXXJzKN7HWo4uRPiZZG0Q==
-  dependencies:
-    escaper "^2.5.3"
-    slugify "^1.3.1"
-    strip-css-comments "^3.0.0"
-
 scroll-behavior@^0.9.12:
   version "0.9.12"
   resolved "https://registry.yarnpkg.com/scroll-behavior/-/scroll-behavior-0.9.12.tgz#1c22d273ec4ce6cd4714a443fead50227da9424c"
@@ -15497,11 +15482,6 @@ slice-ansi@^3.0.0:
     ansi-styles "^4.0.0"
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
-
-slugify@^1.3.1:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.4.0.tgz#c9557c653c54b0c7f7a8e786ef3431add676d2cb"
-  integrity sha512-FtLNsMGBSRB/0JOE2A0fxlqjI6fJsgHGS13iTuVT28kViI4JjUiNqp/vyis0ZXYcMnpR3fzGNkv+6vRlI2GwdQ==
 
 slugify@^1.4.4:
   version "1.4.5"
@@ -16154,13 +16134,6 @@ strip-comments@^1.0.2:
     babel-extract-comments "^1.0.0"
     babel-plugin-transform-object-rest-spread "^6.26.0"
 
-strip-css-comments@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/strip-css-comments/-/strip-css-comments-3.0.0.tgz#7a5625eff8a2b226cf8947a11254da96e13dae89"
-  integrity sha1-elYl7/iisibPiUehElTaluE9rok=
-  dependencies:
-    is-regexp "^1.0.0"
-
 strip-dirs@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/strip-dirs/-/strip-dirs-2.1.0.tgz#4987736264fc344cf20f6c34aca9d13d1d4ed6c5"
@@ -16239,6 +16212,11 @@ stylehacks@^4.0.0:
     browserslist "^4.0.0"
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
+
+stylis@^3.5.2:
+  version "3.5.4"
+  resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.5.4.tgz#f665f25f5e299cf3d64654ab949a57c768b73fbe"
+  integrity sha512-8/3pSmthWM7lsPBKv7NXkzn2Uc9W7NotcwGNpJaa3k7WMM1XDCA4MgT5k/8BIexd5ydZdboXtU90XH9Ec4Bv/Q==
 
 subscriptions-transport-ws@^0.9.16:
   version "0.9.16"
