@@ -229,7 +229,7 @@ const Header = ({ setShowSearch, location, themeProvider, show, toggleFullscreen
         },
       } = data;
       const logoLink = logo.link !== '' ? logo.link : '/';
-      const logoImg = require('images/logo.svg');
+      const logoImg = logo.image;
       const [darkMode, setDarkMode] = useState(false);
       useEffect(() => {
         setDarkMode(themeProvider.current.retrieveActiveTheme());
