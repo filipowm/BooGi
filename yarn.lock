@@ -1347,7 +1347,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.3", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.10.3":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.4.tgz#a6724f1a6b8d2f6ea5236dbfe58c7d7ea9c5eb99"
   integrity sha512-UpTN5yUJr9b4EX2CnGNWIvER7Ab83ibv0pcvvHc4UOdrBI5jb8bj+32cCwPX6xu0mt2daFNjYhoi+X7beH0RSw==
@@ -1358,6 +1358,13 @@
   version "7.10.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.5.tgz#303d8bd440ecd5a491eae6117fd3367698674c5c"
   integrity sha512-otddXKhdNn7d0ptoFRHtMLa8LqDxLYwTjB4nYgM1yy5N6gU/MUf8zqyyLltCH3yAVitBzmwK4us+DD0l/MauAg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.12.1":
+  version "7.13.10"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.13.10.tgz#47d42a57b6095f4468da440388fdbad8bebf0d7d"
+  integrity sha512-4QPkjJq6Ns3V/RgpEahRk+AGfL0eO6RHHtTWoNNr5mO49G6B5+X6d6THgWEAvTrznU5xYpbAlVKRYcsCgh/Akw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -8159,12 +8166,12 @@ gatsby-plugin-page-progress@2.1.0:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-page-progress/-/gatsby-plugin-page-progress-2.1.0.tgz#9c0036309b7843fd4ca26c86611aafd69f6279e2"
   integrity sha512-mepkiRQykQ8AFizV5/cHy6l84qhzeLLkB3h7/Om2TjkgR4XXCq1kjW1eCVYy+R8D0ZyeQ7Y+AlvjgYjuTtXmcw==
 
-gatsby-plugin-pinterest@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-pinterest/-/gatsby-plugin-pinterest-3.0.0.tgz#46bb713fa2dd3d56a59f40306e4a89446ad52b3e"
-  integrity sha512-Wfrvtk3R90VW5/USMdFn+BnDE9V9mzZjuenZIFb8Uhp56Z7Z8uVtLwLzyi2mvytkDQCx/8MMzgJuF3O1cCCe6w==
+gatsby-plugin-pinterest@3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-pinterest/-/gatsby-plugin-pinterest-3.2.3.tgz#f061b46c5b996183e577d5114ce0b2a602785f86"
+  integrity sha512-3rDqW63QpBnWMTxKn7an7NlvVRPNwr3ddukAsAfz18XB+qdxmVNXNy4ZA5L/Yu9mooGk2CjIeliXo5nLjeJHRg==
   dependencies:
-    "@babel/runtime" "^7.8.7"
+    "@babel/runtime" "^7.12.1"
 
 gatsby-plugin-react-helmet@3.3.10:
   version "3.3.10"
