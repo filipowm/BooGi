@@ -48,7 +48,7 @@
     "gatsby-plugin-react-helmet": "3.3.10",
     "gatsby-plugin-react-svg": "3.0.0",
     "gatsby-plugin-remove-serviceworker": "1.0.0",
-    "gatsby-plugin-root-import": "2.0.5",
+    "gatsby-plugin-root-import": "2.0.6",
     "gatsby-plugin-sass": "2.3.12",
     "gatsby-plugin-sharp": "2.6.27",
     "gatsby-plugin-sitemap": "2.4.11",
