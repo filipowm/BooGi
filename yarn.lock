@@ -14665,12 +14665,12 @@ relateurl@^0.2.7:
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
-remark-abbr@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/remark-abbr/-/remark-abbr-1.4.0.tgz#97550af7d614308bf2bbd7ed3fced199fb35a4be"
-  integrity sha512-BNxNWicpYvaQUL/ozF+cPTIUPeFFfLnYTjnVxZvqYE4Eu5ns9rIxDac4+Y71cDCqQmFf9/Gdkyj6n2uc9hfB/Q==
+remark-abbr@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/remark-abbr/-/remark-abbr-1.4.1.tgz#3813ff894acd8e66bc030e25c436c0d4525a2df4"
+  integrity sha512-h3MuC2ujpaFIvDHVztxiNe7OGEXz6fAaUoaeqJhroyHCZXcspZiOg3iDoRdGLmnGSEO/x6g9nQGBDqgVsjCHKg==
   dependencies:
-    unist-util-visit "^2.0.1"
+    unist-util-visit "^2.0.3"
 
 remark-emoji@2.1.0:
   version "2.1.0"
@@ -17275,7 +17275,7 @@ unist-util-visit@^1.0.0, unist-util-visit@^1.1.0, unist-util-visit@^1.4.0, unist
   dependencies:
     unist-util-visit-parents "^2.0.0"
 
-unist-util-visit@^2.0.0, unist-util-visit@^2.0.1, unist-util-visit@^2.0.2:
+unist-util-visit@^2.0.0, unist-util-visit@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-2.0.2.tgz#3843782a517de3d2357b4c193b24af2d9366afb7"
   integrity sha512-HoHNhGnKj6y+Sq+7ASo2zpVdfdRifhTgX2KTU3B/sO/TTlZchp7E3S4vjRzDJ7L60KmrCPsQkVK3lEF3cz36XQ==
