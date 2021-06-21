@@ -84,7 +84,7 @@
     "react-scrollspy": "3.4.3",
     "react-use-flexsearch": "^0.1.1",
     "react-visibility-sensor": "5.1.1",
-    "remark-abbr": "1.4.0",
+    "remark-abbr": "1.4.1",
     "remark-emoji": "2.1.0",
     "unist-util-find-after": "3.0.0"
   },
