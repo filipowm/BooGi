@@ -36,7 +36,7 @@
     "gatsby-plugin-emotion": "4.3.10",
     "gatsby-plugin-feed": "2.5.11",
     "gatsby-plugin-gtag": "1.0.13",
-    "gatsby-plugin-instagram-embed": "2.0.1",
+    "gatsby-plugin-instagram-embed": "2.1.0",
     "gatsby-plugin-layout": "1.3.10",
     "gatsby-plugin-loadable-components-ssr": "2.1.0",
     "gatsby-plugin-local-search": "1.1.1",
