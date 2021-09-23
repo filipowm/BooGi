@@ -105,7 +105,7 @@
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.21.4",
     "gatsby-plugin-remove-trailing-slashes": "2.3.11",
-    "prettier": "2.0.5",
+    "prettier": "2.4.1",
     "prism-react-renderer": "1.1.1"
   },
   "resolutions": {
