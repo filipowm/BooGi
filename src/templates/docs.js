@@ -135,7 +135,7 @@ export default class MDXRuntimeTest extends React.Component {
             {docsLocation && ((editable && mdx.frontmatter.editable !== false) || mdx.frontmatter.editable === true) ? (
               <EditOnRepo
                 location={docsLocation}
-                branch={gitBranch.name}
+                branch={process.env.BOOGI_BRANCH || gitBranch.name}
                 path={mdx.parent.relativePath}
                 repoType={docsLocationType}
               />
