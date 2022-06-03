@@ -41,7 +41,7 @@
     "gatsby-plugin-loadable-components-ssr": "2.1.0",
     "gatsby-plugin-local-search": "1.1.1",
     "gatsby-plugin-manifest": "2.4.23",
-    "gatsby-plugin-mdx": "1.2.34",
+    "gatsby-plugin-mdx": "2.14.1",
     "gatsby-plugin-offline": "3.2.23",
     "gatsby-plugin-page-progress": "2.1.0",
     "gatsby-plugin-pinterest": "3.0.0",
