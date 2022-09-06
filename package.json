@@ -61,7 +61,7 @@
     "gatsby-remark-jargon": "2.9.0",
     "gatsby-remark-mermaid": "2.0.0",
     "gatsby-source-filesystem": "2.3.24",
-    "gatsby-source-local-git": "1.1.1",
+    "gatsby-source-local-git": "1.3.0",
     "gatsby-transformer-gitinfo": "1.1.0",
     "gatsby-transformer-remark": "2.8.28",
     "gatsby-transformer-sharp": "2.5.13",

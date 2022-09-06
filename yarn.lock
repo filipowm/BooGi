@@ -5772,6 +5772,13 @@ debug@^3.0.0, debug@^3.1.0, debug@^3.1.1, debug@^3.2.5, debug@^3.2.6:
   dependencies:
     ms "^2.1.1"
 
+debug@^4.3.4:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
+  integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
+  dependencies:
+    ms "2.1.2"
+
 decamelize@^1.1.1, decamelize@^1.1.2, decamelize@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
@@ -8454,12 +8461,12 @@ gatsby-source-filesystem@2.3.24:
     valid-url "^1.0.9"
     xstate "^4.11.0"
 
-gatsby-source-local-git@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/gatsby-source-local-git/-/gatsby-source-local-git-1.1.1.tgz#81a36e77b2b0cf353e76c9ef01846a43d4af6155"
-  integrity sha512-i4bzfR2d1i/xyveU3J3i8lL0C8hC0PKv9oBbonEEeEypo8QCQpOjVIX1qKWUQkOjs5tto/IIvFV3ITOUKLNwvQ==
+gatsby-source-local-git@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-local-git/-/gatsby-source-local-git-1.3.0.tgz#0c091b8370045ec78e1c630f20e53bb0d6d2f18b"
+  integrity sha512-6do5IRk4wQvhDiSNAFnqfX960ZAQDzQhYOkvlHv6NYxuL/c0KggNCnZNRfWBZfS5yjnfTQDyvS+uBPCVIFSOtg==
   dependencies:
-    simple-git "^2.15.0"
+    simple-git "^3.5.0"
 
 gatsby-telemetry@^1.3.27:
   version "1.3.27"
@@ -12010,7 +12017,7 @@ ms@2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
   integrity sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
 
-ms@^2.1.1:
+ms@2.1.2, ms@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
@@ -15563,14 +15570,14 @@ simple-git@^1.126.0:
   dependencies:
     debug "^4.0.1"
 
-simple-git@^2.15.0:
-  version "2.17.0"
-  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-2.17.0.tgz#541205913734018d32d051af847ad9fec2f95901"
-  integrity sha512-l2F16fJvHWSx+E1C8WduwpNDfqf+JDD8nsEaD5szUZlbz5Y6paSnR4wlGxIa6Mr6I4kl3F9QmTaPIQjSxlcafA==
+simple-git@^3.5.0:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-3.14.0.tgz#6b98b445635ea778e8af9baa299dca71ede896ec"
+  integrity sha512-Paad1BkrI7vWhImLybDRYOHnh3WPsHSKXJpmKM+iGjjKNV91XaOdd+yIdZ/gqdzncHDEKYff4k+74oNo1R+U8Q==
   dependencies:
     "@kwsites/file-exists" "^1.1.1"
     "@kwsites/promise-deferred" "^1.1.1"
-    debug "^4.1.1"
+    debug "^4.3.4"
 
 simple-swizzle@^0.2.2:
   version "0.2.2"
