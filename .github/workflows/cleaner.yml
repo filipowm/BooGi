@@ -11,7 +11,7 @@ jobs:
    
     steps:
     - name: Delete draft releases
-      uses: hugo19941994/delete-draft-releases@v0.1.0
+      uses: hugo19941994/delete-draft-releases@v1.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
