@@ -63,7 +63,7 @@
     "gatsby-source-filesystem": "2.3.24",
     "gatsby-source-local-git": "1.1.1",
     "gatsby-transformer-gitinfo": "1.1.0",
-    "gatsby-transformer-remark": "2.8.28",
+    "gatsby-transformer-remark": "5.25.1",
     "gatsby-transformer-sharp": "2.5.13",
     "is-absolute-url": "3.0.3",
     "lodash": "4.17.20",
