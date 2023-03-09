@@ -20,7 +20,7 @@
     "@emotion/core": "10.0.34",
     "@emotion/styled": "10.0.27",
     "@emotion/styled-base": "10.0.31",
-    "@loadable/component": "5.13.1",
+    "@loadable/component": "5.15.3",
     "@mdx-js/loader": "1.6.16",
     "@mdx-js/mdx": "1.6.16",
     "@mdx-js/react": "1.6.16",
