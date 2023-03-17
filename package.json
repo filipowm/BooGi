@@ -97,7 +97,7 @@
     "lint": "eslint --fix \"**/*.{js,jsx}\""
   },
   "devDependencies": {
-    "babel-eslint": "10.1.0",
+    "@babel/eslint-parser": "7.11.0",
     "eslint": "7.11.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.22.1",
