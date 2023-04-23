@@ -33,7 +33,7 @@ jobs:
         body: ${{ steps.changelog.outputs.clean_changelog }}
 
     - name: Sync Github info from release
-      uses: jaid/action-sync-node-meta@v1.4.0
+      uses: jaid/action-sync-node-meta@v2.0.0
       with:
         direction: overwrite-github
         githubToken: ${{ secrets.priv_github_token }}
