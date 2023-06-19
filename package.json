@@ -27,7 +27,7 @@
     "@philpl/buble": "0.19.7",
     "@playlyfe/gql": "2.6.2",
     "algoliasearch": "4.4.0",
-    "dotenv": "8.2.0",
+    "dotenv": "16.3.1",
     "emotion-theming": "10.0.27",
     "gatsby": "2.24.43",
     "gatsby-link": "2.4.13",
