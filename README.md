@@ -5,6 +5,9 @@
 ![CI](https://github.com/filipowm/boogi/workflows/CI/badge.svg)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d0d45783a9bb47058b574a8a42d736fd)](https://www.codacy.com/manual/matfilipowicz/BooGi?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=filipowm/BooGi&amp;utm_campaign=Badge_Grade)
 
+**Project is no longer maintained (as if it was in recent two years 🙃). I suggest to switch to [Docusaurus](https://docusaurus.io/) which is really
+powerful documentation sites engine, quite similar to BooGi**
+
 Create **awesome documentation** or tutorial pages with modern look-and-feel.
 Customize it to your needs, run locally, deploy anywhere.
 
