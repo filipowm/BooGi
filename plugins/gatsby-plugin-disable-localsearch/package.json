@@ -4,7 +4,7 @@
   "author": "Mateusz Filipowicz <matfilipowicz@gmail.com>",
   "version": "0.1.0",
   "dependencies": {
-    "gatsby": "2.24.43"
+    "gatsby": "4.25.7"
   },
   "license": "MIT",
   "main": "index.js"
